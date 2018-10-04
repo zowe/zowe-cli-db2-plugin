@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`imperative config should match the snapshot 1`] = `
+Object {
+  "commandModuleGlobs": Array [
+    "**/cli/*/*.definition!(.d).*s",
+  ],
+  "name": "db2",
+  "pluginHealthCheck": "./lib/HealthCheck.handler",
+  "productDisplayName": "CLI Plug-in for IBM Db2",
+  "profiles": Array [
+    Object {
+      "schema": Object {
+        "description": "A profile for interaction with Db2 for the z/OS region",
+        "properties": Object {
+          "database": Object {
+            "optionDefinition": Object {
+              "aliases": Array [
+                "d",
+              ],
+              "description": "The name of the database",
+              "name": "database",
+              "type": "string",
+            },
+            "type": "string",
+          },
+          "hostname": Object {
+            "optionDefinition": Object {
+              "aliases": Array [
+                "H",
+              ],
+              "description": "The Db2 server host name",
+              "name": "hostname",
+              "type": "string",
+            },
+            "type": "string",
+          },
+          "password": Object {
+            "optionDefinition": Object {
+              "aliases": Array [
+                "p",
+              ],
+              "description": "The Db2 password (may be the same as the TSO password)",
+              "name": "password",
+              "type": "string",
+            },
+            "secure": true,
+            "type": "string",
+          },
+          "port": Object {
+            "optionDefinition": Object {
+              "aliases": Array [
+                "P",
+              ],
+              "description": "The Db2 server port number",
+              "name": "port",
+              "type": "number",
+            },
+            "type": "number",
+          },
+          "sslFile": Object {
+            "optionDefinition": Object {
+              "aliases": Array [
+                "s",
+              ],
+              "description": "Path to an SSL Certificate file",
+              "name": "ssl-file",
+              "type": "string",
+            },
+            "type": "string",
+          },
+          "username": Object {
+            "optionDefinition": Object {
+              "aliases": Array [
+                "u",
+              ],
+              "description": "The Db2 user ID (may be the same as the TSO login)",
+              "name": "username",
+              "type": "string",
+            },
+            "secure": true,
+            "type": "string",
+          },
+        },
+        "required": Array [
+          "hostname",
+          "port",
+          "username",
+          "password",
+          "database",
+        ],
+        "title": "Db2 Profile",
+        "type": "object",
+      },
+      "type": "db2",
+    },
+  ],
+  "rootCommandDescription": "Interact with IBM Db2 for z/OS",
+}
+`;

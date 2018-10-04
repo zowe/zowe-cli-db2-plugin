@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`db2 execute sql definition should not have changed 1`] = `
+Object {
+  "description": "Execute one or multiple SQL statements separated by a semicolon from a command line or from a file.",
+  "examples": Array [
+    Object {
+      "description": "Execute a dummy SQL query",
+      "options": "--query\\"SELECT 'Hello World' FROM SYSIBM.SYSDUMMY1\\"",
+    },
+    Object {
+      "description": "Retrieve the employees table and total number of rows",
+      "options": "-q \\"SELECT * FROM SAMPLE.EMP; SELECT COUNT(*) AS TOTAL FROM SAMPLE.EMP\\"",
+    },
+    Object {
+      "description": "Execute a file with SQL statements",
+      "options": "--file backup_sample_database.sql",
+    },
+  ],
+  "mustSpecifyOne": Array [
+    "query",
+    "file",
+  ],
+  "name": "sql",
+  "options": Array [
+    Object {
+      "aliases": Array [
+        "q",
+      ],
+      "conflictsWith": Array [
+        "file",
+      ],
+      "description": "The SQL statement verbatim to execute",
+      "name": "query",
+      "type": "string",
+    },
+    Object {
+      "aliases": Array [
+        "f",
+      ],
+      "conflictsWith": Array [
+        "query",
+      ],
+      "description": "A local file containing the SQL statements to execute",
+      "name": "file",
+      "type": "string",
+    },
+  ],
+  "profile": Object {
+    "required": Array [
+      "db2",
+    ],
+  },
+  "summary": "Execute SQL statement",
+  "type": "command",
+}
+`;

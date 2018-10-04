@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`db2 export command should display the help 1`] = `
+"
+ DESCRIPTION
+ -----------
+
+   Export data from a Db2 table
+
+ USAGE
+ -----
+
+   bright db2 export [command]
+
+ COMMANDS
+ --------
+
+   table (experimental) Export data from a Db2 table in SQL format
+
+ GLOBAL OPTIONS
+ --------------
+
+   --response-format-json  | --rfj (boolean)
+
+      Produce JSON formatted data from a command
+
+   --help  | -h (boolean)
+
+      Display help text
+
+{
+  \\"success\\": true,
+  \\"message\\": \\"The help was constructed for command: export.\\",
+  \\"stdout\\": \\"\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Export data from a Db2 table\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   bright db2 export [command]\\\\n\\\\n COMMANDS\\\\n --------\\\\n\\\\n   table (experimental) Export data from a Db2 table in SQL format\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n\\",
+  \\"stderr\\": \\"\\",
+  \\"data\\": \\"\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Export data from a Db2 table\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   bright db2 export [command]\\\\n\\\\n COMMANDS\\\\n --------\\\\n\\\\n   table (experimental) Export data from a Db2 table in SQL format\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n\\"
+}"
+`;
+
+exports[`db2 export command should fail with invalid option 1`] = `
+"Command Error:
+Unknown argument: table
+Command failed due to improper syntax
+Error Details:
+Unknown argument: table
+"
+`;
+
+exports[`db2 export command should fail with invalid option 2`] = `""`;
+
+exports[`db2 export command should fail with invalid parameter 1`] = `
+"Command Error:
+Unknown arguments: schema, DEMOUSER.DEMOTABLE
+Command failed due to improper syntax
+Error Details:
+Unknown arguments: schema, DEMOUSER.DEMOTABLE
+"
+`;
+
+exports[`db2 export command should fail with invalid parameter 2`] = `""`;

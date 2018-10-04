@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`db2 execute command should display the help 1`] = `
+"
+ DESCRIPTION
+ -----------
+
+   Execute SQL queries against a Db2 region and retrieve the response. Enclose the
+   query in quotes and escape any symbols that have a special meaning to the shell.
+
+ USAGE
+ -----
+
+   bright db2 execute [command]
+
+ COMMANDS
+ --------
+
+   sql (experimental) Execute SQL statement
+
+ GLOBAL OPTIONS
+ --------------
+
+   --response-format-json  | --rfj (boolean)
+
+      Produce JSON formatted data from a command
+
+   --help  | -h (boolean)
+
+      Display help text
+
+{
+  \\"success\\": true,
+  \\"message\\": \\"The help was constructed for command: execute.\\",
+  \\"stdout\\": \\"\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Execute SQL queries against a Db2 region and retrieve the response. Enclose the\\\\n   query in quotes and escape any symbols that have a special meaning to the shell.\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   bright db2 execute [command]\\\\n\\\\n COMMANDS\\\\n --------\\\\n\\\\n   sql (experimental) Execute SQL statement\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n\\",
+  \\"stderr\\": \\"\\",
+  \\"data\\": \\"\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Execute SQL queries against a Db2 region and retrieve the response. Enclose the\\\\n   query in quotes and escape any symbols that have a special meaning to the shell.\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   bright db2 execute [command]\\\\n\\\\n COMMANDS\\\\n --------\\\\n\\\\n   sql (experimental) Execute SQL statement\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n\\"
+}"
+`;
+
+exports[`db2 execute command should fail with invalid option 1`] = `
+"Command Error:
+Unknown argument: sql
+Command failed due to improper syntax
+Error Details:
+Unknown argument: sql
+"
+`;
+
+exports[`db2 execute command should fail with invalid option 2`] = `""`;
+
+exports[`db2 execute command should fail with invalid parameter 1`] = `
+"Command Error:
+Unknown arguments: D, command
+Command failed due to improper syntax
+Error Details:
+Unknown arguments: D, command
+"
+`;
+
+exports[`db2 execute command should fail with invalid parameter 2`] = `""`;

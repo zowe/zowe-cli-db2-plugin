@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`db2 call procedure definition should not have changed 1`] = `
+Object {
+  "aliases": Array [
+    "proc",
+    "sp",
+  ],
+  "description": "Call a Db2 stored procedure. Specify the stored procedure name and optionally provide values.",
+  "examples": Array [
+    Object {
+      "description": "Call stored procedure DEMO.SP1",
+      "options": "\\"DEMO.SP1\\"",
+    },
+    Object {
+      "description": "Call a stored procedure and pass values for parameter indicators",
+      "options": "\\"DEMO.SP2(?, ?)\\" --parameters \\"Hello\\" \\"world!\\"",
+    },
+  ],
+  "name": "procedure",
+  "options": Array [
+    Object {
+      "aliases": Array [
+        "p",
+      ],
+      "description": "Values to bind to the stored procedure parameters",
+      "name": "parameters",
+      "required": false,
+      "type": "array",
+    },
+  ],
+  "positionals": Array [
+    Object {
+      "description": "The name of a Db2 stored procedure",
+      "name": "routine",
+      "required": true,
+      "type": "string",
+    },
+  ],
+  "profile": Object {
+    "required": Array [
+      "db2",
+    ],
+  },
+  "summary": "Call a Db2 stored procedure",
+  "type": "command",
+}
+`;

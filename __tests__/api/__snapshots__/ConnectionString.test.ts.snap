@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConnectionString build should build correct connection string from session object 1`] = `"DRIVER={DB2 ODBC Driver};DATABASE=db2test;HOSTNAME=db2.server.com;PORT=12345;PROTOCOL=TCPIP;UID=ibmuser;PWD=ibmpass;"`;
+
+exports[`ConnectionString build should build correct connection string from session object with certificate file 1`] = `"DRIVER={DB2 ODBC Driver};DATABASE=db2test;HOSTNAME=db2.server.com;PORT=12345;PROTOCOL=TCPIP;UID=ibmuser;PWD=ibmpass;Security=SSL;SSLServerCertificate=/etc/path/to/certificate.crt;"`;
+
+exports[`ConnectionString buildFromSession should build correct connection string with 1 parameter 1`] = `"DRIVER={DB2 ODBC Driver};HOSTNAME=db2.server.com;"`;
+
+exports[`ConnectionString buildFromSession should build correct connection string with 2 parameters 1`] = `"DRIVER={DB2 ODBC Driver};HOSTNAME=db2.server.com;PORT=12345;PROTOCOL=TCPIP;"`;
+
+exports[`ConnectionString buildFromSession should build correct connection string with 3 parameters 1`] = `"DRIVER={DB2 ODBC Driver};HOSTNAME=db2.server.com;PORT=12345;PROTOCOL=TCPIP;UID=ibmuser;"`;
+
+exports[`ConnectionString buildFromSession should build correct connection string with 4 parameters 1`] = `"DRIVER={DB2 ODBC Driver};HOSTNAME=db2.server.com;PORT=12345;PROTOCOL=TCPIP;UID=ibmuser;PWD=ibmpass;"`;
+
+exports[`ConnectionString buildFromSession should build correct connection string with 5 parameters 1`] = `"DRIVER={DB2 ODBC Driver};DATABASE=db2test;HOSTNAME=db2.server.com;PORT=12345;PROTOCOL=TCPIP;UID=ibmuser;PWD=ibmpass;"`;
+
+exports[`ConnectionString buildFromSession should build correct connection string with all parameters and a certificate file 1`] = `"DRIVER={DB2 ODBC Driver};DATABASE=db2test;HOSTNAME=db2.server.com;PORT=12345;PROTOCOL=TCPIP;UID=ibmuser;PWD=ibmpass;Security=SSL;SSLServerCertificate=/etc/path/to/certificate.crt;"`;
+
+exports[`ConnectionString buildFromSession should build correct connection string without parameters 1`] = `"DRIVER={DB2 ODBC Driver};"`;

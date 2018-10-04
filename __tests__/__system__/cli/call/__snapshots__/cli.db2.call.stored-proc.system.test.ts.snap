@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`db2 call stored procedure command should display the help 1`] = `
+"
+ COMMAND NAME
+ ------------
+
+   procedure | proc | sp   (experimental command)
+
+ DESCRIPTION
+ -----------
+
+   Call a Db2 stored procedure. Specify the stored procedure name and optionally
+   provide values.
+
+ USAGE
+ -----
+
+   bright db2 call procedure <routine> [options]
+
+ POSITIONAL ARGUMENTS
+ --------------------
+
+   routine		 (string)
+
+      The name of a Db2 stored procedure
+
+ OPTIONS
+ -------
+
+   --parameters  | -p (array)
+
+      Values to bind to the stored procedure parameters
+
+ PROFILE OPTIONS
+ ---------------
+
+   --db2-profile  | --db2-p (string)
+
+      The name of a (db2) profile to load for this command execution.
+
+ GLOBAL OPTIONS
+ --------------
+
+   --response-format-json  | --rfj (boolean)
+
+      Produce JSON formatted data from a command
+
+   --help  | -h (boolean)
+
+      Display help text
+
+ ABOUT EXPERIMENTAL COMMANDS
+ ---------------------------
+
+   Experimental commands are commands that are not ready for general availability.
+   If you decide to use these commands, you might encounter bugs, incompatibilities
+   with your system, or incomplete help text.
+
+
+ EXAMPLES
+ --------
+
+   - Call stored procedure DEMO.SP1:
+
+      $ bright db2 call procedure \\"DEMO.SP1\\"
+
+   - Call a stored procedure and pass values for parameter
+   indicators:
+
+      $ bright db2 call procedure \\"DEMO.SP2(?, ?)\\" --parameters \\"Hello\\" \\"world!\\"
+
+{
+  \\"success\\": true,
+  \\"message\\": \\"The help was constructed for command: procedure.\\",
+  \\"stdout\\": \\"\\\\n COMMAND NAME\\\\n ------------\\\\n\\\\n   procedure | proc | sp   (experimental command)\\\\n\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Call a Db2 stored procedure. Specify the stored procedure name and optionally\\\\n   provide values.\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   bright db2 call procedure <routine> [options]\\\\n\\\\n POSITIONAL ARGUMENTS\\\\n --------------------\\\\n\\\\n   routine\\\\t\\\\t (string)\\\\n\\\\n      The name of a Db2 stored procedure\\\\n\\\\n OPTIONS\\\\n -------\\\\n\\\\n   --parameters  | -p (array)\\\\n\\\\n      Values to bind to the stored procedure parameters\\\\n\\\\n PROFILE OPTIONS\\\\n ---------------\\\\n\\\\n   --db2-profile  | --db2-p (string)\\\\n\\\\n      The name of a (db2) profile to load for this command execution.\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n ABOUT EXPERIMENTAL COMMANDS\\\\n ---------------------------\\\\n\\\\n   Experimental commands are commands that are not ready for general availability.\\\\n   If you decide to use these commands, you might encounter bugs, incompatibilities\\\\n   with your system, or incomplete help text.\\\\n\\\\n\\\\n EXAMPLES\\\\n --------\\\\n\\\\n   - Call stored procedure DEMO.SP1:\\\\n\\\\n      $ bright db2 call procedure \\\\\\"DEMO.SP1\\\\\\"\\\\n\\\\n   - Call a stored procedure and pass values for parameter\\\\n   indicators:\\\\n\\\\n      $ bright db2 call procedure \\\\\\"DEMO.SP2(?, ?)\\\\\\" --parameters \\\\\\"Hello\\\\\\" \\\\\\"world!\\\\\\"\\\\n\\\\n\\",
+  \\"stderr\\": \\"\\",
+  \\"data\\": \\"\\\\n COMMAND NAME\\\\n ------------\\\\n\\\\n   procedure | proc | sp   (experimental command)\\\\n\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Call a Db2 stored procedure. Specify the stored procedure name and optionally\\\\n   provide values.\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   bright db2 call procedure <routine> [options]\\\\n\\\\n POSITIONAL ARGUMENTS\\\\n --------------------\\\\n\\\\n   routine\\\\t\\\\t (string)\\\\n\\\\n      The name of a Db2 stored procedure\\\\n\\\\n OPTIONS\\\\n -------\\\\n\\\\n   --parameters  | -p (array)\\\\n\\\\n      Values to bind to the stored procedure parameters\\\\n\\\\n PROFILE OPTIONS\\\\n ---------------\\\\n\\\\n   --db2-profile  | --db2-p (string)\\\\n\\\\n      The name of a (db2) profile to load for this command execution.\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n ABOUT EXPERIMENTAL COMMANDS\\\\n ---------------------------\\\\n\\\\n   Experimental commands are commands that are not ready for general availability.\\\\n   If you decide to use these commands, you might encounter bugs, incompatibilities\\\\n   with your system, or incomplete help text.\\\\n\\\\n\\\\n EXAMPLES\\\\n --------\\\\n\\\\n   - Call stored procedure DEMO.SP1:\\\\n\\\\n      $ bright db2 call procedure \\\\\\"DEMO.SP1\\\\\\"\\\\n\\\\n   - Call a stored procedure and pass values for parameter\\\\n   indicators:\\\\n\\\\n      $ bright db2 call procedure \\\\\\"DEMO.SP2(?, ?)\\\\\\" --parameters \\\\\\"Hello\\\\\\" \\\\\\"world!\\\\\\"\\\\n\\\\n\\"
+}"
+`;

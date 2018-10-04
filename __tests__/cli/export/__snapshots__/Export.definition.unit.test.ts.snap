@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`db2 export group definition should not have changed 1`] = `
+Object {
+  "description": "Export data from a Db2 table",
+  "experimental": true,
+  "name": "export",
+  "summary": "Export a table",
+  "type": "group",
+}
+`;

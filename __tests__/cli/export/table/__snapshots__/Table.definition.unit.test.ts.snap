@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`db2 export table definition should not have changed 1`] = `
+Object {
+  "description": "Export a Db2 table to the stdout or a file.",
+  "examples": Array [
+    Object {
+      "description": "Export employees data from the table SAMPLE.EMP and save it to the file 'employees.sql'",
+      "options": "SAMPLE.EMP --outfile employees.sql",
+    },
+  ],
+  "name": "table",
+  "options": Array [
+    Object {
+      "aliases": Array [
+        "o",
+      ],
+      "description": "The path to the output file",
+      "name": "outfile",
+      "required": false,
+      "type": "string",
+    },
+  ],
+  "positionals": Array [
+    Object {
+      "description": "The name of the table to export",
+      "name": "table",
+      "required": true,
+      "type": "string",
+    },
+  ],
+  "profile": Object {
+    "required": Array [
+      "db2",
+    ],
+  },
+  "summary": "Export data from a Db2 table in SQL format",
+  "type": "command",
+}
+`;

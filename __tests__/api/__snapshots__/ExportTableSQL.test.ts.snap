@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExportTable buildInsertStatement should create an INSERT SQL statement 1`] = `
+"INSERT INTO db2test.testtable(C, D, I, S, T, V)
+VALUES('C1', '2017-12-31', 365, '2017-12-31 23:59:59.1234567890', '23:59:59', 'VAR1')
+"
+`;
+
+exports[`ExportTable export should return the table's rows as an SQL INSERT statements 1`] = `
+Array [
+  "INSERT INTO db2test.testtable(C, D, I, S, T, V)
+VALUES('C1', '2017-12-31', 365, '2017-12-31 23:59:59.1234567890', '23:59:59', 'VAR1')
+",
+  "INSERT INTO db2test.testtable(C, D, I, S, T, V)
+VALUES('C2', '2018-01-01', 1, '2018-01-01 00:00:00.0000000001', '00:00:00', 'VAR2')
+",
+  "INSERT INTO db2test.testtable(C, D, I, S, T, V)
+VALUES('C3', '2018-06-01', 152, '2018-06-01 12:00:00.0000000000', '12:00:00', NULL)
+",
+]
+`;
+
+exports[`ExportTable getColumnNames should be able to extract column names 1`] = `
+Array [
+  "C",
+  "D",
+  "I",
+  "S",
+  "T",
+  "V",
+]
+`;

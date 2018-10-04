@@ -1,0 +1,107 @@
+{
+  "name": "@brightside/db2",
+  "version": "1.0.0",
+  "description": "CLI Plug-in for IBM Db2",
+  "main": "lib/index.js",
+  "publishConfig": {
+    "registry": "https://gizaartifactory.jfrog.io/gizaartifactory/api/npm/npm-local-release/"
+  },
+  "files": [
+    "lib"
+  ],
+  "bin": {
+    "db2": "./lib/main.js"
+  },
+  "scripts": {
+    "prebuild": "{LinkPluginToCli} npm run clean && npm run lint && echo Using TypeScript && tsc --version",
+    "build": "node scripts/updateLicense.js && tsc --pretty",
+    "clean": "rimraf lib",
+    "watch": "tsc --pretty --watch",
+    "prepublishOnly": "npm run build",
+    "lint": "npm run lint:src && npm run lint:tests",
+    "lint:src": "tslint --format stylish --exclude \"**/__tests__/**/*.ts\" \"src/**/*.ts\"",
+    "lint:tests": "tslint --format stylish -c ./tslint-tests.json \"**/__tests__/**/*.ts\"",
+    "test": "npm run test:unit && npm run test:system",
+    "test:system": "env-cmd __tests__/__resources__/env/system.env jest .*/__system__/.* --coverage false",
+    "test:unit": "env-cmd __tests__/__resources__/env/unit.env jest --coverage --testPathIgnorePatterns \".*/__system__/.*\"",
+    "installPlugin": "npm install && npm run clean && npm run build && bright plugins install .",
+    "typedoc": "typedoc --out ./docs/typedoc/ ./src/ --disableOutputCheck --ignoreCompilerErrors --mode file"
+  },
+  "imperative": {
+    "configurationModule": "lib/imperative.js"
+  },
+  "dependencies": {
+    "ibm_db": "^2.3.0"
+  },
+  "BrightDependencies": {
+    "@brightside/core": "1.x",
+    "@brightside/imperative": "1.x"
+  },
+  "devDependencies": {
+    "@types/ibm_db": "^2.0.2",
+    "@types/jest": "^20.0.5",
+    "@types/node": "^8.0.0",
+    "@types/yargs": "8.0.2",
+    "@types/xml2js": "^0.4.3",
+    "env-cmd": "^8.0.2",
+    "fs-extra": "^5.0.0",
+    "jest": "^22.0.4",
+    "jest-cli": "^22.4.3",
+    "jest-environment-node": "^22.0.4",
+    "jest-environment-node-debug": "^2.0.0",
+    "jest-html-reporter": "^2.2.0",
+    "jest-junit": "^3.6.0",
+    "jest-stare": "^1.0.5",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^22.0.0",
+    "ts-node": "^3.2.0",
+    "tslint": "^5.0.0",
+    "typedoc": "^0.9.0",
+    "typescript": "^2.3.0",
+    "uuid": "^3.2.1"
+  },
+  "jest": {
+    "modulePathIgnorePatterns": [
+      "__tests__/__snapshots__/"
+    ],
+    "testResultsProcessor": "jest-stare",
+    "transform": {
+      ".(ts)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(test|spec)\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/__tests__/__results__"
+    ],
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!**/__tests__/**",
+      "!**/index.ts",
+      "!**/main.ts"
+    ],
+    "collectCoverage": false,
+    "coverageDirectory": "<rootDir>/__tests__/__results__/unit/coverage"
+  },
+  "jest-stare": {
+    "resultDir": "__tests__/__results__/jest-stare",
+    "additionalResultsProcessors": [
+      "jest-junit",
+      "jest-html-reporter"
+    ],
+    "coverageLink": "../coverage/lcov-report/index.html"
+  },
+  "jest-junit": {
+    "output": "__tests__/__results__/junit.xml"
+  },
+  "jest-html-reporter": {
+    "pageTitle": "Brightside DB2 Plugin Test Results",
+    "outputPath": "__tests__/__results__/results.html",
+    "includeFailureMsg": true
+  },
+  "author": "CA T&C Brightside",
+  "license": "EPL-2.0"
+}

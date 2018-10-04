@@ -1,0 +1,22 @@
+###############################################################################
+# Example properties file for the CA Brightside Db2 plug-in                   #
+# Copy this to custom_properties.yaml in the same directory                   #
+# and modify to fill in your customized connection and test details           #
+#-----------------------------------------------------------------------------#
+#  Find and replace the following:                                            #
+#                                                                             #
+#  my-user-name     - This is your TSO user ID                                #
+#  my-password      - This is your TSO password                               #
+#  my-db2-host      - This is the hostname for the DB2 for z/OS server        #
+#  my-db2-port      - This is the port for the DB2 for z/OS server            #
+#  my-database-name - This is the name of the database                        #
+###############################################################################
+
+# see bright profiles create db2 --help for more info
+
+db2:
+    hostname: my-db2-host
+    port:     my-db2-port
+    database: my-database-name
+    username: my-user-name
+    password: my-password
