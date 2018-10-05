@@ -13,8 +13,8 @@ so that the plug-in can be used directly in other products.
 For more information about general development guidelines and Db2 plug-in specific information,
 see [the Contribution Guidelines](CONTRIBUTING.md).
 
-**Tip:** Visit our [Sample Plug-in repository](https://github.com/gizafoundation/brightside-sample-plugin)
-and follow the tutorials to start developing your first plug-in. 
+**Tip:** Visit our [Sample Plug-in repository](https://github.com/zowe/zowe-cli-sample-plugin)
+and follow the [tutorials on the documentation site](https://zowe.github.io/docs-site/guides/cli-devTutorials) to start developing your first plug-in! 
 
 ## Prerequisites
 Before you install the plug-in, meet the following prerequisites:
