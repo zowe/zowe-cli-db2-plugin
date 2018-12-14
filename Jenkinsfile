@@ -31,7 +31,7 @@ def PIPELINE_CONTROL = [
     build: true,
     unit_test: true,
     integration_test: false,
-    system_test: true,
+    system_test: false,
     deploy: true,
     smoke_test: true,
     create_bundle: true,
