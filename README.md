@@ -57,8 +57,11 @@ Before you install the plug-in, meet the following prerequisites:
 1.  Meet the prerequisites.
 2.  Install the plug-in:
     ```
-    zowe plugins install @brightside/db2
-    ``` 
+    zowe plugins install @brightside/db2@latest
+    ```
+
+    **Note**: The `latest` npm tag installs a version of the product that is intended for public consumption. You can use different npm tags to install other versions of the product. For example, you can install with the `@beta` tag to try new features that have not been fully validated. For more information about tag usage, see [NPM Tag Names](https://github.com/zowe/zowe-cli/blob/master/docs/MaintainerVersioning.md#npm-tag-names).
+    
 3.  (Optional) Verify the installation:
     ```
     zowe plugins validate @brightside/db2

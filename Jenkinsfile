@@ -31,7 +31,7 @@ def PIPELINE_CONTROL = [
     build: true,
     unit_test: true,
     integration_test: false,
-    system_test: true,
+    system_test: false,
     deploy: true,
     smoke_test: true,
     create_bundle: true,
@@ -104,8 +104,7 @@ def DB2_CREDENTIALS_ID = '***REMOVED***'
 /**
  * List of people who will get all emails for master builds
  */
-/*def MASTER_RECIPIENTS_LIST = "cc:Christopher.Wright@ca.com, cc:Fernando.RijoCedeno@ca.com, cc:Michael.Bauer2@ca.com, cc:Mark.Ackert@ca.com, cc:Daniel.Kelosky@ca.com"*/
-def MASTER_RECIPIENTS_LIST = "cc:Evghenii.Vasilovici@ca.com, cc:Fernando.RijoCedeno@ca.com"
+def MASTER_RECIPIENTS_LIST = "cc:Evghenii.Vasilovici@broadcom.com, cc:Fernando.RijoCedeno@broadcom.com"
 
 /**
  * The user's name for git commits
