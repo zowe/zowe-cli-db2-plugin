@@ -34,8 +34,8 @@
     "ibm_db": "2.5.0"
   },
   "BrightDependencies": {
-    "@brightside/core": "1.x",
-    "@brightside/imperative": "1.x"
+    "@brightside/core": ">=2.0.0-0",
+    "@brightside/imperative": ">=2.0.0-0"
   },
   "devDependencies": {
     "@types/ibm_db": "^2.0.2",
