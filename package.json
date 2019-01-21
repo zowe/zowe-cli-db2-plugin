@@ -13,7 +13,7 @@
     "db2": "./lib/main.js"
   },
   "scripts": {
-    "prebuild": "node scripts/linkPluginToCli.js -p && npm run clean && npm run lint && echo Using TypeScript && tsc --version",
+    "prebuild": "npm run clean && npm run lint && echo Using TypeScript && tsc --version",
     "build": "node scripts/updateLicense.js && tsc --pretty",
     "clean": "rimraf lib",
     "watch": "tsc --pretty --watch",
@@ -35,9 +35,10 @@
   },
   "peerDependencies": {
     "@brightside/core": "1.x",
-    "@brightside/imperative": "1.x"
+    "@brightside/imperative": ">=2.0.0-0"
   },
   "devDependencies": {
+    "@brightside/imperative": ">=2.0.0-0",
     "@types/ibm_db": "^2.0.2",
     "@types/jest": "^20.0.5",
     "@types/node": "^8.0.0",

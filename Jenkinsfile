@@ -104,7 +104,7 @@ def DB2_CREDENTIALS_ID = '***REMOVED***'
 /**
  * List of people who will get all emails for master builds
  */
-def MASTER_RECIPIENTS_LIST = "cc:Evghenii.Vasilovici@broadcom.com, cc:Fernando.RijoCedeno@broadcom.com"
+def MASTER_RECIPIENTS_LIST = "Evghenii.Vasilovici@broadcom.com, cc:Fernando.RijoCedeno@broadcom.com, cc:Michael.Bauer2@broadcom.com, cc:Mark.Ackert@broadcom.com, cc:Daniel.Kelosky@broadcom.com"
 
 /**
  * The user's name for git commits
