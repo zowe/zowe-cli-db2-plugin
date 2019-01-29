@@ -307,7 +307,6 @@ pipeline {
             steps {
                 timeout(time: 10, unit: 'MINUTES') {
                     echo 'Install'
-                    sh "rm -f .npmrc"
                     sh "npm install"
                 }
             }
