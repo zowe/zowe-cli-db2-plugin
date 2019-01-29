@@ -33,8 +33,8 @@ describe("db2 call stored procedure command", () => {
 
     it("should display the help", () => {
         const response = runCliScript(__dirname + "/__scripts__/sp_help.sh", TEST_ENV);
-        expect(response.status).toBe(0);
         expect(response.stdout.toString()).toMatchSnapshot();
         expect(response.stderr.toString()).toBe("");
+        expect(response.status).toBe(0);
     });
 });

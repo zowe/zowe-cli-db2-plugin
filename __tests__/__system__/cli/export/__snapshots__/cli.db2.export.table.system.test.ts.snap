@@ -15,7 +15,7 @@ exports[`db2 export table command should display the help 1`] = `
  USAGE
  -----
 
-   bright db2 export table <table> [options]
+   zowe db2 export table <table> [options]
 
  POSITIONAL ARGUMENTS
  --------------------
@@ -63,27 +63,31 @@ exports[`db2 export table command should display the help 1`] = `
    - Export employees data from the table SAMPLE.EMP and save it
    to the file 'employees.sql':
 
-      $ bright db2 export table SAMPLE.EMP --outfile employees.sql
+      $ zowe db2 export table SAMPLE.EMP --outfile employees.sql
 
 {
   \\"success\\": true,
   \\"message\\": \\"The help was constructed for command: table.\\",
-  \\"stdout\\": \\"\\\\n COMMAND NAME\\\\n ------------\\\\n\\\\n   table   (experimental command)\\\\n\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Export a Db2 table to the stdout or a file.\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   bright db2 export table <table> [options]\\\\n\\\\n POSITIONAL ARGUMENTS\\\\n --------------------\\\\n\\\\n   table\\\\t\\\\t (string)\\\\n\\\\n      The name of the table to export\\\\n\\\\n OPTIONS\\\\n -------\\\\n\\\\n   --outfile  | -o (string)\\\\n\\\\n      The path to the output file\\\\n\\\\n PROFILE OPTIONS\\\\n ---------------\\\\n\\\\n   --db2-profile  | --db2-p (string)\\\\n\\\\n      The name of a (db2) profile to load for this command execution.\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n ABOUT EXPERIMENTAL COMMANDS\\\\n ---------------------------\\\\n\\\\n   Experimental commands are commands that are not ready for general availability.\\\\n   If you decide to use these commands, you might encounter bugs, incompatibilities\\\\n   with your system, or incomplete help text.\\\\n\\\\n\\\\n EXAMPLES\\\\n --------\\\\n\\\\n   - Export employees data from the table SAMPLE.EMP and save it\\\\n   to the file 'employees.sql':\\\\n\\\\n      $ bright db2 export table SAMPLE.EMP --outfile employees.sql\\\\n\\\\n\\",
+  \\"stdout\\": \\"\\\\n COMMAND NAME\\\\n ------------\\\\n\\\\n   table   (experimental command)\\\\n\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Export a Db2 table to the stdout or a file.\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 export table <table> [options]\\\\n\\\\n POSITIONAL ARGUMENTS\\\\n --------------------\\\\n\\\\n   table\\\\t\\\\t (string)\\\\n\\\\n      The name of the table to export\\\\n\\\\n OPTIONS\\\\n -------\\\\n\\\\n   --outfile  | -o (string)\\\\n\\\\n      The path to the output file\\\\n\\\\n PROFILE OPTIONS\\\\n ---------------\\\\n\\\\n   --db2-profile  | --db2-p (string)\\\\n\\\\n      The name of a (db2) profile to load for this command execution.\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n ABOUT EXPERIMENTAL COMMANDS\\\\n ---------------------------\\\\n\\\\n   Experimental commands are commands that are not ready for general availability.\\\\n   If you decide to use these commands, you might encounter bugs, incompatibilities\\\\n   with your system, or incomplete help text.\\\\n\\\\n\\\\n EXAMPLES\\\\n --------\\\\n\\\\n   - Export employees data from the table SAMPLE.EMP and save it\\\\n   to the file 'employees.sql':\\\\n\\\\n      $ zowe db2 export table SAMPLE.EMP --outfile employees.sql\\\\n\\\\n\\",
   \\"stderr\\": \\"\\",
-  \\"data\\": \\"\\\\n COMMAND NAME\\\\n ------------\\\\n\\\\n   table   (experimental command)\\\\n\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Export a Db2 table to the stdout or a file.\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   bright db2 export table <table> [options]\\\\n\\\\n POSITIONAL ARGUMENTS\\\\n --------------------\\\\n\\\\n   table\\\\t\\\\t (string)\\\\n\\\\n      The name of the table to export\\\\n\\\\n OPTIONS\\\\n -------\\\\n\\\\n   --outfile  | -o (string)\\\\n\\\\n      The path to the output file\\\\n\\\\n PROFILE OPTIONS\\\\n ---------------\\\\n\\\\n   --db2-profile  | --db2-p (string)\\\\n\\\\n      The name of a (db2) profile to load for this command execution.\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n ABOUT EXPERIMENTAL COMMANDS\\\\n ---------------------------\\\\n\\\\n   Experimental commands are commands that are not ready for general availability.\\\\n   If you decide to use these commands, you might encounter bugs, incompatibilities\\\\n   with your system, or incomplete help text.\\\\n\\\\n\\\\n EXAMPLES\\\\n --------\\\\n\\\\n   - Export employees data from the table SAMPLE.EMP and save it\\\\n   to the file 'employees.sql':\\\\n\\\\n      $ bright db2 export table SAMPLE.EMP --outfile employees.sql\\\\n\\\\n\\"
+  \\"data\\": \\"\\\\n COMMAND NAME\\\\n ------------\\\\n\\\\n   table   (experimental command)\\\\n\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Export a Db2 table to the stdout or a file.\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 export table <table> [options]\\\\n\\\\n POSITIONAL ARGUMENTS\\\\n --------------------\\\\n\\\\n   table\\\\t\\\\t (string)\\\\n\\\\n      The name of the table to export\\\\n\\\\n OPTIONS\\\\n -------\\\\n\\\\n   --outfile  | -o (string)\\\\n\\\\n      The path to the output file\\\\n\\\\n PROFILE OPTIONS\\\\n ---------------\\\\n\\\\n   --db2-profile  | --db2-p (string)\\\\n\\\\n      The name of a (db2) profile to load for this command execution.\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n ABOUT EXPERIMENTAL COMMANDS\\\\n ---------------------------\\\\n\\\\n   Experimental commands are commands that are not ready for general availability.\\\\n   If you decide to use these commands, you might encounter bugs, incompatibilities\\\\n   with your system, or incomplete help text.\\\\n\\\\n\\\\n EXAMPLES\\\\n --------\\\\n\\\\n   - Export employees data from the table SAMPLE.EMP and save it\\\\n   to the file 'employees.sql':\\\\n\\\\n      $ zowe db2 export table SAMPLE.EMP --outfile employees.sql\\\\n\\\\n\\"
 }"
 `;
 
 exports[`db2 export table command should fail with empty table name 1`] = `
 "
 Syntax Error:
-Missing Positional Option:
-table
+Missing Positional Argument: table
+Argument Description: The name of the table to export
 
-Option Description:
-The name of the table to export
+Example:
 
-Use \\"bright db2 export table --help\\" to view command description, usage, and options.
+ - Export employees data from the table SAMPLE.EMP and save it to the file
+ 'employees.sql':
+
+      $ zowe db2 export table SAMPLE.EMP --outfile employees.sql
+
+Use \\"zowe db2 export table --help\\" to view command description, usage, and options.
 "
 `;
 
@@ -91,6 +95,9 @@ exports[`db2 export table command should fail with invalid option 1`] = `
 "Command Error:
 Unknown argument: format
 Command failed due to improper syntax
+Command entered: \\"zowe db2 export table SYSIBM.SYSDUMMY1 --format json\\"
+Available commands are \\"table\\".
+Use \\"zowe db2 export --help\\" to view groups, commands, and options.
 Error Details:
 Unknown argument: format
 "

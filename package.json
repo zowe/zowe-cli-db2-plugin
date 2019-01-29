@@ -19,8 +19,8 @@
     "watch": "tsc --pretty --watch",
     "prepublishOnly": "npm run build",
     "lint": "npm run lint:src && npm run lint:tests",
-    "lint:src": "tslint --format stylish --exclude \"**/__tests__/**/*.ts\" \"src/**/*.ts\"",
-    "lint:tests": "tslint --format stylish -c tslint-tests.json \"**/__tests__/**/*.ts\"",
+    "lint:src": "tslint --format stylish -c tslint.json \"src/**/*.ts\"",
+    "lint:tests": "tslint --format stylish -c tslint-tests.json \"__tests__/**/*.ts\"",
     "test": "npm run test:unit --runinband && npm run test:system",
     "test:system": "env-cmd __tests__/__resources__/env/system.env jest .*/__system__/.* --coverage false --runInBand",
     "test:unit": "env-cmd __tests__/__resources__/env/unit.env jest --coverage --testPathIgnorePatterns \".*/__system__/.*\" ",
@@ -31,10 +31,10 @@
     "configurationModule": "lib/imperative.js"
   },
   "dependencies": {
-    "ibm_db": "2.3.0"
+    "ibm_db": "2.5.0"
   },
   "peerDependencies": {
-    "@brightside/core": "1.x",
+    "@brightside/core": ">=2.0.0-0",
     "@brightside/imperative": ">=2.0.0-0"
   },
   "devDependencies": {
