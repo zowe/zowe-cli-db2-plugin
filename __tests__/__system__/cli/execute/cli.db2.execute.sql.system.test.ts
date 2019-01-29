@@ -33,30 +33,30 @@ describe("db2 execute sql command", () => {
 
     it("should display the help", () => {
         const response = runCliScript(__dirname + "/__scripts__/sql_help.sh", TEST_ENV);
-        expect(response.status).toBe(0);
         expect(response.stdout.toString()).toMatchSnapshot();
         expect(response.stderr.toString()).toBe("");
+        expect(response.status).toBe(0);
     });
 
     it("should fail with invalid option", () => {
         const response = runCliScript(__dirname + "/__scripts__/sql_invalid_option.sh", TEST_ENV);
-        expect(response.status).toBe(1);
         expect(response.stderr.toString()).toMatchSnapshot();
         expect(response.stdout.toString()).toMatchSnapshot();
+        expect(response.status).toBe(1);
     });
 
     it("should not accept mutually exclusive options", () => {
         const response = runCliScript(__dirname + "/__scripts__/fail_query_file.sh", TEST_ENV);
-        expect(response.status).toBe(1);
         expect(response.stderr.toString()).toMatchSnapshot();
         expect(response.stdout.toString()).toMatchSnapshot();
+        expect(response.status).toBe(1);
     });
 
     it("should complete the command successfully and return a valid JSON response", () => {
         const response = runCliScript(__dirname + "/__scripts__/success_rfj.sh", TEST_ENV);
-        expect(response.status).toBe(0);
         expect(response.stderr.toString()).toBe("");
         expect(response.stdout.toString()).toMatchSnapshot();
+        expect(response.status).toBe(0);
         // Convert response to an object and check fields
         const respObj: ICommandResponse  = JSON.parse(response.stdout.toString());
         expect(respObj.success).toBe(true);
@@ -68,15 +68,15 @@ describe("db2 execute sql command", () => {
 
     it("should be able to execute SQL statements from file", () => {
         const response = runCliScript(__dirname + "/__scripts__/success_file.sh", TEST_ENV);
-        expect(response.status).toBe(0);
         expect(response.stderr.toString()).toBe("");
         expect(response.stdout.toString()).toMatchSnapshot();
+        expect(response.status).toBe(0);
     });
 
     it("should fail when file doesn't exist", () => {
         const response = runCliScript(__dirname + "/__scripts__/fail_no_file.sh", TEST_ENV);
-        expect(response.status).toBe(1);
         expect(response.stderr.toString()).toMatchSnapshot();
         expect(response.stdout.toString()).toBe("");
+        expect(response.status).toBe(1);
     });
 });

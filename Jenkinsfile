@@ -866,8 +866,8 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: ARTIFACTORY_CREDENTIALS_ID, usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         sh "rm -f .npmrc"
                         sh "rm -f ~/.npmrc"
-                        
-                        // Set the SCOPED registry and token to the npmrc of the user 
+
+                        // Set the SCOPED registry and token to the npmrc of the user
                         sh "npm config set ${TARGET_SCOPE}:registry ${DL_URL.artifactory}"
                         sh "expect -f ./jenkins/npm_login.expect $USERNAME $PASSWORD \"$ARTIFACTORY_EMAIL\" ${DL_URL.artifactory} ${TARGET_SCOPE}"
 
@@ -928,8 +928,8 @@ pipeline {
                         withCredentials([usernamePassword(credentialsId: ARTIFACTORY_CREDENTIALS_ID, usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                             sh "rm -f .npmrc"
                             sh "rm -f ~/.npmrc"
-                            
-                            // Set the registry and token to the npmrc of the user 
+
+                            // Set the registry and token to the npmrc of the user
                             sh "npm config set ${TARGET_SCOPE}:registry ${DL_URL.artifactory}"
                             sh "expect -f ./jenkins/npm_login.expect $USERNAME $PASSWORD \"$ARTIFACTORY_EMAIL\" ${DL_URL.artifactory} ${TARGET_SCOPE}"
 
