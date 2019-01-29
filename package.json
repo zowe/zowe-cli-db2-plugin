@@ -1,6 +1,6 @@
 {
   "name": "@brightside/db2",
-  "version": "1.0.0-next.201901211629",
+  "version": "1.0.0-next.201901291650",
   "description": "CLI Plug-in for IBM Db2",
   "main": "lib/index.js",
   "publishConfig": {
