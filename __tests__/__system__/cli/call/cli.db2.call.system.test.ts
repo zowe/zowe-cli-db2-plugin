@@ -32,22 +32,22 @@ describe("db2 call command", () => {
 
     it("should display the help", () => {
         const response = runCliScript(__dirname + "/__scripts__/call_help.sh", TEST_ENV);
-        expect(response.status).toBe(0);
         expect(response.stdout.toString()).toMatchSnapshot();
         expect(response.stderr.toString()).toBe("");
+        expect(response.status).toBe(0);
     });
 
     it("should fail with invalid parameter", async () => {
         const response = runCliScript(__dirname + "/__scripts__/invalid_parameter.sh", TEST_ENV);
-        expect(response.status).toBe(1);
         expect(response.stderr.toString()).toMatchSnapshot();
         expect(response.stdout.toString()).toMatchSnapshot();
+        expect(response.status).toBe(1);
     });
 
     it("should fail with invalid option", async () => {
         const response = runCliScript(__dirname + "/__scripts__/invalid_option.sh", TEST_ENV);
-        expect(response.status).toBe(1);
         expect(response.stderr.toString()).toMatchSnapshot();
         expect(response.stdout.toString()).toMatchSnapshot();
+        expect(response.status).toBe(1);
     });
 });
