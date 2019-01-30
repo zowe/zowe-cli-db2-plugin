@@ -33,37 +33,37 @@ describe("db2 export table command", () => {
 
     it("should display the help", () => {
         const response = runCliScript(__dirname + "/__scripts__/table_help.sh", TEST_ENV);
-        expect(response.status).toBe(0);
         expect(response.stdout.toString()).toMatchSnapshot();
         expect(response.stderr.toString()).toBe("");
+        expect(response.status).toBe(0);
     });
 
     it("should fail with invalid option", async () => {
         const response = runCliScript(__dirname + "/__scripts__/table_invalid_option.sh", TEST_ENV);
-        expect(response.status).toBe(1);
         expect(response.stderr.toString()).toMatchSnapshot();
         expect(response.stdout.toString()).toBe("");
+        expect(response.status).toBe(1);
     });
 
     it("should fail with empty table name", async () => {
         const response = runCliScript(__dirname + "/__scripts__/fail_empty_table.sh", TEST_ENV);
-        expect(response.status).toBe(1);
         expect(response.stderr.toString()).toMatchSnapshot();
         expect(response.stdout.toString()).toBe("");
+        expect(response.status).toBe(1);
     });
 
     it("should fail to export a not existing table", () => {
         const response = runCliScript(__dirname + "/__scripts__/fail_table_not_exists.sh", TEST_ENV);
-        expect(response.status).toBe(1);
         expect(response.stderr.toString()).toContain("Error getting metadata for the table");
         expect(response.stdout.toString()).toBe("");
+        expect(response.status).toBe(1);
     });
 
     it("should export the system roles table to the standard out", () => {
         const regex: RegExp = new RegExp(fs.readFileSync(__dirname + "/__regex__/export_table.regex").toString(), "gs");
         const response = runCliScript(__dirname + "/__scripts__/success_export_stdout.sh", TEST_ENV);
-        expect(response.status).toBe(0);
         expect(response.stderr.toString()).toBe("");
+        expect(response.status).toBe(0);
         expect(new RegExp(regex, "gs").test(response.stdout.toString())).toBe(true);
     });
 
@@ -71,9 +71,9 @@ describe("db2 export table command", () => {
         const regex = fs.readFileSync(__dirname + "/__regex__/export_table.regex").toString();
         const response = runCliScript(__dirname + "/__scripts__/success_export_file.sh", TEST_ENV);
         const outFilePath = TEST_ENV.workingDir + "/export.sql";
-        expect(response.status).toBe(0);
         expect(response.stdout.toString()).toBe("");
         expect(response.stderr.toString()).toBe("");
+        expect(response.status).toBe(0);
         expect(fs.existsSync(outFilePath)).toBe(true);
         const outFile = fs.readFileSync(outFilePath).toString();
         fs.unlinkSync(outFilePath);

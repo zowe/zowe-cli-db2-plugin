@@ -46,7 +46,7 @@ exports[`db2 execute sql command should display the help 1`] = `
  USAGE
  -----
 
-   bright db2 execute sql [options]
+   zowe db2 execute sql [options]
 
  OPTIONS
  -------
@@ -90,22 +90,22 @@ exports[`db2 execute sql command should display the help 1`] = `
 
    - Execute a dummy SQL query:
 
-      $ bright db2 execute sql --query\\"SELECT 'Hello World' FROM SYSIBM.SYSDUMMY1\\"
+      $ zowe db2 execute sql --query\\"SELECT 'Hello World' FROM SYSIBM.SYSDUMMY1\\"
 
    - Retrieve the employees table and total number of rows:
 
-      $ bright db2 execute sql -q \\"SELECT * FROM SAMPLE.EMP; SELECT COUNT(*) AS TOTAL FROM SAMPLE.EMP\\"
+      $ zowe db2 execute sql -q \\"SELECT * FROM SAMPLE.EMP; SELECT COUNT(*) AS TOTAL FROM SAMPLE.EMP\\"
 
    - Execute a file with SQL statements:
 
-      $ bright db2 execute sql --file backup_sample_database.sql
+      $ zowe db2 execute sql --file backup_sample_database.sql
 
 {
   \\"success\\": true,
   \\"message\\": \\"The help was constructed for command: sql.\\",
-  \\"stdout\\": \\"\\\\n COMMAND NAME\\\\n ------------\\\\n\\\\n   sql   (experimental command)\\\\n\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Execute one or multiple SQL statements separated by a semicolon from a command\\\\n   line or from a file.\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   bright db2 execute sql [options]\\\\n\\\\n OPTIONS\\\\n -------\\\\n\\\\n   --query  | -q (string)\\\\n\\\\n      The SQL statement verbatim to execute\\\\n\\\\n   --file  | -f (string)\\\\n\\\\n      A local file containing the SQL statements to execute\\\\n\\\\n PROFILE OPTIONS\\\\n ---------------\\\\n\\\\n   --db2-profile  | --db2-p (string)\\\\n\\\\n      The name of a (db2) profile to load for this command execution.\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n ABOUT EXPERIMENTAL COMMANDS\\\\n ---------------------------\\\\n\\\\n   Experimental commands are commands that are not ready for general availability.\\\\n   If you decide to use these commands, you might encounter bugs, incompatibilities\\\\n   with your system, or incomplete help text.\\\\n\\\\n\\\\n EXAMPLES\\\\n --------\\\\n\\\\n   - Execute a dummy SQL query:\\\\n\\\\n      $ bright db2 execute sql --query\\\\\\"SELECT 'Hello World' FROM SYSIBM.SYSDUMMY1\\\\\\"\\\\n\\\\n   - Retrieve the employees table and total number of rows:\\\\n\\\\n      $ bright db2 execute sql -q \\\\\\"SELECT * FROM SAMPLE.EMP; SELECT COUNT(*) AS TOTAL FROM SAMPLE.EMP\\\\\\"\\\\n\\\\n   - Execute a file with SQL statements:\\\\n\\\\n      $ bright db2 execute sql --file backup_sample_database.sql\\\\n\\\\n\\",
+  \\"stdout\\": \\"\\\\n COMMAND NAME\\\\n ------------\\\\n\\\\n   sql   (experimental command)\\\\n\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Execute one or multiple SQL statements separated by a semicolon from a command\\\\n   line or from a file.\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 execute sql [options]\\\\n\\\\n OPTIONS\\\\n -------\\\\n\\\\n   --query  | -q (string)\\\\n\\\\n      The SQL statement verbatim to execute\\\\n\\\\n   --file  | -f (string)\\\\n\\\\n      A local file containing the SQL statements to execute\\\\n\\\\n PROFILE OPTIONS\\\\n ---------------\\\\n\\\\n   --db2-profile  | --db2-p (string)\\\\n\\\\n      The name of a (db2) profile to load for this command execution.\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n ABOUT EXPERIMENTAL COMMANDS\\\\n ---------------------------\\\\n\\\\n   Experimental commands are commands that are not ready for general availability.\\\\n   If you decide to use these commands, you might encounter bugs, incompatibilities\\\\n   with your system, or incomplete help text.\\\\n\\\\n\\\\n EXAMPLES\\\\n --------\\\\n\\\\n   - Execute a dummy SQL query:\\\\n\\\\n      $ zowe db2 execute sql --query\\\\\\"SELECT 'Hello World' FROM SYSIBM.SYSDUMMY1\\\\\\"\\\\n\\\\n   - Retrieve the employees table and total number of rows:\\\\n\\\\n      $ zowe db2 execute sql -q \\\\\\"SELECT * FROM SAMPLE.EMP; SELECT COUNT(*) AS TOTAL FROM SAMPLE.EMP\\\\\\"\\\\n\\\\n   - Execute a file with SQL statements:\\\\n\\\\n      $ zowe db2 execute sql --file backup_sample_database.sql\\\\n\\\\n\\",
   \\"stderr\\": \\"\\",
-  \\"data\\": \\"\\\\n COMMAND NAME\\\\n ------------\\\\n\\\\n   sql   (experimental command)\\\\n\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Execute one or multiple SQL statements separated by a semicolon from a command\\\\n   line or from a file.\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   bright db2 execute sql [options]\\\\n\\\\n OPTIONS\\\\n -------\\\\n\\\\n   --query  | -q (string)\\\\n\\\\n      The SQL statement verbatim to execute\\\\n\\\\n   --file  | -f (string)\\\\n\\\\n      A local file containing the SQL statements to execute\\\\n\\\\n PROFILE OPTIONS\\\\n ---------------\\\\n\\\\n   --db2-profile  | --db2-p (string)\\\\n\\\\n      The name of a (db2) profile to load for this command execution.\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n ABOUT EXPERIMENTAL COMMANDS\\\\n ---------------------------\\\\n\\\\n   Experimental commands are commands that are not ready for general availability.\\\\n   If you decide to use these commands, you might encounter bugs, incompatibilities\\\\n   with your system, or incomplete help text.\\\\n\\\\n\\\\n EXAMPLES\\\\n --------\\\\n\\\\n   - Execute a dummy SQL query:\\\\n\\\\n      $ bright db2 execute sql --query\\\\\\"SELECT 'Hello World' FROM SYSIBM.SYSDUMMY1\\\\\\"\\\\n\\\\n   - Retrieve the employees table and total number of rows:\\\\n\\\\n      $ bright db2 execute sql -q \\\\\\"SELECT * FROM SAMPLE.EMP; SELECT COUNT(*) AS TOTAL FROM SAMPLE.EMP\\\\\\"\\\\n\\\\n   - Execute a file with SQL statements:\\\\n\\\\n      $ bright db2 execute sql --file backup_sample_database.sql\\\\n\\\\n\\"
+  \\"data\\": \\"\\\\n COMMAND NAME\\\\n ------------\\\\n\\\\n   sql   (experimental command)\\\\n\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Execute one or multiple SQL statements separated by a semicolon from a command\\\\n   line or from a file.\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 execute sql [options]\\\\n\\\\n OPTIONS\\\\n -------\\\\n\\\\n   --query  | -q (string)\\\\n\\\\n      The SQL statement verbatim to execute\\\\n\\\\n   --file  | -f (string)\\\\n\\\\n      A local file containing the SQL statements to execute\\\\n\\\\n PROFILE OPTIONS\\\\n ---------------\\\\n\\\\n   --db2-profile  | --db2-p (string)\\\\n\\\\n      The name of a (db2) profile to load for this command execution.\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n ABOUT EXPERIMENTAL COMMANDS\\\\n ---------------------------\\\\n\\\\n   Experimental commands are commands that are not ready for general availability.\\\\n   If you decide to use these commands, you might encounter bugs, incompatibilities\\\\n   with your system, or incomplete help text.\\\\n\\\\n\\\\n EXAMPLES\\\\n --------\\\\n\\\\n   - Execute a dummy SQL query:\\\\n\\\\n      $ zowe db2 execute sql --query\\\\\\"SELECT 'Hello World' FROM SYSIBM.SYSDUMMY1\\\\\\"\\\\n\\\\n   - Retrieve the employees table and total number of rows:\\\\n\\\\n      $ zowe db2 execute sql -q \\\\\\"SELECT * FROM SAMPLE.EMP; SELECT COUNT(*) AS TOTAL FROM SAMPLE.EMP\\\\\\"\\\\n\\\\n   - Execute a file with SQL statements:\\\\n\\\\n      $ zowe db2 execute sql --file backup_sample_database.sql\\\\n\\\\n\\"
 }"
 `;
 
@@ -119,6 +119,9 @@ exports[`db2 execute sql command should fail with invalid option 1`] = `
 "Command Error:
 Unknown argument: commit
 Command failed due to improper syntax
+Command entered: \\"zowe db2 execute sql --commit SELECT 1 FROM SYSIBM.SYSDUMMY1\\"
+Available commands are \\"sql\\".
+Use \\"zowe db2 execute --help\\" to view groups, commands, and options.
 Error Details:
 Unknown argument: commit
 "
@@ -138,7 +141,13 @@ The following options conflict (mutually exclusive):
 --file
 --query
 
-Use \\"bright db2 execute sql --help\\" to view command description, usage, and options.
+Example:
+
+ - Execute a dummy SQL query:
+
+      $ zowe db2 execute sql --query\\"SELECT 'Hello World' FROM SYSIBM.SYSDUMMY1\\"
+
+Use \\"zowe db2 execute sql --help\\" to view command description, usage, and options.
 "
 `;
 
