@@ -36,7 +36,11 @@
       "check-module"
     ]
   },
-  "exclude": "test/",
+  "exclude": [
+    "__mocks__",
+    "__tests__",
+    "node_modules"
+  ],
   "type-check": true
 }
   
