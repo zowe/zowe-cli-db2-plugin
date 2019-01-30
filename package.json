@@ -2,6 +2,8 @@
   "name": "@brightside/db2",
   "version": "1.0.0-next.201901291650",
   "description": "CLI Plug-in for IBM Db2",
+  "author": "CA T&C Brightside",
+  "license": "EPL-2.0",
   "main": "lib/index.js",
   "publishConfig": {
     "registry": "https://gizaartifactory.jfrog.io/gizaartifactory/api/npm/npm-local-release/"
@@ -109,7 +111,5 @@
     "pageTitle": "Brightside DB2 Plugin Test Results",
     "outputPath": "__tests__/__results__/results.html",
     "includeFailureMsg": true
-  },
-  "author": "CA T&C Brightside",
-  "license": "EPL-2.0"
+  }
 }
