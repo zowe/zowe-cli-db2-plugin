@@ -9,9 +9,10 @@
 *                                                                                 *
 */
 
-import { ICommandHandler, IHandlerParameters, ImperativeError, TextUtils } from "@brightside/imperative";
+import { AbstractSession, ICommandHandler, IHandlerParameters, IProfile, ImperativeError, TextUtils } from "@brightside/imperative";
 import { ExecuteSQL, IDB2Session } from "../../../";
 import * as fs from "fs";
+import { DB2BaseHandler } from "../../DB2BaseHandler";
 
 /**
  * Command handler for executing of SQL queries
@@ -19,9 +20,18 @@ import * as fs from "fs";
  * @class SQLHandler
  * @implements {ICommandHandler}
  */
-export default class SQLHandler implements ICommandHandler {
-    public async process(params: IHandlerParameters): Promise<void> {
-        const session = params.profiles.get("db2") as IDB2Session;
+export default class SQLHandler extends DB2BaseHandler {
+    public async processWithDB2Session(params: IHandlerParameters, session: AbstractSession, profile: IProfile): Promise<void>  {
+        const DB2session =
+        {
+            hostname: session.ISession.hostname || profile.hostname,
+            port: session.ISession.port || profile.port,
+            username: session.ISession.user || profile.username,
+            password: session.ISession.password || profile.password,
+            database: session.CLIDB2Session.database || profile.database,
+            sslFile: session.ISession.sslfile || profile.sslFile
+        };
+
         let query;
         if (params.arguments.file) {
             try{
@@ -34,7 +44,8 @@ export default class SQLHandler implements ICommandHandler {
             query = params.arguments.query;
         }
 
-        const executor = new ExecuteSQL(session);
+        const executor = new ExecuteSQL (DB2session);
+
         const response = executor.execute(query);
         const responses: any[] = [];
         let result;
@@ -50,5 +61,6 @@ export default class SQLHandler implements ICommandHandler {
 
         // Return as an object when using --response-format-json
         params.response.data.setObj(responses);
+
     }
 }

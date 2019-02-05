@@ -5,6 +5,60 @@ Object {
   "description": "Execute SQL queries against a Db2 region and retrieve the response. Enclose the query in quotes and escape any symbols that have a special meaning to the shell.",
   "experimental": true,
   "name": "execute",
+  "passOn": Array [
+    Object {
+      "ignoreNodes": Array [
+        Object {
+          "type": "group",
+        },
+      ],
+      "merge": true,
+      "property": "options",
+      "value": Array [
+        Object {
+          "description": "The Db2 server host name",
+          "group": "DB2 Connection Options",
+          "name": "hostname",
+          "required": true,
+          "type": "string",
+        },
+        Object {
+          "description": "The Db2 server port number",
+          "group": "DB2 Connection Options",
+          "name": "port",
+          "required": true,
+          "type": "number",
+        },
+        Object {
+          "description": "The Db2 user ID (may be the same as the TSO login)",
+          "group": "DB2 Connection Options",
+          "name": "username",
+          "required": true,
+          "type": "string",
+        },
+        Object {
+          "description": "The Db2 password (may be the same as the TSO password)",
+          "group": "DB2 Connection Options",
+          "name": "password",
+          "required": true,
+          "type": "string",
+        },
+        Object {
+          "description": "The name of the database",
+          "group": "DB2 Connection Options",
+          "name": "database",
+          "required": true,
+          "type": "string",
+        },
+        Object {
+          "description": "Path to an SSL Certificate file",
+          "group": "DB2 Connection Options",
+          "name": "sslFile",
+          "type": "string",
+        },
+      ],
+    },
+  ],
   "summary": "Execute a SQL query",
   "type": "group",
 }

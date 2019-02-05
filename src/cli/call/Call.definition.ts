@@ -11,6 +11,7 @@
 
 import { ICommandDefinition } from "@brightside/imperative";
 import { ProcedureDefinition } from "./procedure/Procedure.definition";
+import { DB2Session } from "../DB2Sessions";
 
 export const Call: ICommandDefinition = {
     name: "call",
@@ -21,6 +22,16 @@ export const Call: ICommandDefinition = {
     children: [
         ProcedureDefinition,
     ],
+    passOn: [
+        {
+            property: "options",
+            value: DB2Session.DB2_CONNECTION_OPTIONS,
+            merge: true,
+            ignoreNodes: [
+                {type: "group"}
+            ]
+        }
+    ]
 };
 
 module.exports = Call;

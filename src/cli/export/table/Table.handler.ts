@@ -9,9 +9,10 @@
 *                                                                                 *
 */
 
-import { ICommandHandler, IHandlerParameters, ImperativeError } from "@brightside/imperative";
+import { ICommandHandler, IHandlerParameters, ImperativeError, AbstractSession, IProfile } from "@brightside/imperative";
 import { ExportTableSQL, IDB2Session } from "../../../";
 import * as fs from "fs";
+import { DB2BaseHandler } from "../../DB2BaseHandler";
 
 /**
  * Command handler for exporting a DB2 table
@@ -19,13 +20,21 @@ import * as fs from "fs";
  * @class TableHandler
  * @implements {ICommandHandler}
  */
-export default class TableHandler implements ICommandHandler {
-    public async process(params: IHandlerParameters): Promise<void> {
-        const session = params.profiles.get("db2") as IDB2Session;
+export default class TableHandler extends DB2BaseHandler {
+    public async processWithDB2Session(params: IHandlerParameters, session: AbstractSession, profile: IProfile): Promise<void>   {
+        const DB2session =
+        {
+            hostname: session.ISession.hostname || profile.hostname,
+            port: session.ISession.port || profile.port,
+            username: session.ISession.user || profile.username,
+            password: session.ISession.password || profile.password,
+            database: session.ISession.database || profile.database,
+            sslFile: session.ISession.sslfile || profile.sslFile
+        };
         let [database, table] = params.arguments.table.split(".");
         if (table === null) {
             table = database;
-            database = session.database;
+            database = DB2session.database;
         }
         let outFile;
         if (params.arguments.outfile) {
@@ -36,7 +45,7 @@ export default class TableHandler implements ICommandHandler {
                 throw new ImperativeError({msg: err.toString()});
             }
         }
-        const sqlExporter = new ExportTableSQL(session, database, table);
+        const sqlExporter = new ExportTableSQL(DB2session, database, table);
         await sqlExporter.init();
         const statements = sqlExporter.export();
         let statement;
@@ -48,10 +57,12 @@ export default class TableHandler implements ICommandHandler {
             else {
                 // Print out the response
                 params.response.console.log(statement.value);
+
             }
         }
         if (params.arguments.outfile) {
             fs.closeSync(outFile);
         }
+
     }
 }

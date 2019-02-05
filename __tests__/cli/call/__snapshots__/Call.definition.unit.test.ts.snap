@@ -5,6 +5,60 @@ Object {
   "description": "Call a Db2 stored procedure",
   "experimental": true,
   "name": "call",
+  "passOn": Array [
+    Object {
+      "ignoreNodes": Array [
+        Object {
+          "type": "group",
+        },
+      ],
+      "merge": true,
+      "property": "options",
+      "value": Array [
+        Object {
+          "description": "The Db2 server host name",
+          "group": "DB2 Connection Options",
+          "name": "hostname",
+          "required": true,
+          "type": "string",
+        },
+        Object {
+          "description": "The Db2 server port number",
+          "group": "DB2 Connection Options",
+          "name": "port",
+          "required": true,
+          "type": "number",
+        },
+        Object {
+          "description": "The Db2 user ID (may be the same as the TSO login)",
+          "group": "DB2 Connection Options",
+          "name": "username",
+          "required": true,
+          "type": "string",
+        },
+        Object {
+          "description": "The Db2 password (may be the same as the TSO password)",
+          "group": "DB2 Connection Options",
+          "name": "password",
+          "required": true,
+          "type": "string",
+        },
+        Object {
+          "description": "The name of the database",
+          "group": "DB2 Connection Options",
+          "name": "database",
+          "required": true,
+          "type": "string",
+        },
+        Object {
+          "description": "Path to an SSL Certificate file",
+          "group": "DB2 Connection Options",
+          "name": "sslFile",
+          "type": "string",
+        },
+      ],
+    },
+  ],
   "summary": "Call a stored procedure",
   "type": "group",
 }

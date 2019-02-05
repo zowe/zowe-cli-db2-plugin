@@ -59,6 +59,33 @@ exports[`db2 execute sql command should display the help 1`] = `
 
       A local file containing the SQL statements to execute
 
+ DB2 CONNECTION OPTIONS
+ ----------------------
+
+   --hostname  (string)
+
+      The Db2 server host name
+
+   --port  (number)
+
+      The Db2 server port number
+
+   --username  (string)
+
+      The Db2 user ID (may be the same as the TSO login)
+
+   --password  (string)
+
+      The Db2 password (may be the same as the TSO password)
+
+   --database  (string)
+
+      The name of the database
+
+   --sslFile  (string)
+
+      Path to an SSL Certificate file
+
  PROFILE OPTIONS
  ---------------
 
@@ -103,15 +130,15 @@ exports[`db2 execute sql command should display the help 1`] = `
 {
   \\"success\\": true,
   \\"message\\": \\"The help was constructed for command: sql.\\",
-  \\"stdout\\": \\"\\\\n COMMAND NAME\\\\n ------------\\\\n\\\\n   sql   (experimental command)\\\\n\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Execute one or multiple SQL statements separated by a semicolon from a command\\\\n   line or from a file.\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 execute sql [options]\\\\n\\\\n OPTIONS\\\\n -------\\\\n\\\\n   --query  | -q (string)\\\\n\\\\n      The SQL statement verbatim to execute\\\\n\\\\n   --file  | -f (string)\\\\n\\\\n      A local file containing the SQL statements to execute\\\\n\\\\n PROFILE OPTIONS\\\\n ---------------\\\\n\\\\n   --db2-profile  | --db2-p (string)\\\\n\\\\n      The name of a (db2) profile to load for this command execution.\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n ABOUT EXPERIMENTAL COMMANDS\\\\n ---------------------------\\\\n\\\\n   Experimental commands are commands that are not ready for general availability.\\\\n   If you decide to use these commands, you might encounter bugs, incompatibilities\\\\n   with your system, or incomplete help text.\\\\n\\\\n\\\\n EXAMPLES\\\\n --------\\\\n\\\\n   - Execute a dummy SQL query:\\\\n\\\\n      $ zowe db2 execute sql --query\\\\\\"SELECT 'Hello World' FROM SYSIBM.SYSDUMMY1\\\\\\"\\\\n\\\\n   - Retrieve the employees table and total number of rows:\\\\n\\\\n      $ zowe db2 execute sql -q \\\\\\"SELECT * FROM SAMPLE.EMP; SELECT COUNT(*) AS TOTAL FROM SAMPLE.EMP\\\\\\"\\\\n\\\\n   - Execute a file with SQL statements:\\\\n\\\\n      $ zowe db2 execute sql --file backup_sample_database.sql\\\\n\\\\n\\",
+  \\"stdout\\": \\"\\\\n COMMAND NAME\\\\n ------------\\\\n\\\\n   sql   (experimental command)\\\\n\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Execute one or multiple SQL statements separated by a semicolon from a command\\\\n   line or from a file.\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 execute sql [options]\\\\n\\\\n OPTIONS\\\\n -------\\\\n\\\\n   --query  | -q (string)\\\\n\\\\n      The SQL statement verbatim to execute\\\\n\\\\n   --file  | -f (string)\\\\n\\\\n      A local file containing the SQL statements to execute\\\\n\\\\n DB2 CONNECTION OPTIONS\\\\n ----------------------\\\\n\\\\n   --hostname  (string)\\\\n\\\\n      The Db2 server host name\\\\n\\\\n   --port  (number)\\\\n\\\\n      The Db2 server port number\\\\n\\\\n   --username  (string)\\\\n\\\\n      The Db2 user ID (may be the same as the TSO login)\\\\n\\\\n   --password  (string)\\\\n\\\\n      The Db2 password (may be the same as the TSO password)\\\\n\\\\n   --database  (string)\\\\n\\\\n      The name of the database\\\\n\\\\n   --sslFile  (string)\\\\n\\\\n      Path to an SSL Certificate file\\\\n\\\\n PROFILE OPTIONS\\\\n ---------------\\\\n\\\\n   --db2-profile  | --db2-p (string)\\\\n\\\\n      The name of a (db2) profile to load for this command execution.\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n ABOUT EXPERIMENTAL COMMANDS\\\\n ---------------------------\\\\n\\\\n   Experimental commands are commands that are not ready for general availability.\\\\n   If you decide to use these commands, you might encounter bugs, incompatibilities\\\\n   with your system, or incomplete help text.\\\\n\\\\n\\\\n EXAMPLES\\\\n --------\\\\n\\\\n   - Execute a dummy SQL query:\\\\n\\\\n      $ zowe db2 execute sql --query\\\\\\"SELECT 'Hello World' FROM SYSIBM.SYSDUMMY1\\\\\\"\\\\n\\\\n   - Retrieve the employees table and total number of rows:\\\\n\\\\n      $ zowe db2 execute sql -q \\\\\\"SELECT * FROM SAMPLE.EMP; SELECT COUNT(*) AS TOTAL FROM SAMPLE.EMP\\\\\\"\\\\n\\\\n   - Execute a file with SQL statements:\\\\n\\\\n      $ zowe db2 execute sql --file backup_sample_database.sql\\\\n\\\\n\\",
   \\"stderr\\": \\"\\",
-  \\"data\\": \\"\\\\n COMMAND NAME\\\\n ------------\\\\n\\\\n   sql   (experimental command)\\\\n\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Execute one or multiple SQL statements separated by a semicolon from a command\\\\n   line or from a file.\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 execute sql [options]\\\\n\\\\n OPTIONS\\\\n -------\\\\n\\\\n   --query  | -q (string)\\\\n\\\\n      The SQL statement verbatim to execute\\\\n\\\\n   --file  | -f (string)\\\\n\\\\n      A local file containing the SQL statements to execute\\\\n\\\\n PROFILE OPTIONS\\\\n ---------------\\\\n\\\\n   --db2-profile  | --db2-p (string)\\\\n\\\\n      The name of a (db2) profile to load for this command execution.\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n ABOUT EXPERIMENTAL COMMANDS\\\\n ---------------------------\\\\n\\\\n   Experimental commands are commands that are not ready for general availability.\\\\n   If you decide to use these commands, you might encounter bugs, incompatibilities\\\\n   with your system, or incomplete help text.\\\\n\\\\n\\\\n EXAMPLES\\\\n --------\\\\n\\\\n   - Execute a dummy SQL query:\\\\n\\\\n      $ zowe db2 execute sql --query\\\\\\"SELECT 'Hello World' FROM SYSIBM.SYSDUMMY1\\\\\\"\\\\n\\\\n   - Retrieve the employees table and total number of rows:\\\\n\\\\n      $ zowe db2 execute sql -q \\\\\\"SELECT * FROM SAMPLE.EMP; SELECT COUNT(*) AS TOTAL FROM SAMPLE.EMP\\\\\\"\\\\n\\\\n   - Execute a file with SQL statements:\\\\n\\\\n      $ zowe db2 execute sql --file backup_sample_database.sql\\\\n\\\\n\\"
+  \\"data\\": \\"\\\\n COMMAND NAME\\\\n ------------\\\\n\\\\n   sql   (experimental command)\\\\n\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Execute one or multiple SQL statements separated by a semicolon from a command\\\\n   line or from a file.\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 execute sql [options]\\\\n\\\\n OPTIONS\\\\n -------\\\\n\\\\n   --query  | -q (string)\\\\n\\\\n      The SQL statement verbatim to execute\\\\n\\\\n   --file  | -f (string)\\\\n\\\\n      A local file containing the SQL statements to execute\\\\n\\\\n DB2 CONNECTION OPTIONS\\\\n ----------------------\\\\n\\\\n   --hostname  (string)\\\\n\\\\n      The Db2 server host name\\\\n\\\\n   --port  (number)\\\\n\\\\n      The Db2 server port number\\\\n\\\\n   --username  (string)\\\\n\\\\n      The Db2 user ID (may be the same as the TSO login)\\\\n\\\\n   --password  (string)\\\\n\\\\n      The Db2 password (may be the same as the TSO password)\\\\n\\\\n   --database  (string)\\\\n\\\\n      The name of the database\\\\n\\\\n   --sslFile  (string)\\\\n\\\\n      Path to an SSL Certificate file\\\\n\\\\n PROFILE OPTIONS\\\\n ---------------\\\\n\\\\n   --db2-profile  | --db2-p (string)\\\\n\\\\n      The name of a (db2) profile to load for this command execution.\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n ABOUT EXPERIMENTAL COMMANDS\\\\n ---------------------------\\\\n\\\\n   Experimental commands are commands that are not ready for general availability.\\\\n   If you decide to use these commands, you might encounter bugs, incompatibilities\\\\n   with your system, or incomplete help text.\\\\n\\\\n\\\\n EXAMPLES\\\\n --------\\\\n\\\\n   - Execute a dummy SQL query:\\\\n\\\\n      $ zowe db2 execute sql --query\\\\\\"SELECT 'Hello World' FROM SYSIBM.SYSDUMMY1\\\\\\"\\\\n\\\\n   - Retrieve the employees table and total number of rows:\\\\n\\\\n      $ zowe db2 execute sql -q \\\\\\"SELECT * FROM SAMPLE.EMP; SELECT COUNT(*) AS TOTAL FROM SAMPLE.EMP\\\\\\"\\\\n\\\\n   - Execute a file with SQL statements:\\\\n\\\\n      $ zowe db2 execute sql --file backup_sample_database.sql\\\\n\\\\n\\"
 }"
 `;
 
 exports[`db2 execute sql command should fail when file doesn't exist 1`] = `
 "Command Error:
-Error: ENOENT: no such file or directory, open 'not-existing-file.sql'
+Error: ENOENT: no such file or directory, open 'C:\\\\Users\\\\punje01\\\\Documents\\\\Work Files\\\\GitCommunity\\\\zowe-cli-db2-plugin\\\\__tests__\\\\__results__\\\\data\\\\de44c9c6-5c22-4a46-af7b-bcd3921c8667_execute_sql_command\\\\not-existing-file.sql'
 "
 `;
 

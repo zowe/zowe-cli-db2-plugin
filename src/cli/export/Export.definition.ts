@@ -11,6 +11,7 @@
 
 import { ICommandDefinition } from "@brightside/imperative";
 import { TableDefinition } from "./table/Table.definition";
+import { DB2Session } from "../DB2Sessions";
 
 export const Export: ICommandDefinition = {
     name: "export",
@@ -21,6 +22,16 @@ export const Export: ICommandDefinition = {
     children: [
         TableDefinition,
     ],
+    passOn: [
+        {
+            property: "options",
+            value: DB2Session.DB2_CONNECTION_OPTIONS,
+            merge: true,
+            ignoreNodes: [
+                {type: "group"}
+            ]
+        }
+    ]
 };
 
 module.exports = Export;
