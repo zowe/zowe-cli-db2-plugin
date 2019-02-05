@@ -40,6 +40,7 @@ exports[`db2 call stored procedure command should display the help 1`] = `
       The Db2 server host name
 
    --port  (number)
+
       The Db2 server port number
 
    --username  (string)
