@@ -13,7 +13,6 @@ import { ICommandHandler, IHandlerParameters, ImperativeError, AbstractSession, 
 import { ExportTableSQL, IDB2Session } from "../../../";
 import * as fs from "fs";
 import { DB2BaseHandler } from "../../DB2BaseHandler";
-
 /**
  * Command handler for exporting a DB2 table
  * @export
@@ -21,16 +20,27 @@ import { DB2BaseHandler } from "../../DB2BaseHandler";
  * @implements {ICommandHandler}
  */
 export default class TableHandler extends DB2BaseHandler {
-    public async processWithDB2Session(params: IHandlerParameters, session: AbstractSession, profile: IProfile): Promise<void>   {
-        const DB2session =
-        {
-            hostname: session.ISession.hostname || profile.hostname,
-            port: session.ISession.port || profile.port,
-            username: session.ISession.user || profile.username,
-            password: session.ISession.password || profile.password,
-            database: session.ISession.database || profile.database,
-            sslFile: session.ISession.sslfile || profile.sslFile
-        };
+    public async processWithDB2Session(params: IHandlerParameters, session: AbstractSession, profile?: IProfile): Promise<void>  {
+        let DB2session: IDB2Session;
+        if (profile) {
+            DB2session = {
+                hostname: session.ISession.hostname || profile.hostname,
+                port: session.ISession.port || profile.port,
+                username: session.ISession.user || profile.user,
+                password: session.ISession.password || profile.password,
+                database: session.ISession.tokenType || profile.tokenType,
+                sslFile: session.ISession.tokenValue || profile.tokenValue,
+            };
+        } else {
+            DB2session = {
+                hostname: session.ISession.hostname,
+                port: session.ISession.port,
+                username: session.ISession.user,
+                password: session.ISession.password,
+                database: session.ISession.tokenType,
+                sslFile: session.ISession.tokenValue,
+            };
+        }
         let [database, table] = params.arguments.table.split(".");
         if (table === null) {
             table = database;

@@ -9,17 +9,20 @@
 *                                                                                 *
 */
 
-import { AbstractSession,
-        ICommandHandler,
-        IHandlerParameters,
-        IProfile,
-        IHandlerResponseConsoleApi,
-        ImperativeError,
-        IImperativeError,
-        ICommandArguments,
-        IHandlerFormatOutputApi,
-        IHandlerResponseDataApi,
-        IHandlerProgressApi } from "@brightside/imperative";
+import {
+    AbstractSession,
+    ICommandHandler,
+    IHandlerParameters,
+    IProfile,
+    IHandlerResponseConsoleApi,
+    ImperativeError,
+    IImperativeError,
+    ICommandArguments,
+    IHandlerFormatOutputApi,
+    IHandlerResponseDataApi,
+    IHandlerProgressApi,
+    Imperative
+} from "@brightside/imperative";
 import { DB2Session } from "./DB2Sessions";
 import { IDB2Session } from "../api/doc/IDB2Session";
 
@@ -28,21 +31,6 @@ import { IDB2Session } from "../api/doc/IDB2Session";
  * All handlers should extend this class whenever possible
  */
 export abstract class DB2BaseHandler implements ICommandHandler {
-
-    /**
-     * The session creating from the command line arguments / profile
-     */
-    protected mSession: AbstractSession;
-
-    /**
-     * Loaded z/OSMF profile if needed
-     */
-    protected mZosmfProfile: IProfile;
-
-    /**
-     * Command line arguments passed
-     */
-    protected mArguments: ICommandArguments;
 
     /**
      * Full set of command handler parameters from imperative
@@ -59,9 +47,9 @@ export abstract class DB2BaseHandler implements ICommandHandler {
      */
     public async process(commandParameters: IHandlerParameters) {
         this.mHandlerParams = commandParameters;
-        const profile = commandParameters.profiles.get("db2") as IDB2Session;
+        const profile = commandParameters.profiles.get("db2", false) as IDB2Session;
         const session = DB2Session.createDB2SessionFromCommandLine(commandParameters.arguments);
-        await this.processWithDB2Session(commandParameters, session, profile);
+        await this.processWithDB2Session(commandParameters, session, profile ? profile : null);
 
     }
 

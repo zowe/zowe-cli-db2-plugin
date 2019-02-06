@@ -13,17 +13,6 @@
 import { ICommandArguments, ICommandOptionDefinition, IProfile, Logger, Session, AbstractSession } from "@brightside/imperative";
 import { IDB2Session } from "../api/doc/IDB2Session";
 
-
-
-export declare class CLIDB2Session extends AbstractSession {
-    /**
-     * Creates an instance of Session.
-     * @param {ISession} newSession - contains input for new session
-     * @memberof Session
-     */
-    constructor(newSession: IDB2Session);
-}
-
 /**
  * Utility Methods for Brightside
  * @export
@@ -39,7 +28,6 @@ export class DB2Session {
         name: "hostname",
         description: "The Db2 server host name",
         type: "string",
-        required: true,
         group: DB2Session.DB2_CONNECTION_OPTION_GROUP
     };
 
@@ -50,7 +38,6 @@ export class DB2Session {
         name: "port",
         description: "The Db2 server port number",
         type: "number",
-        required: true,
         group: DB2Session.DB2_CONNECTION_OPTION_GROUP
     };
 
@@ -61,7 +48,6 @@ export class DB2Session {
         name: "username",
         description: "The Db2 user ID (may be the same as the TSO login)",
         type: "string",
-        required: true,
         group: DB2Session.DB2_CONNECTION_OPTION_GROUP
     };
 
@@ -72,7 +58,6 @@ export class DB2Session {
         name: "password",
         description: "The Db2 password (may be the same as the TSO password)",
         type: "string",
-        required: true,
         group: DB2Session.DB2_CONNECTION_OPTION_GROUP,
     };
 
@@ -83,7 +68,6 @@ export class DB2Session {
         name: "database",
         description: "The name of the database",
         type: "string",
-        required: true,
         group: DB2Session.DB2_CONNECTION_OPTION_GROUP
     };
 
@@ -116,15 +100,15 @@ export class DB2Session {
      * @param {IProfile} profile - The DB2 profile contents
      * @returns {Session} - A session for usage in the DB2 REST Client
      */
-    public static createBasicDB2Session(profile: IProfile): CLIDB2Session {
+    public static createBasicDB2Session(profile: IProfile): Session {
         this.log.debug("Creating a DB2 session from the profile named %s", profile.name);
-        return new CLIDB2Session({
+        return new Session({
             hostname: profile.hostname,
             port: profile.port,
-            username: profile.user,
+            user: profile.username,
             password: profile.password,
-            database: profile.database,
-            sslFile: profile.sslfile
+            tokenType: profile.database,
+            tokenValue: profile.sslfile
         });
     }
 
@@ -134,16 +118,16 @@ export class DB2Session {
      * @param {IProfile} args - The arguments specified by the user
      * @returns {Session} - A session for usage in the DB2 REST Client
      */
-    public static createDB2SessionFromCommandLine(args: ICommandArguments): CLIDB2Session {
+    public static createDB2SessionFromCommandLine(args: ICommandArguments): Session {
         this.log.debug("Creating a DB2 session from arguments");
 
-        return new CLIDB2Session ({
+        return new Session({
             hostname: args.hostname,
             port: args.port,
-            username: args.user,
+            user: args.username,
             password: args.password,
-            database: args.database,
-            sslFile: args.sslfile
+            tokenType: args.database,
+            tokenValue: args.sslfile
         });
 
     }

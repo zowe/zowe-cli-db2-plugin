@@ -36,23 +36,34 @@ export default class ProcedureHandler extends DB2BaseHandler {
                 const param: IDB2Parameter = {
                     ParamType: DB2_PARM_OUTPUT,
                     Data: value,
-                } ;
+                };
                 return param;
             });
             return parsed;
         }
     }
 
-    public async processWithDB2Session(params: IHandlerParameters, session: AbstractSession, profile: IProfile): Promise<void>   {
-        const DB2session =
-        {
-            hostname: session.ISession.hostname || profile.hostname,
-            port: session.ISession.port || profile.port,
-            username: session.ISession.user || profile.username,
-            password: session.ISession.password || profile.password,
-            database: session.ISession.database || profile.database,
-            sslFile: session.ISession.sslfile || profile.sslFile
-        };
+    public async processWithDB2Session(params: IHandlerParameters, session: AbstractSession, profile?: IProfile): Promise<void> {
+        let DB2session: IDB2Session;
+        if (profile) {
+            DB2session = {
+                hostname: session.ISession.hostname || profile.hostname,
+                port: session.ISession.port || profile.port,
+                username: session.ISession.user || profile.user,
+                password: session.ISession.password || profile.password,
+                database: session.ISession.tokenType || profile.tokenType,
+                sslFile: session.ISession.tokenValue || profile.tokenValue,
+            };
+        } else {
+            DB2session = {
+                hostname: session.ISession.hostname,
+                port: session.ISession.port,
+                username: session.ISession.user,
+                password: session.ISession.password,
+                database: session.ISession.tokenType,
+                sslFile: session.ISession.tokenValue,
+            };
+        }
         const routine: string = params.arguments.routine;
         const parameters: IDB2Parameter[] = ProcedureHandler.parseParameters(params.arguments.parameters);
 
