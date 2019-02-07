@@ -9,8 +9,7 @@
 *                                                                                 *
 */
 
-import { ICommandDefinition,  ICommandOptionDefinition  } from "@brightside/imperative";
-import { DB2Session } from "../../DB2Sessions";
+import { ICommandDefinition } from "@brightside/imperative";
 
 export const SQLDefinition: ICommandDefinition = {
     name: "sql",

@@ -21,26 +21,8 @@ import { DB2BaseHandler } from "../../DB2BaseHandler";
  */
 export default class TableHandler extends DB2BaseHandler {
     public async processWithDB2Session(params: IHandlerParameters, session: AbstractSession, profile?: IProfile): Promise<void>  {
-        let DB2session: IDB2Session;
-        if (profile) {
-            DB2session = {
-                hostname: session.ISession.hostname || profile.hostname,
-                port: session.ISession.port || profile.port,
-                username: session.ISession.user || profile.user,
-                password: session.ISession.password || profile.password,
-                database: session.ISession.tokenType || profile.tokenType,
-                sslFile: session.ISession.tokenValue || profile.tokenValue,
-            };
-        } else {
-            DB2session = {
-                hostname: session.ISession.hostname,
-                port: session.ISession.port,
-                username: session.ISession.user,
-                password: session.ISession.password,
-                database: session.ISession.tokenType,
-                sslFile: session.ISession.tokenValue,
-            };
-        }
+        const DB2session = session.ISession as IDB2Session;
+
         let [database, table] = params.arguments.table.split(".");
         if (table === null) {
             table = database;

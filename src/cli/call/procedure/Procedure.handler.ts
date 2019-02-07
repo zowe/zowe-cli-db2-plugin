@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-import { ICommandHandler, IHandlerParameters, TextUtils, AbstractSession, IProfile, IHandlerResponseConsoleApi } from "@brightside/imperative";
+import { ICommandHandler, IHandlerParameters, TextUtils, AbstractSession, IProfile } from "@brightside/imperative";
 import { CallSP, IDB2Session, IDB2Response, IDB2Parameter, DB2_PARM_OUTPUT } from "../../../";
 import { isNullOrUndefined } from "util";
 import { DB2BaseHandler } from "../../DB2BaseHandler";
@@ -44,26 +44,8 @@ export default class ProcedureHandler extends DB2BaseHandler {
     }
 
     public async processWithDB2Session(params: IHandlerParameters, session: AbstractSession, profile?: IProfile): Promise<void> {
-        let DB2session: IDB2Session;
-        if (profile) {
-            DB2session = {
-                hostname: session.ISession.hostname || profile.hostname,
-                port: session.ISession.port || profile.port,
-                username: session.ISession.user || profile.user,
-                password: session.ISession.password || profile.password,
-                database: session.ISession.tokenType || profile.tokenType,
-                sslFile: session.ISession.tokenValue || profile.tokenValue,
-            };
-        } else {
-            DB2session = {
-                hostname: session.ISession.hostname,
-                port: session.ISession.port,
-                username: session.ISession.user,
-                password: session.ISession.password,
-                database: session.ISession.tokenType,
-                sslFile: session.ISession.tokenValue,
-            };
-        }
+        const DB2session = session.ISession as IDB2Session;
+
         const routine: string = params.arguments.routine;
         const parameters: IDB2Parameter[] = ProcedureHandler.parseParameters(params.arguments.parameters);
 

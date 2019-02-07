@@ -22,7 +22,7 @@ import { DB2BaseHandler } from "../../DB2BaseHandler";
  */
 export default class SQLHandler extends DB2BaseHandler {
     public async processWithDB2Session(params: IHandlerParameters, session: AbstractSession, profile?: IProfile): Promise<void> {
-        const tempSession = session.ISession as IDB2Session;
+        const DB2session = session.ISession as IDB2Session;
 
         let query;
         if (params.arguments.file) {
@@ -36,7 +36,7 @@ export default class SQLHandler extends DB2BaseHandler {
             query = params.arguments.query;
         }
 
-        const executor = new ExecuteSQL(tempSession);
+        const executor = new ExecuteSQL(DB2session);
 
         const response = executor.execute(query);
         const responses: any[] = [];
