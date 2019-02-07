@@ -138,7 +138,7 @@ exports[`db2 execute sql command should display the help 1`] = `
 
 exports[`db2 execute sql command should fail when file doesn't exist 1`] = `
 "Command Error:
-Error: ENOENT: no such file or directory, open 'C:\\\\Users\\\\punje01\\\\Documents\\\\Work Files\\\\GitCommunity\\\\zowe-cli-db2-plugin\\\\__tests__\\\\__results__\\\\data\\\\de44c9c6-5c22-4a46-af7b-bcd3921c8667_execute_sql_command\\\\not-existing-file.sql'
+Error: ENOENT: no such file or directory, open 'not-existing-file.sql'
 "
 `;
 
