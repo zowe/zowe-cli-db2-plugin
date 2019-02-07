@@ -9,16 +9,22 @@
 *                                                                                 *
 */
 
-export * from "./Constants";
-export * from "./api/ConnectionString";
-export * from "./api/doc/IDB2Column";
-export * from "./api/doc/IDB2Parameter";
-export * from "./api/doc/IDB2Response";
-export * from "./rest/session/doc/IDB2Session";
-export * from "./rest/session/Session";
-export * from "./api/DB2Constants";
-export * from "./api/SessionValidator";
-export * from "./api/ExecuteSQL";
-export * from "./api/ExportTable";
-export * from "./api/ExportTableSQL";
-export * from "./api/CallSP";
+import { AbstractSession } from "@brightside/imperative";
+import { IDB2Session } from "../../index";
+/**
+ * Non-abstract session class
+ * @export
+ * @class Session
+ * @extends {AbstractSession}
+ */
+export class Session extends AbstractSession {
+
+    /**
+     * Creates an instance of Session.
+     * @param {IDB2Session} newSession - contains input for new session
+     * @memberof Session
+     */
+    constructor(newSession: IDB2Session) {
+        super(newSession);
+    }
+}

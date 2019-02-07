@@ -17,14 +17,11 @@ import {
     IHandlerResponseConsoleApi,
     ImperativeError,
     IImperativeError,
-    ICommandArguments,
     IHandlerFormatOutputApi,
     IHandlerResponseDataApi,
-    IHandlerProgressApi,
-    Imperative
 } from "@brightside/imperative";
 import { DB2Session } from "./DB2Sessions";
-import { IDB2Session } from "../api/doc/IDB2Session";
+import { IDB2Session } from "../index";
 
 /**
  * This class is used by the various DB2 handlers as the base class for their implementation.
@@ -48,9 +45,8 @@ export abstract class DB2BaseHandler implements ICommandHandler {
     public async process(commandParameters: IHandlerParameters) {
         this.mHandlerParams = commandParameters;
         const profile = commandParameters.profiles.get("db2", false) as IDB2Session;
-        const session = DB2Session.createDB2SessionFromCommandLine(commandParameters.arguments);
-        await this.processWithDB2Session(commandParameters, session, profile ? profile : null);
-
+        const session = DB2Session.createDB2Session(commandParameters.arguments, profile);
+        await this.processWithDB2Session(commandParameters, session);
     }
 
     /**
@@ -86,14 +82,6 @@ export abstract class DB2BaseHandler implements ICommandHandler {
     }
 
     /**
-     * Returns the format interface for the command handler
-     * @returns {IHandlerProgressApi}
-     */
-    public get progress(): IHandlerProgressApi {
-        return this.mHandlerParams.response.progress;
-    }
-
-    /**
      * This is called by the {@link DB2BaseHandler#process} after it creates a session. Should
      * be used so that every class does not have to instantiate the session object.
      *
@@ -105,8 +93,7 @@ export abstract class DB2BaseHandler implements ICommandHandler {
      */
     public abstract async processWithDB2Session(
         commandParameters: IHandlerParameters,
-        session: AbstractSession,
-        DB2Profile: IProfile
+        session: AbstractSession
     ): Promise<void>;
 
 

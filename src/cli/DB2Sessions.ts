@@ -10,8 +10,9 @@
 */
 
 
-import { ICommandArguments, ICommandOptionDefinition, IProfile, Logger, Session, AbstractSession } from "@brightside/imperative";
-import { IDB2Session } from "../api/doc/IDB2Session";
+import { ICommandArguments, ICommandOptionDefinition, IProfile, Logger } from "@brightside/imperative";
+import { Session } from "../index";
+import { isNullOrUndefined } from "util";
 
 /**
  * Utility Methods for Brightside
@@ -95,41 +96,23 @@ export class DB2Session {
     ];
 
     /**
-     * Given a DB2 profile, create a REST Client Session.
+     * Create a REST Client Session from given command line arguments or profile.
      * @static
+     * @param {IProfile} args - The arguments specified by the user
      * @param {IProfile} profile - The DB2 profile contents
      * @returns {Session} - A session for usage in the DB2 REST Client
      */
-    public static createBasicDB2Session(profile: IProfile): Session {
-        this.log.debug("Creating a DB2 session from the profile named %s", profile.name);
-        return new Session({
-            hostname: profile.hostname,
-            port: profile.port,
-            user: profile.username,
-            password: profile.password,
-            tokenType: profile.database,
-            tokenValue: profile.sslfile
-        });
-    }
-
-    /**
-     * Given command line arguments, create a REST Client Session.
-     * @static
-     * @param {IProfile} args - The arguments specified by the user
-     * @returns {Session} - A session for usage in the DB2 REST Client
-     */
-    public static createDB2SessionFromCommandLine(args: ICommandArguments): Session {
-        this.log.debug("Creating a DB2 session from arguments");
-
-        return new Session({
-            hostname: args.hostname,
-            port: args.port,
-            user: args.username,
-            password: args.password,
-            tokenType: args.database,
-            tokenValue: args.sslfile
-        });
-
+    public static createDB2Session(args: ICommandArguments, profile?: IProfile): Session {
+        this.log.info("Creating a DB2 session from cmd arguments or profile");
+        const DB2session = {
+            hostname: args.hostname || (isNullOrUndefined(profile) ? undefined : profile.hostname),
+            port: args.port || (isNullOrUndefined(profile) ? undefined : profile.port),
+            username: args.username || (isNullOrUndefined(profile) ? undefined : profile.username),
+            password: args.password || (isNullOrUndefined(profile) ? undefined : profile.password),
+            database: args.database || (isNullOrUndefined(profile) ? undefined : profile.database),
+            sslFile: args.sslFile || (isNullOrUndefined(profile) ? undefined : profile.sslFile),
+        };
+        return new Session(DB2session);
     }
 
     private static get log(): Logger {
