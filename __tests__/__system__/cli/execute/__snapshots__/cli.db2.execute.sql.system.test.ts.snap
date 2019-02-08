@@ -32,15 +32,6 @@ exports[`db2 execute sql command should be able to execute SQL statements using 
 "
 `;
 
-exports[`db2 execute sql command should be able to execute SQL statements without profile file 1`] = `
-"Result #1
-- 
-  TOTAL: 1
-
-
-"
-`;
-
 exports[`db2 execute sql command should complete the command successfully and return a valid JSON response 1`] = `
 "{
   \\"success\\": true,
