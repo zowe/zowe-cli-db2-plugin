@@ -16,36 +16,56 @@ Object {
       "property": "options",
       "value": Array [
         Object {
+          "aliases": Array [
+            "H",
+          ],
           "description": "The Db2 server host name",
           "group": "DB2 Connection Options",
           "name": "hostname",
           "type": "string",
         },
         Object {
+          "aliases": Array [
+            "P",
+          ],
           "description": "The Db2 server port number",
           "group": "DB2 Connection Options",
           "name": "port",
           "type": "number",
         },
         Object {
+          "aliases": Array [
+            "user",
+            "u",
+          ],
           "description": "The Db2 user ID (may be the same as the TSO login)",
           "group": "DB2 Connection Options",
           "name": "username",
           "type": "string",
         },
         Object {
+          "aliases": Array [
+            "pass",
+            "pw",
+          ],
           "description": "The Db2 password (may be the same as the TSO password)",
           "group": "DB2 Connection Options",
           "name": "password",
           "type": "string",
         },
         Object {
+          "aliases": Array [
+            "db",
+          ],
           "description": "The name of the database",
           "group": "DB2 Connection Options",
           "name": "database",
           "type": "string",
         },
         Object {
+          "aliases": Array [
+            "ssl",
+          ],
           "description": "Path to an SSL Certificate file",
           "group": "DB2 Connection Options",
           "name": "sslFile",

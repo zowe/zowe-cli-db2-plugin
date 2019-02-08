@@ -27,6 +27,7 @@ export class DB2Session {
      */
     public static DB2_OPTION_HOST: ICommandOptionDefinition = {
         name: "hostname",
+        aliases: ["H"],
         description: "The Db2 server host name",
         type: "string",
         group: DB2Session.DB2_CONNECTION_OPTION_GROUP
@@ -37,6 +38,7 @@ export class DB2Session {
      */
     public static DB2_OPTION_PORT: ICommandOptionDefinition = {
         name: "port",
+        aliases: ["P"],
         description: "The Db2 server port number",
         type: "number",
         group: DB2Session.DB2_CONNECTION_OPTION_GROUP
@@ -47,6 +49,7 @@ export class DB2Session {
      */
     public static DB2_OPTION_USER: ICommandOptionDefinition = {
         name: "username",
+        aliases: ["user", "u"],
         description: "The Db2 user ID (may be the same as the TSO login)",
         type: "string",
         group: DB2Session.DB2_CONNECTION_OPTION_GROUP
@@ -57,6 +60,7 @@ export class DB2Session {
      */
     public static DB2_OPTION_PASS: ICommandOptionDefinition = {
         name: "password",
+        aliases: ["pass", "pw"],
         description: "The Db2 password (may be the same as the TSO password)",
         type: "string",
         group: DB2Session.DB2_CONNECTION_OPTION_GROUP,
@@ -67,6 +71,7 @@ export class DB2Session {
      */
     public static DB2_OPTION_DATABASE: ICommandOptionDefinition = {
         name: "database",
+        aliases: ["db"],
         description: "The name of the database",
         type: "string",
         group: DB2Session.DB2_CONNECTION_OPTION_GROUP
@@ -77,6 +82,7 @@ export class DB2Session {
      */
     public static DB2_OPTION_SSL_FILE: ICommandOptionDefinition = {
         name: "sslFile",
+        aliases: ["ssl"],
         description: "Path to an SSL Certificate file",
         type: "string",
         group: DB2Session.DB2_CONNECTION_OPTION_GROUP
