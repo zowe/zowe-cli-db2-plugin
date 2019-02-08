@@ -14,6 +14,33 @@ Result #2
 "
 `;
 
+exports[`db2 execute sql command should be able to execute SQL statements overriding some of the options by arguments 1`] = `
+"Result #1
+- 
+  TOTAL: 1
+
+
+"
+`;
+
+exports[`db2 execute sql command should be able to execute SQL statements using passed options not profile 1`] = `
+"Result #1
+- 
+  TOTAL: 1
+
+
+"
+`;
+
+exports[`db2 execute sql command should be able to execute SQL statements without profile file 1`] = `
+"Result #1
+- 
+  TOTAL: 1
+
+
+"
+`;
+
 exports[`db2 execute sql command should complete the command successfully and return a valid JSON response 1`] = `
 "{
   \\"success\\": true,

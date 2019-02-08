@@ -15,7 +15,11 @@ import { runCliScript } from "../../../__src__/TestUtils";
 import { ICommandResponse } from "@brightside/imperative";
 
 let TEST_ENV: ITestEnvironment;
-
+let hostname: string;
+let port: number;
+let username: string;
+let password: string;
+let database: string;
 describe("db2 execute sql command", () => {
 
     // Create the unique test environment
@@ -25,6 +29,12 @@ describe("db2 execute sql command", () => {
             tempProfileTypes: ["db2"],
             testName: "execute_sql_command",
         });
+
+        hostname = TEST_ENV.systemTestProperties.db2.hostname;
+        port = TEST_ENV.systemTestProperties.db2.port;
+        username= TEST_ENV.systemTestProperties.db2.username;
+        password = TEST_ENV.systemTestProperties.db2.password;
+        database = TEST_ENV.systemTestProperties.db2.database;
     });
 
     afterAll(async () => {
@@ -68,6 +78,23 @@ describe("db2 execute sql command", () => {
 
     it("should be able to execute SQL statements from file", () => {
         const response = runCliScript(__dirname + "/__scripts__/success_file.sh", TEST_ENV);
+        expect(response.stderr.toString()).toBe("");
+        expect(response.stdout.toString()).toMatchSnapshot();
+        expect(response.status).toBe(0);
+    });
+
+    it("should be able to execute SQL statements using passed options not profile", () => {
+        TEST_ENV.tempProfiles = null;
+        const response = runCliScript(__dirname + "/__scripts__/success_no_profile.sh",
+            TEST_ENV, [hostname, port, username, password, database]);
+        expect(response.stderr.toString()).toBe("");
+        expect(response.stdout.toString()).toMatchSnapshot();
+        expect(response.status).toBe(0);
+    });
+
+    it("should be able to execute SQL statements overriding some of the options by arguments", () => {
+        const response = runCliScript(__dirname + "/__scripts__/success_override_profile.sh",
+            TEST_ENV, [hostname, port, database]);
         expect(response.stderr.toString()).toBe("");
         expect(response.stdout.toString()).toMatchSnapshot();
         expect(response.status).toBe(0);
