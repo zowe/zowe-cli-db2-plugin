@@ -10,9 +10,8 @@
 */
 
 import { AbstractSession, ICommandHandler, IHandlerParameters, IProfile, ImperativeError, TextUtils } from "@brightside/imperative";
-import { ExecuteSQL, IDB2Session } from "../../../";
+import { ExecuteSQL, IDB2Session, DB2BaseHandler } from "../../../index";
 import * as fs from "fs";
-import { DB2BaseHandler } from "../../DB2BaseHandler";
 
 /**
  * Command handler for executing of SQL queries

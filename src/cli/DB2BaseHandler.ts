@@ -15,13 +15,10 @@ import {
     IHandlerParameters,
     IProfile,
     IHandlerResponseConsoleApi,
-    ImperativeError,
-    IImperativeError,
     IHandlerFormatOutputApi,
     IHandlerResponseDataApi,
 } from "@brightside/imperative";
-import { DB2Session } from "./DB2Sessions";
-import { IDB2Session } from "../index";
+import { IDB2Session, DB2Session } from "../index";
 
 /**
  * This class is used by the various DB2 handlers as the base class for their implementation.
@@ -47,38 +44,6 @@ export abstract class DB2BaseHandler implements ICommandHandler {
         const profile = commandParameters.profiles.get("db2", false) as IDB2Session;
         const session = DB2Session.createDB2Session(commandParameters.arguments, profile);
         await this.processWithDB2Session(commandParameters, session);
-    }
-
-    /**
-     * Fail the command with an imperative error
-     * @param {IImperativeError} err - the imperative error parameters
-     */
-    public fail(err: IImperativeError) {
-        throw new ImperativeError(err);
-    }
-
-    /**
-     * Returns the console interface for the command handler
-     * @returns {IHandlerResponseConsoleApi}
-     */
-    public get console(): IHandlerResponseConsoleApi {
-        return this.mHandlerParams.response.console;
-    }
-
-    /**
-     * Returns the format interface for the command handler
-     * @returns {IHandlerFormatOutputApi}
-     */
-    public get format(): IHandlerFormatOutputApi {
-        return this.mHandlerParams.response.format;
-    }
-
-    /**
-     * Returns the format interface for the command handler
-     * @returns {IHandlerResponseDataApi}
-     */
-    public get data(): IHandlerResponseDataApi {
-        return this.mHandlerParams.response.data;
     }
 
     /**

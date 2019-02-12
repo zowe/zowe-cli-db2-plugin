@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-import { ICommandDefinition, ICommandOptionDefinition } from "@brightside/imperative";
+import { ICommandDefinition } from "@brightside/imperative";
 
 export const ProcedureDefinition: ICommandDefinition = {
     name: "procedure",

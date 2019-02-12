@@ -11,7 +11,7 @@
 
 import { ICommandDefinition } from "@brightside/imperative";
 import { SQLDefinition } from "./sql/SQL.definition";
-import { DB2Session } from "../DB2Sessions";
+import { DB2Session } from "../../index";
 
 export const Execute: ICommandDefinition = {
     name: "execute",

@@ -15,6 +15,8 @@ export * from "./api/doc/IDB2Column";
 export * from "./api/doc/IDB2Parameter";
 export * from "./api/doc/IDB2Response";
 export * from "./rest/session/doc/IDB2Session";
+export * from "./cli/DB2Session";
+export * from "./cli/DB2BaseHandler";
 export * from "./rest/session/Session";
 export * from "./api/DB2Constants";
 export * from "./api/SessionValidator";

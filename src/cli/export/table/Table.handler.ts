@@ -10,9 +10,9 @@
 */
 
 import { ICommandHandler, IHandlerParameters, ImperativeError, AbstractSession, IProfile } from "@brightside/imperative";
-import { ExportTableSQL, IDB2Session } from "../../../";
+import { ExportTableSQL, IDB2Session, DB2BaseHandler } from "../../../index";
 import * as fs from "fs";
-import { DB2BaseHandler } from "../../DB2BaseHandler";
+
 /**
  * Command handler for exporting a DB2 table
  * @export

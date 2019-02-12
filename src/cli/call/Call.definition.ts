@@ -11,7 +11,7 @@
 
 import { ICommandDefinition } from "@brightside/imperative";
 import { ProcedureDefinition } from "./procedure/Procedure.definition";
-import { DB2Session } from "../DB2Sessions";
+import { DB2Session } from "../../index";
 
 export const Call: ICommandDefinition = {
     name: "call",

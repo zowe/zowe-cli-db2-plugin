@@ -10,9 +10,8 @@
 */
 
 import { ICommandHandler, IHandlerParameters, TextUtils, AbstractSession, IProfile } from "@brightside/imperative";
-import { CallSP, IDB2Session, IDB2Response, IDB2Parameter, DB2_PARM_OUTPUT } from "../../../";
+import { CallSP, IDB2Session, IDB2Response, IDB2Parameter, DB2_PARM_OUTPUT, DB2BaseHandler } from "../../../index";
 import { isNullOrUndefined } from "util";
-import { DB2BaseHandler } from "../../DB2BaseHandler";
 
 /**
  * Command handler for calling a DB2 stored procedure

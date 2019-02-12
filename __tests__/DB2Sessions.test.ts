@@ -10,7 +10,7 @@
 */
 
 import { ICommandArguments, IProfile } from "@brightside/imperative";
-import { DB2Session } from "../src/cli/DB2Sessions";
+import { DB2Session } from "../src/cli/DB2Session";
 import { SESSION } from "./__src__/Db2TestConstants";
 import { IDB2Session } from "../src/rest/session/doc/IDB2Session";
 const port = 1111111;
@@ -37,7 +37,7 @@ describe("createDB2Session()", () => {
         expect(session.username).toEqual(SESSION.username);
         expect(session.database).toEqual(SESSION.database);
     });
-    it("should create a session and overrid profile with cmd arguments", () => {
+    it("should create a session and override profile with cmd arguments", () => {
         args = {$0: "", _: [], ...SESSION};
         profile = {...profile, hostname: "some-test-host", port: 1111111};
         let session = DB2Session.createDB2Session(args, profile);
