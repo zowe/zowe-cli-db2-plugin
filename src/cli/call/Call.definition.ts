@@ -16,7 +16,6 @@ import { DB2Session } from "../../index";
 export const Call: ICommandDefinition = {
     name: "call",
     type: "group",
-    experimental: true,
     summary: "Call a stored procedure",
     description: "Call a Db2 stored procedure",
     children: [

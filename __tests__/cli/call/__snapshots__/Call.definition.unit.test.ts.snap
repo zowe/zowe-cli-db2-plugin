@@ -3,7 +3,6 @@
 exports[`db2 call group definition should not have changed 1`] = `
 Object {
   "description": "Call a Db2 stored procedure",
-  "experimental": true,
   "name": "call",
   "passOn": Array [
     Object {

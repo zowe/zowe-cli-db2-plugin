@@ -16,7 +16,6 @@ import { DB2Session } from "../../index";
 export const Execute: ICommandDefinition = {
     name: "execute",
     type: "group",
-    experimental: true,
     summary: "Execute a SQL query",
     description: "Execute SQL queries against a Db2 region and retrieve the response. " +
         "Enclose the query in quotes and escape any symbols that have a special meaning to the shell.",

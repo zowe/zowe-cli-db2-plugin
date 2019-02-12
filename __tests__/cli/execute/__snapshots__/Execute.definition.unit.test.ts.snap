@@ -3,7 +3,6 @@
 exports[`db2 execute group definition should not have changed 1`] = `
 Object {
   "description": "Execute SQL queries against a Db2 region and retrieve the response. Enclose the query in quotes and escape any symbols that have a special meaning to the shell.",
-  "experimental": true,
   "name": "execute",
   "passOn": Array [
     Object {

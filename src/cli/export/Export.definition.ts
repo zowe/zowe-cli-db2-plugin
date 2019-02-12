@@ -16,7 +16,6 @@ import { DB2Session } from "../../index";
 export const Export: ICommandDefinition = {
     name: "export",
     type: "group",
-    experimental: true,
     summary: "Export a table",
     description: "Export data from a Db2 table",
     children: [
