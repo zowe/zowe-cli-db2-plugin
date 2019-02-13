@@ -13,12 +13,11 @@ import {
     AbstractSession,
     ICommandHandler,
     IHandlerParameters,
-    IProfile,
     IHandlerResponseConsoleApi,
     IHandlerFormatOutputApi,
     IHandlerResponseDataApi,
 } from "@brightside/imperative";
-import { IDB2Session, DB2Session } from "../index";
+import { DB2Session } from "../index";
 
 /**
  * This class is used by the various DB2 handlers as the base class for their implementation.
@@ -32,8 +31,7 @@ export abstract class DB2BaseHandler implements ICommandHandler {
     protected mHandlerParams: IHandlerParameters;
 
     /**
-     * This will grab the DB2 profile and create a session before calling the subclass
-     * {@link DB2BaseHandler#processWithSession} method.
+     * This will create a session before calling the subclass
      *
      * @param {IHandlerParameters} commandParameters Command parameters sent by imperative.
      *
@@ -41,8 +39,7 @@ export abstract class DB2BaseHandler implements ICommandHandler {
      */
     public async process(commandParameters: IHandlerParameters) {
         this.mHandlerParams = commandParameters;
-        const profile = commandParameters.profiles.get("db2", false) as IDB2Session;
-        const session = DB2Session.createDB2Session(commandParameters.arguments, profile);
+        const session = DB2Session.createDB2Session(commandParameters.arguments);
         await this.processWithDB2Session(commandParameters, session);
     }
 
@@ -52,7 +49,6 @@ export abstract class DB2BaseHandler implements ICommandHandler {
      *
      * @param {IHandlerParameters} commandParameters Command parameters sent to the handler.
      * @param {AbstractSession} session The session object generated from the Command Line.
-     * @param {IProfile} DB2Profile The DB2 profile that was loaded from the DB2 Profile.
      *
      * @returns {Promise<void>} The response from the underlying DB2 api call.
      */

@@ -18,7 +18,7 @@ describe("createDB2Session()", () => {
     let args: ICommandArguments = {$0: "", _: [], ...SESSION};
     let profile: IProfile = { ...SESSION };
     it("should create a session from cmd arguments if profile is undefined", () => {
-        let session = DB2Session.createDB2Session(args, profile);
+        let session = DB2Session.createDB2Session(args);
         session = session.ISession as IDB2Session;
 
         expect(session.hostname).toEqual(SESSION.hostname);
@@ -27,9 +27,9 @@ describe("createDB2Session()", () => {
         expect(session.database).toEqual(SESSION.database);
     });
 
-    it("should create a session from profile if cmd arguments are undefined", () => {
-        args = {$0: "", _: []};
-        let session = DB2Session.createDB2Session(args, profile);
+    it("should create a session from profile even if cmd arguments are undefined", () => {
+        args = {$0: "", _: [], ...profile};
+        let session = DB2Session.createDB2Session(args);
         session = session.ISession as IDB2Session;
 
         expect(session.hostname).toEqual(SESSION.hostname);
@@ -40,7 +40,7 @@ describe("createDB2Session()", () => {
     it("should create a session and override profile with cmd arguments", () => {
         args = {$0: "", _: [], ...SESSION};
         profile = {...profile, hostname: "some-test-host", port: 1111111};
-        let session = DB2Session.createDB2Session(args, profile);
+        let session = DB2Session.createDB2Session(args);
         session = session.ISession as IDB2Session;
 
         expect(session.hostname).not.toEqual("some-test-host");
