@@ -91,16 +91,6 @@ describe("db2 export table command", () => {
         expect(new RegExp(regex, "gs").test(outFile)).toBe(true);
     });
 
-    it("should export the system roles table to the standard out without profile just using cmd options", () => {
-        TEST_ENV.tempProfiles = null;
-        const regex: RegExp = new RegExp(fs.readFileSync(__dirname + "/__regex__/export_table.regex").toString(), "gs");
-        const response = runCliScript(__dirname + "/__scripts__/success_no_profile.sh", TEST_ENV,
-            [hostname, port, username, password, database]);
-        expect(response.stderr.toString()).toBe("");
-        expect(response.status).toBe(0);
-        expect(new RegExp(regex, "gs").test(response.stdout.toString())).toBe(true);
-    });
-
     it("should export the system roles table to the standard out overriding some profile options by cmd arguments", () => {
         const regex: RegExp = new RegExp(fs.readFileSync(__dirname + "/__regex__/export_table.regex").toString(), "gs");
         const response = runCliScript(__dirname + "/__scripts__/success_override_profile.sh", TEST_ENV,
@@ -110,4 +100,35 @@ describe("db2 export table command", () => {
         expect(new RegExp(regex, "gs").test(response.stdout.toString())).toBe(true);
     });
 
+});
+
+describe("db2 export table command without profile", () => {
+
+    // Create the unique test environment
+    beforeAll(async () => {
+        TEST_ENV = await TestEnvironment.setUp({
+            installPlugin: true,
+            testName: "export_table_command",
+        });
+
+        hostname = TEST_ENV.systemTestProperties.db2.hostname;
+        port = TEST_ENV.systemTestProperties.db2.port;
+        username = TEST_ENV.systemTestProperties.db2.username;
+        password = TEST_ENV.systemTestProperties.db2.password;
+        database = TEST_ENV.systemTestProperties.db2.database;
+    });
+
+    afterAll(async () => {
+        await TestEnvironment.cleanUp(TEST_ENV);
+    });
+
+
+    it("should export the system roles table to the standard out without profile just using cmd options", () => {
+        const regex: RegExp = new RegExp(fs.readFileSync(__dirname + "/__regex__/export_table.regex").toString(), "gs");
+        const response = runCliScript(__dirname + "/__scripts__/success_no_profile.sh", TEST_ENV,
+            [hostname, port, username, password, database]);
+        expect(response.stderr.toString()).toBe("");
+        expect(response.status).toBe(0);
+        expect(new RegExp(regex, "gs").test(response.stdout.toString())).toBe(true);
+    });
 });

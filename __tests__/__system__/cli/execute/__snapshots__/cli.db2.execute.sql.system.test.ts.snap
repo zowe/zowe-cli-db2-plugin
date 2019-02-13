@@ -23,15 +23,6 @@ exports[`db2 execute sql command should be able to execute SQL statements overri
 "
 `;
 
-exports[`db2 execute sql command should be able to execute SQL statements using passed options not profile 1`] = `
-"Result #1
-- 
-  TOTAL: 1
-
-
-"
-`;
-
 exports[`db2 execute sql command should complete the command successfully and return a valid JSON response 1`] = `
 "{
   \\"success\\": true,
@@ -190,3 +181,12 @@ Use \\"zowe db2 execute sql --help\\" to view command description, usage, and op
 `;
 
 exports[`db2 execute sql command should not accept mutually exclusive options 2`] = `""`;
+
+exports[`should execute sql commands without profile should be able to execute SQL statements using passed options not profile 1`] = `
+"Result #1
+- 
+  TOTAL: 1
+
+
+"
+`;
