@@ -20,7 +20,7 @@ export const ProcedureDefinition: ICommandDefinition = {
         "Specify the stored procedure name and optionally provide values.",
     handler: __dirname + "/Procedure.handler",
     profile: {
-        required: ["db2"],
+        optional: ["db2"],
     },
     positionals: [
         {

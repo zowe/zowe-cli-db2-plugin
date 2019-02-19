@@ -19,7 +19,7 @@ export const SQLDefinition: ICommandDefinition = {
     "from a command line or from a file.",
     handler: __dirname + "/SQL.handler",
     profile: {
-        required: ["db2"],
+        optional: ["db2"]
     },
     options: [
         {
@@ -34,8 +34,8 @@ export const SQLDefinition: ICommandDefinition = {
             aliases: ["f"],
             type: "string",
             description: "A local file containing the SQL statements to execute",
-            conflictsWith: ["query"],
-        },
+            conflictsWith: ["query"]
+        }
     ],
     examples: [
         {
@@ -48,8 +48,8 @@ export const SQLDefinition: ICommandDefinition = {
         },
         {
             description: "Execute a file with SQL statements",
-            options: "--file backup_sample_database.sql",
-        },
+            options: "--file backup_sample_database.sql"
+        }
     ],
     mustSpecifyOne: ["query", "file"],
 };

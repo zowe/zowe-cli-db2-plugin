@@ -9,8 +9,8 @@
 *                                                                                 *
 */
 
-import { ICommandHandler, IHandlerParameters, TextUtils } from "@brightside/imperative";
-import { CallSP, IDB2Session, IDB2Response, IDB2Parameter, DB2_PARM_OUTPUT } from "../../../";
+import { ICommandHandler, IHandlerParameters, TextUtils, AbstractSession, IProfile } from "@brightside/imperative";
+import { CallSP, IDB2Session, IDB2Response, IDB2Parameter, DB2_PARM_OUTPUT, DB2BaseHandler } from "../../../index";
 import { isNullOrUndefined } from "util";
 
 /**
@@ -19,7 +19,7 @@ import { isNullOrUndefined } from "util";
  * @class ProcedureHandler
  * @implements {ICommandHandler}
  */
-export default class ProcedureHandler implements ICommandHandler {
+export default class ProcedureHandler extends DB2BaseHandler {
 
     /**
      * Parse the passed values and create an array of OUTPUT parameters
@@ -35,24 +35,26 @@ export default class ProcedureHandler implements ICommandHandler {
                 const param: IDB2Parameter = {
                     ParamType: DB2_PARM_OUTPUT,
                     Data: value,
-                } ;
+                };
                 return param;
             });
             return parsed;
         }
     }
 
-    public async process(params: IHandlerParameters): Promise<void> {
-        const session: IDB2Session = params.profiles.get("db2") as IDB2Session;
+    public async processWithDB2Session(params: IHandlerParameters, session: AbstractSession, profile?: IProfile): Promise<void> {
+        const DB2session = session.ISession as IDB2Session;
+
         const routine: string = params.arguments.routine;
         const parameters: IDB2Parameter[] = ProcedureHandler.parseParameters(params.arguments.parameters);
 
-        const response: IDB2Response = CallSP.callCommon(session, routine, parameters);
+        const response: IDB2Response = CallSP.callCommon(DB2session, routine, parameters);
 
         // Print out the response
         params.response.console.log(TextUtils.prettyJson(response.results));
 
         // Return as an object when using --response-format-json
         params.response.data.setObj(response);
+
     }
 }
