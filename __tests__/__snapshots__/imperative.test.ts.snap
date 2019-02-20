@@ -24,7 +24,7 @@ Object {
             },
             "type": "string",
           },
-          "hostname": Object {
+          "host": Object {
             "optionDefinition": Object {
               "aliases": Array [
                 "H",
@@ -70,7 +70,7 @@ Object {
             },
             "type": "string",
           },
-          "username": Object {
+          "user": Object {
             "optionDefinition": Object {
               "aliases": Array [
                 "u",
