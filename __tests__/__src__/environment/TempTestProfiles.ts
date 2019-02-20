@@ -88,10 +88,10 @@ export class TempTestProfiles {
         const testProperties = testEnvironment.systemTestProperties.db2;
         const createProfileScript = TemporaryScripts.SHEBANG +
             `${TemporaryScripts.BRIGHT_BIN} profiles create db2 ${profileName} ` +
-            `--hostname ${testProperties.hostname} ` +
+            `--host ${testProperties.hostname} ` +
             `--port ${testProperties.port} ` +
             `--database ${testProperties.database} ` +
-            `--username ${testProperties.username} ` +
+            `--user ${testProperties.username} ` +
             `--password ${testProperties.password}`;
 
         const scriptPath = testEnvironment.workingDir + "_create_profile_" + profileName;

@@ -26,10 +26,10 @@ const config: IImperativeConfig = {
                 title: "Db2 Profile",
                 description: "A profile for interaction with Db2 for the z/OS region",
                 properties: {
-                    hostname: {
+                    host: {
                         type: "string",
                         optionDefinition: {
-                            name: "hostname",
+                            name: "host",
                             aliases: ["H"],
                             description: "The Db2 server host name",
                             type: "string",
@@ -44,11 +44,11 @@ const config: IImperativeConfig = {
                             type: "number",
                         },
                     },
-                    username: {
+                    user: {
                         type: "string",
                         secure: true,
                         optionDefinition: {
-                            name: "username",
+                            name: "user",
                             aliases: ["u"],
                             description: "The Db2 user ID (may be the same as the TSO login)",
                             type: "string",
@@ -59,7 +59,7 @@ const config: IImperativeConfig = {
                         secure: true,
                         optionDefinition: {
                             name: "password",
-                            aliases: ["p"],
+                            aliases: ["pass", "pw"],
                             description: "The Db2 password (may be the same as the TSO password)",
                             type: "string",
                         },
