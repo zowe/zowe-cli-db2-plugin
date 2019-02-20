@@ -30,7 +30,7 @@ export class SessionValidator {
         ImperativeExpect.toNotBeNullOrUndefined(params, noDB2Input.message);
         ImperativeExpect.toBeDefinedAndNonBlank(params.hostname, noHostName.message);
         ImperativeExpect.toNotBeNullOrUndefined(params.port, noPortNumber.message);
-        ImperativeExpect.toBeDefinedAndNonBlank(params.username, noUserName.message);
+        ImperativeExpect.toBeDefinedAndNonBlank(params.user, noUserName.message);
         ImperativeExpect.toBeDefinedAndNonBlank(params.password, noPassword.message);
         ImperativeExpect.toBeDefinedAndNonBlank(params.database, noDatabaseName.message);
     }

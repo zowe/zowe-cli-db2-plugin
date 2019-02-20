@@ -22,7 +22,7 @@ export interface ITestPropertiesSchema {
         /**
          * The Db2 server host name
          */
-        hostname: string,
+        host: string,
 
         /**
          * The Db2 server port number
@@ -32,7 +32,7 @@ export interface ITestPropertiesSchema {
         /**
          * The Db2 user ID
          */
-        username: string,
+        user: string,
 
         /**
          * The Db2 password

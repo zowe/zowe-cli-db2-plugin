@@ -10,7 +10,7 @@
 */
 
 
-import { ICommandArguments, ICommandOptionDefinition, IProfile, Logger } from "@brightside/imperative";
+import { ICommandArguments, ICommandOptionDefinition, Logger } from "@brightside/imperative";
 import { Session } from "../index";
 
 /**
@@ -111,7 +111,7 @@ export class DB2Session {
         const DB2session = {
             hostname: args.host,
             port: args.port,
-            username: args.user,
+            user: args.user,
             password: args.password,
             database: args.database,
             sslFile: args.sslFile,

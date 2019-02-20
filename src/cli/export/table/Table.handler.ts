@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-import { ICommandHandler, IHandlerParameters, ImperativeError, AbstractSession, IProfile } from "@brightside/imperative";
+import { ICommandHandler, IHandlerParameters, ImperativeError, AbstractSession } from "@brightside/imperative";
 import { ExportTableSQL, IDB2Session, DB2BaseHandler } from "../../../index";
 import * as fs from "fs";
 
@@ -20,7 +20,7 @@ import * as fs from "fs";
  * @implements {ICommandHandler}
  */
 export default class TableHandler extends DB2BaseHandler {
-    public async processWithDB2Session(params: IHandlerParameters, session: AbstractSession, profile?: IProfile): Promise<void>  {
+    public async processWithDB2Session(params: IHandlerParameters, session: AbstractSession): Promise<void>  {
         const DB2session = session.ISession as IDB2Session;
 
         let [database, table] = params.arguments.table.split(".");
