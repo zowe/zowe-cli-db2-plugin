@@ -42,7 +42,6 @@ describe("createDB2Session()", () => {
         profile = {...profile, hostname: "some-test-host", port: 1111111};
         let session = DB2Session.createDB2Session(args);
         session = session.ISession as IDB2Session;
-        console.log(session);
 
         expect(session.hostname).not.toEqual("some-test-host");
         expect(session.port).not.toEqual(port);

@@ -25,14 +25,17 @@ exports[`db2 execute sql command should be able to execute SQL statements overri
 
 exports[`db2 execute sql command should complete the command successfully and return a valid JSON response 1`] = `
 "{
-  \\"success\\": false,
-  \\"message\\": \\"Error: [IBM][CLI Driver] SQL30082N  Security processing failed with reason \\\\\\"15\\\\\\" (\\\\\\"PROCESSING FAILURE\\\\\\").  SQLSTATE=08001\\\\n\\",
-  \\"stdout\\": \\"\\",
-  \\"stderr\\": \\"Command Error:\\\\nError: [IBM][CLI Driver] SQL30082N  Security processing failed with reason \\\\\\"15\\\\\\" (\\\\\\"PROCESSING FAILURE\\\\\\").  SQLSTATE=08001\\\\n\\\\n\\",
-  \\"data\\": {},
-  \\"error\\": {
-    \\"msg\\": \\"Error: [IBM][CLI Driver] SQL30082N  Security processing failed with reason \\\\\\"15\\\\\\" (\\\\\\"PROCESSING FAILURE\\\\\\").  SQLSTATE=08001\\\\n\\"
-  }
+  \\"success\\": true,
+  \\"message\\": \\"\\",
+  \\"stdout\\": \\"Result #1\\\\n- \\\\n  TOTAL: 1\\\\n\\\\n\\\\n\\",
+  \\"stderr\\": \\"\\",
+  \\"data\\": [
+    [
+      {
+        \\"TOTAL\\": 1
+      }
+    ]
+  ]
 }"
 `;
 
