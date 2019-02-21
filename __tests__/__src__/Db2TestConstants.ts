@@ -24,7 +24,7 @@ export const SSL_FILE: string = "/etc/path/to/certificate.crt";
 export const SESSION: IDB2Session = {
     hostname: HOST_NAME,
     port: PORT,
-    username: USER_NAME,
+    user: USER_NAME,
     password: PASSWORD,
     database: DATABASE_NAME,
 };

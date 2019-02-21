@@ -15,8 +15,8 @@ import { SESSION } from "./__src__/Db2TestConstants";
 import { IDB2Session } from "../src/rest/session/doc/IDB2Session";
 const port = 1111111;
 describe("createDB2Session()", () => {
-    let args: ICommandArguments = {$0: "", _: [], ...SESSION};
-    let profile: IProfile = { ...SESSION };
+    let args: ICommandArguments = {$0: "", _: [], ...{host: SESSION.hostname, user: SESSION.username, ...SESSION}};
+    let profile: IProfile = {host: SESSION.hostname, user: SESSION.username, ...SESSION};
     it("should create a session from cmd arguments if profile is undefined", () => {
         let session = DB2Session.createDB2Session(args);
         session = session.ISession as IDB2Session;
@@ -38,7 +38,7 @@ describe("createDB2Session()", () => {
         expect(session.database).toEqual(SESSION.database);
     });
     it("should create a session and override profile with cmd arguments", () => {
-        args = {$0: "", _: [], ...SESSION};
+        args = {$0: "", _: [], ...{host: SESSION.hostname, user: SESSION.username, ...SESSION}};
         profile = {...profile, hostname: "some-test-host", port: 1111111};
         let session = DB2Session.createDB2Session(args);
         session = session.ISession as IDB2Session;

@@ -16,7 +16,7 @@ const SESSION_GOOD: IDB2Session = {
     database: C.DATABASE_NAME,
     hostname: C.HOST_NAME,
     port: C.PORT,
-    username: C.USER_NAME,
+    user: C.USER_NAME,
     password: C.PASSWORD,
 };
 
@@ -24,7 +24,7 @@ const SESSION_NO_HOST: IDB2Session = {
     database: C.DATABASE_NAME,
     hostname: undefined,
     port: C.PORT,
-    username: C.USER_NAME,
+    user: C.USER_NAME,
     password: C.PASSWORD,
 };
 
@@ -32,7 +32,7 @@ const SESSION_NO_PORT: IDB2Session = {
     database: C.DATABASE_NAME,
     hostname: C.HOST_NAME,
     port: null,
-    username: C.USER_NAME,
+    user: C.USER_NAME,
     password: C.PASSWORD,
 };
 
@@ -40,7 +40,7 @@ const SESSION_NO_DB: IDB2Session = {
     database: "",
     hostname: C.HOST_NAME,
     port: C.PORT,
-    username: C.USER_NAME,
+    user: C.USER_NAME,
     password: C.PASSWORD,
 };
 
@@ -48,7 +48,7 @@ const SESSION_NO_USER: IDB2Session = {
     database: C.DATABASE_NAME,
     hostname: C.HOST_NAME,
     port: C.PORT,
-    username: undefined,
+    user: undefined,
     password: C.PASSWORD,
 };
 
@@ -56,7 +56,7 @@ const SESSION_NO_PASS: IDB2Session = {
     database: C.DATABASE_NAME,
     hostname: C.HOST_NAME,
     port: C.PORT,
-    username: C.USER_NAME,
+    user: C.USER_NAME,
     password: undefined,
 };
 

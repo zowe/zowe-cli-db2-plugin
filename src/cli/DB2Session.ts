@@ -10,7 +10,7 @@
 */
 
 
-import { ICommandArguments, ICommandOptionDefinition, IProfile, Logger } from "@brightside/imperative";
+import { ICommandArguments, ICommandOptionDefinition, Logger } from "@brightside/imperative";
 import { Session } from "../index";
 
 /**
@@ -25,7 +25,7 @@ export class DB2Session {
      * Option used in profile creation and commands for hostname for DB2
      */
     public static DB2_OPTION_HOST: ICommandOptionDefinition = {
-        name: "hostname",
+        name: "host",
         aliases: ["H"],
         description: "The Db2 server host name",
         type: "string",
@@ -47,8 +47,8 @@ export class DB2Session {
      * Option used in profile creation and commands for username / ID  for DB2
      */
     public static DB2_OPTION_USER: ICommandOptionDefinition = {
-        name: "username",
-        aliases: ["user", "u"],
+        name: "user",
+        aliases: ["u"],
         description: "The Db2 user ID (may be the same as the TSO login)",
         type: "string",
         group: DB2Session.DB2_CONNECTION_OPTION_GROUP
@@ -109,9 +109,9 @@ export class DB2Session {
     public static createDB2Session(args: ICommandArguments): Session {
         this.log.info("Creating a DB2 session from cmd arguments or profile");
         const DB2session = {
-            hostname: args.hostname,
+            hostname: args.host,
             port: args.port,
-            username: args.username,
+            user: args.user,
             password: args.password,
             database: args.database,
             sslFile: args.sslFile,

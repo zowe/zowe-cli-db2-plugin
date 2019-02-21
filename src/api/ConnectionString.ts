@@ -36,8 +36,8 @@ export class ConnectionString {
         if (!isNullOrUndefined(session.port)) {
             connectionString += `PORT=${session.port};PROTOCOL=TCPIP;`;
         }
-        if (!isNullOrUndefined(session.username)) {
-            connectionString += `UID=${session.username};`;
+        if (!isNullOrUndefined(session.user)) {
+            connectionString += `UID=${session.user};`;
         }
         if (!isNullOrUndefined(session.password)) {
             connectionString += `PWD=${session.password};`;
@@ -52,13 +52,13 @@ export class ConnectionString {
      * Build the ODBC connection string
      * @param {string} hostname The name or IP address of the server to connect to
      * @param {number} port The port number where the server is listening
-     * @param {string} username The user ID
+     * @param {string} user The user ID
      * @param {string} password The user's password
      * @param {string} database The database name to use
      * @param {string} sslFile The path to a SSL Certificate file or CA signed certificate
      * @returns {string}
      */
-    public static build(hostname?: string, port?: number, username?: string, password?: string, database?: string, sslFile?: string) {
+    public static build(hostname?: string, port?: number, user?: string, password?: string, database?: string, sslFile?: string) {
         let connectionString: string = "DRIVER={DB2 ODBC Driver};";
         if (!isNullOrUndefined(database)) {
             connectionString += `DATABASE=${database};`;
@@ -69,8 +69,8 @@ export class ConnectionString {
         if (!isNullOrUndefined(port)) {
             connectionString += `PORT=${port};PROTOCOL=TCPIP;`;
         }
-        if (!isNullOrUndefined(username)) {
-            connectionString += `UID=${username};`;
+        if (!isNullOrUndefined(user)) {
+            connectionString += `UID=${user};`;
         }
         if (!isNullOrUndefined(password)) {
             connectionString += `PWD=${password};`;

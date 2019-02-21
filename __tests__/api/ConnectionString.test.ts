@@ -15,7 +15,7 @@ import * as C from "../__src__/Db2TestConstants";
 const SIMPLE_SESSION: IDB2Session = {
     hostname: C.HOST_NAME,
     port: C.PORT,
-    username: C.USER_NAME,
+    user: C.USER_NAME,
     password: C.PASSWORD,
     database: C.DATABASE_NAME,
 };
@@ -23,7 +23,7 @@ const SIMPLE_SESSION: IDB2Session = {
 const SECURE_SESSION: IDB2Session = {
     hostname: C.HOST_NAME,
     port: C.PORT,
-    username: C.USER_NAME,
+    user: C.USER_NAME,
     password: C.PASSWORD,
     database: C.DATABASE_NAME,
     sslFile: C.SSL_FILE,

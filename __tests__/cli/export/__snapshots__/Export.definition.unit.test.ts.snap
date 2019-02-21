@@ -20,7 +20,7 @@ Object {
           ],
           "description": "The Db2 server host name",
           "group": "DB2 Connection Options",
-          "name": "hostname",
+          "name": "host",
           "type": "string",
         },
         Object {
@@ -34,12 +34,11 @@ Object {
         },
         Object {
           "aliases": Array [
-            "user",
             "u",
           ],
           "description": "The Db2 user ID (may be the same as the TSO login)",
           "group": "DB2 Connection Options",
-          "name": "username",
+          "name": "user",
           "type": "string",
         },
         Object {
