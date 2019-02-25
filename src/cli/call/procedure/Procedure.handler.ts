@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-import { ICommandHandler, IHandlerParameters, TextUtils, AbstractSession, IProfile } from "@brightside/imperative";
+import { ICommandHandler, IHandlerParameters, TextUtils, AbstractSession } from "@brightside/imperative";
 import { CallSP, IDB2Session, IDB2Response, IDB2Parameter, DB2_PARM_OUTPUT, DB2BaseHandler } from "../../../index";
 import { isNullOrUndefined } from "util";
 
@@ -42,7 +42,7 @@ export default class ProcedureHandler extends DB2BaseHandler {
         }
     }
 
-    public async processWithDB2Session(params: IHandlerParameters, session: AbstractSession, profile?: IProfile): Promise<void> {
+    public async processWithDB2Session(params: IHandlerParameters, session: AbstractSession): Promise<void> {
         const DB2session = session.ISession as IDB2Session;
 
         const routine: string = params.arguments.routine;

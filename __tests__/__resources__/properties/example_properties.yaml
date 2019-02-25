@@ -15,8 +15,8 @@
 # see bright profiles create db2 --help for more info
 
 db2:
-    hostname: my-db2-host
+    host:     my-db2-host
     port:     my-db2-port
     database: my-database-name
-    username: my-user-name
+    user:     my-user-name
     password: my-password

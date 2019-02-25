@@ -7,5 +7,5 @@ USER=$3
 PASS=$4
 DB=$5
 
-zowe db2 execute sql --query "SELECT 1 AS TOTAL FROM SYSIBM.SYSDUMMY1" --hostname $HOST --port $PORT --username $USER --password $PASS --database $DB
+zowe db2 execute sql --query "SELECT 1 AS TOTAL FROM SYSIBM.SYSDUMMY1" --host $HOST --port $PORT --user $USER --password $PASS --database $DB
 exit $?

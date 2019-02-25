@@ -15,9 +15,9 @@ import { runCliScript } from "../../../__src__/TestUtils";
 import { ICommandResponse } from "@brightside/imperative";
 
 let TEST_ENV: ITestEnvironment;
-let hostname: string;
+let host: string;
 let port: number;
-let username: string;
+let user: string;
 let password: string;
 let database: string;
 describe("db2 execute sql command", () => {
@@ -30,9 +30,9 @@ describe("db2 execute sql command", () => {
             testName: "execute_sql_command",
         });
 
-        hostname = TEST_ENV.systemTestProperties.db2.hostname;
+        host = TEST_ENV.systemTestProperties.db2.host;
         port = TEST_ENV.systemTestProperties.db2.port;
-        username= TEST_ENV.systemTestProperties.db2.username;
+        user = TEST_ENV.systemTestProperties.db2.user;
         password = TEST_ENV.systemTestProperties.db2.password;
         database = TEST_ENV.systemTestProperties.db2.database;
     });
@@ -86,7 +86,7 @@ describe("db2 execute sql command", () => {
 
     it("should be able to execute SQL statements overriding some of the options by arguments", () => {
         const response = runCliScript(__dirname + "/__scripts__/success_override_profile.sh",
-            TEST_ENV, [hostname, port, database]);
+            TEST_ENV, [host, port, database]);
         expect(response.stderr.toString()).toBe("");
         expect(response.stdout.toString()).toMatchSnapshot();
         expect(response.status).toBe(0);
@@ -108,9 +108,9 @@ describe("should execute sql commands without profile", async () => {
             testName: "execute_sql_command",
         });
 
-        hostname = TEST_ENV.systemTestProperties.db2.hostname;
+        host = TEST_ENV.systemTestProperties.db2.host;
         port = TEST_ENV.systemTestProperties.db2.port;
-        username= TEST_ENV.systemTestProperties.db2.username;
+        user = TEST_ENV.systemTestProperties.db2.user;
         password = TEST_ENV.systemTestProperties.db2.password;
         database = TEST_ENV.systemTestProperties.db2.database;
     });
@@ -121,7 +121,7 @@ describe("should execute sql commands without profile", async () => {
 
     it("should be able to execute SQL statements using passed options not profile", () => {
         const response = runCliScript(__dirname + "/__scripts__/success_no_profile.sh",
-            TEST_ENV, [hostname, port, username, password, database]);
+            TEST_ENV, [host, port, user, password, database]);
         expect(response.stderr.toString()).toBe("");
         expect(response.stdout.toString()).toMatchSnapshot();
         expect(response.status).toBe(0);
