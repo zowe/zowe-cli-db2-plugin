@@ -9,8 +9,8 @@
 *                                                                                 *
 */
 
-import { ICommandHandler, IHandlerParameters, ImperativeError } from "@brightside/imperative";
-import { ExportTableSQL, IDB2Session } from "../../../";
+import { ICommandHandler, IHandlerParameters, ImperativeError, AbstractSession } from "@brightside/imperative";
+import { ExportTableSQL, IDB2Session, DB2BaseHandler } from "../../../index";
 import * as fs from "fs";
 
 /**
@@ -19,13 +19,14 @@ import * as fs from "fs";
  * @class TableHandler
  * @implements {ICommandHandler}
  */
-export default class TableHandler implements ICommandHandler {
-    public async process(params: IHandlerParameters): Promise<void> {
-        const session = params.profiles.get("db2") as IDB2Session;
+export default class TableHandler extends DB2BaseHandler {
+    public async processWithDB2Session(params: IHandlerParameters, session: AbstractSession): Promise<void>  {
+        const DB2session = session.ISession as IDB2Session;
+
         let [database, table] = params.arguments.table.split(".");
         if (table === null) {
             table = database;
-            database = session.database;
+            database = DB2session.database;
         }
         let outFile;
         if (params.arguments.outfile) {
@@ -36,7 +37,7 @@ export default class TableHandler implements ICommandHandler {
                 throw new ImperativeError({msg: err.toString()});
             }
         }
-        const sqlExporter = new ExportTableSQL(session, database, table);
+        const sqlExporter = new ExportTableSQL(DB2session, database, table);
         await sqlExporter.init();
         const statements = sqlExporter.export();
         let statement;
@@ -48,10 +49,12 @@ export default class TableHandler implements ICommandHandler {
             else {
                 // Print out the response
                 params.response.console.log(statement.value);
+
             }
         }
         if (params.arguments.outfile) {
             fs.closeSync(outFile);
         }
+
     }
 }

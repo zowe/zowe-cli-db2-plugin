@@ -24,13 +24,13 @@ Object {
             },
             "type": "string",
           },
-          "hostname": Object {
+          "host": Object {
             "optionDefinition": Object {
               "aliases": Array [
                 "H",
               ],
               "description": "The Db2 server host name",
-              "name": "hostname",
+              "name": "host",
               "type": "string",
             },
             "type": "string",
@@ -38,7 +38,8 @@ Object {
           "password": Object {
             "optionDefinition": Object {
               "aliases": Array [
-                "p",
+                "pass",
+                "pw",
               ],
               "description": "The Db2 password (may be the same as the TSO password)",
               "name": "password",
@@ -69,26 +70,19 @@ Object {
             },
             "type": "string",
           },
-          "username": Object {
+          "user": Object {
             "optionDefinition": Object {
               "aliases": Array [
                 "u",
               ],
               "description": "The Db2 user ID (may be the same as the TSO login)",
-              "name": "username",
+              "name": "user",
               "type": "string",
             },
             "secure": true,
             "type": "string",
           },
         },
-        "required": Array [
-          "hostname",
-          "port",
-          "username",
-          "password",
-          "database",
-        ],
         "title": "Db2 Profile",
         "type": "object",
       },

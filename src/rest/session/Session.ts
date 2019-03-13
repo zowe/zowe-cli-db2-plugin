@@ -9,28 +9,22 @@
 *                                                                                 *
 */
 
-import { ICommandDefinition } from "@brightside/imperative";
-import { ProcedureDefinition } from "./procedure/Procedure.definition";
-import { DB2Session } from "../../index";
+import { AbstractSession } from "@brightside/imperative";
+import { IDB2Session } from "../../index";
+/**
+ * Non-abstract session class
+ * @export
+ * @class Session
+ * @extends {AbstractSession}
+ */
+export class Session extends AbstractSession {
 
-export const Call: ICommandDefinition = {
-    name: "call",
-    type: "group",
-    summary: "Call a stored procedure",
-    description: "Call a Db2 stored procedure",
-    children: [
-        ProcedureDefinition,
-    ],
-    passOn: [
-        {
-            property: "options",
-            value: DB2Session.DB2_CONNECTION_OPTIONS,
-            merge: true,
-            ignoreNodes: [
-                {type: "group"}
-            ]
-        }
-    ]
-};
-
-module.exports = Call;
+    /**
+     * Creates an instance of Session.
+     * @param {IDB2Session} newSession - contains input for new session
+     * @memberof Session
+     */
+    constructor(newSession: IDB2Session) {
+        super(newSession);
+    }
+}

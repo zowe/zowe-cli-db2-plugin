@@ -9,8 +9,8 @@
 *                                                                                 *
 */
 
-import { ICommandHandler, IHandlerParameters, ImperativeError, TextUtils } from "@brightside/imperative";
-import { ExecuteSQL, IDB2Session } from "../../../";
+import { AbstractSession, ICommandHandler, IHandlerParameters, ImperativeError, TextUtils } from "@brightside/imperative";
+import { ExecuteSQL, IDB2Session, DB2BaseHandler } from "../../../index";
 import * as fs from "fs";
 
 /**
@@ -19,22 +19,24 @@ import * as fs from "fs";
  * @class SQLHandler
  * @implements {ICommandHandler}
  */
-export default class SQLHandler implements ICommandHandler {
-    public async process(params: IHandlerParameters): Promise<void> {
-        const session = params.profiles.get("db2") as IDB2Session;
+export default class SQLHandler extends DB2BaseHandler {
+    public async processWithDB2Session(params: IHandlerParameters, session: AbstractSession): Promise<void> {
+        const DB2session = session.ISession as IDB2Session;
+
         let query;
         if (params.arguments.file) {
-            try{
+            try {
                 query = fs.readFileSync(params.arguments.file, "utf-8").toString();
             }
             catch (err) {
-                throw new ImperativeError({msg: err.toString()});
+                throw new ImperativeError({ msg: err.toString() });
             }
         } else {
             query = params.arguments.query;
         }
 
-        const executor = new ExecuteSQL(session);
+        const executor = new ExecuteSQL(DB2session);
+
         const response = executor.execute(query);
         const responses: any[] = [];
         let result;
@@ -50,5 +52,6 @@ export default class SQLHandler implements ICommandHandler {
 
         // Return as an object when using --response-format-json
         params.response.data.setObj(responses);
+
     }
 }

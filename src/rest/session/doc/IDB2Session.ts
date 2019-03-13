@@ -35,7 +35,7 @@ export interface IDB2Session {
      * @type {string}
      * @memberof IDB2Session
      */
-    username: string;
+    user: string;
 
     /**
      * The user's password

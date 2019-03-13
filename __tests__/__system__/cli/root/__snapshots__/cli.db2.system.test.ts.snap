@@ -17,9 +17,9 @@ exports[`db2 command should display the help 1`] = `
  GROUPS
  ------
 
-   call    (experimental) Call a stored procedure
-   execute (experimental) Execute a SQL query    
-   export  (experimental) Export a table         
+   call    Call a stored procedure
+   execute Execute a SQL query    
+   export  Export a table         
 
  GLOBAL OPTIONS
  --------------
@@ -35,9 +35,9 @@ exports[`db2 command should display the help 1`] = `
 {
   \\"success\\": true,
   \\"message\\": \\"The help was constructed for command: db2.\\",
-  \\"stdout\\": \\"\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Interact with IBM Db2 for z/OS\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 <group>\\\\n\\\\n   Where <group> is one of the following:\\\\n\\\\n GROUPS\\\\n ------\\\\n\\\\n   call    (experimental) Call a stored procedure\\\\n   execute (experimental) Execute a SQL query    \\\\n   export  (experimental) Export a table         \\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n\\",
+  \\"stdout\\": \\"\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Interact with IBM Db2 for z/OS\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 <group>\\\\n\\\\n   Where <group> is one of the following:\\\\n\\\\n GROUPS\\\\n ------\\\\n\\\\n   call    Call a stored procedure\\\\n   execute Execute a SQL query    \\\\n   export  Export a table         \\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n\\",
   \\"stderr\\": \\"\\",
-  \\"data\\": \\"\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Interact with IBM Db2 for z/OS\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 <group>\\\\n\\\\n   Where <group> is one of the following:\\\\n\\\\n GROUPS\\\\n ------\\\\n\\\\n   call    (experimental) Call a stored procedure\\\\n   execute (experimental) Execute a SQL query    \\\\n   export  (experimental) Export a table         \\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n\\"
+  \\"data\\": \\"\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Interact with IBM Db2 for z/OS\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 <group>\\\\n\\\\n   Where <group> is one of the following:\\\\n\\\\n GROUPS\\\\n ------\\\\n\\\\n   call    Call a stored procedure\\\\n   execute Execute a SQL query    \\\\n   export  Export a table         \\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n\\"
 }"
 `;
 

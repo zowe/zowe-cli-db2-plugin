@@ -18,7 +18,7 @@ export const TableDefinition: ICommandDefinition = {
     description: "Export a Db2 table to the stdout or a file.",
     handler: __dirname + "/Table.handler",
     profile: {
-        required: ["db2"],
+        optional: ["db2"],
     },
     positionals: [
         {
@@ -26,7 +26,7 @@ export const TableDefinition: ICommandDefinition = {
             type: "string",
             description: "The name of the table to export",
             required: true,
-        },
+        }
     ],
     options: [
         {
@@ -35,12 +35,12 @@ export const TableDefinition: ICommandDefinition = {
             type: "string",
             description: "The path to the output file",
             required: false,
-        },
+        }
     ],
     examples: [
         {
             description: "Export employees data from the table SAMPLE.EMP and save it to the file 'employees.sql'",
             options: "SAMPLE.EMP --outfile employees.sql",
-        },
-    ],
+        }
+    ]
 };
