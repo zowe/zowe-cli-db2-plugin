@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-import { IMessageDefinition, apiErrorHeader } from "@brightside/imperative";
+import { IMessageDefinition, apiErrorHeader } from "@zowe/imperative";
 
 export const noDB2Input: IMessageDefinition = {
     message: apiErrorHeader + "No DB2 parameters were supplied.",

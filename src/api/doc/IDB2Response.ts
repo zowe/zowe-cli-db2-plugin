@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-import { ImperativeError } from "@brightside/imperative";
+import { ImperativeError } from "@zowe/imperative";
 
 /**
  * The DB2 response

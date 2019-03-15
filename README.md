@@ -44,9 +44,6 @@ Before you install the plug-in, meet the following prerequisites:
     ```
     npm run build
     ```
-    The first time you build your code changes, you are prompted for the location
-    of the Imperative CLI Framework package, which is located in the `node_modules/@brightside`
-    folder in the directory where Zowe CLI is installed.
 
     **Note:** When you update `package.json` to include new dependencies, or when you pull changes
     that affect `package.json`, issue the `npm update` command to download the dependencies.
@@ -57,14 +54,14 @@ Before you install the plug-in, meet the following prerequisites:
 1.  Meet the prerequisites.
 2.  Install the plug-in:
     ```
-    zowe plugins install @brightside/db2@latest
+    zowe plugins install @zowe/db2@latest
     ```
 
-    **Note**: The `latest` npm tag installs a version of the product that is intended for public consumption. You can use different npm tags to install other versions of the product. For example, you can install with the `@beta` tag to try new features that have not been fully validated. For more information about tag usage, see [NPM Tag Names](https://github.com/zowe/zowe-cli/blob/master/docs/MaintainerVersioning.md#npm-tag-names).
+    **Note**: The `latest` npm tag installs a version of the product that is intended for public consumption. You can use different npm tags to install other versions of the product. For example, you can install with the `@daily` tag to try new features that have not been fully validated. For more information about tag usage, see [NPM Tag Names](https://github.com/zowe/zowe-cli/blob/master/docs/MaintainerVersioning.md#npm-tag-names).
     
 3.  (Optional) Verify the installation:
     ```
-    zowe plugins validate @brightside/db2
+    zowe plugins validate @zowe/db2
     ```
     When you install the plug-in successfully, the following message displays:
     ```

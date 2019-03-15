@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-import { ICommandArguments, IProfile } from "@brightside/imperative";
+import { ICommandArguments, IProfile } from "@zowe/imperative";
 import { DB2Session } from "../src/cli/DB2Session";
 import { SESSION } from "./__src__/Db2TestConstants";
 import { IDB2Session } from "../src/rest/session/doc/IDB2Session";

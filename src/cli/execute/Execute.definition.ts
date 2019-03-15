@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-import { ICommandDefinition } from "@brightside/imperative";
+import { ICommandDefinition } from "@zowe/imperative";
 import { SQLDefinition } from "./sql/SQL.definition";
 import { DB2Session } from "../../index";
 

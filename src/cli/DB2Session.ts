@@ -10,7 +10,7 @@
 */
 
 
-import { ICommandArguments, ICommandOptionDefinition, Logger } from "@brightside/imperative";
+import { ICommandArguments, ICommandOptionDefinition, Logger } from "@zowe/imperative";
 import { Session } from "../index";
 
 /**

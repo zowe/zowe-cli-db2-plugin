@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-import { ImperativeError } from "@brightside/imperative";
+import { ImperativeError } from "@zowe/imperative";
 import { IDB2Session, ExportTable } from "../";
 import { isNull } from "util";
 

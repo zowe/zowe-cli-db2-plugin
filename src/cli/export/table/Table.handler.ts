@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-import { ICommandHandler, IHandlerParameters, ImperativeError, AbstractSession } from "@brightside/imperative";
+import { ICommandHandler, IHandlerParameters, ImperativeError, AbstractSession } from "@zowe/imperative";
 import { ExportTableSQL, IDB2Session, DB2BaseHandler } from "../../../index";
 import * as fs from "fs";
 

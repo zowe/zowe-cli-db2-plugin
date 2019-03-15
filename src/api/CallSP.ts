@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-import { ImperativeError } from "@brightside/imperative";
+import { ImperativeError } from "@zowe/imperative";
 import { ConnectionString, IDB2Session, IDB2Response, IDB2Parameter, SessionValidator,
     DB2Constants, DB2_PARM_INOUT, DB2_PARM_OUTPUT } from "../";
 import { isNullOrUndefined } from "util";
