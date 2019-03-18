@@ -5,6 +5,10 @@
   "author": "CA T&C Brightside",
   "license": "EPL-2.0",
   "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zowe/zowe-cli-db2-plugin.git"
+  },
   "publishConfig": {
     "registry": "https://gizaartifactory.jfrog.io/gizaartifactory/api/npm/npm-local-release/"
   },
@@ -89,7 +93,12 @@
       "text",
       "cobertura"
     ],
-    "coverageDirectory": "<rootDir>/__tests__/__results__/unit/coverage"
+    "coverageDirectory": "<rootDir>/__tests__/__results__/unit/coverage",
+    "globals": {
+      "ts-jest": {
+        "diagnostics": false
+      }
+    }
   },
   "jest-stare": {
     "resultDir": "__tests__/__results__/jest-stare",
