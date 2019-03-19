@@ -47,7 +47,7 @@ Object {
     },
   ],
   "profile": Object {
-    "required": Array [
+    "optional": Array [
       "db2",
     ],
   },

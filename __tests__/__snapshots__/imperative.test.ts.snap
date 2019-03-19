@@ -82,13 +82,6 @@ Object {
             "type": "string",
           },
         },
-        "required": Array [
-          "hostname",
-          "port",
-          "username",
-          "password",
-          "database",
-        ],
         "title": "Db2 Profile",
         "type": "object",
       },

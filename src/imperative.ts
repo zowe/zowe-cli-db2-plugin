@@ -83,7 +83,6 @@ const config: IImperativeConfig = {
                         },
                     },
                 },
-                required: ["hostname", "port", "username", "password", "database"],
             },
         }
     ],
