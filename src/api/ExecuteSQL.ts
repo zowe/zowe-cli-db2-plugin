@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-import { ImperativeError } from "@brightside/imperative";
+import { ImperativeError } from "@zowe/imperative";
 import { ConnectionString, DB2Constants, IDB2Parameter, IDB2Session, SessionValidator } from "../";
 import * as ibmdb from "ibm_db";
 

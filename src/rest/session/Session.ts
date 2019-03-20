@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-import { AbstractSession } from "@brightside/imperative";
+import { AbstractSession } from "@zowe/imperative";
 import { IDB2Session } from "../../index";
 /**
  * Non-abstract session class

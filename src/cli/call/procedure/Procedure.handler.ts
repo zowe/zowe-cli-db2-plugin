@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-import { ICommandHandler, IHandlerParameters, TextUtils, AbstractSession } from "@brightside/imperative";
+import { ICommandHandler, IHandlerParameters, TextUtils, AbstractSession } from "@zowe/imperative";
 import { CallSP, IDB2Session, IDB2Response, IDB2Parameter, DB2_PARM_OUTPUT, DB2BaseHandler } from "../../../index";
 import { isNullOrUndefined } from "util";
 

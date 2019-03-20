@@ -10,7 +10,7 @@
 */
 
 import { ISetupEnvironmentParms } from "./doc/parms/ISetupEnvironmentParms";
-import { ImperativeError, ImperativeExpect, IO, Logger, TextUtils } from "@brightside/imperative";
+import { ImperativeError, ImperativeExpect, IO, Logger, TextUtils } from "@zowe/imperative";
 import * as nodePath from "path";
 import { mkdirpSync } from "fs-extra";
 import { ITestEnvironment } from "./doc/response/ITestEnvironment";
@@ -157,7 +157,7 @@ export class TestEnvironment {
         installScript += "# Install plugin from root of project\n";
         installScript += "bright plugins install ../../../../\n";
         installScript += "# Validate installed plugin\n";
-        installScript += "bright plugins validate @brightside/db2\n";
+        installScript += "bright plugins validate @zowe/db2\n";
         installScript += "# Check that the plugin help is available\n";
         installScript += "bright db2 --help\n";
         const scriptPath = testEnvironment.workingDir + "/install_plugin.sh";
@@ -166,7 +166,7 @@ export class TestEnvironment {
         const output = runCliScript(scriptPath, testEnvironment, []);
         if (output.status !== 0) {
             throw new ImperativeError({
-                msg: "Install of '@brightside/db2' plugin failed! You should delete the script: \n'" + scriptPath + "' " +
+                msg: "Install of '@zowe/db2' plugin failed! You should delete the script: \n'" + scriptPath + "' " +
                 "after reviewing it to check for possible errors.\n Output of the plugin install command:\n" + output.stderr.toString() +
                 output.stdout.toString() +
                 TempTestProfiles.GLOBAL_INSTALL_NOTE

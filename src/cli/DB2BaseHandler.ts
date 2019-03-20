@@ -16,7 +16,7 @@ import {
     IHandlerResponseConsoleApi,
     IHandlerFormatOutputApi,
     IHandlerResponseDataApi,
-} from "@brightside/imperative";
+} from "@zowe/imperative";
 import { DB2Session } from "../index";
 
 /**

@@ -12,7 +12,7 @@
 import { ITestEnvironment } from "../../../__src__/environment/doc/response/ITestEnvironment";
 import { TestEnvironment } from "../../../__src__/environment/TestEnvironment";
 import { runCliScript } from "../../../__src__/TestUtils";
-import { ICommandResponse } from "@brightside/imperative";
+import { ICommandResponse } from "@zowe/imperative";
 
 let TEST_ENV: ITestEnvironment;
 let host: string;

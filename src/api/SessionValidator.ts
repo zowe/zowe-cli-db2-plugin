@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-import { ImperativeExpect } from "@brightside/imperative";
+import { ImperativeExpect } from "@zowe/imperative";
 import { IDB2Session } from "../";
 import { noDatabaseName, noDB2Input, noHostName, noPassword, noPortNumber, noUserName } from "./doc/Messages";
 

@@ -34,7 +34,8 @@
     "whitespace": [
       true,
       "check-module"
-    ]
+    ],
+    "no-implicit-dependencies": [true, "dev"]
   },
   "exclude": [
     "__mocks__",
