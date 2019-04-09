@@ -1,6 +1,6 @@
 {
   "name": "@zowe/db2",
-  "version": "3.0.0",
+  "version": "3.0.1-alpha.201904091134",
   "description": "CLI Plug-in for IBM Db2",
   "author": "CA T&C Brightside",
   "license": "EPL-2.0",
@@ -28,13 +28,17 @@
   },
   "imperative": {"configurationModule": "lib/imperative.js"},
   "dependencies": {"ibm_db": "2.5.0"},
+  "peerDependencies":   {
+    "@zowe/imperative": "^3.0.0",
+    "@zowe/cli": "^3.0.0"
+  },
   "devDependencies":   {
     "@types/ibm_db": "^2.0.2",
     "@types/jest": "^20.0.5",
     "@types/node": "^8.0.0",
     "@types/xml2js": "^0.4.3",
     "@types/yargs": "8.0.2",
-    "@zowe/imperative": "^3.0.1",
+    "@zowe/imperative": "^4.0.0-alpha.201904082018",
     "env-cmd": "^8.0.2",
     "fs-extra": "^5.0.0",
     "jest": "^24.5.0",
