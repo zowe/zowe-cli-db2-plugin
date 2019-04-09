@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-@Library('shared-pipelines@v1.2.0') import org.zowe.pipelines.nodejs.NodeJSPipeline
+@Library('shared-pipelines@v1.2.2') import org.zowe.pipelines.nodejs.NodeJSPipeline
 
 import org.zowe.pipelines.nodejs.models.SemverLevel
 
@@ -31,7 +31,7 @@ node('ca-jenkins-agent') {
     pipeline.protectedBranches.addMap([
         [name: "master", tag: "daily", prerelease: "alpha", dependencies: ["@zowe/imperative": "daily"]],
         [name: "beta", tag: "beta", prerelease: "beta", dependencies: ["@zowe/imperative": "beta"]],
-        [name: "latest", tag: "latest", dependencies: ["@zowe/imperative": "latest"]],
+        [name: "latest", tag: "latest", dependencies: ["@zowe/imperative": "latest"], autoDeploy: true],
         [name: "lts-incremental", tag: "lts-incremental", level: SemverLevel.MINOR, dependencies: ["@brightside/imperative": "lts-incremental"]],
         [name: "lts-stable", tag: "lts-stable", level: SemverLevel.PATCH, dependencies: ["@brightside/imperative": "lts-stable"]]
     ])
@@ -78,6 +78,14 @@ node('ca-jenkins-agent') {
         time: 5,
         unit: 'MINUTES'
     ])
+
+    pipeline.createStage(
+        name: "Check for vulnerabilities",
+        stage: {
+            sh "npm audit"
+        },
+        timeout: [time: 5, unit: 'MINUTES']
+    )
 
     def TEST_ROOT = "__tests__/__results__"
     def UNIT_TEST_ROOT = "$TEST_ROOT/unit"
