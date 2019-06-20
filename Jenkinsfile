@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-@Library('shared-pipelines@v1.2.2') import org.zowe.pipelines.nodejs.NodeJSPipeline
+@Library('shared-pipelines') import org.zowe.pipelines.nodejs.NodeJSPipeline
 
 import org.zowe.pipelines.nodejs.models.SemverLevel
 
@@ -79,14 +79,6 @@ node('ca-jenkins-agent') {
         unit: 'MINUTES'
     ])
 
-    pipeline.createStage(
-        name: "Check for vulnerabilities",
-        stage: {
-            sh "npm audit"
-        },
-        timeout: [time: 5, unit: 'MINUTES']
-    )
-
     def TEST_ROOT = "__tests__/__results__"
     def UNIT_TEST_ROOT = "$TEST_ROOT/unit"
     def UNIT_JUNIT_OUTPUT = "$UNIT_TEST_ROOT/junit.xml"
@@ -126,6 +118,9 @@ node('ca-jenkins-agent') {
             zoomCoverageChart: false
         ]
     )
+
+    // Check for vulnerabilities
+    pipeline.checkVulnerabilities()
 
     // Deploys the application if on a protected branch. Give the version input
     // 30 minutes before an auto timeout approve.
