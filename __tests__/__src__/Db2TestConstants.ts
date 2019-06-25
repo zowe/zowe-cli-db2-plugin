@@ -66,3 +66,11 @@ export const PARAMS: IDB2Parameter[] = [
     PARAM_INOUT,
     PARAM_OUT,
 ];
+
+export const ERROR = {
+  error: "[node-ibm_db] Error in ODBCConnection::SomeQuery while executing query.",
+  errors: [],
+  message: "\n[DB2] SQL01234N 'SCHEMA.TABLE' is an undefined name. SQLSTATE=45678\n\n",
+  state: "45678",
+  sqlcode: -123,
+};

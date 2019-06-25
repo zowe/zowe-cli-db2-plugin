@@ -10,7 +10,7 @@
 */
 
 import { ImperativeExpect, ImperativeError } from "@brightside/imperative";
-import { ConnectionString, DB2Constants, IDB2Session, IDB2Column, SessionValidator } from "../";
+import { ConnectionString, DB2Constants, IDB2Session, IDB2Column, SessionValidator, DB2Error } from "../";
 import * as ibmdb from "ibm_db";
 import { noDatabaseName, noTableName } from "./doc/Messages";
 
@@ -85,7 +85,7 @@ export abstract class ExportTable {
             this.mConnection = ibmdb.openSync(this.mConnectionString, options);
         }
         catch (err) {
-            throw new ImperativeError({msg: err.toString()});
+            DB2Error.process(err);
         }
         this.mMetadata = await this.getTableMeta();
         if (Array.isArray(this.mMetadata) && this.mMetadata.length === 0) {
@@ -131,6 +131,9 @@ export abstract class ExportTable {
         const columns = this.getColumnNames().join(", ");
         const query = `SELECT ${columns} FROM ${this.mDatabase}.${this.mTable}`;
         const result = this.mConnection.queryResultSync(query);
+        if (result instanceof Error) {
+            throw result;
+        }
         let row = result.fetchSync();
         while (row != null) {
             yield row;
