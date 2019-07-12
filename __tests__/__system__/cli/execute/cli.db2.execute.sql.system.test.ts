@@ -100,8 +100,8 @@ describe("db2 execute sql command", () => {
     });
 });
 
-describe("should execute sql commands without profile", async () => {
-// Create the unique test environment
+describe("should execute sql commands without profile", () => {
+    // Create the unique test environment
     beforeAll(async () => {
         TEST_ENV = await TestEnvironment.setUp({
             installPlugin: true,

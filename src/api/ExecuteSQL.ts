@@ -9,8 +9,8 @@
 *                                                                                 *
 */
 
-import { ImperativeError } from "@zowe/imperative";
-import { ConnectionString, DB2Constants, IDB2Parameter, IDB2Session, SessionValidator } from "../";
+import { ConnectionString, DB2Constants, IDB2Parameter, IDB2Session,
+    SessionValidator, DB2Error } from "../";
 import * as ibmdb from "ibm_db";
 
 /**
@@ -61,6 +61,9 @@ export class ExecuteSQL {
         try {
             this.mConnection = ibmdb.openSync(this.mConnectionString, options);
             result = this.mConnection.queryResultSync(sql, parameters);
+            if (result instanceof Error) {
+                throw result;
+            }
             yield result.fetchAllSync();
             while (result.moreResultsSync()) {
                 yield result.fetchAllSync();
@@ -68,7 +71,7 @@ export class ExecuteSQL {
             this.mConnection.closeSync();
         }
         catch (err) {
-            throw new ImperativeError({msg: err.toString()});
+            DB2Error.process(err);
         }
     }
 }

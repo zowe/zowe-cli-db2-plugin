@@ -9,9 +9,8 @@
 *                                                                                 *
 */
 
-import { ImperativeError } from "@zowe/imperative";
 import { ConnectionString, IDB2Session, IDB2Response, IDB2Parameter, SessionValidator,
-    DB2Constants, DB2_PARM_INOUT, DB2_PARM_OUTPUT } from "../";
+    DB2Constants, DB2_PARM_INOUT, DB2_PARM_OUTPUT, DB2Error } from "../";
 import { isNullOrUndefined } from "util";
 import * as ibmdb from "ibm_db";
 
@@ -84,7 +83,7 @@ export class CallSP {
             db2.closeSync();
         }
         catch (err) {
-            response.failureResponse = new ImperativeError({msg: err.toString()});
+            DB2Error.process(err);
         }
         return response;
     }
