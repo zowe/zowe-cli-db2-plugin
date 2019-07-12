@@ -1,4 +1,7 @@
 # Zowe CLI Plug-in for IBM® Db2® for z/OS®
+
+[![codecov](https://codecov.io/gh/zowe/zowe-cli-db2-plugin/branch/master/graph/badge.svg)](https://codecov.io/gh/zowe/zowe-cli-db2-plugin)
+
 The Zowe CLI plug-in for IBM® Db2® Database lets you interact with Db2 for z/OS to perform tasks
 with modern development tools to automate typical workloads more efficiently.
 The plug-in also enables you to interact with Db2 to advance continuous integration to validate product
