@@ -30,6 +30,7 @@
     "configurationModule": "lib/imperative.js"
   },
   "dependencies": {
+    "@brightside/imperative": "^2.4.9",
     "ibm_db": "2.5.0"
   },
   "peerDependencies": {
@@ -37,7 +38,6 @@
     "@brightside/imperative": ">=2.0.0-0"
   },
   "devDependencies": {
-    "@brightside/imperative": "^2.4.9",
     "@types/ibm_db": "^2.0.2",
     "@types/jest": "^20.0.5",
     "@types/node": "^8.0.0",
