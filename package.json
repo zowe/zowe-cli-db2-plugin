@@ -1,6 +1,6 @@
 {
   "name": "@brightside/db2",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "CLI Plug-in for IBM Db2",
   "author": "CA T&C Brightside",
   "license": "EPL-2.0",
