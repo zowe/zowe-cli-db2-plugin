@@ -1,6 +1,6 @@
 {
   "name": "@zowe/db2",
-  "version": "3.0.2-alpha.201907121346",
+  "version": "3.0.2",
   "description": "CLI Plug-in for IBM Db2",
   "author": "CA T&C Brightside",
   "license": "EPL-2.0",
