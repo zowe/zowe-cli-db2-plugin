@@ -7,7 +7,7 @@ Object {
   ],
   "name": "db2",
   "pluginHealthCheck": "./lib/HealthCheck.handler",
-  "productDisplayName": "CLI Plug-in for IBM Db2",
+  "productDisplayName": "IBM® Db2® Plug-in for Zowe CLI",
   "profiles": Array [
     Object {
       "schema": Object {

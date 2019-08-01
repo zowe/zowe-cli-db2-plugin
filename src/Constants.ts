@@ -29,7 +29,7 @@ export class Constants {
      * @static
      * @memberof Constants
      */
-    public static readonly DISPLAY_NAME: string = "CLI Plug-in for IBM Db2";
+    public static readonly DISPLAY_NAME: string = "IBM® Db2® Plug-in for Zowe CLI";
 
     /**
      * The Db2 plugin top level description

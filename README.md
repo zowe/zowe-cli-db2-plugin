@@ -1,13 +1,13 @@
-# Zowe CLI Plug-in for IBM® Db2® for z/OS®
+# IBM® Db2® Plug-in for Zowe CLI
 
 [![codecov](https://codecov.io/gh/zowe/zowe-cli-db2-plugin/branch/master/graph/badge.svg)](https://codecov.io/gh/zowe/zowe-cli-db2-plugin)
 
-The Zowe CLI plug-in for IBM® Db2® Database lets you interact with Db2 for z/OS to perform tasks
+The IBM® Db2® Plug-in for Zowe CLI lets you interact with Db2 for z/OS to perform tasks
 with modern development tools to automate typical workloads more efficiently.
 The plug-in also enables you to interact with Db2 to advance continuous integration to validate product
 quality and stability.
 
-Zowe CLI Plug-in for IBM Db2 Database lets you execute SQL statements against a Db2 region,
+IBM® Db2® Plug-in for Zowe CLI lets you execute SQL statements against a Db2 region,
 export a Db2 table, and call a stored procedure. The plug-in also exposes its API
 so that the plug-in can be used directly in other products.
 
@@ -34,13 +34,13 @@ Before you install the plug-in, meet the following prerequisites:
 ## Build the Plug-in from Source
 **Follow these steps:**
 
-1. The first time that you download the Zowe CLI plug-in for Db2 from the GitHub repository,
+1. The first time that you download the IBM® Db2® Plug-in for Zowe CLI from the GitHub repository,
    issue the following command against the local directory:
 
     ```
     npm install
     ```
-    The command installs the required Zowe CLI Plug-in for Db2 dependencies and several development tools.
+    The command installs the required IBM® Db2® Plug-in for Zowe CLI dependencies and several development tools.
     When necessary, you can run the task at any time to update the tools.
 
 2. To build your code changes, issue the following command:
@@ -51,20 +51,20 @@ Before you install the plug-in, meet the following prerequisites:
     **Note:** When you update `package.json` to include new dependencies, or when you pull changes
     that affect `package.json`, issue the `npm update` command to download the dependencies.
 
-## Install the Zowe CLI Plug-in for Db2
+## Install the IBM® Db2® Plug-in for Zowe CLI
 **Follow these steps:**
 
 1.  Meet the prerequisites.
 2.  Install the plug-in:
     ```
-    zowe plugins install @zowe/db2@latest
+    zowe plugins install @zowe/db2-for-zowe-cli
     ```
 
-    **Note**: The `latest` npm tag installs a version of the product that is intended for public consumption. You can use different npm tags to install other versions of the product. For example, you can install with the `@daily` tag to try new features that have not been fully validated. For more information about tag usage, see [NPM Tag Names](https://github.com/zowe/zowe-cli/blob/master/docs/MaintainerVersioning.md#npm-tag-names).
+    **Note**: The `latest` npm tag installs a version of the product that is intended for public consumption. You can use different npm tags to install other versions of the product. See [NPM Tag Names](https://github.com/zowe/zowe-cli/blob/master/docs/MaintainerVersioning.md#npm-tag-names).
     
 3.  (Optional) Verify the installation:
     ```
-    zowe plugins validate @zowe/db2
+    zowe plugins validate @zowe/db2-for-zowe-cli
     ```
     When you install the plug-in successfully, the following message displays:
     ```
