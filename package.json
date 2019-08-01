@@ -1,17 +1,21 @@
 {
   "name": "@zowe/db2",
-  "version": "3.0.1",
+  "version": "3.0.2-alpha.201907121346",
   "description": "CLI Plug-in for IBM Db2",
   "author": "CA T&C Brightside",
   "license": "EPL-2.0",
   "main": "lib/index.js",
-  "repository":   {
+  "repository": {
     "type": "git",
     "url": "https://github.com/zowe/zowe-cli-db2-plugin.git"
   },
-  "publishConfig": {"registry": "https://gizaartifactory.jfrog.io/gizaartifactory/api/npm/npm-local-release/"},
-  "files": ["lib"],
-  "scripts":   {
+  "publishConfig": {
+    "registry": "https://gizaartifactory.jfrog.io/gizaartifactory/api/npm/npm-local-release/"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
     "prebuild": "npm run clean && npm run lint && echo Using TypeScript && tsc --version",
     "build": "node scripts/updateLicense.js && tsc --pretty",
     "clean": "rimraf lib",
@@ -26,19 +30,23 @@
     "installPlugin": "npm install && npm run clean && npm run build && bright plugins install .",
     "typedoc": "typedoc --out ./docs/typedoc/ ./src/ --disableOutputCheck --ignoreCompilerErrors --mode file"
   },
-  "imperative": {"configurationModule": "lib/imperative.js"},
-  "dependencies": {"ibm_db": "2.5.0"},
-  "peerDependencies":   {
+  "imperative": {
+    "configurationModule": "lib/imperative.js"
+  },
+  "dependencies": {
+    "ibm_db": "2.5.0"
+  },
+  "peerDependencies": {
     "@zowe/imperative": "^3.0.0",
     "@zowe/cli": "^3.0.0"
   },
-  "devDependencies":   {
+  "devDependencies": {
     "@types/ibm_db": "^2.0.2",
     "@types/jest": "^20.0.5",
     "@types/node": "^8.0.0",
     "@types/xml2js": "^0.4.3",
     "@types/yargs": "8.0.2",
-    "@zowe/imperative": "^3.1.0",
+    "@zowe/imperative": "^4.1.1-alpha.201904251420",
     "env-cmd": "^8.0.2",
     "fs-extra": "^5.0.0",
     "jest": "^24.5.0",
@@ -56,44 +64,58 @@
     "typescript": "3.2.2",
     "uuid": "^3.2.1"
   },
-  "jest":   {
-    "setupFilesAfterEnv": ["./__tests__/setUpJest.js"],
-    "modulePathIgnorePatterns": ["__tests__/__snapshots__/"],
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./__tests__/setUpJest.js"
+    ],
+    "modulePathIgnorePatterns": [
+      "__tests__/__snapshots__/"
+    ],
     "testResultsProcessor": "jest-stare",
-    "transform": {".(ts)": "<rootDir>/node_modules/ts-jest/preprocessor.js"},
+    "transform": {
+      ".(ts)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
     "testRegex": "(test|spec)\\.ts$",
-    "moduleFileExtensions":     [
+    "moduleFileExtensions": [
       "ts",
       "js"
     ],
-    "testPathIgnorePatterns": ["<rootDir>/__tests__/__results__"],
+    "testPathIgnorePatterns": [
+      "<rootDir>/__tests__/__results__"
+    ],
     "testEnvironment": "node",
-    "collectCoverageFrom":     [
+    "collectCoverageFrom": [
       "src/**/*.ts",
       "!**/__tests__/**",
       "!**/index.ts",
       "!**/main.ts"
     ],
     "collectCoverage": false,
-    "coverageReporters":     [
+    "coverageReporters": [
       "json",
       "lcov",
       "text",
       "cobertura"
     ],
     "coverageDirectory": "<rootDir>/__tests__/__results__/unit/coverage",
-    "globals": {"ts-jest": {"diagnostics": false}}
+    "globals": {
+      "ts-jest": {
+        "diagnostics": false
+      }
+    }
   },
-  "jest-stare":   {
+  "jest-stare": {
     "resultDir": "__tests__/__results__/jest-stare",
-    "additionalResultsProcessors":     [
+    "additionalResultsProcessors": [
       "jest-junit",
       "jest-html-reporter"
     ],
     "coverageLink": "../coverage/lcov-report/index.html"
   },
-  "jest-junit": {"output": "__tests__/__results__/junit.xml"},
-  "jest-html-reporter":   {
+  "jest-junit": {
+    "output": "__tests__/__results__/junit.xml"
+  },
+  "jest-html-reporter": {
     "pageTitle": "Brightside DB2 Plugin Test Results",
     "outputPath": "__tests__/__results__/results.html",
     "includeFailureMsg": true
