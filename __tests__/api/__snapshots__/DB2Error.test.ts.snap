@@ -1,0 +1,6 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DB2Error process should throw an error 1`] = `
+"Error: DB2 ODBC Driver Error: [node-ibm_db] Error in ODBCConnection::SomeQuery while executing query.
+"
+`;

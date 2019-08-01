@@ -9,19 +9,23 @@
 *                                                                                 *
 */
 
-export * from "./Constants";
-export * from "./api/ConnectionString";
-export * from "./api/doc/IDB2Column";
-export * from "./api/doc/IDB2Parameter";
-export * from "./api/doc/IDB2Response";
-export * from "./rest/session/doc/IDB2Session";
-export * from "./cli/DB2Session";
-export * from "./cli/DB2BaseHandler";
-export * from "./rest/session/Session";
-export * from "./api/DB2Constants";
-export * from "./api/SessionValidator";
-export * from "./api/ExecuteSQL";
-export * from "./api/ExportTable";
-export * from "./api/ExportTableSQL";
-export * from "./api/CallSP";
-export * from "./api/DB2Error";
+import { DB2Error } from "../../src";
+import { ImperativeError } from "@zowe/imperative";
+import * as C from "../__src__/Db2TestConstants";
+
+describe("DB2Error", () => {
+    describe("process", () => {
+        it("should throw an error", () => {
+            let error;
+            try {
+                DB2Error.process(C.ERROR);
+            }
+            catch (e) {
+                error = e;
+            }
+            expect(error).toBeDefined();
+            expect(error).toBeInstanceOf(ImperativeError);
+            expect(error.toString()).toMatchSnapshot();
+        });
+    });
+});

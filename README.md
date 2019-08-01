@@ -1,4 +1,7 @@
 # Zowe CLI Plug-in for IBM® Db2® for z/OS®
+
+[![codecov](https://codecov.io/gh/zowe/zowe-cli-db2-plugin/branch/master/graph/badge.svg)](https://codecov.io/gh/zowe/zowe-cli-db2-plugin)
+
 The Zowe CLI plug-in for IBM® Db2® Database lets you interact with Db2 for z/OS to perform tasks
 with modern development tools to automate typical workloads more efficiently.
 The plug-in also enables you to interact with Db2 to advance continuous integration to validate product
@@ -14,13 +17,13 @@ For more information about general development guidelines and Db2 plug-in specif
 see [the Contribution Guidelines](CONTRIBUTING.md).
 
 **Tip:** Visit our [Sample Plug-in repository](https://github.com/zowe/zowe-cli-sample-plugin)
-and follow the [tutorials on the documentation site](https://zowe.github.io/docs-site/guides/cli-devTutorials) to start developing your first plug-in! 
+and follow the [tutorials on the documentation site](https://zowe.github.io/docs-site/latest/extend/extend-cli/cli-devTutorials.html) to start developing your first plug-in! 
 
 ## Prerequisites
 Before you install the plug-in, meet the following prerequisites:
 * Install Zowe CLI on your PC.
     
-    **Note:** For more information, see the [Zowe CLI](https://zowe.github.io/docs-site/user-guide/cli-installcli.html)
+    **Note:** For more information, see the [Zowe CLI](https://zowe.github.io/docs-site/latest/user-guide/cli-installcli.html)
     documentation.
 * Have a license file of IBM Db2 for z/OS
 
@@ -95,7 +98,7 @@ zowe profiles create db2 -h
 ## Run Tests
 
 For information about running automated, unit, and system and integration tests using the plug-in,
-see [Zowe CLI Plug-in Testing Guidelines](https://github.com/gizafoundation/brightside/blob/master/docs/PluginTESTINGGuidelines.md#ca-brightside-plug-in-testing-guidelines).
+see [Zowe CLI Plug-in Testing Guidelines](https://github.com/zowe/zowe-cli/blob/master/docs/PluginTESTINGGuidelines.md).
 
 ## Uninstall the Plug-in
 **Follow these steps:**
