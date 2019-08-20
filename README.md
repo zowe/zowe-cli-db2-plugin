@@ -62,65 +62,88 @@ Use one of the following methods to install the plug-in:
     **Note:** When you update `package.json` to include new dependencies, or when you pull changes
     that affect `package.json`, issue the `npm update` command to download the dependencies.
 
-## Install the IBM® Db2® Plug-in for Zowe CLI
+3.  Issue one of the following commands to install the plug-in:
+    ```
+    zowe plugins install <local path your cloned repo>
+    ```
+    Or:
+    ```
+    zowe plugins install .
+    ```
+
+## (Optional) Validating the plug-in
+
+The validation process helps to ensure the following conditions:
+
+-   The installation process completed successfully.
+-   The plug-in does ***not*** contain commands, options, and arguments that conflict with (possess the same names) other plug-ins that are installed in your Zowe CLI installation.
 
 **Follow these steps:**
 
-1.  Meet the prerequisites.
-2.  Install the plug-in:
-    ```
-    zowe plugins install @zowe/db2-for-zowe-cli
-    ```
+1. Issue the following command:
 
-    **Note**: The `latest` npm tag installs a version of the product that is intended for public consumption. You can use different npm tags to install other versions of the product. See [NPM Tag Names](https://github.com/zowe/zowe-cli/blob/master/docs/MaintainerVersioning.md#npm-tag-names).
-    
-3.  (Optional) Verify the installation:
     ```
     zowe plugins validate @zowe/db2-for-zowe-cli
     ```
+
     When you install the plug-in successfully, the following message displays:
+
     ```
     Validation results for plugin 'db2':
     Successfully validated.
-    ``` 
-    **Tip:** When an unsuccessful message displays, you can troubleshoot the installation
-    by addressing the issues that the message describes. You can also review the information
-    that is contained in the log file that is located in the directory where you installed Zowe CLI.  
-4.  [Create a profile](#create-a-profile).
+    ```
+
+    **Tip:** When an unsuccessful message displays, you can troubleshoot the installation by addressing the issues that the message describes. You can also review the information that is contained in the log file that is located in the directory where you installed Zowe CLI.
 
 ## Create a Profile
-After you install the plug-in, you create a Db2 profile. A Db2 profile is required to issue commands
-to the Db2 region. Db2 profiles contain your host, port, user name, password, and a database name
-for the IBM Db2 server of your choice. You can create multiple profiles and switch between them as needed.
+
+After you install the plug-in, you create a Db2 profile. A Db2 profile is required to issue commands to the Db2 region. Db2 profiles contain your host, port, user name, password, and a database name for the IBM Db2 server of your choice. You can create multiple profiles and switch between them as needed.
 
 **Follow these steps:**
 1.  Create a Db2 profile: 
+    
     ```
     zowe profiles create db2 <profile name> -H <host> -P <port> -u <user> -p <password> -d <database>
     ```
-    The result of the command displays as a success or failure message.
-    You can use your profile when you issue commands in the Db2 command group.
+    
+    The result of the command displays as a success or failure message. You can use your profile when you issue commands in the Db2 command group.
 
-**Tip:** For more information about the syntax, actions, and options, for a profiles create command,
-open Zowe CLI and issue the following command:
+**Tip:** For more information about the syntax, actions, and options, for a profiles create command, open Zowe CLI and issue the following command:
 ```
 zowe profiles create db2 -h
 ```
 
 ## Run Tests
 
-For information about running automated, unit, and system and integration tests using the plug-in,
-see [Zowe CLI Plug-in Testing Guidelines](https://github.com/zowe/zowe-cli/blob/master/docs/PluginTESTINGGuidelines.md).
+You can perform the following types of tests on the IBM DB2 plug-in:
 
-## Uninstall the Plug-in
+- Unit
+- Integration
+- System
+
+For information about running automated, unit, and system and integration tests using the plug-in, see [Zowe CLI Plug-in Testing Guidelines](https://github.com/zowe/zowe-cli/blob/master/docs/PluginTESTINGGuidelines.md).
+
+Before you can perform the tests, copy the file named `.../__tests__/__resources__/properties/example_properties.yaml` and create a file named `.../__tests__/__resources__/properties/custom_properties.yaml`.
+
+**Note:** Information about the required values and how to customize the `custom_properties.yaml` file is provided in the yaml file itself.
+ 
+Issue the following commands to run the tests:
+
+1. `npm run test:unit`
+2. `npm run test:integration`
+3. `npm run test:system`
+
+Any failures potentially indicate an issue with the set-up of the Rest API or configuration parameters that were passed in the `custom_properties.yaml` file.
+
+## Uninstall the plug-in
+
 **Follow these steps:**
 
 1.  To uninstall the plug-in from a base application, issue the following command:
     ```
-    zowe plugins uninstall @brightside/db2
+    zowe plugins uninstall @zowe/db2-for-zowe-cli
     ```
 After the uninstallation process completes successfully, the product no longer contains the plug-in configuration.
-
 
 ## Tutorials
 
