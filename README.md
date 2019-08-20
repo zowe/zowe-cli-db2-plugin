@@ -2,56 +2,68 @@
 
 [![codecov](https://codecov.io/gh/zowe/zowe-cli-db2-plugin/branch/master/graph/badge.svg)](https://codecov.io/gh/zowe/zowe-cli-db2-plugin)
 
-The IBM® Db2® Plug-in for Zowe CLI lets you interact with Db2 for z/OS to perform tasks
-with modern development tools to automate typical workloads more efficiently.
-The plug-in also enables you to interact with Db2 to advance continuous integration to validate product
-quality and stability.
+The IBM® Db2® Plug-in for Zowe CLI lets you interact with Db2 for z/OS to perform tasks with modern development tools to automate typical workloads more efficiently. The plug-in also lets you to interact with Db2 to advance continuous integration to validate product quality and stability.
 
-IBM® Db2® Plug-in for Zowe CLI lets you execute SQL statements against a Db2 region,
-export a Db2 table, and call a stored procedure. The plug-in also exposes its API
-so that the plug-in can be used directly in other products.
+## Understanding how the plug-in works
 
-## Contribution Guidelines
+Using the plug-in you execute SQL statements against a Db2 region, export a Db2 table, and call a stored procedure.
 
-For more information about general development guidelines and Db2 plug-in specific information,
-see [the Contribution Guidelines](CONTRIBUTING.md).
-
-**Tip:** Visit our [Sample Plug-in repository](https://github.com/zowe/zowe-cli-sample-plugin)
-and follow the [tutorials on the documentation site](https://zowe.github.io/docs-site/latest/extend/extend-cli/cli-devTutorials.html) to start developing your first plug-in! 
+The plug-in exposes its API so that the plug-in can be used directly in other products.
 
 ## Prerequisites
+
 Before you install the plug-in, meet the following prerequisites:
-* Install Zowe CLI on your PC.
+-   Install Zowe CLI on your computer.
     
-    **Note:** For more information, see the [Zowe CLI](https://zowe.github.io/docs-site/latest/user-guide/cli-installcli.html)
-    documentation.
-* Have a license file of IBM Db2 for z/OS
+    **Note:** For more information, see [Installing Zowe CLI](https://zowe.github.io/docs-site/latest/user-guide/cli-installcli.html).
 
-  For connectivity against Db2 for z/OS, the Db2 region should be `db2connectactivated` or
-  a `db2connect` license file should be provided. Copy the `db2connect` license file to
-  the `[db2 plugin folder]/node_modules/ibm_db/installer/clidriver/license/` folder.
+-   Have a license file of IBM Db2 for z/OS.
 
-## Build the Plug-in from Source
+    For connectivity against Db2 for z/OS, the Db2 region should be `db2connectactivated` or a `db2connect` license file should be provided. Copy the `db2connect` license file to the `[db2 plugin folder]/node_modules/ibm_db/installer/clidriver/license/` folder.
+
+## Installing the plug-in
+
+## Installing the plug-in
+
+Use one of the following methods to install the plug-in:
+
+-   Install the plug-in from an online registry or a local package.
+
+    Use the online registry/local package method when you simply want to install the plug-in to Zowe CLI and start using it.
+
+    For more information, see [Installing plug-ins](https://zowe.github.io/docs-site/latest/user-guide/cli-installplugins.html) on the [Zowe Docs](https://zowe.github.io/docs-site/latest/) website.
+
+-   Build the plug-in from source and install it into your Zowe CLI implementation.
+
+    Use the build from source method when you want to install the plug-in to Zowe CLI using the most current binaries and modify the behavior of the plug-in. For example, you want to create a new command and use the plug-in with the command that you created.
+    
+    For more information, see [Building the plug-in from source](#building-the-plug-in-from-source).
+
+## Building the plug-in from source
+
 **Follow these steps:**
 
-1. The first time that you download the IBM® Db2® Plug-in for Zowe CLI from the GitHub repository,
-   issue the following command against the local directory:
+1.  The first time that you download the IBM® Db2® Plug-in for Zowe CLI from the GitHub repository, issue the following command against the local directory:
 
     ```
     npm install
     ```
-    The command installs the required IBM® Db2® Plug-in for Zowe CLI dependencies and several development tools.
-    When necessary, you can run the task at any time to update the tools.
+    
+    The command installs the required dependencies fior the plug-in and several development tools. When necessary, you can run the task at any time to update the tools.
 
-2. To build your code changes, issue the following command:
+2.  To build your code changes, issue the following command:
+    
     ```
     npm run build
     ```
+
+    The first time you build your code changes, you will be prompted for the location of the Imperative CLI Framework package, which is located in the `node_modules/@zowe` folder in the directory where Zowe CLI was installed.
 
     **Note:** When you update `package.json` to include new dependencies, or when you pull changes
     that affect `package.json`, issue the `npm update` command to download the dependencies.
 
 ## Install the IBM® Db2® Plug-in for Zowe CLI
+
 **Follow these steps:**
 
 1.  Meet the prerequisites.
@@ -108,3 +120,18 @@ see [Zowe CLI Plug-in Testing Guidelines](https://github.com/zowe/zowe-cli/blob/
     zowe plugins uninstall @brightside/db2
     ```
 After the uninstallation process completes successfully, the product no longer contains the plug-in configuration.
+
+
+## Tutorials
+
+To learn about how to work with the sample plug-in, build new commands, or build a new plug-in for Zowe CLI, see [Develop for Zowe CLI](https://zowe.github.io/docs-site/latest/extend/extend-cli/cli-devTutorials.html).
+
+## Imperative CLI Framework documentation
+
+[Imperative CLI Framework](https://github.com/zowe/imperative/wiki) documentation is a key source of information to learn about the features of Imperative CLI Framework (the code framework that you use to build plug-ins for Zowe CLI). Refer to the documentation as you develop your plug-in.
+
+## Contributing to the plug-in
+
+For information about contributing to the plug-in, see the Zowe CLI [Contribution Guidelines](CONTRIBUTING.md). The guidelines contain standards and conventions for developing plug-ins for Zowe CLI.
+
+The guidelines contain critical information about working with the code. This includes information about, running, writing, maintaining automated tests, developing consistent syntax in your plug-in, and ensuring that your plug-in integrates properly with Zowe CLI.
