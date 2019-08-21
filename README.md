@@ -70,30 +70,16 @@ Use one of the following methods to install the plug-in:
     ```
     zowe plugins install .
     ```
+**Tip:** After the installation process completes, it validates that the plug-in was installed correct and the names of its commands, options, and arguments do not conflict with that of the other plug-ins that you installed into your Zowe CLi implimentation.
 
-## (Optional) Validating the plug-in
+When the validation process is successful, the following message displays:
 
-The validation process helps to ensure the following conditions:
+```
+Validation results for plugin 'db2':
+Successfully validated.
+```
 
--   The installation process completed successfully.
--   The plug-in does ***not*** contain commands, options, and arguments that conflict with (possess the same names) other plug-ins that are installed in your Zowe CLI installation.
-
-**Follow these steps:**
-
-1. Issue the following command:
-
-    ```
-    zowe plugins validate @zowe/db2-for-zowe-cli
-    ```
-
-    When you install the plug-in successfully, the following message displays:
-
-    ```
-    Validation results for plugin 'db2':
-    Successfully validated.
-    ```
-
-    **Tip:** When an unsuccessful message displays, you can troubleshoot the installation by addressing the issues that the message describes. You can also review the information that is contained in the log file that is located in the directory where you installed Zowe CLI.
+When an unsuccessful message displays, you can troubleshoot the installation by addressing the issues that the message describes. You can also review the information that is contained in the log file that is located in the directory where you installed Zowe CLI.
 
 ## Create a Profile
 
