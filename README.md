@@ -23,8 +23,6 @@ Before you install the plug-in, meet the following prerequisites:
 
 ## Installing the plug-in
 
-## Installing the plug-in
-
 Use one of the following methods to install the plug-in:
 
 -   Install the plug-in from an online registry or a local package.
