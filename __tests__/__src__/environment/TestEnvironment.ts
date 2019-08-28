@@ -157,7 +157,7 @@ export class TestEnvironment {
         installScript += "# Install plugin from root of project\n";
         installScript += "bright plugins install ../../../../\n";
         installScript += "# Validate installed plugin\n";
-        installScript += "bright plugins validate @zowe/db2\n";
+        installScript += "bright plugins validate @zowe/db2-for-zowe-cli\n";
         installScript += "# Check that the plugin help is available\n";
         installScript += "bright db2 --help\n";
         const scriptPath = testEnvironment.workingDir + "/install_plugin.sh";
@@ -166,7 +166,7 @@ export class TestEnvironment {
         const output = runCliScript(scriptPath, testEnvironment, []);
         if (output.status !== 0) {
             throw new ImperativeError({
-                msg: "Install of '@zowe/db2' plugin failed! You should delete the script: \n'" + scriptPath + "' " +
+                msg: "Install of '@zowe/db2-for-zowe-cli' plugin failed! You should delete the script: \n'" + scriptPath + "' " +
                 "after reviewing it to check for possible errors.\n Output of the plugin install command:\n" + output.stderr.toString() +
                 output.stdout.toString() +
                 TempTestProfiles.GLOBAL_INSTALL_NOTE

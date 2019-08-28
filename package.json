@@ -1,7 +1,7 @@
 {
-  "name": "@zowe/db2",
+  "name": "@zowe/db2-for-zowe-cli",
   "version": "3.0.2-alpha.201907121346",
-  "description": "CLI Plug-in for IBM Db2",
+  "description": "IBM® Db2® Plug-in for Zowe CLI",
   "author": "CA T&C Brightside",
   "license": "EPL-2.0",
   "main": "lib/index.js",
@@ -37,8 +37,8 @@
     "ibm_db": "2.5.0"
   },
   "peerDependencies": {
-    "@zowe/imperative": "^3.0.0",
-    "@zowe/cli": "^3.0.0"
+    "@zowe/imperative": "^4.0.0",
+    "@zowe/cli": "^5.0.0"
   },
   "devDependencies": {
     "@types/ibm_db": "^2.0.2",
