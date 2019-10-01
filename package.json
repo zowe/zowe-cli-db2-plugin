@@ -1,6 +1,6 @@
 {
   "name": "@zowe/db2-for-zowe-cli",
-  "version": "3.0.2-alpha.201907121346",
+  "version": "4.0.0",
   "description": "IBM® Db2® Plug-in for Zowe CLI",
   "author": "CA T&C Brightside",
   "license": "EPL-2.0",
@@ -46,7 +46,7 @@
     "@types/node": "^8.0.0",
     "@types/xml2js": "^0.4.3",
     "@types/yargs": "8.0.2",
-    "@zowe/imperative": "^4.1.1-alpha.201904251420",
+    "@zowe/imperative": "4.1.1",
     "env-cmd": "^8.0.2",
     "fs-extra": "^5.0.0",
     "jest": "^24.5.0",
