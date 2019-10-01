@@ -14,6 +14,6 @@ The following information is critical to working with the code, running/writing/
 Versioning conventions for Zowe CLI and Plug-ins| [Versioning Guidelines](https://github.com/zowe/zowe-cli/blob/master/docs/MaintainerVersioning.md) |
 
 ## Contribution Guidelines Specific to the Db2 Plug-in
-The following guidelines apply specifically to this IBM® Db2® Plug-in for Zowe CLI:
+The following guidelines apply specifically to this IBM Db2 Plug-in for Zowe CLI:
 
-None at this time.
+-   None at this time.
