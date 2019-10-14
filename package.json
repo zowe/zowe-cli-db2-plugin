@@ -34,7 +34,7 @@
     "configurationModule": "lib/imperative.js"
   },
   "dependencies": {
-    "ibm_db": "2.6.0"
+    "ibm_db": "2.6.1"
   },
   "peerDependencies": {
     "@zowe/imperative": "^4.0.0",
