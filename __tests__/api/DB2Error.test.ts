@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /*
 * This program and the accompanying materials are made available under the terms of the *
 * Eclipse Public License v2.0 which accompanies this distribution, and is available at *
@@ -10,13 +9,23 @@
 *                                                                                 *
 */
 
+import { DB2Error } from "../../src";
+import { ImperativeError } from "@brightside/imperative";
+import * as C from "../__src__/Db2TestConstants";
 
-import { Imperative } from "@brightside/imperative";
-// init imperative & parse the CLI input.
-Imperative.init().then(() => {
-    Imperative.api.imperativeLogger.info("Imperative Initialized the sample plugin CLI!");
-    Imperative.parse();
-    Imperative.api.imperativeLogger.info("Parsed the input command!");
-}).catch((error) => {
-    Imperative.console.error(`An error occurred during imperative initialization:\n${error}`);
+describe("DB2Error", () => {
+    describe("process", () => {
+        it("should throw an error", () => {
+            let error;
+            try {
+                DB2Error.process(C.ERROR);
+            }
+            catch (e) {
+                error = e;
+            }
+            expect(error).toBeDefined();
+            expect(error).toBeInstanceOf(ImperativeError);
+            expect(error.toString()).toMatchSnapshot();
+        });
+    });
 });

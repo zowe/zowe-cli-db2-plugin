@@ -1,6 +1,6 @@
 {
   "name": "@brightside/db2",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "CLI Plug-in for IBM Db2",
   "author": "CA T&C Brightside",
   "license": "EPL-2.0",
@@ -11,9 +11,6 @@
   "files": [
     "lib"
   ],
-  "bin": {
-    "db2": "./lib/main.js"
-  },
   "scripts": {
     "prebuild": "npm run clean && npm run lint && echo Using TypeScript && tsc --version",
     "build": "node scripts/updateLicense.js && tsc --pretty",
@@ -33,6 +30,7 @@
     "configurationModule": "lib/imperative.js"
   },
   "dependencies": {
+    "@brightside/imperative": "^2.4.9",
     "ibm_db": "2.5.0"
   },
   "peerDependencies": {
@@ -40,12 +38,11 @@
     "@brightside/imperative": ">=2.0.0-0"
   },
   "devDependencies": {
-    "@brightside/imperative": ">=2.0.0-0",
     "@types/ibm_db": "^2.0.2",
     "@types/jest": "^20.0.5",
     "@types/node": "^8.0.0",
-    "@types/yargs": "8.0.2",
     "@types/xml2js": "^0.4.3",
+    "@types/yargs": "8.0.2",
     "env-cmd": "^8.0.2",
     "fs-extra": "^5.0.0",
     "jest": "^22.0.4",

@@ -24,3 +24,4 @@ export * from "./api/ExecuteSQL";
 export * from "./api/ExportTable";
 export * from "./api/ExportTableSQL";
 export * from "./api/CallSP";
+export * from "./api/DB2Error";
