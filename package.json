@@ -37,7 +37,7 @@
     "@brightside/imperative": "^2.0.0"
   },
   "devDependencies": {
-    "@brightside/imperative": "^2.4.9",
+    "@brightside/imperative": "2.7.4",
     "@types/ibm_db": "^2.0.2",
     "@types/jest": "^20.0.5",
     "@types/node": "^8.0.0",
