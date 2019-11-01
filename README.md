@@ -23,13 +23,13 @@ The plug-in exposes its API so that the plug-in can be used directly in other pr
 
 Before you install and use the plug-in:
 
--   Install Zowe CLI on your computer.
-    
-    **Note:** For more information, see [Installing Zowe CLI](https://docs.zowe.org/stable/user-guide/cli-installcli.html).
+-   [Install Zowe CLI](https://docs.zowe.org/stable/user-guide/cli-installcli.html) on your computer.
 
--   Have a license file for IBM Db2 for z/OS.
+-   Have a license file for IBM Db2 Database for z/OS.
 
-    For connectivity against Db2 for z/OS, the Db2 region should be `db2connectactivated` or a `db2connect` license file should be provided. Copy the `db2connect` license file to the `[db2 plugin folder]/node_modules/ibm_db/installer/clidriver/license/` folder. For more information, see [Addressing the license requirement](https://docs.zowe.org/stable/user-guide/cli-db2plugin.html#addressing-the-license-requirement) on the Zowe Docs site. 
+    For connectivity to Db2 for z/OS, the Db2 region should be `db2connectactivated` or a `db2connect` license file should be provided. Copy the `db2connect` license file to the `[db2 plugin folder]/node_modules/ibm_db/installer/clidriver/license/` folder. For more information, see [Addressing the license requirement](https://docs.zowe.org/stable/user-guide/cli-db2plugin.html#addressing-the-license-requirement) on the Zowe Docs site. 
+
+- **(MacOS only)** Download and Install [Xcode](https://developer.apple.com/xcode/resources/).
 
 ## Installing
 
