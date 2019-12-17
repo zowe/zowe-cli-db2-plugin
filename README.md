@@ -98,7 +98,7 @@ zowe profiles create db2 -h
 ## Run Tests
 
 For information about running automated, unit, and system and integration tests using the plug-in,
-see [Zowe CLI Plug-in Testing Guidelines](https://github.com/gizafoundation/brightside/blob/master/docs/PluginTESTINGGuidelines.md#ca-brightside-plug-in-testing-guidelines).
+see [Zowe CLI Plug-in Testing Guidelines](https://github.com/zowe/zowe-cli/blob/master/docs/PluginTESTINGGuidelines.md#zowe-cli-plug-in-testing-guidelines).
 
 ## Uninstall the Plug-in
 **Follow these steps:**
