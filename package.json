@@ -10,7 +10,7 @@
     "url": "https://github.com/zowe/zowe-cli-db2-plugin.git"
   },
   "publishConfig": {
-    "registry": "https://gizaartifactory.jfrog.io/gizaartifactory/api/npm/npm-local-release/"
+    "registry": "https://zowe.jfrog.io/zowe/api/npm/npm-local-release/"
   },
   "files": [
     "lib"
