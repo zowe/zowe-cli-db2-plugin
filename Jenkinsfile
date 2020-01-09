@@ -55,8 +55,8 @@ def BUILD_RESULT = [
 def DL_URL = [
     // Public Bintray
     bintray: 'https://api.bintray.com/npm/ca/brightside/',
-    // Giza Artifactory
-    artifactory: 'https://gizaartifactory.jfrog.io/gizaartifactory/api/npm/npm-local-release/'
+    // Zowe Artifactory
+    artifactory: 'https://zowe.jfrog.io/zowe/api/npm/npm-local-release/'
 ]
 def rmProt(String url) {
     return url.contains("https") ? url.replace("https://", "") : url.replace("http://", "");
@@ -140,7 +140,7 @@ def GIT_REVISION_LOOKUP = 'git log -n 1 --pretty=format:%h'
 /**
  * The credentials id field for the artifactory username and password
  */
-def ARTIFACTORY_CREDENTIALS_ID = 'GizaArtifactory'
+def ARTIFACTORY_CREDENTIALS_ID = 'zowe'
 
 /**
  * The email address for the artifactory
