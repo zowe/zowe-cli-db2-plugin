@@ -15,7 +15,7 @@
 
 /**
 * Development branches considered for release purposes
-*/ 
+*/
 def DEV_BRANCH = [
     master: "master",
     beta: "beta",
@@ -26,7 +26,7 @@ def DEV_BRANCH = [
 
 /**
 * List of release branches
-*/ 
+*/
 def RELEASE_BRANCHES = [DEV_BRANCH.master, DEV_BRANCH.beta, DEV_BRANCH.latest, DEV_BRANCH.incremental, DEV_BRANCH.stable]
 
 /**
@@ -140,7 +140,7 @@ def GIT_REVISION_LOOKUP = 'git log -n 1 --pretty=format:%h'
 /**
  * The credentials id field for the artifactory username and password
  */
-def ARTIFACTORY_CREDENTIALS_ID = 'zowe'
+def ARTIFACTORY_CREDENTIALS_ID = 'zowe.jfrog.io'
 
 /**
  * The email address for the artifactory
