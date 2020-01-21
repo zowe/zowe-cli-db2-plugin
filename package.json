@@ -38,7 +38,7 @@
   },
   "peerDependencies": {
     "@zowe/imperative": "^4.0.0",
-    "@zowe/cli": "^5.0.0"
+    "@zowe/cli": "^6.0.0"
   },
   "devDependencies": {
     "@types/ibm_db": "^2.0.2",
