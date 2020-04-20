@@ -2,6 +2,10 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
+## Recent Changes
+
+- Decrease Imperative load time for plugin
+
 ## `4.0.5`
 
 - Tagged 4.X.X as @zowe-v1-lts
@@ -12,7 +16,7 @@ All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented i
 
 ## `4.0.3`
 
-- Updated documentation to include Xcode, fix links and branding 
+- Updated documentation to include Xcode, fix links and branding
 
 ## `4.0.2`
 

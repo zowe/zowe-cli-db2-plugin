@@ -10,7 +10,7 @@
 */
 
 import { IImperativeConfig } from "@zowe/imperative";
-import { Constants } from "./";
+import { Constants } from "./Constants";
 
 const config: IImperativeConfig = {
     name: Constants.PROD_NAME,
