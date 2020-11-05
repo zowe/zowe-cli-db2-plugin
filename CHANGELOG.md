@@ -4,7 +4,7 @@ All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented i
 
 ## Recent Changes
 
-- BugFix: Added support for Node v14 [#60](https://github.com/zowe/zowe-cli-db2-plugin/pull/60)
+- BugFix: Added support for Node v14. [#60](https://github.com/zowe/zowe-cli-db2-plugin/pull/60)
 
 ## `4.0.6`
 
