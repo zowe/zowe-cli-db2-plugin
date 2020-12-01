@@ -83,6 +83,19 @@ describe("db2 execute sql command", () => {
         expect(response.status).toBe(0);
     });
 
+    it("should be able to execute simple SQL statements to test connection", () => {
+        const response = runCliScript(__dirname + "/__scripts__/success_simple_sql.sh", TEST_ENV);
+        expect(response.stderr.toString()).toBe("");
+        expect(response.stdout.toString()).toMatchSnapshot();
+        expect(response.status).toBe(0);
+    });
+
+    it("should be able to execute simple SQL statements with the -q alias", () => {
+        const response = runCliScript(__dirname + "/__scripts__/success_simple_sql_alias.sh", TEST_ENV);
+        expect(response.stderr.toString()).toBe("");
+        expect(response.stdout.toString()).toMatchSnapshot();
+        expect(response.status).toBe(0);
+    });
 
     it("should be able to execute SQL statements overriding some of the options by arguments", () => {
         const response = runCliScript(__dirname + "/__scripts__/success_override_profile.sh",
