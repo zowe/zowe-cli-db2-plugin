@@ -35,7 +35,7 @@ export const ProcedureDefinition: ICommandDefinition = {
             name: "parameters",
             aliases: ["p"],
             type: "array",
-            description: "Values to bind to the stored procedure parameters.",
+            description: "Values to bind to the stored procedure parameters",
             required: false,
         },
     ],
