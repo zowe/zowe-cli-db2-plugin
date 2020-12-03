@@ -35,7 +35,7 @@ export const ProcedureDefinition: ICommandDefinition = {
             name: "parameters",
             aliases: ["p"],
             type: "array",
-            description: "Values to bind to the stored procedure parameters",
+            description: "Values to bind to the stored procedure parameters.",
             required: false,
         },
     ],
@@ -47,6 +47,10 @@ export const ProcedureDefinition: ICommandDefinition = {
         {
             description: "Call a stored procedure and pass values for parameter indicators",
             options: "\"DEMO.SP2(?, ?)\" --parameters \"Hello\" \"world!\"",
+        },
+        {
+            description: "Call a stored procedure and pass values for two output parameters. The first output requires a 2-character buffer. The second output is a message that will be truncated to the length of the placeholder.",
+            options: "\"DEMO.SP3(NULL, ?, ?)\" --parameters "00" "message_placeholder_message_placeholder"",
         },
     ],
 };
