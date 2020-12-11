@@ -78,7 +78,7 @@ async function setup(
   const systemProps: ITestPropertiesSchema = {
     db2: {
       host: process.env.npm_config_host,
-      port: parseInt(process.env.npm_config_port),
+      port: parseInt(process.env.npm_config_port, 10),
       user: process.env.npm_config_user,
       password: process.env.npm_config_password,
       database: process.env.npm_config_database,
@@ -86,7 +86,7 @@ async function setup(
   };
 
   const env: { [key: string]: string } = {};
-  env["ZOWE_CLI_HOME"] = testDirectory;
+  env.ZOWE_CLI_HOME = testDirectory;
 
   const result: ITestEnvironment = {
     workingDir: testDirectory,
