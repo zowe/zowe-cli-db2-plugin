@@ -146,7 +146,8 @@ node('ca-jenkins-agent') {
             usernamePassword(credentialsId: 'CLI_DB2_HOST_PORT', usernameVariable: 'DB2_HOST', passwordVariable: 'DB2_PORT')
             ]) {
                 sh "npm run testConnection --host=${DB2_HOST}  --port=${DB2_PORT}  --user=${DB2_USERNAME}  --database=DBC1  --password=${DB2_PASSWORD}"
-            },
+            }
+        },
         environment: [
             JEST_JUNIT_OUTPUT: SYSTEM_JUNIT_OUTPUT,
             JEST_SUIT_NAME: "System Tests",
