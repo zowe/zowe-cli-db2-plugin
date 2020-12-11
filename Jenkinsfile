@@ -122,7 +122,12 @@ node('ca-jenkins-agent') {
     pipeline.createStage(
         name: "Telnet",
         stage: {
-            sh "npm run approveConnection --host=  --user=  --password="
+        withCredentials([
+        usernamePassword(credentialsId: 'ROAVILL_INTRANET_ID', usernameVariable: 'TELNET_USERNAME', passwordVariable: 'TELNET_PASSWORD'),
+        usernamePassword(credentialsId: 'CLI_DB2_HOST_PORT', usernameVariable: 'DB2_HOST', passwordVariable: 'DB2_PORT')
+        ]) {
+            sh "npm run approveConnection --host=${DB2_HOST}  --user=${TELNET_USERNAME}  --password=${TELNET_PASSWORD}"
+        }
         },
         timeout: [
             time: 1,
@@ -136,8 +141,12 @@ node('ca-jenkins-agent') {
     pipeline.test(
         name: "System",
         operation: {
-            sh "npm run testConnection --host=  --port=  --user=  --database=  --password="
-        },
+            withCredentials([
+            usernamePassword(credentialsId: 'CLI_DB2_PLUGIN', usernameVariable: 'DB2_USERNAME', passwordVariable: 'DB2_PASSWORD'),
+            usernamePassword(credentialsId: 'CLI_DB2_HOST_PORT', usernameVariable: 'DB2_HOST', passwordVariable: 'DB2_PORT')
+            ]) {
+                sh "npm run testConnection --host=${DB2_HOST}  --port=${DB2_PORT}  --user=${DB2_USERNAME}  --database=DBC1  --password=${DB2_PASSWORD}"
+            },
         environment: [
             JEST_JUNIT_OUTPUT: SYSTEM_JUNIT_OUTPUT,
             JEST_SUIT_NAME: "System Tests",
