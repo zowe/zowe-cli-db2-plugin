@@ -28,7 +28,9 @@
     "test:system": "env-cmd __tests__/__resources__/env/system.env jest .*/__system__/.* --coverage false --runInBand",
     "test:unit": "env-cmd __tests__/__resources__/env/unit.env jest --coverage --testPathIgnorePatterns \".*/__system__/.*\" ",
     "installPlugin": "npm install && npm run clean && npm run build && bright plugins install .",
-    "typedoc": "typedoc --out ./docs/typedoc/ ./src/ --disableOutputCheck --ignoreCompilerErrors --mode file"
+    "typedoc": "typedoc --out ./docs/typedoc/ ./src/ --disableOutputCheck --ignoreCompilerErrors --mode file",
+    "approveConnection": "./__tests__/__system__/cli/execute/__scripts__/telnet.sh $npm_config_host $npm_config_user $npm_config_password",
+    "testConnection": "env-cmd __tests__/__resources__/env/system.env jest __tests__/__system__/cli/execute/cli.db2.execute.testConnection.test.ts --coverage false --runInBand"
   },
   "imperative": {
     "configurationModule": "lib/imperative.js"

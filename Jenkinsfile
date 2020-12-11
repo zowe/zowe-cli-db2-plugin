@@ -119,6 +119,38 @@ node('ca-jenkins-agent') {
         ]
     )
 
+    pipeline.createStage(
+        name: "Telnet",
+        stage: {
+            sh "npm run approveConnection --host=  --user=  --password="
+        },
+        timeout: [
+            time: 1,
+            unit: 'MINUTES'
+        ]
+    )
+
+    def SYSTEM_TEST_ROOT = "$TEST_ROOT/system"
+    def SYSTEM_JUNIT_OUTPUT = "$SYSTEM_TEST_ROOT/junit.xml"
+    
+    pipeline.test(
+        name: "System",
+        operation: {
+            sh "npm run testConnection --host=  --port=  --user=  --database=  --password="
+        },
+        environment: [
+            JEST_JUNIT_OUTPUT: SYSTEM_JUNIT_OUTPUT,
+            JEST_SUIT_NAME: "System Tests",
+            JEST_JUNIT_ANCESTOR_SEPARATOR: " > ",
+            JEST_JUNIT_CLASSNAME: "System.{classname}",
+            JEST_JUNIT_TITLE: "{title}",
+            JEST_STARE_RESULT_DIR: "${SYSTEM_TEST_ROOT}/jest-stare",
+            JEST_STARE_RESULT_HTML: "index.html"
+        ],
+        testResults: [dir: "${SYSTEM_TEST_ROOT}/jest-stare", files: "index.html", name: "${PRODUCT_NAME} - System Test Report"],
+        junitOutput: SYSTEM_JUNIT_OUTPUT
+    )
+
     //Upload Reports to Code Coverage
     pipeline.createStage(
         name: "Codecov",
