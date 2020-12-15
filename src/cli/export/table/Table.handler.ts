@@ -44,11 +44,11 @@ export default class TableHandler extends DB2BaseHandler {
         while (!(statement = statements.next()).done) {
             if (params.arguments.outfile) {
                 // Write statements to a file
-                fs.writeSync(outFile, statement.value);
+                fs.writeSync(outFile, `${statement.value};`);
             }
             else {
                 // Print out the response
-                params.response.console.log(statement.value);
+                params.response.console.log(`${statement.value};`);
 
             }
         }
