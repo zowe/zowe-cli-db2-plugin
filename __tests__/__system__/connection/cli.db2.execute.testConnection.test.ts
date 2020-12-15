@@ -9,13 +9,13 @@
  *                                                                                 *
  */
 
-import { ISetupEnvironmentParms } from "../../../__src__/environment/doc/parms/ISetupEnvironmentParms";
-import { ITestEnvironment } from "../../../__src__/environment/doc/response/ITestEnvironment";
-import { TestEnvironment } from "../../../__src__/environment/TestEnvironment";
-import { runCliScript } from "../../../__src__/TestUtils";
+import { ISetupEnvironmentParms } from "../../__src__/environment/doc/parms/ISetupEnvironmentParms";
+import { ITestPropertiesSchema } from "../../__src__/environment/doc/ITestPropertiesSchema";
+import { ITestEnvironment } from "../../__src__/environment/doc/response/ITestEnvironment";
+import { TempTestProfiles } from "../../__src__/environment/TempTestProfiles";
+import { TestEnvironment } from "../../__src__/environment/TestEnvironment";
 import { ImperativeError, ImperativeExpect, IO } from "@zowe/imperative";
-import { TempTestProfiles } from "../../../__src__/environment/TempTestProfiles";
-import { ITestPropertiesSchema } from "../../../__src__/environment/doc/ITestPropertiesSchema";
+import { runCliScript } from "../../__src__/TestUtils";
 
 let TEST_ENV: ITestEnvironment;
 
@@ -38,9 +38,9 @@ describe("Test Connection", () => {
       TEST_ENV
     );
     expect(response.stderr.toString()).toBe("");
-    // expect(response.stdout.toString()).toMatchSnapshot();
-    expect(response.stdout.toString().length).toBeGreaterThan(0);
-    expect(response.stdout.toString()).toContain("Result #1");
+    expect(response.stdout.toString()).toMatchSnapshot();
+    // expect(response.stdout.toString().length).toBeGreaterThan(0);
+    // expect(response.stdout.toString()).toContain("Result #1");
     expect(response.status).toBe(0);
   });
 
@@ -50,9 +50,9 @@ describe("Test Connection", () => {
       TEST_ENV
     );
     expect(response.stderr.toString()).toBe("");
-    // expect(response.stdout.toString()).toMatchSnapshot();
-    expect(response.stdout.toString().length).toBeGreaterThan(0);
-    expect(response.stdout.toString()).toContain("Result #1");
+    expect(response.stdout.toString()).toMatchSnapshot();
+    // expect(response.stdout.toString().length).toBeGreaterThan(0);
+    // expect(response.stdout.toString()).toContain("Result #1");
     expect(response.status).toBe(0);
   });
 });

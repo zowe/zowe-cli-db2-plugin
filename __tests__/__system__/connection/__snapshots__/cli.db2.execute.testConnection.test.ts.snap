@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Connection should be able to execute simple SQL statements to test connection 1`] = `
+"Result #1
+- 
+  IBMREQD: Y
+
+
+"
+`;
+
+exports[`Test Connection should be able to execute simple SQL statements with the -q alias 1`] = `
+"Result #1
+- 
+  TOTAL: 1
+
+
+"
+`;
