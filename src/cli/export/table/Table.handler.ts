@@ -49,7 +49,6 @@ export default class TableHandler extends DB2BaseHandler {
             else {
                 // Print out the response
                 params.response.console.log(`${statement.value};`);
-
             }
         }
         if (params.arguments.outfile) {
