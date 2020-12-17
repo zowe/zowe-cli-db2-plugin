@@ -119,25 +119,10 @@ node('ca-jenkins-agent') {
         ]
     )
 
-    pipeline.createStage(
-        name: "Telnet",
-        stage: {
-        withCredentials([
-        usernamePassword(credentialsId: 'ROAVILL_INTRANET_ID', usernameVariable: 'TELNET_USERNAME', passwordVariable: 'TELNET_PASSWORD'),
-        usernamePassword(credentialsId: 'CLI_DB2_HOST_PORT', usernameVariable: 'DB2_HOST', passwordVariable: 'DB2_PORT')
-        ]) {
-            sh "npm run approveConnection --host=${DB2_HOST}  --user=${TELNET_USERNAME}  --password=${TELNET_PASSWORD}"
-        }
-        },
-        timeout: [
-            time: 1,
-            unit: 'MINUTES'
-        ]
-    )
-
     def SYSTEM_TEST_ROOT = "$TEST_ROOT/system"
     def SYSTEM_JUNIT_OUTPUT = "$SYSTEM_TEST_ROOT/junit.xml"
     
+    // Perform System tests
     pipeline.test(
         name: "System",
         operation: {

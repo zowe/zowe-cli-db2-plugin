@@ -39,8 +39,6 @@ describe("Test Connection", () => {
     );
     expect(response.stderr.toString()).toBe("");
     expect(response.stdout.toString()).toMatchSnapshot();
-    // expect(response.stdout.toString().length).toBeGreaterThan(0);
-    // expect(response.stdout.toString()).toContain("Result #1");
     expect(response.status).toBe(0);
   });
 
@@ -51,8 +49,6 @@ describe("Test Connection", () => {
     );
     expect(response.stderr.toString()).toBe("");
     expect(response.stdout.toString()).toMatchSnapshot();
-    // expect(response.stdout.toString().length).toBeGreaterThan(0);
-    // expect(response.stdout.toString()).toContain("Result #1");
     expect(response.status).toBe(0);
   });
 });
