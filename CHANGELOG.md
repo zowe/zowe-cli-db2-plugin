@@ -4,8 +4,7 @@ All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented i
 
 ## Recent Changes
 
-- Updated obsolete testing snapshots
-- Changed target table name in system tests
+- Enhancement: Added a help example for how to pass output values when calling a Db2 stored procedure. 
 
 ## `4.0.7`
 
