@@ -41,6 +41,7 @@
     "@zowe/cli": "^6.0.0"
   },
   "devDependencies": {
+    "@types/fs-extra": "^9.0.5",
     "@types/ibm_db": "^2.0.2",
     "@types/jest": "^20.0.5",
     "@types/node": "^8.0.0",
