@@ -31,12 +31,21 @@ exports[`db2 execute command should display the help 1`] = `
 
       Display help text
 
+   --help-examples  (boolean)
+
+      Display examples for all the commands in a the group
+
+   --help-web  | --hw (boolean)
+
+      Display HTML help in browser
+
 {
   \\"success\\": true,
+  \\"exitCode\\": 0,
   \\"message\\": \\"The help was constructed for command: execute.\\",
-  \\"stdout\\": \\"\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Execute SQL queries against a Db2 region and retrieve the response. Enclose the\\\\n   query in quotes and escape any symbols that have a special meaning to the shell.\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 execute <command>\\\\n\\\\n   Where <command> is one of the following:\\\\n\\\\n COMMANDS\\\\n --------\\\\n\\\\n   sql Execute SQL statement\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n\\",
+  \\"stdout\\": \\"\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Execute SQL queries against a Db2 region and retrieve the response. Enclose the\\\\n   query in quotes and escape any symbols that have a special meaning to the shell.\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 execute <command>\\\\n\\\\n   Where <command> is one of the following:\\\\n\\\\n COMMANDS\\\\n --------\\\\n\\\\n   sql Execute SQL statement\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n   --help-examples  (boolean)\\\\n\\\\n      Display examples for all the commands in a the group\\\\n\\\\n   --help-web  | --hw (boolean)\\\\n\\\\n      Display HTML help in browser\\\\n\\\\n\\",
   \\"stderr\\": \\"\\",
-  \\"data\\": \\"\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Execute SQL queries against a Db2 region and retrieve the response. Enclose the\\\\n   query in quotes and escape any symbols that have a special meaning to the shell.\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 execute <command>\\\\n\\\\n   Where <command> is one of the following:\\\\n\\\\n COMMANDS\\\\n --------\\\\n\\\\n   sql Execute SQL statement\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n\\"
+  \\"data\\": \\"\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Execute SQL queries against a Db2 region and retrieve the response. Enclose the\\\\n   query in quotes and escape any symbols that have a special meaning to the shell.\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 execute <command>\\\\n\\\\n   Where <command> is one of the following:\\\\n\\\\n COMMANDS\\\\n --------\\\\n\\\\n   sql Execute SQL statement\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n   --help-examples  (boolean)\\\\n\\\\n      Display examples for all the commands in a the group\\\\n\\\\n   --help-web  | --hw (boolean)\\\\n\\\\n      Display HTML help in browser\\\\n\\\\n\\"
 }"
 `;
 
@@ -58,7 +67,7 @@ exports[`db2 execute command should fail with invalid parameter 1`] = `
 "Command Error:
 Unknown arguments: D, command
 Command failed due to improper syntax
-Command entered: \\"zowe db2 execute command --D  DDF\\"
+Command entered: \\"zowe db2 execute command -D DDF\\"
 Available commands are \\"sql\\".
 Use \\"zowe db2 execute --help\\" to view groups, commands, and options.
 Error Details:
