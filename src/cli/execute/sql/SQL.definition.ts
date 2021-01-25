@@ -40,7 +40,7 @@ export const SQLDefinition: ICommandDefinition = {
     examples: [
         {
             description: "Execute a dummy SQL query",
-            options: "--query\"SELECT 'Hello World' FROM SYSIBM.SYSDUMMY1\"",
+            options: "--query \"SELECT 'Hello World' FROM SYSIBM.SYSDUMMY1\"",
         },
         {
             description: "Retrieve the employees table and total number of rows",

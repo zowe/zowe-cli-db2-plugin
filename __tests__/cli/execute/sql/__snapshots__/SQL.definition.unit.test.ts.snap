@@ -6,7 +6,7 @@ Object {
   "examples": Array [
     Object {
       "description": "Execute a dummy SQL query",
-      "options": "--query\\"SELECT 'Hello World' FROM SYSIBM.SYSDUMMY1\\"",
+      "options": "--query \\"SELECT 'Hello World' FROM SYSIBM.SYSDUMMY1\\"",
     },
     Object {
       "description": "Retrieve the employees table and total number of rows",
