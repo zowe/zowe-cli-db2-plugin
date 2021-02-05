@@ -22,7 +22,7 @@ import * as fs from "fs";
 export default class TableHandler extends DB2BaseHandler {
     public async processWithDB2Session(params: IHandlerParameters, session: AbstractSession): Promise<void>  {
         const DB2session = session.ISession as IDB2Session;
-
+        const separatorCharacter = params.arguments.separator === `true` ? `;` : ``;
         let [database, table] = params.arguments.table.split(".");
         if (table === null) {
             table = database;
@@ -44,11 +44,11 @@ export default class TableHandler extends DB2BaseHandler {
         while (!(statement = statements.next()).done) {
             if (params.arguments.outfile) {
                 // Write statements to a file
-                fs.writeSync(outFile, `${statement.value};`);
+                fs.writeSync(outFile, `${statement.value}${separatorCharacter}`);
             }
             else {
                 // Print out the response
-                params.response.console.log(`${statement.value};`);
+                params.response.console.log(`${statement.value}${separatorCharacter}`);
             }
         }
         if (params.arguments.outfile) {
