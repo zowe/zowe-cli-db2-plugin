@@ -91,6 +91,14 @@ describe("db2 export table command", () => {
         expect(new RegExp(regex, "gs").test(outFile)).toBe(true);
     });
 
+    it("should export the system roles table with separator", () => {
+        const regex = fs.readFileSync(__dirname + "/__regex__/export_table.regex").toString();
+        const response = runCliScript(__dirname + "/__scripts__/success_export_separator.sh", TEST_ENV);
+        expect(response.stderr.toString()).toBe("");
+        expect(response.status).toBe(0);
+        expect(new RegExp(regex, "gs").test(response.stdout.toString())).toBe(true);
+    });
+
     it("should export the system roles table to the standard out overriding some profile options by cmd arguments", () => {
         const regex: RegExp = new RegExp(fs.readFileSync(__dirname + "/__regex__/export_table.regex").toString(), "gs");
         const response = runCliScript(__dirname + "/__scripts__/success_override_profile.sh", TEST_ENV,

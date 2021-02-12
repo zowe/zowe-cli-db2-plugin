@@ -20,6 +20,15 @@ Object {
       "required": false,
       "type": "string",
     },
+    Object {
+      "aliases": Array [
+        "sep",
+      ],
+      "description": "Specify whether to add a separator between statements when exporting a table",
+      "name": "separator",
+      "required": false,
+      "type": "string",
+    },
   ],
   "positionals": Array [
     Object {
