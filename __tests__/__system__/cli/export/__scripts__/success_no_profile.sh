@@ -6,5 +6,5 @@ USER=$3
 PASS=$4
 DB=$5
 
-zowe db2 export table SYSIBM.SYSROLES --host $HOST --port $PORT --user $USER --password $PASS --database $DB
+zowe db2 export table SYSIBM.SYSDUMMY1 --host $HOST --port $PORT --user $USER --password $PASS --database $DB
 exit $?

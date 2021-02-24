@@ -35,6 +35,13 @@ export const TableDefinition: ICommandDefinition = {
             type: "string",
             description: "The path to the output file",
             required: false,
+        },
+        {
+            name: "separator",
+            aliases: ["sep"],
+            type: "string",
+            description: "Specify whether to add a separator between statements when exporting a table",
+            required: false
         }
     ],
     examples: [

@@ -2,6 +2,11 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
+## `4.1.0`
+
+- Adds semicolon after each sql statement when exporting a table.
+- Enhancement: Added a help example for how to pass output values when calling a Db2 stored procedure. 
+
 ## `4.0.7`
 
 - BugFix: Added support for Node v14. [#60](https://github.com/zowe/zowe-cli-db2-plugin/pull/60)
