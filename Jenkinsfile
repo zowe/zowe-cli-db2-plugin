@@ -119,6 +119,7 @@ node('ca-jenkins-agent') {
         ]
     )
 
+    /*
     def SYSTEM_TEST_ROOT = "$TEST_ROOT/system"
     def SYSTEM_JUNIT_OUTPUT = "$SYSTEM_TEST_ROOT/junit.xml"
     
@@ -145,6 +146,7 @@ node('ca-jenkins-agent') {
         testResults: [dir: "${SYSTEM_TEST_ROOT}/jest-stare", files: "index.html", name: "${PRODUCT_NAME} - System Test Report"],
         junitOutput: SYSTEM_JUNIT_OUTPUT
     )
+     */
 
     //Upload Reports to Code Coverage
     pipeline.createStage(

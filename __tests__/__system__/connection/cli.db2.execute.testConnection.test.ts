@@ -51,6 +51,26 @@ describe("Test Connection", () => {
     expect(response.stdout.toString()).toMatchSnapshot();
     expect(response.status).toBe(0);
   });
+
+  it("should be able to export a table so stdout with semi-colon separator", () => {
+    const response = runCliScript(
+      __dirname + "/__scripts__/success_simple_export.sh",
+      TEST_ENV
+    );
+    expect(response.stderr.toString()).toBe("");
+    expect(response.stdout.toString()).toMatchSnapshot();
+    expect(response.status).toBe(0);
+  });
+
+  it("should be able to call a procedure and output the stdout", () => {
+    const response = runCliScript(
+      __dirname + "/__scripts__/success_simple_procedure.sh",
+      TEST_ENV
+    );
+    expect(response.stderr.toString()).toBe("");
+    expect(response.stdout.toString()).toMatchSnapshot();
+    expect(response.status).toBe(0);
+  });
 });
 
 async function setup(
@@ -64,7 +84,7 @@ async function setup(
     params,
     ["testName"],
     `${TestEnvironment.ERROR_TAG} createTestEnv(): You must supply the name of the test. ` +
-      `Used to append to the data directory for ease of identification.`
+    `Used to append to the data directory for ease of identification.`
   );
 
   const testDirectory: string = TestEnvironment.createUniqueTestDataDir(
