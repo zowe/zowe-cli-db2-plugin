@@ -76,17 +76,6 @@ describe("Test Connection", () => {
 async function setup(
   params: ISetupEnvironmentParms
 ): Promise<ITestEnvironment> {
-  ImperativeExpect.toNotBeNullOrUndefined(
-    params,
-    `${TestEnvironment.ERROR_TAG} createTestEnv(): No parameters supplied.`
-  );
-  ImperativeExpect.keysToBeDefinedAndNonBlank(
-    params,
-    ["testName"],
-    `${TestEnvironment.ERROR_TAG} createTestEnv(): You must supply the name of the test. ` +
-    `Used to append to the data directory for ease of identification.`
-  );
-
   const testDirectory: string = TestEnvironment.createUniqueTestDataDir(
     params.testName
   );
