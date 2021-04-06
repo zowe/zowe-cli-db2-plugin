@@ -128,25 +128,19 @@ node('ca-jenkins-agent') {
         name: "System",
         operation: {
             withCredentials([
-            usernamePassword(credentialsId: 'CLI_DB2_PLUGIN', usernameVariable: 'DB2_USERNAME', passwordVariable: 'DB2_PASSWORD'),
-            usernamePassword(credentialsId: 'CLI_DB2_HOST_PORT', usernameVariable: 'DB2_HOST', passwordVariable: 'DB2_PORT')
-            ]) {
-                sh "npm run testConnection --host=${DB2_HOST}  --port=${DB2_PORT}  --user=${DB2_USERNAME}  --database=DBC1  --password=${DB2_PASSWORD}"
+                string(credentialsId: 'db2-cli-system-host', variable: 'HOST'),
+                string(credentialsId: 'db2-cli-system-port', variable: 'PORT'),
+                string(credentialsId: 'db2-cli-system-user', variable: 'USER'),
+                string(credentialsId: 'db2-cli-system-pass', variable: 'PASS'),
+                string(credentialsId: 'db2-cli-system-db', variable: 'DB')
+            ]) 
+            {
+                sh "npm run testConnection --host=${HOST} --port=${PORT} --user=${USER} --password=${PASS} --database=${DB}"
             }
-        },
-        environment: [
-            JEST_JUNIT_OUTPUT: SYSTEM_JUNIT_OUTPUT,
-            JEST_SUIT_NAME: "System Tests",
-            JEST_JUNIT_ANCESTOR_SEPARATOR: " > ",
-            JEST_JUNIT_CLASSNAME: "System.{classname}",
-            JEST_JUNIT_TITLE: "{title}",
-            JEST_STARE_RESULT_DIR: "${SYSTEM_TEST_ROOT}/jest-stare",
-            JEST_STARE_RESULT_HTML: "index.html"
-        ],
-        testResults: [dir: "${SYSTEM_TEST_ROOT}/jest-stare", files: "index.html", name: "${PRODUCT_NAME} - System Test Report"],
-        junitOutput: SYSTEM_JUNIT_OUTPUT
+        }
     )
-     */
+    */
+     
 
     //Upload Reports to Code Coverage
     pipeline.createStage(
