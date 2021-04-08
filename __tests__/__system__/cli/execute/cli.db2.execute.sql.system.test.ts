@@ -9,12 +9,11 @@
 *                                                                                 *
 */
 
-import { ITestEnvironment } from "../../../__src__/environment/doc/response/ITestEnvironment";
-import { TestEnvironment } from "../../../__src__/environment/TestEnvironment";
-import { runCliScript } from "../../../__src__/TestUtils";
+import { ITestEnvironment, TestEnvironment, runCliScript } from "@zowe/cli-test-utils";
+import { ITestPropertiesSchema } from "../../../__src__/environment/doc/ITestPropertiesSchema";
 import { ICommandResponse } from "@zowe/imperative";
 
-let TEST_ENV: ITestEnvironment;
+let TEST_ENV: ITestEnvironment<ITestPropertiesSchema>;
 let host: string;
 let port: number;
 let user: string;

@@ -9,11 +9,10 @@
 *                                                                                 *
 */
 
-import { ITestEnvironment } from "../../../__src__/environment/doc/response/ITestEnvironment";
-import { TestEnvironment } from "../../../__src__/environment/TestEnvironment";
-import { runCliScript } from "../../../__src__/TestUtils";
+import { ITestEnvironment, TestEnvironment, runCliScript } from "@zowe/cli-test-utils";
+import { ITestPropertiesSchema } from "../../../__src__/environment/doc/ITestPropertiesSchema";
 
-let TEST_ENV: ITestEnvironment;
+let TEST_ENV: ITestEnvironment<ITestPropertiesSchema>;
 
 describe("db2 command", () => {
 
