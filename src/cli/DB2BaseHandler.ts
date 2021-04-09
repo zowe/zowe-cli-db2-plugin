@@ -11,10 +11,8 @@
 
 import {
     AbstractSession,
-    ConnectionPropsForSessCfg,
     ICommandHandler,
-    IHandlerParameters,
-    Session
+    IHandlerParameters
 } from "@zowe/imperative";
 import { DB2Session } from "../index";
 
@@ -38,9 +36,8 @@ export abstract class DB2BaseHandler implements ICommandHandler {
      */
     public async process(commandParameters: IHandlerParameters) {
         this.mHandlerParams = commandParameters;
-        const session = DB2Session.createDB2Session(commandParameters.arguments);
-        const sessCfgWithCreds = await ConnectionPropsForSessCfg.addPropsOrPrompt(session.ISession, commandParameters.arguments);
-        await this.processWithDB2Session(commandParameters, new Session(sessCfgWithCreds));
+        const session = await DB2Session.createSessCfgFromArgs(commandParameters.arguments);
+        await this.processWithDB2Session(commandParameters, session);
     }
 
     /**
