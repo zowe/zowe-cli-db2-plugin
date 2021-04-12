@@ -47,7 +47,7 @@
     "@types/node": "^8.0.0",
     "@types/xml2js": "^0.4.3",
     "@types/yargs": "^8.0.2",
-    "@zowe/cli-test-utils": "^1.0.0",
+    "@zowe/cli-test-utils": "^7.0.0-next.202104121746",
     "@zowe/imperative": "^5.0.0-next.202103111923",
     "env-cmd": "^8.0.2",
     "fs-extra": "^5.0.0",
