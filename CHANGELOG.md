@@ -2,6 +2,10 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
+## Recent Changes
+
+- Publish `@next` tag that is compatible with team config profiles.
+
 ## `4.1.0`
 
 - Adds semicolon after each sql statement when exporting a table.

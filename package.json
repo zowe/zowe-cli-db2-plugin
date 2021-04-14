@@ -47,7 +47,8 @@
     "@types/node": "^8.0.0",
     "@types/xml2js": "^0.4.3",
     "@types/yargs": "^8.0.2",
-    "@zowe/imperative": "4.11.0",
+    "@zowe/cli-test-utils": "^7.0.0-next.202104132114",
+    "@zowe/imperative": "^5.0.0-next.202103111923",
     "env-cmd": "^8.0.2",
     "fs-extra": "^5.0.0",
     "jest": "^24.5.0",
@@ -62,8 +63,7 @@
     "ts-node": "^3.2.0",
     "tslint": "^5.0.0",
     "typedoc": "^0.19.2",
-    "typescript": "^3.2.2",
-    "uuid": "^3.2.1"
+    "typescript": "^3.2.2"
   },
   "jest": {
     "setupFilesAfterEnv": [
