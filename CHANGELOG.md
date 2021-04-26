@@ -2,6 +2,10 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
+## Recent Changes
+
+- Remove @zowe/cli peer dependency to better support NPM v7
+
 ## `5.0.0-next.202104141730`
 
 - Publish `@next` tag that is compatible with team config profiles.

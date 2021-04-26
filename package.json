@@ -37,8 +37,7 @@
     "ibm_db": "2.7.1"
   },
   "peerDependencies": {
-    "@zowe/imperative": "^4.0.0",
-    "@zowe/cli": "^6.0.0"
+    "@zowe/imperative": "5.0.0-next.202104081433"
   },
   "devDependencies": {
     "@types/fs-extra": "^9.0.5",
