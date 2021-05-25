@@ -135,7 +135,18 @@ node('ca-jenkins-agent') {
             {
                 sh "npm run testConnection --host=${HOST} --port=${PORT} --user=${USER} --password=${PASS} --database=${DB}"
             }
-        }
+        },
+        environment: [
+            JEST_JUNIT_OUTPUT: SYSTEM_JUNIT_OUTPUT,
+            JEST_SUIT_NAME: "System Tests",
+            JEST_JUNIT_ANCESTOR_SEPARATOR: " > ",
+            JEST_JUNIT_CLASSNAME: "System.{classname}",
+            JEST_JUNIT_TITLE: "{title}",
+            JEST_STARE_RESULT_DIR: "${SYSTEM_TEST_ROOT}/jest-stare",
+            JEST_STARE_RESULT_HTML: "index.html"
+        ],
+        testResults: [dir: "${SYSTEM_TEST_ROOT}/jest-stare", files: "index.html", name: "${PRODUCT_NAME} - System Test Report"],
+        junitOutput: SYSTEM_JUNIT_OUTPUT,
     )
     
      
