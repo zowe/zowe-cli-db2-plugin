@@ -119,7 +119,7 @@ node('ca-jenkins-agent') {
         ]
     )
 
-    /*
+    
     def SYSTEM_TEST_ROOT = "$TEST_ROOT/system"
     def SYSTEM_JUNIT_OUTPUT = "$SYSTEM_TEST_ROOT/junit.xml"
     
@@ -128,10 +128,8 @@ node('ca-jenkins-agent') {
         name: "System",
         operation: {
             withCredentials([
-                string(credentialsId: 'db2-cli-system-host', variable: 'HOST'),
-                string(credentialsId: 'db2-cli-system-port', variable: 'PORT'),
-                string(credentialsId: 'db2-cli-system-user', variable: 'USER'),
-                string(credentialsId: 'db2-cli-system-pass', variable: 'PASS'),
+                usernamePassword(credentialsId: 'db2-cli-system-url', usernameVariable: 'HOST', passwordVariable: 'PORT'),
+                usernamePassword(credentialsId: 'db2-cli-system-creds', usernameVariable: 'USER', passwordVariable: 'PASS'),
                 string(credentialsId: 'db2-cli-system-db', variable: 'DB')
             ]) 
             {
@@ -139,7 +137,7 @@ node('ca-jenkins-agent') {
             }
         }
     )
-    */
+    
      
 
     //Upload Reports to Code Coverage
