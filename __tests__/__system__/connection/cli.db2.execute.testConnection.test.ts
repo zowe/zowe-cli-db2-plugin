@@ -62,15 +62,15 @@ describe("Test Connection", () => {
     expect(response.status).toBe(0);
   });
 
-  it("should be able to call a procedure and output the stdout", () => {
-    const response = runCliScript(
-      __dirname + "/__scripts__/success_simple_procedure.sh",
-      TEST_ENV
-    );
-    expect(response.stderr.toString()).toBe("");
-    expect(response.stdout.toString()).toMatchSnapshot();
-    expect(response.status).toBe(0);
-  });
+  // it("should be able to call a procedure and output the stdout", () => {
+  //   const response = runCliScript(
+  //     __dirname + "/__scripts__/success_simple_procedure.sh",
+  //     TEST_ENV
+  //   );
+  //   expect(response.stderr.toString()).toBe("");
+  //   expect(response.stdout.toString()).toMatchSnapshot();
+  //   expect(response.status).toBe(0);
+  // });
 });
 
 async function setup(
@@ -99,10 +99,8 @@ async function setup(
     env,
   };
 
-  if (params.installPlugin) {
-    await installPlugin(result);
-    result.pluginInstalled = true;
-  }
+  await installPlugin(result);
+  result.pluginInstalled = true;
 
   result.tempProfiles = await TempTestProfiles.createProfiles(
     result,
@@ -114,16 +112,15 @@ async function setup(
 
 async function installPlugin(testEnvironment: ITestEnvironment) {
   let installScript: string = "#!/bin/bash\n\n";
-  installScript += "# Install plugin from root of project\n";
-  installScript += "bright plugins install ../../../../\n";
-  installScript += "# Validate installed plugin\n";
-  installScript += "bright plugins validate @zowe/db2-for-zowe-cli\n";
-  installScript += "# Check that the plugin help is available\n";
-  installScript += "bright db2 --help\n";
+  installScript += "zowe plugins install ../../../../\n";
+  installScript += "zowe plugins validate @zowe/db2-for-zowe-cli\n";
+  installScript += "zowe db2 --help\n";
   const scriptPath = testEnvironment.workingDir + "/install_plugin.sh";
+
   IO.writeFile(scriptPath, Buffer.from(installScript));
 
   const output = runCliScript(scriptPath, testEnvironment, []);
+
   if (output.status !== 0) {
     throw new ImperativeError({
       msg:
@@ -148,3 +145,4 @@ async function cleanUp(testEnvironment: ITestEnvironment) {
     require("rimraf").sync(pluginDir);
   }
 }
+
