@@ -112,6 +112,7 @@ async function setup(
 
 async function installPlugin(testEnvironment: ITestEnvironment) {
   let installScript: string = "#!/bin/bash\n\n";
+  installScript += "npm install @zowe/cli -g";
   installScript += "zowe plugins install ../../../../\n";
   installScript += "zowe plugins validate @zowe/db2-for-zowe-cli\n";
   installScript += "zowe db2 --help\n";
