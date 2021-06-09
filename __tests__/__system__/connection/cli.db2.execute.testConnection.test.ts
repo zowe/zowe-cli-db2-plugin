@@ -33,6 +33,10 @@ describe("Test Connection", () => {
     await cleanUp(TEST_ENV);
   });
 
+  it("should pass", () => {
+    expect(true).toBe(true);
+  });
+
   // it("should be able to execute simple SQL statements to test connection", () => {
 
   //   const host = process.env.npm_config_host;
