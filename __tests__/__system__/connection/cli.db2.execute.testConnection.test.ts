@@ -21,13 +21,7 @@ let TEST_ENV: ITestEnvironment;
 
 describe("Test Connection", () => {
   beforeAll(async () => {
-    // TEST_ENV = await setup({
-    //   installPlugin: true,
-    //   tempProfileTypes: ["db2"],
-    //   testName: "test_db2_connection",
-    // });
-
-    TEST_ENV = await TestEnvironment.setUp({
+    TEST_ENV = await setup({
       installPlugin: true,
       tempProfileTypes: ["db2"],
       testName: "test_db2_connection",
@@ -36,26 +30,25 @@ describe("Test Connection", () => {
   });
 
   afterAll(async () => {
-    // await cleanUp(TEST_ENV);
-    await TestEnvironment.cleanUp(TEST_ENV);
+    await cleanUp(TEST_ENV);
   });
 
-  it("should be able to execute simple SQL statements to test connection", () => {
+  // it("should be able to execute simple SQL statements to test connection", () => {
 
-    const host = process.env.npm_config_host;
-    const port = parseInt(process.env.npm_config_port, 10);
-    const user = process.env.npm_config_user;
-    const password = process.env.npm_config_password;
-    const database = process.env.npm_config_database;
+  //   const host = process.env.npm_config_host;
+  //   const port = parseInt(process.env.npm_config_port, 10);
+  //   const user = process.env.npm_config_user;
+  //   const password = process.env.npm_config_password;
+  //   const database = process.env.npm_config_database;
 
-    const response = runCliScript(
-      __dirname + "/__scripts__/success_simple_sql.sh",
-      TEST_ENV, [host, port, user, password, database]
-    );
-    expect(response.stderr.toString()).toBe("");
-    expect(response.stdout.toString()).toMatchSnapshot();
-    expect(response.status).toBe(0);
-  });
+  //   const response = runCliScript(
+  //     __dirname + "/__scripts__/success_simple_sql.sh",
+  //     TEST_ENV, [host, port, user, password, database]
+  //   );
+  //   expect(response.stderr.toString()).toBe("");
+  //   expect(response.stdout.toString()).toMatchSnapshot();
+  //   expect(response.status).toBe(0);
+  // });
 
   // it("should be able to execute simple SQL statements with the -q alias", () => {
   //   const response = runCliScript(
