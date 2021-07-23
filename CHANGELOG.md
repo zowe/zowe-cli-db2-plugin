@@ -4,7 +4,7 @@ All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented i
 
 ## Recent Changes
 
-- Enhancement: Update ibm_db dependency to support Node v16
+- Enhancement: Update ibm_db dependency to support Node v16 [#82](https://github.com/zowe/zowe-cli-db2-plugin/issues/82)
 
 ## `4.1.0`
 
