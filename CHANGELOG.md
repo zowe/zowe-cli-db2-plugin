@@ -2,6 +2,10 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
+## Recent Changes
+
+- Enhancement: Update ibm_db dependency to support Node v16 [#82](https://github.com/zowe/zowe-cli-db2-plugin/issues/82)
+
 ## `4.1.0`
 
 - Adds semicolon after each sql statement when exporting a table.
