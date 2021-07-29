@@ -29,7 +29,13 @@ Before you install and use the plug-in:
 
     For connectivity to Db2 for z/OS, the Db2 region should be `db2connectactivated` or a `db2connect` license file should be provided. Copy the `db2connect` license file to the `[db2 plugin folder]/node_modules/ibm_db/installer/clidriver/license/` folder. For more information, see [Addressing the license requirement](https://docs.zowe.org/stable/user-guide/cli-db2plugin.html#addressing-the-license-requirement) on the Zowe Docs site. 
 
-- **(MacOS only)** Download and Install [Xcode](https://developer.apple.com/xcode/resources/).
+- **(Linux and MacOS only)** Download and install [node-gyp](https://www.npmjs.com/package/node-gyp) globally by running `npm install -g node-gyp`
+
+- **(MacOS only)** Download and Install [Xcode](https://developer.apple.com/xcode/resources/) and [Python 3](https://www.python.org/downloads/mac-osx/).
+
+- **(Linux only - Debian, Ubuntu)** Download and Install the following via apt: `python3 make g++`
+
+- **(Linux only - CentOS, RHEL)** Download and Install the following via yum: `python3 make gcc-c++`
 
 ## Installing
 
