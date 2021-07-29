@@ -21,6 +21,7 @@
   ],
   "exclude": [
     "lib",
+    "__src__/",
     "__results__/",
     "__snapshots__",
     "node_modules"

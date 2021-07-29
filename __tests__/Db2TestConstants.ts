@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-import { DB2_PARM_INOUT, DB2_PARM_INPUT, DB2_PARM_OUTPUT, IDB2Parameter, IDB2Session } from "../../src";
+import { DB2_PARM_INOUT, DB2_PARM_INPUT, DB2_PARM_OUTPUT, IDB2Parameter, IDB2Session } from "../src";
 
 export const PROFILE_NAME: string = "DB2P";
 export const HOST_NAME: string = "db2.server.com";
