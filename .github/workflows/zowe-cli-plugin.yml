@@ -40,7 +40,7 @@ jobs:
     - name: Windows only - Add clidriver to PATH
       id: clidriver
       if: ${{ env.OS == 'windows-latest' }}
-      run: set PATH=%PATH%;%cd%/node_modules/ibm_db/installer/clidriver/bin && echo %PATH%
+      run: echo "$((Get-Item .).FullName)/node_modules/ibm_db/installer/clidriver/bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 
     - name: Build Source
       id: build
