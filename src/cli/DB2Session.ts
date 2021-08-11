@@ -12,7 +12,6 @@
 
 import { ICommandArguments, ICommandOptionDefinition, Logger, Session } from "@zowe/imperative";
 import { IDB2Session } from "../rest/session/doc/IDB2Session";
-// import { Session } from "../index";
 
 /**
  * Utility Methods for Brightside
