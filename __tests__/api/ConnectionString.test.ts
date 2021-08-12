@@ -10,7 +10,7 @@
 */
 
 import { ConnectionString, IDB2Session } from "./../../src";
-import * as C from "../__src__/Db2TestConstants";
+import * as C from "../Db2TestConstants";
 
 const SIMPLE_SESSION: IDB2Session = {
     hostname: C.HOST_NAME,

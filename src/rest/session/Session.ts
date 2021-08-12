@@ -13,6 +13,7 @@ import { AbstractSession } from "@zowe/imperative";
 import { IDB2Session } from "../../index";
 /**
  * Non-abstract session class
+ * @deprecated This session object should be able to be removed
  * @export
  * @class Session
  * @extends {AbstractSession}

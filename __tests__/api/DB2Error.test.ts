@@ -11,7 +11,7 @@
 
 import { DB2Error } from "../../src";
 import { ImperativeError } from "@zowe/imperative";
-import * as C from "../__src__/Db2TestConstants";
+import * as C from "../Db2TestConstants";
 
 describe("DB2Error", () => {
     describe("process", () => {

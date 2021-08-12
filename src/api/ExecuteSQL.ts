@@ -9,9 +9,13 @@
 *                                                                                 *
 */
 
-import { ConnectionString, DB2Constants, IDB2Parameter, IDB2Session,
-    SessionValidator, DB2Error } from "../";
 import * as ibmdb from "ibm_db";
+import { IDB2Session } from "../rest/session/doc/IDB2Session";
+import { ConnectionString } from "./ConnectionString";
+import { DB2Constants } from "./DB2Constants";
+import { DB2Error } from "./DB2Error";
+import { IDB2Parameter } from "./doc/IDB2Parameter";
+import { SessionValidator } from "./SessionValidator";
 
 /**
  * Class to handle execution of SQL statements

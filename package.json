@@ -17,7 +17,9 @@
   ],
   "scripts": {
     "prebuild": "npm run clean && npm run lint && echo Using TypeScript && tsc --version",
-    "build": "node scripts/updateLicense.js && tsc --pretty",
+    "build": "node scripts/updateLicense.js && tsc --pretty && npm run checkTestsCompile && npm run circularDependencyCheck",
+    "checkTestsCompile": "echo \"Checking that test source compiles...\" && tsc --project __tests__/test-tsconfig.json --noEmit",
+    "circularDependencyCheck": "madge -c lib",
     "clean": "rimraf lib",
     "watch": "tsc --pretty --watch",
     "prepublishOnly": "npm run build",
@@ -37,11 +39,11 @@
     "ibm_db": "2.7.4"
   },
   "peerDependencies": {
-    "@zowe/imperative": "^4.0.0",
-    "@zowe/cli": "^6.0.0"
+    "@zowe/cli": "^6.0.0",
+    "@zowe/imperative": "^4.0.0"
   },
   "devDependencies": {
-    "@types/fs-extra": "^9.0.5",
+    "@types/fs-extra": "^5.0.5",
     "@types/ibm_db": "^2.0.2",
     "@types/jest": "^20.0.5",
     "@types/node": "^8.0.0",
@@ -50,18 +52,17 @@
     "@zowe/imperative": "4.13.4",
     "env-cmd": "^8.0.2",
     "fs-extra": "^5.0.0",
-    "jest": "^24.5.0",
-    "jest-cli": "^24.5.0",
-    "jest-environment-node": "^24.5.0",
+    "jest": "^26.6.3",
     "jest-environment-node-debug": "^2.0.0",
     "jest-html-reporter": "^3.3.0",
     "jest-junit": "^3.6.0",
     "jest-stare": "^2.2.0",
+    "madge": "^5.0.1",
     "rimraf": "^2.6.2",
     "ts-jest": "^26.4.4",
     "ts-node": "^3.2.0",
     "tslint": "^5.0.0",
-    "typedoc": "^0.19.2",
+    "typedoc": "^0.21.4",
     "typescript": "^3.2.2",
     "uuid": "^3.2.1"
   },
@@ -74,7 +75,7 @@
     ],
     "testResultsProcessor": "jest-stare",
     "transform": {
-      ".(ts)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+      ".(ts)": "ts-jest"
     },
     "testRegex": "(test|spec)\\.ts$",
     "moduleFileExtensions": [

@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-import { DB2_PARM_INOUT, DB2_PARM_INPUT, DB2_PARM_OUTPUT, IDB2Parameter, IDB2Session } from "../../src";
+import { DB2_PARM_INOUT, DB2_PARM_INPUT, DB2_PARM_OUTPUT, IDB2Parameter, IDB2Session } from "../src";
 
 export const PROFILE_NAME: string = "DB2P";
 export const HOST_NAME: string = "db2.server.com";
@@ -69,7 +69,7 @@ export const PARAMS: IDB2Parameter[] = [
 
 export const ERROR = {
   error: "[node-ibm_db] Error in ODBCConnection::SomeQuery while executing query.",
-  errors: [],
+  errors: [] as any,
   message: "\n[DB2] SQL01234N 'SCHEMA.TABLE' is an undefined name. SQLSTATE=45678\n\n",
   state: "45678",
   sqlcode: -123,
