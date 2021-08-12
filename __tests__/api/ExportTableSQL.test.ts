@@ -10,7 +10,7 @@
 */
 
 jest.mock("ibm_db");
-const ibm_db = require("ibm_db"); // tslint:disable-line
+const ibm_db = require("ibm_db");
 
 import { ExportTableSQL } from "../../src";
 import * as C from "../Db2TestConstants";
