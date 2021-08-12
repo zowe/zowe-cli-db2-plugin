@@ -49,7 +49,8 @@ export const ProcedureDefinition: ICommandDefinition = {
             options: "\"DEMO.SP2(?, ?)\" --parameters \"Hello\" \"world!\"",
         },
         {
-            description: "Call a stored procedure and pass values for two output parameters. The first output requires a 2-character buffer. The second output is a message that will be truncated to the length of the placeholder.",
+            description: "Call a stored procedure and pass values for two output parameters. The first output requires a 2-character buffer. " +
+                "The second output is a message that will be truncated to the length of the placeholder.",
             options: "\"DEMO.SP3(NULL, ?, ?)\" --parameters \"00\" \"message_placeholder_message_placeholder\"",
         },
     ],
