@@ -18,7 +18,7 @@ jobs:
     - name: Use Node.js 12.x
       uses: actions/setup-node@v1
       with:
-        node-version: 12.x
+        node-version: lts/*
 
     - name: Check Vulnerabilities
       run: npm audit --production --audit-level=moderate
