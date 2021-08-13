@@ -32,12 +32,12 @@ export const SESSION: IDB2Session = {
 export const QUERY: string = `SELECT C, D, I, S, T, V FROM ${DATABASE_NAME}.${TABLE_NAME}`;
 
 export const COLUMNS: any[] = [
-    { COLUMN_NAME: "C", TYPE_NAME: "CHAR", },
-    { COLUMN_NAME: "D", TYPE_NAME: "DATE", },
-    { COLUMN_NAME: "I", TYPE_NAME: "INTEGER", },
-    { COLUMN_NAME: "S", TYPE_NAME: "TIMESTAMP", },
-    { COLUMN_NAME: "T", TYPE_NAME: "TIME", },
-    { COLUMN_NAME: "V", TYPE_NAME: "VARCHAR", },
+    { COLUMN_NAME: "C", TYPE_NAME: "CHAR" },
+    { COLUMN_NAME: "D", TYPE_NAME: "DATE" },
+    { COLUMN_NAME: "I", TYPE_NAME: "INTEGER" },
+    { COLUMN_NAME: "S", TYPE_NAME: "TIMESTAMP" },
+    { COLUMN_NAME: "T", TYPE_NAME: "TIME" },
+    { COLUMN_NAME: "V", TYPE_NAME: "VARCHAR" },
 ];
 
 export const ROWS: any[] = [
@@ -68,9 +68,9 @@ export const PARAMS: IDB2Parameter[] = [
 ];
 
 export const ERROR = {
-  error: "[node-ibm_db] Error in ODBCConnection::SomeQuery while executing query.",
-  errors: [] as any,
-  message: "\n[DB2] SQL01234N 'SCHEMA.TABLE' is an undefined name. SQLSTATE=45678\n\n",
-  state: "45678",
-  sqlcode: -123,
+    error: "[node-ibm_db] Error in ODBCConnection::SomeQuery while executing query.",
+    errors: [] as any,
+    message: "\n[DB2] SQL01234N 'SCHEMA.TABLE' is an undefined name. SQLSTATE=45678\n\n",
+    state: "45678",
+    sqlcode: -123,
 };
