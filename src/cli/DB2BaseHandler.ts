@@ -9,12 +9,8 @@
 *                                                                                 *
 */
 
-import {
-    AbstractSession,
-    ICommandHandler,
-    IHandlerParameters
-} from "@zowe/imperative";
-import { DB2Session } from "../index";
+import { AbstractSession, ICommandHandler, IHandlerParameters } from "@zowe/imperative";
+import { DB2Session } from "./DB2Session";
 
 /**
  * This class is used by the various DB2 handlers as the base class for their implementation.

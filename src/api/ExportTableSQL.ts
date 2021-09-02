@@ -10,8 +10,9 @@
 */
 
 import { ImperativeError } from "@zowe/imperative";
-import { IDB2Session, ExportTable } from "../";
 import { isNull } from "util";
+import { IDB2Session } from "../rest/session/doc/IDB2Session";
+import { ExportTable } from "./ExportTable";
 
 /**
  * Class to handle exporting DB2 tables

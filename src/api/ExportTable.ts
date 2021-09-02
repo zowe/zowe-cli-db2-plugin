@@ -10,10 +10,14 @@
 */
 
 import { ImperativeExpect, ImperativeError } from "@zowe/imperative";
-import { ConnectionString, DB2Constants, IDB2Session, IDB2Column,
-    SessionValidator, DB2Error } from "../";
 import * as ibmdb from "ibm_db";
+import { IDB2Session } from "../rest/session/doc/IDB2Session";
+import { ConnectionString } from "./ConnectionString";
+import { DB2Constants } from "./DB2Constants";
+import { DB2Error } from "./DB2Error";
+import { IDB2Column } from "./doc/IDB2Column";
 import { noDatabaseName, noTableName } from "./doc/Messages";
+import { SessionValidator } from "./SessionValidator";
 
 /**
  * Class to handle exporting of DB2 tables
