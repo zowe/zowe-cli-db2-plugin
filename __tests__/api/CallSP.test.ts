@@ -10,9 +10,9 @@
 */
 
 jest.mock("ibm_db");
-const ibm_db = require("ibm_db"); // tslint:disable-line
+const ibm_db = require("ibm_db");
 
-import * as C from "../__src__/Db2TestConstants";
+import * as C from "../Db2TestConstants";
 import { CallSP, IDB2Response } from "../../src";
 
 describe("CallSP", () => {

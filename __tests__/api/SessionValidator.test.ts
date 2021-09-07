@@ -10,7 +10,7 @@
 */
 
 import { SessionValidator, IDB2Session } from "../../src";
-import * as C from "../__src__/Db2TestConstants";
+import * as C from "../Db2TestConstants";
 
 const SESSION_GOOD: IDB2Session = {
     database: C.DATABASE_NAME,

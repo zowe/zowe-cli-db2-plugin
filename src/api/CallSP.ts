@@ -9,10 +9,15 @@
 *                                                                                 *
 */
 
-import { ConnectionString, IDB2Session, IDB2Response, IDB2Parameter, SessionValidator,
-    DB2Constants, DB2_PARM_INOUT, DB2_PARM_OUTPUT, DB2Error } from "../";
 import { isNullOrUndefined } from "util";
 import * as ibmdb from "ibm_db";
+import { IDB2Session } from "../rest/session/doc/IDB2Session";
+import { DB2_PARM_INOUT, DB2_PARM_OUTPUT, IDB2Parameter } from "./doc/IDB2Parameter";
+import { IDB2Response } from "./doc/IDB2Response";
+import { SessionValidator } from "./SessionValidator";
+import { ConnectionString } from "./ConnectionString";
+import { DB2Constants } from "./DB2Constants";
+import { DB2Error } from "./DB2Error";
 
 /**
  * Class to handle the invocation of the stored procedures

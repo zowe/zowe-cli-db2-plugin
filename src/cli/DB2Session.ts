@@ -10,8 +10,7 @@
 */
 
 
-import { ConnectionPropsForSessCfg, ICommandArguments, ICommandOptionDefinition, Logger } from "@zowe/imperative";
-import { Session } from "../index";
+import { ConnectionPropsForSessCfg, ICommandArguments, ICommandOptionDefinition, Logger, Session } from "@zowe/imperative";
 import { IDB2Session } from "../rest/session/doc/IDB2Session";
 
 /**
@@ -109,7 +108,7 @@ export class DB2Session {
      */
     public static createDB2Session(args: ICommandArguments): Session {
         this.log.info("Creating a DB2 session from cmd arguments or profile");
-        const DB2session = {
+        const DB2session: IDB2Session = {
             hostname: args.host,
             port: args.port,
             user: args.user,
