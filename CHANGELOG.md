@@ -2,6 +2,10 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
+## Recent Changes
+
+- BugFix: Included an npm-shrinkwrap file to lock-down all transitive dependencies.
+
 ## `5.0.0-next.202109071706`
 
 - Remove @zowe/cli peer dependency to better support NPM v7
@@ -17,7 +21,7 @@ All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented i
 ## `4.1.0`
 
 - Adds semicolon after each sql statement when exporting a table.
-- Enhancement: Added a help example for how to pass output values when calling a Db2 stored procedure. 
+- Enhancement: Added a help example for how to pass output values when calling a Db2 stored procedure.
 
 ## `4.0.7`
 
