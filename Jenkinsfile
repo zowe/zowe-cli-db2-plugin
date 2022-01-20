@@ -23,7 +23,7 @@ node('zowe-jenkins-agent') {
     // Initialize the pipeline
     def pipeline = new NodeJSPipeline(this)
 
-    // Build admins, users that can approve the build and receieve emails for 
+    // Build admins, users that can approve the build and receieve emails for
     // all protected branch builds.
     pipeline.admins.add("zfernand0", "mikebauerca", "markackert", "dkelosky")
 
@@ -59,7 +59,7 @@ node('zowe-jenkins-agent') {
     ]
 
     // Initialize the pipeline library, should create 5 steps
-    pipeline.setup(nodeJsVersion: 'v12.22.3')
+    pipeline.setup(nodeJsVersion: 'v16.13.1')
 
     // Create a custom lint stage that runs immediately after the setup.
     pipeline.createStage(
@@ -82,7 +82,7 @@ node('zowe-jenkins-agent') {
     def TEST_ROOT = "__tests__/__results__"
     def UNIT_TEST_ROOT = "$TEST_ROOT/unit"
     def UNIT_JUNIT_OUTPUT = "$UNIT_TEST_ROOT/junit.xml"
-    
+
     // Perform a unit test and capture the results
     pipeline.test(
         name: "Unit",
