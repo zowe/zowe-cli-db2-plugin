@@ -1,12 +1,12 @@
 {
   "name": "@zowe/db2-for-zowe-cli",
-  "version": "4.1.2",
+  "version": "4.1.3",
   "lockfileVersion": 2,
   "requires": true,
   "packages": {
     "": {
       "name": "@zowe/db2-for-zowe-cli",
-      "version": "4.1.2",
+      "version": "4.1.3",
       "license": "EPL-2.0",
       "dependencies": {
         "ibm_db": "2.7.4"
