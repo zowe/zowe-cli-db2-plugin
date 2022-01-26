@@ -26,7 +26,7 @@
     "lint": "eslint \"src/**/*.ts\" \"**/__tests__/**/*.ts\"",
     "lint:src": "eslint \"src/**/*.ts\" --ignore-pattern \"**/__tests__/**/*.ts\"",
     "lint:tests": "eslint \"**/__tests__/**/*.ts\"",
-    "test": "npm run test:unit --runinband && npm run test:system",
+    "test": "npm run test:unit && npm run test:system",
     "test:system": "env-cmd __tests__/__resources__/env/system.env jest .*/__system__/.* --coverage false --runInBand",
     "test:unit": "env-cmd __tests__/__resources__/env/unit.env jest --coverage --testPathIgnorePatterns \".*/__system__/.*\" ",
     "installPlugin": "npm install && npm run clean && npm run build && bright plugins install .",
@@ -39,7 +39,7 @@
     "ibm_db": "2.7.4"
   },
   "peerDependencies": {
-    "@zowe/imperative": ">=5.0.0-next.202201111920 <5.0.0"
+    "@zowe/imperative": ">=5.0.0-next.202201251614 <5.0.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^5.0.5",
@@ -51,7 +51,7 @@
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
     "@zowe/cli-test-utils": ">=7.0.0-next.202106242030 <8.0.0",
-    "@zowe/imperative": "5.0.0-next.202201111920",
+    "@zowe/imperative": "5.0.0-next.202201251614",
     "env-cmd": "^8.0.2",
     "eslint": "^7.32.0",
     "eslint-plugin-jest": "^24.4.0",
