@@ -14,7 +14,7 @@ All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented i
 
 - Publish `@next` tag that is compatible with team config profiles.
 
-## `4.1.2`
+## `4.1.3`
 
 - BugFix: Included an npm-shrinkwrap file to lock-down all transitive dependencies.
 

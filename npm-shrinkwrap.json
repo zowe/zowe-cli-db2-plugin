@@ -3380,9 +3380,9 @@
       }
     },
     "node_modules/@zowe/cli-test-utils": {
-      "version": "7.0.0-next.202201252014",
-      "resolved": "https://zowe.jfrog.io/zowe/api/npm/npm-release/@zowe/cli-test-utils/-/@zowe/cli-test-utils-7.0.0-next.202201252014.tgz",
-      "integrity": "sha1-YOzRkwmYn7hHrXOZ2p4BbiQMGo8=",
+      "version": "7.0.0-next.202201261615",
+      "resolved": "https://zowe.jfrog.io/zowe/api/npm/npm-release/@zowe/cli-test-utils/-/@zowe/cli-test-utils-7.0.0-next.202201261615.tgz",
+      "integrity": "sha1-TSai4Vl46XT7yIQt9GkjFQCFNEY=",
       "dev": true,
       "license": "EPL-2.0",
       "dependencies": {
@@ -6691,9 +6691,9 @@
       }
     },
     "node_modules/flatted": {
-      "version": "3.2.4",
-      "resolved": "https://registry.npmjs.org/flatted/-/flatted-3.2.4.tgz",
-      "integrity": "sha512-8/sOawo8tJ4QOBX8YlQBMxL8+RLZfxMQOif9o0KUKTNTjMYElWPE0r/m5VNFxTRd0NSw8qSy8dajrwX4RYI1Hw==",
+      "version": "3.2.5",
+      "resolved": "https://registry.npmjs.org/flatted/-/flatted-3.2.5.tgz",
+      "integrity": "sha512-WIWGi2L3DyTUvUrwRKgGi9TwxQMUEqPOPQBVi71R96jZXJdFskXEmf54BoZaS1kknGODoIGASGEzBUYdyMCBJg==",
       "dev": true
     },
     "node_modules/flatten": {
@@ -19109,9 +19109,9 @@
       }
     },
     "@zowe/cli-test-utils": {
-      "version": "7.0.0-next.202201252014",
-      "resolved": "https://zowe.jfrog.io/zowe/api/npm/npm-release/@zowe/cli-test-utils/-/@zowe/cli-test-utils-7.0.0-next.202201252014.tgz",
-      "integrity": "sha1-YOzRkwmYn7hHrXOZ2p4BbiQMGo8=",
+      "version": "7.0.0-next.202201261615",
+      "resolved": "https://zowe.jfrog.io/zowe/api/npm/npm-release/@zowe/cli-test-utils/-/@zowe/cli-test-utils-7.0.0-next.202201261615.tgz",
+      "integrity": "sha1-TSai4Vl46XT7yIQt9GkjFQCFNEY=",
       "dev": true,
       "requires": {
         "@types/js-yaml": "^4.0.0",
@@ -21660,9 +21660,9 @@
       }
     },
     "flatted": {
-      "version": "3.2.4",
-      "resolved": "https://registry.npmjs.org/flatted/-/flatted-3.2.4.tgz",
-      "integrity": "sha512-8/sOawo8tJ4QOBX8YlQBMxL8+RLZfxMQOif9o0KUKTNTjMYElWPE0r/m5VNFxTRd0NSw8qSy8dajrwX4RYI1Hw==",
+      "version": "3.2.5",
+      "resolved": "https://registry.npmjs.org/flatted/-/flatted-3.2.5.tgz",
+      "integrity": "sha512-WIWGi2L3DyTUvUrwRKgGi9TwxQMUEqPOPQBVi71R96jZXJdFskXEmf54BoZaS1kknGODoIGASGEzBUYdyMCBJg==",
       "dev": true
     },
     "flatten": {
