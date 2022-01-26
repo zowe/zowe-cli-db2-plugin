@@ -3239,9 +3239,9 @@
       }
     },
     "node_modules/@zowe/cli": {
-      "version": "6.37.4",
-      "resolved": "https://zowe.jfrog.io/zowe/api/npm/npm-release/@zowe/cli/-/@zowe/cli-6.37.4.tgz",
-      "integrity": "sha1-nztYiJ3zDgr/icrEarZtKGto3ow=",
+      "version": "6.37.5",
+      "resolved": "https://zowe.jfrog.io/zowe/api/npm/npm-release/@zowe/cli/-/@zowe/cli-6.37.5.tgz",
+      "integrity": "sha1-/dyfbENOdmmGXY39FS5V77SMvWg=",
       "hasInstallScript": true,
       "license": "EPL-2.0",
       "peer": true,
@@ -6534,9 +6534,9 @@
       }
     },
     "node_modules/flatted": {
-      "version": "3.2.4",
-      "resolved": "https://registry.npmjs.org/flatted/-/flatted-3.2.4.tgz",
-      "integrity": "sha512-8/sOawo8tJ4QOBX8YlQBMxL8+RLZfxMQOif9o0KUKTNTjMYElWPE0r/m5VNFxTRd0NSw8qSy8dajrwX4RYI1Hw=="
+      "version": "3.2.5",
+      "resolved": "https://registry.npmjs.org/flatted/-/flatted-3.2.5.tgz",
+      "integrity": "sha512-WIWGi2L3DyTUvUrwRKgGi9TwxQMUEqPOPQBVi71R96jZXJdFskXEmf54BoZaS1kknGODoIGASGEzBUYdyMCBJg=="
     },
     "node_modules/flatten": {
       "version": "1.0.3",
@@ -18217,9 +18217,9 @@
       }
     },
     "@zowe/cli": {
-      "version": "6.37.4",
-      "resolved": "https://zowe.jfrog.io/zowe/api/npm/npm-release/@zowe/cli/-/@zowe/cli-6.37.4.tgz",
-      "integrity": "sha1-nztYiJ3zDgr/icrEarZtKGto3ow=",
+      "version": "6.37.5",
+      "resolved": "https://zowe.jfrog.io/zowe/api/npm/npm-release/@zowe/cli/-/@zowe/cli-6.37.5.tgz",
+      "integrity": "sha1-/dyfbENOdmmGXY39FS5V77SMvWg=",
       "peer": true,
       "requires": {
         "@zowe/core-for-zowe-sdk": "6.37.4",
@@ -20729,9 +20729,9 @@
       }
     },
     "flatted": {
-      "version": "3.2.4",
-      "resolved": "https://registry.npmjs.org/flatted/-/flatted-3.2.4.tgz",
-      "integrity": "sha512-8/sOawo8tJ4QOBX8YlQBMxL8+RLZfxMQOif9o0KUKTNTjMYElWPE0r/m5VNFxTRd0NSw8qSy8dajrwX4RYI1Hw=="
+      "version": "3.2.5",
+      "resolved": "https://registry.npmjs.org/flatted/-/flatted-3.2.5.tgz",
+      "integrity": "sha512-WIWGi2L3DyTUvUrwRKgGi9TwxQMUEqPOPQBVi71R96jZXJdFskXEmf54BoZaS1kknGODoIGASGEzBUYdyMCBJg=="
     },
     "flatten": {
       "version": "1.0.3",
