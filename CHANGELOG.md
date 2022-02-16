@@ -2,6 +2,10 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
+## Recent Changes
+
+- BugFix: Updated follow-redirects dependency to resolve a potential vulnerability.
+
 ## `4.1.4`
 
 - BugFix: Pruned dev dependencies from npm-shrinkwrap file.
