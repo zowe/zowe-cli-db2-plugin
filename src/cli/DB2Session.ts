@@ -10,7 +10,7 @@
 */
 
 
-import { ConnectionPropsForSessCfg, ICommandArguments, ICommandOptionDefinition, Logger, Session } from "@zowe/imperative";
+import { ConnectionPropsForSessCfg, ICommandArguments, ICommandOptionDefinition, IHandlerParameters, Logger, Session } from "@zowe/imperative";
 import { IDB2Session } from "../rest/session/doc/IDB2Session";
 
 /**
@@ -126,7 +126,7 @@ export class DB2Session {
      * @param {boolean} doPrompting - Whether to prompt for missing arguments (defaults to true)
      * @returns {Session} - A session for usage in the CMCI REST Client
      */
-    public static async createSessCfgFromArgs(args: ICommandArguments, doPrompting = true): Promise<Session> {
+    public static async createSessCfgFromArgs(args: ICommandArguments, doPrompting = true, handler?: IHandlerParameters): Promise<Session> {
         const sessCfg: IDB2Session = {
             hostname: args.host,
             port: args.port,
@@ -136,7 +136,7 @@ export class DB2Session {
             sslFile: args.sslFile,
         };
 
-        const sessCfgWithCreds = await ConnectionPropsForSessCfg.addPropsOrPrompt<IDB2Session>(sessCfg, args, {doPrompting});
+        const sessCfgWithCreds = await ConnectionPropsForSessCfg.addPropsOrPrompt<IDB2Session>(sessCfg, args, {doPrompting, parms: handler});
         return new Session(sessCfgWithCreds);
     }
 

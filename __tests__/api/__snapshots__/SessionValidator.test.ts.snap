@@ -1,15 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SessionValidator validate should fail validating a DB2 session object with empty 'database' field 1`] = `"Error: Expect Error: Required parameter '[object Object]No DB2 database name was supplied.' must not be blank"`;
+exports[`SessionValidator validate should fail validating a DB2 session object with empty 'database' field 1`] = `"Error: Expect Error: Required parameter 'database' must not be blank"`;
 
-exports[`SessionValidator validate should fail validating a DB2 session object with empty 'hostname' field 1`] = `"Error: Expect Error: Required object must be defined"`;
+exports[`SessionValidator validate should fail validating a DB2 session object with empty 'hostname' field 1`] = `"Error: Expect Error: Imperative API Error - No DB2 server hostname was supplied."`;
 
-exports[`SessionValidator validate should fail validating a DB2 session object with empty 'password' field 1`] = `"Error: Expect Error: Required object must be defined"`;
+exports[`SessionValidator validate should fail validating a DB2 session object with empty 'password' field 1`] = `"Error: Expect Error: Imperative API Error - No DB2 user password was supplied."`;
 
-exports[`SessionValidator validate should fail validating a DB2 session object with empty 'port' field 1`] = `"Error: Expect Error: [object Object]No DB2 server port number was supplied."`;
+exports[`SessionValidator validate should fail validating a DB2 session object with empty 'port' field 1`] = `"Error: Expect Error: Imperative API Error - No DB2 server port number was supplied."`;
 
-exports[`SessionValidator validate should fail validating a DB2 session object with empty 'username' field 1`] = `"Error: Expect Error: Required object must be defined"`;
+exports[`SessionValidator validate should fail validating a DB2 session object with empty 'username' field 1`] = `"Error: Expect Error: Imperative API Error - No DB2 User ID was supplied."`;
 
-exports[`SessionValidator validate should fail validating a null DB2 session object 1`] = `"Error: Expect Error: [object Object]No DB2 parameters were supplied."`;
+exports[`SessionValidator validate should fail validating a null DB2 session object 1`] = `"Error: Expect Error: Imperative API Error - No DB2 parameters were supplied."`;
 
-exports[`SessionValidator validate should fail validating an empty DB2 session object 1`] = `"Error: Expect Error: Required object must be defined"`;
+exports[`SessionValidator validate should fail validating an empty DB2 session object 1`] = `"Error: Expect Error: Imperative API Error - No DB2 server hostname was supplied."`;

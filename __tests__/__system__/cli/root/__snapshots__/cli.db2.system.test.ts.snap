@@ -24,19 +24,19 @@ exports[`db2 command should display the help 1`] = `
  GLOBAL OPTIONS
  --------------
 
-   --response-format-json  | --rfj (boolean)
+   --response-format-json | --rfj (boolean)
 
       Produce JSON formatted data from a command
 
-   --help  | -h (boolean)
+   --help | -h (boolean)
 
       Display help text
 
-   --help-examples  (boolean)
+   --help-examples (boolean)
 
       Display examples for all the commands in a group
 
-   --help-web  | --hw (boolean)
+   --help-web | --hw (boolean)
 
       Display HTML help in browser
 
@@ -44,9 +44,9 @@ exports[`db2 command should display the help 1`] = `
   \\"success\\": true,
   \\"exitCode\\": 0,
   \\"message\\": \\"The help was constructed for command: db2.\\",
-  \\"stdout\\": \\"\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Interact with IBM Db2 for z/OS\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 <group>\\\\n\\\\n   Where <group> is one of the following:\\\\n\\\\n GROUPS\\\\n ------\\\\n\\\\n   call    Call a stored procedure\\\\n   execute Execute a SQL query    \\\\n   export  Export a table         \\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n   --help-examples  (boolean)\\\\n\\\\n      Display examples for all the commands in a group\\\\n\\\\n   --help-web  | --hw (boolean)\\\\n\\\\n      Display HTML help in browser\\\\n\\\\n\\",
+  \\"stdout\\": \\"\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Interact with IBM Db2 for z/OS\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 <group>\\\\n\\\\n   Where <group> is one of the following:\\\\n\\\\n GROUPS\\\\n ------\\\\n\\\\n   call    Call a stored procedure\\\\n   execute Execute a SQL query    \\\\n   export  Export a table         \\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n   --help-examples (boolean)\\\\n\\\\n      Display examples for all the commands in a group\\\\n\\\\n   --help-web | --hw (boolean)\\\\n\\\\n      Display HTML help in browser\\\\n\\\\n\\",
   \\"stderr\\": \\"\\",
-  \\"data\\": \\"\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Interact with IBM Db2 for z/OS\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 <group>\\\\n\\\\n   Where <group> is one of the following:\\\\n\\\\n GROUPS\\\\n ------\\\\n\\\\n   call    Call a stored procedure\\\\n   execute Execute a SQL query    \\\\n   export  Export a table         \\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n   --help-examples  (boolean)\\\\n\\\\n      Display examples for all the commands in a group\\\\n\\\\n   --help-web  | --hw (boolean)\\\\n\\\\n      Display HTML help in browser\\\\n\\\\n\\"
+  \\"data\\": \\"\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Interact with IBM Db2 for z/OS\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 <group>\\\\n\\\\n   Where <group> is one of the following:\\\\n\\\\n GROUPS\\\\n ------\\\\n\\\\n   call    Call a stored procedure\\\\n   execute Execute a SQL query    \\\\n   export  Export a table         \\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n   --help-examples (boolean)\\\\n\\\\n      Display examples for all the commands in a group\\\\n\\\\n   --help-web | --hw (boolean)\\\\n\\\\n      Display HTML help in browser\\\\n\\\\n\\"
 }"
 `;
 
@@ -54,7 +54,9 @@ exports[`db2 command should fail with invalid option 1`] = `
 "Command Error:
 Unknown arguments: command, D
 Command failed due to improper syntax
-Command entered: \\"zowe db2 --command -D DDF\\"
+Did you mean: db2 call sp?
+
+Command entered: \\"db2 --command -D DDF\\"
 Use \\"zowe db2 --help\\" to view groups, commands, and options.
 Error Details:
 Unknown arguments: command, D
@@ -67,7 +69,9 @@ exports[`db2 command should fail with invalid parameter 1`] = `
 "Command Error:
 Unknown arguments: drop, DEMOUSER.DEMOTABLE
 Command failed due to improper syntax
-Command entered: \\"zowe db2 drop DEMOUSER.DEMOTABLE\\"
+Did you mean: db2 call proc?
+
+Command entered: \\"db2 drop DEMOUSER.DEMOTABLE\\"
 Use \\"zowe db2 --help\\" to view groups, commands, and options.
 Error Details:
 Unknown arguments: drop, DEMOUSER.DEMOTABLE

@@ -22,19 +22,19 @@ exports[`db2 export command should display the help 1`] = `
  GLOBAL OPTIONS
  --------------
 
-   --response-format-json  | --rfj (boolean)
+   --response-format-json | --rfj (boolean)
 
       Produce JSON formatted data from a command
 
-   --help  | -h (boolean)
+   --help | -h (boolean)
 
       Display help text
 
-   --help-examples  (boolean)
+   --help-examples (boolean)
 
       Display examples for all the commands in a group
 
-   --help-web  | --hw (boolean)
+   --help-web | --hw (boolean)
 
       Display HTML help in browser
 
@@ -42,9 +42,9 @@ exports[`db2 export command should display the help 1`] = `
   \\"success\\": true,
   \\"exitCode\\": 0,
   \\"message\\": \\"The help was constructed for command: export.\\",
-  \\"stdout\\": \\"\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Export data from a Db2 table\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 export <command>\\\\n\\\\n   Where <command> is one of the following:\\\\n\\\\n COMMANDS\\\\n --------\\\\n\\\\n   table Export data from a Db2 table in SQL format\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n   --help-examples  (boolean)\\\\n\\\\n      Display examples for all the commands in a group\\\\n\\\\n   --help-web  | --hw (boolean)\\\\n\\\\n      Display HTML help in browser\\\\n\\\\n\\",
+  \\"stdout\\": \\"\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Export data from a Db2 table\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 export <command>\\\\n\\\\n   Where <command> is one of the following:\\\\n\\\\n COMMANDS\\\\n --------\\\\n\\\\n   table Export data from a Db2 table in SQL format\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n   --help-examples (boolean)\\\\n\\\\n      Display examples for all the commands in a group\\\\n\\\\n   --help-web | --hw (boolean)\\\\n\\\\n      Display HTML help in browser\\\\n\\\\n\\",
   \\"stderr\\": \\"\\",
-  \\"data\\": \\"\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Export data from a Db2 table\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 export <command>\\\\n\\\\n   Where <command> is one of the following:\\\\n\\\\n COMMANDS\\\\n --------\\\\n\\\\n   table Export data from a Db2 table in SQL format\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json  | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help  | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n   --help-examples  (boolean)\\\\n\\\\n      Display examples for all the commands in a group\\\\n\\\\n   --help-web  | --hw (boolean)\\\\n\\\\n      Display HTML help in browser\\\\n\\\\n\\"
+  \\"data\\": \\"\\\\n DESCRIPTION\\\\n -----------\\\\n\\\\n   Export data from a Db2 table\\\\n\\\\n USAGE\\\\n -----\\\\n\\\\n   zowe db2 export <command>\\\\n\\\\n   Where <command> is one of the following:\\\\n\\\\n COMMANDS\\\\n --------\\\\n\\\\n   table Export data from a Db2 table in SQL format\\\\n\\\\n GLOBAL OPTIONS\\\\n --------------\\\\n\\\\n   --response-format-json | --rfj (boolean)\\\\n\\\\n      Produce JSON formatted data from a command\\\\n\\\\n   --help | -h (boolean)\\\\n\\\\n      Display help text\\\\n\\\\n   --help-examples (boolean)\\\\n\\\\n      Display examples for all the commands in a group\\\\n\\\\n   --help-web | --hw (boolean)\\\\n\\\\n      Display HTML help in browser\\\\n\\\\n\\"
 }"
 `;
 
@@ -52,7 +52,9 @@ exports[`db2 export command should fail with invalid option 1`] = `
 "Command Error:
 Unknown argument: table
 Command failed due to improper syntax
-Command entered: \\"zowe db2 export --table SYSIBM.SYSDUMMY1\\"
+Did you mean: db2 export table?
+
+Command entered: \\"db2 export --table SYSIBM.SYSDUMMY1\\"
 Available commands are \\"table\\".
 Use \\"zowe db2 export --help\\" to view groups, commands, and options.
 Error Details:
@@ -66,7 +68,9 @@ exports[`db2 export command should fail with invalid parameter 1`] = `
 "Command Error:
 Unknown arguments: schema, DEMOUSER.DEMOTABLE
 Command failed due to improper syntax
-Command entered: \\"zowe db2 export schema DEMOUSER.DEMOTABLE\\"
+Did you mean: db2 export table?
+
+Command entered: \\"db2 export schema DEMOUSER.DEMOTABLE\\"
 Available commands are \\"table\\".
 Use \\"zowe db2 export --help\\" to view groups, commands, and options.
 Error Details:
