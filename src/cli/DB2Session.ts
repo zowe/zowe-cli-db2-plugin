@@ -124,9 +124,10 @@ export class DB2Session {
      * @static
      * @param {IProfile} args - The arguments specified by the user
      * @param {boolean} doPrompting - Whether to prompt for missing arguments (defaults to true)
+     * @param {IHandlerParameters} handlerParams - The command parameters object for Daemon mode prompting
      * @returns {Session} - A session for usage in the CMCI REST Client
      */
-    public static async createSessCfgFromArgs(args: ICommandArguments, doPrompting = true, handler?: IHandlerParameters): Promise<Session> {
+    public static async createSessCfgFromArgs(args: ICommandArguments, doPrompting = true, handlerParams?: IHandlerParameters): Promise<Session> {
         const sessCfg: IDB2Session = {
             hostname: args.host,
             port: args.port,
@@ -136,7 +137,7 @@ export class DB2Session {
             sslFile: args.sslFile,
         };
 
-        const sessCfgWithCreds = await ConnectionPropsForSessCfg.addPropsOrPrompt<IDB2Session>(sessCfg, args, {doPrompting, parms: handler});
+        const sessCfgWithCreds = await ConnectionPropsForSessCfg.addPropsOrPrompt<IDB2Session>(sessCfg, args, {doPrompting, parms: handlerParams});
         return new Session(sessCfgWithCreds);
     }
 
