@@ -4,8 +4,8 @@ All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented i
 
 ## Recent Changes
 
-- BugFix: Fix error messages when host, port, user, password, or database are omitted
-- BugFix: Fix daemon mode prompting
+- BugFix: Fixed error messages when host, port, user, password, or database are omitted
+- BugFix: Fixed daemon mode prompting
 
 ## `5.0.0-next.202203241624`
 
