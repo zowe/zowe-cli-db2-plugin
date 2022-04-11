@@ -21,7 +21,7 @@
         "@typescript-eslint/eslint-plugin": "^4.29.0",
         "@typescript-eslint/parser": "^4.29.0",
         "@zowe/cli-test-utils": ">=7.0.0-next.202106242030 <8.0.0",
-        "@zowe/imperative": "5.0.0-next.202203231534",
+        "@zowe/imperative": "5.0.0-next.202204081605",
         "env-cmd": "^8.0.2",
         "eslint": "^7.32.0",
         "eslint-plugin-jest": "^24.4.0",
@@ -41,7 +41,7 @@
         "uuid": "^3.2.1"
       },
       "peerDependencies": {
-        "@zowe/imperative": "5.0.0-next.202203231534"
+        "@zowe/imperative": "5.0.0-next.202204081605"
       }
     },
     "node_modules/@babel/code-frame": {
@@ -3407,9 +3407,9 @@
       }
     },
     "node_modules/@zowe/imperative": {
-      "version": "5.0.0-next.202203231534",
-      "resolved": "https://zowe.jfrog.io/zowe/api/npm/npm-release/@zowe/imperative/-/@zowe/imperative-5.0.0-next.202203231534.tgz",
-      "integrity": "sha512-rc2VZS3g1M2LDaohtM2htZvZ11J2S9BjMh/+AImfa82ABDVScjbnM6B+Usgbacc3uLnECaKLk0CzzJKjL6w07Q==",
+      "version": "5.0.0-next.202204081605",
+      "resolved": "https://zowe.jfrog.io/zowe/api/npm/npm-release/@zowe/imperative/-/@zowe/imperative-5.0.0-next.202204081605.tgz",
+      "integrity": "sha512-asv74jBfRkZv42lC5b/WfUp0yBuO0AQcrNtS/7B0U975r7dX/cP5rziAanep4IWSH9+Bfo2vL3nAxTcn2oRd3Q==",
       "dev": true,
       "license": "EPL-2.0",
       "dependencies": {
@@ -19005,9 +19005,9 @@
       }
     },
     "@zowe/imperative": {
-      "version": "5.0.0-next.202203231534",
-      "resolved": "https://zowe.jfrog.io/zowe/api/npm/npm-release/@zowe/imperative/-/@zowe/imperative-5.0.0-next.202203231534.tgz",
-      "integrity": "sha512-rc2VZS3g1M2LDaohtM2htZvZ11J2S9BjMh/+AImfa82ABDVScjbnM6B+Usgbacc3uLnECaKLk0CzzJKjL6w07Q==",
+      "version": "5.0.0-next.202204081605",
+      "resolved": "https://zowe.jfrog.io/zowe/api/npm/npm-release/@zowe/imperative/-/@zowe/imperative-5.0.0-next.202204081605.tgz",
+      "integrity": "sha512-asv74jBfRkZv42lC5b/WfUp0yBuO0AQcrNtS/7B0U975r7dX/cP5rziAanep4IWSH9+Bfo2vL3nAxTcn2oRd3Q==",
       "dev": true,
       "requires": {
         "@types/lodash-deep": "2.0.0",
