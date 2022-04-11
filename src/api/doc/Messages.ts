@@ -12,29 +12,29 @@
 import { IMessageDefinition, apiErrorHeader } from "@zowe/imperative";
 
 export const noDB2Input: IMessageDefinition = {
-    message: apiErrorHeader + "No DB2 parameters were supplied.",
+    message: apiErrorHeader.message + " - No DB2 parameters were supplied.",
 };
 
 export const noHostName: IMessageDefinition = {
-    message: apiErrorHeader + "No DB2 server hostname was supplied.",
+    message: apiErrorHeader.message + " - No DB2 server hostname was supplied.",
 };
 
 export const noPortNumber: IMessageDefinition = {
-    message: apiErrorHeader + "No DB2 server port number was supplied.",
+    message: apiErrorHeader.message + " - No DB2 server port number was supplied.",
 };
 
 export const noUserName: IMessageDefinition = {
-    message: apiErrorHeader + "No DB2 User ID was supplied.",
+    message: apiErrorHeader.message + " - No DB2 User ID was supplied.",
 };
 
 export const noPassword: IMessageDefinition = {
-    message: apiErrorHeader + "No DB2 user password was supplied.",
+    message: apiErrorHeader.message + " - No DB2 user password was supplied.",
 };
 
 export const noDatabaseName: IMessageDefinition = {
-    message: apiErrorHeader + "No DB2 database name was supplied.",
+    message: apiErrorHeader.message + " - No DB2 database name was supplied.",
 };
 
 export const noTableName: IMessageDefinition = {
-    message: apiErrorHeader + "No DB2 table name was supplied.",
+    message: apiErrorHeader.message + " - No DB2 table name was supplied.",
 };
