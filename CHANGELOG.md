@@ -2,6 +2,10 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
+## Recent Changes
+
+- BugFix: Update ibm_db to allow the plugin to install on M1 Macs.
+
 ## `4.1.5`
 
 - BugFix: Updated follow-redirects and minimist dependencies to resolve potential vulnerabilities.
