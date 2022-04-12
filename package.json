@@ -1,6 +1,6 @@
 {
   "name": "@zowe/db2-for-zowe-cli",
-  "version": "4.1.5",
+  "version": "4.1.6",
   "description": "IBM® Db2® Plug-in for Zowe CLI",
   "author": "CA T&C Brightside",
   "license": "EPL-2.0",
