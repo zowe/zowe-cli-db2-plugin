@@ -1,6 +1,6 @@
 {
   "name": "@zowe/db2-for-zowe-cli",
-  "version": "5.0.0-next.202204121850",
+  "version": "5.0.0",
   "description": "IBM® Db2® Plug-in for Zowe CLI",
   "author": "Zowe",
   "license": "EPL-2.0",
