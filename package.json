@@ -1,8 +1,8 @@
 {
   "name": "@zowe/db2-for-zowe-cli",
-  "version": "4.1.6",
+  "version": "5.0.0-next.202204121850",
   "description": "IBM® Db2® Plug-in for Zowe CLI",
-  "author": "CA T&C Brightside",
+  "author": "Zowe",
   "license": "EPL-2.0",
   "main": "lib/index.js",
   "repository": {
@@ -39,8 +39,7 @@
     "ibm_db": "2.8.1"
   },
   "peerDependencies": {
-    "@zowe/cli": "^6.0.0",
-    "@zowe/imperative": "^4.0.0"
+    "@zowe/imperative": "^5.0.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^5.0.5",
@@ -51,7 +50,8 @@
     "@types/yargs": "^8.0.2",
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
-    "@zowe/imperative": "4.18.2",
+    "@zowe/cli-test-utils": "7.0.0",
+    "@zowe/imperative": "5.0.0",
     "env-cmd": "^8.0.2",
     "eslint": "^7.32.0",
     "eslint-plugin-jest": "^24.4.0",
@@ -67,7 +67,7 @@
     "ts-jest": "^26.4.4",
     "ts-node": "^3.2.0",
     "typedoc": "^0.20.36",
-    "typescript": "^3.7.4",
+    "typescript": "^3.8.0",
     "uuid": "^3.2.1"
   },
   "jest": {

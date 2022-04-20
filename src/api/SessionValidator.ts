@@ -28,10 +28,10 @@ export class SessionValidator {
      */
     public static validate(params: IDB2Session) {
         ImperativeExpect.toNotBeNullOrUndefined(params, noDB2Input.message);
-        ImperativeExpect.toBeDefinedAndNonBlank(params.hostname, noHostName.message);
+        ImperativeExpect.toBeDefinedAndNonBlank(params.hostname, "hostname", noHostName.message);
         ImperativeExpect.toNotBeNullOrUndefined(params.port, noPortNumber.message);
-        ImperativeExpect.toBeDefinedAndNonBlank(params.user, noUserName.message);
-        ImperativeExpect.toBeDefinedAndNonBlank(params.password, noPassword.message);
-        ImperativeExpect.toBeDefinedAndNonBlank(params.database, noDatabaseName.message);
+        ImperativeExpect.toBeDefinedAndNonBlank(params.user, "user", noUserName.message);
+        ImperativeExpect.toBeDefinedAndNonBlank(params.password, "password", noPassword.message);
+        ImperativeExpect.toBeDefinedAndNonBlank(params.database, "database", noDatabaseName.message);
     }
 }

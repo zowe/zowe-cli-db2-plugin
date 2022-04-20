@@ -32,7 +32,7 @@ export abstract class DB2BaseHandler implements ICommandHandler {
      */
     public async process(commandParameters: IHandlerParameters) {
         this.mHandlerParams = commandParameters;
-        const session = DB2Session.createDB2Session(commandParameters.arguments);
+        const session = await DB2Session.createSessCfgFromArgs(commandParameters.arguments, true, commandParameters);
         await this.processWithDB2Session(commandParameters, session);
     }
 
@@ -45,10 +45,8 @@ export abstract class DB2BaseHandler implements ICommandHandler {
      *
      * @returns {Promise<void>} The response from the underlying DB2 api call.
      */
-    public abstract async processWithDB2Session(
+    public abstract processWithDB2Session(
         commandParameters: IHandlerParameters,
         session: AbstractSession
     ): Promise<void>;
-
-
 }
