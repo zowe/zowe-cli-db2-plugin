@@ -2,6 +2,10 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
+## Recent Changes
+
+- BugFix: Updated ibm_db dependency to be compatible with Node.js 18
+
 ## `4.1.6`
 
 - BugFix: Update ibm_db to allow the plugin to install on M1 Macs.

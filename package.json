@@ -36,7 +36,7 @@
     "configurationModule": "lib/imperative.js"
   },
   "dependencies": {
-    "ibm_db": "2.8.1"
+    "ibm_db": "2.8.2"
   },
   "peerDependencies": {
     "@zowe/cli": "^6.0.0",
@@ -51,7 +51,7 @@
     "@types/yargs": "^8.0.2",
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
-    "@zowe/imperative": "4.18.2",
+    "@zowe/imperative": "4.18.7",
     "env-cmd": "^8.0.2",
     "eslint": "^7.32.0",
     "eslint-plugin-jest": "^24.4.0",
