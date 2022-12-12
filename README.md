@@ -149,14 +149,14 @@ After the uninstallation process completes successfully, the product no longer c
 
 ## Troubleshooting
 
-### The IBM Db2 Database Plug-in for Zowe CLI is no longer compatible with the installed Node.js version.
+### Node.js version incompatible with plug-in
 
 **Error message**:
 ```
 The module 'C:\Users\User\.zowe\plugins\installed\node_modules\@zowe\db2-for-zowe-cli\node_modules\ibm_db\build\Release\odbc_bindings.node' was compiled against a different Node.js version using NODE_MODULE_VERSION ###. This version of Node.js requires NODE_MODULE_VERSION ###. Please try re-compiling or re-installing this module (for instance, using npm rebuild or npm install).
 ```
 
-**Action**: The Node version installed on the system has changed since the IBM Db2 Database Plug-in for Zowe CLI was installed on the system, and the native binary is no longer compatible. Uninstall and reinstall the IBM Db2 Database Plug-in for Zowe CLI.
+**Action**: Uninstall and reinstall the IBM Db2 Database Plug-in for Zowe CLI. The Node version installed on the system has changed since the IBM Db2 Database Plug-in for Zowe CLI was installed on the system, and the native binary is no longer compatible.
 
 ## Contributing
 
