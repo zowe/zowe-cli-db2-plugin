@@ -37,7 +37,7 @@ Before you install and use the plug-in:
 
 - **(Linux only - CentOS, RHEL)** Download and Install the following via yum: `python3 make gcc-c++`
 
-- This plug-in builds a native binary at install time that is required to interact with Db2. In the event that a new major version of Node is installed, it is required to uninstall and reinstall this plug-in to update the native binary. This step will need to be taken if you encounter the following error:
+- Note: Reinstallation is required when Node is upgraded to a new major version. When installed, the plug-in builds a native binary that is needed to interact with Db2. If a new major version of Node is installed, you must uninstall and reinstall the IBM Db2 Database Plug-in to update the binary. Carry out this reinstallation if you encounter the following error:
 
     ```
     The module 'C:\Users\User\.zowe\plugins\installed\node_modules\@zowe\db2-for-zowe-cli\node_modules\ibm_db\build\Release\odbc_bindings.node' was compiled against a different Node.js version using NODE_MODULE_VERSION ###. This version of Node.js requires NODE_MODULE_VERSION ###. Please try re-compiling or re-installing this module (for instance, using npm rebuild or npm install).
