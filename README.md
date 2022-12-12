@@ -145,6 +145,8 @@ Any failures potentially indicate an issue with the set-up of the Rest API or co
     ```
     zowe plugins uninstall @zowe/db2-for-zowe-cli
     ```
+2. **Windows Only** - The plug-in may encounter an error while uninstalling. If this occurs, run the uninstall command again.
+
 After the uninstallation process completes successfully, the product no longer contains the plug-in configuration.
 
 ## Troubleshooting
