@@ -35,8 +35,14 @@ jobs:
       if: ${{ matrix.node-version == '14.x' }}
       run: npm install -g npm@7
 
+    - name: Update Python
+      if: ${{ matrix.node-version == '14.x' && matrix.os == 'macos-latest' }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
     - name: Install Node Package Dependencies
-      run: npm ci
+      run: npm ci --quiet
 
     - name: Update Dependencies
       id: npm-update

@@ -37,6 +37,8 @@ Before you install and use the plug-in:
 
 - **(Linux only - CentOS, RHEL)** Download and Install the following via yum: `python3 make gcc-c++`
 
+- Note: Reinstallation is required when Node is upgraded to a new major version. When installed, the plug-in builds a native binary that is needed to interact with Db2. If a new major version of Node is installed, you must uninstall and reinstall the IBM Db2 Database Plug-in to update the binary. 
+
 ## Installing
 
 Use one of the following methods to install the plug-in:
@@ -143,7 +145,20 @@ Any failures potentially indicate an issue with the set-up of the Rest API or co
     ```
     zowe plugins uninstall @zowe/db2-for-zowe-cli
     ```
+2. **Windows Only** - The plug-in may encounter an error while uninstalling. If this occurs, run the uninstall command again.
+
 After the uninstallation process completes successfully, the product no longer contains the plug-in configuration.
+
+## Troubleshooting
+
+### Node.js version incompatible with plug-in
+
+**Error message**:
+```
+The module 'C:\Users\User\.zowe\plugins\installed\node_modules\@zowe\db2-for-zowe-cli\node_modules\ibm_db\build\Release\odbc_bindings.node' was compiled against a different Node.js version using NODE_MODULE_VERSION ###. This version of Node.js requires NODE_MODULE_VERSION ###. Please try re-compiling or re-installing this module (for instance, using npm rebuild or npm install).
+```
+
+**Action**: Uninstall and reinstall the IBM Db2 Database Plug-in for Zowe CLI. The Node version installed on the system has changed since the IBM Db2 Database Plug-in for Zowe CLI was installed on the system, and the native binary is no longer compatible.
 
 ## Contributing
 
