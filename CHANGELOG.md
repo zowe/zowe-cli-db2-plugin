@@ -5,7 +5,7 @@ All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented i
 
 ## Recent Changes
 
-- BugFix: Updated minimatch dependency for technical  currency
+- BugFix: Updated minimatch dependency for technical currency
 
 ## `5.0.1`
 
