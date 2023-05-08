@@ -53,7 +53,9 @@ exports[`db2 execute command should fail with invalid option 1`] = `
 "Command Error:
 Unknown argument: sql
 Command failed due to improper syntax
-Command entered: \\"zowe db2 execute --sql SELECT 1 FROM SYSIBM.SYSDUMMY1\\"
+Did you mean: db2 execute sql?
+
+Command entered: \\"db2 execute --sql SELECT 1 FROM SYSIBM.SYSDUMMY1\\"
 Available commands are \\"sql\\".
 Use \\"zowe db2 execute --help\\" to view groups, commands, and options.
 Error Details:
@@ -67,7 +69,9 @@ exports[`db2 execute command should fail with invalid parameter 1`] = `
 "Command Error:
 Unknown arguments: D, command
 Command failed due to improper syntax
-Command entered: \\"zowe db2 execute command -D DDF\\"
+Did you mean: db2 execute sql?
+
+Command entered: \\"db2 execute command -D DDF\\"
 Available commands are \\"sql\\".
 Use \\"zowe db2 execute --help\\" to view groups, commands, and options.
 Error Details:
