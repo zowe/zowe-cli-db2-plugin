@@ -52,7 +52,9 @@ exports[`db2 call command should fail with invalid option 1`] = `
 "Command Error:
 Unknown argument: sp
 Command failed due to improper syntax
-Command entered: \\"zowe db2 call --sp DEMOUSER.DEMOSP1(1, 2, 3)\\"
+Did you mean: db2 call sp?
+
+Command entered: \\"db2 call --sp DEMOUSER.DEMOSP1(1, 2, 3)\\"
 Available commands are \\"procedure\\".
 Use \\"zowe db2 call --help\\" to view groups, commands, and options.
 Error Details:
@@ -66,7 +68,9 @@ exports[`db2 call command should fail with invalid parameter 1`] = `
 "Command Error:
 Unknown arguments: routine, DEMOUSER.DEMOSP1
 Command failed due to improper syntax
-Command entered: \\"zowe db2 call routine DEMOUSER.DEMOSP1\\"
+Did you mean: db2 call proc?
+
+Command entered: \\"db2 call routine DEMOUSER.DEMOSP1\\"
 Available commands are \\"procedure\\".
 Use \\"zowe db2 call --help\\" to view groups, commands, and options.
 Error Details:
