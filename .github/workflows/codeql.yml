@@ -39,4 +39,4 @@ jobs:
         config-file: ./.github/resources/codeql-config.yml
 
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v12
+      uses: github/codeql-action/analyze@v2
