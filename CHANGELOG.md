@@ -2,7 +2,7 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
-## Recent Changes
+## `5.0.4`
 
 - BugFix: Updated ibm_db dependency to resolve technical debt
 
