@@ -2,6 +2,10 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
+## Recent Changes
+
+- BugFix: Add missing npm-shrinkwrap
+
 ## `4.1.10`
 
 - BugFix: Updated ibm_db dependency to resolve technical debt
