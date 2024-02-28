@@ -2,6 +2,10 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
+## Recent Changes
+
+- V3 Breaking: Updated engines, removed health check and v1 profile support
+
 ## `5.0.6`
 
 - BugFix: Update follow-redirects transitive dependency to resolve technical debt

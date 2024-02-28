@@ -6,7 +6,6 @@ Object {
     "**/cli/*/*.definition!(.d).*s",
   ],
   "name": "db2",
-  "pluginHealthCheck": "./lib/HealthCheck.handler",
   "productDisplayName": "IBM® Db2® Plug-in for Zowe CLI",
   "profiles": Array [
     Object {

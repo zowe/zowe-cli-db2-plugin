@@ -17,7 +17,6 @@ const config: IImperativeConfig = {
     commandModuleGlobs: ["**/cli/*/*.definition!(.d).*s"],
     rootCommandDescription: Constants.DESCRIPTION,
     productDisplayName: Constants.DISPLAY_NAME,
-    pluginHealthCheck: "./lib/HealthCheck.handler",
     profiles: [
         {
             type: "db2",
@@ -41,8 +40,9 @@ const config: IImperativeConfig = {
                             name: "port",
                             aliases: ["P"],
                             description: "The Db2 server port number",
-                            type: "number",
+                            type: "number"
                         },
+                        includeInTemplate: true
                     },
                     user: {
                         type: "string",
@@ -78,7 +78,7 @@ const config: IImperativeConfig = {
                         optionDefinition: {
                             name: "ssl-file",
                             aliases: ["s"],
-                            description: "Path to an SSL Certificate file",
+                            description: "Path to the root CA Certificate file",
                             type: "string",
                         },
                     },
