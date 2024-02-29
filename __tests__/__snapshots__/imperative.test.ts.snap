@@ -48,6 +48,7 @@ Object {
             "type": "string",
           },
           "port": Object {
+            "includeInTemplate": true,
             "optionDefinition": Object {
               "aliases": Array [
                 "P",
@@ -63,7 +64,7 @@ Object {
               "aliases": Array [
                 "s",
               ],
-              "description": "Path to an SSL Certificate file",
+              "description": "Path to the root CA Certificate file",
               "name": "ssl-file",
               "type": "string",
             },
