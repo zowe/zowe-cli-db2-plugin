@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-import { AbstractSession, ICommandHandler, IHandlerParameters } from "@zowe/imperative";
+import { AbstractSession, ICommandHandler, IHandlerParameters, ImperativeError } from "@zowe/imperative";
 import { DB2Session } from "./DB2Session";
 
 /**
@@ -33,7 +33,15 @@ export abstract class DB2BaseHandler implements ICommandHandler {
     public async process(commandParameters: IHandlerParameters) {
         this.mHandlerParams = commandParameters;
         const session = await DB2Session.createSessCfgFromArgs(commandParameters.arguments, true, commandParameters);
-        await this.processWithDB2Session(commandParameters, session);
+        try {
+            await this.processWithDB2Session(commandParameters, session);
+        } catch (err) {
+            if (err instanceof ImperativeError){
+                throw err;
+            } else {
+                throw new ImperativeError({msg: err.message, causeErrors: err});
+            }
+        }
     }
 
     /**

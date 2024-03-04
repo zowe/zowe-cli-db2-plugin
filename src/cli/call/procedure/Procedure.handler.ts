@@ -55,7 +55,6 @@ export default class ProcedureHandler extends DB2BaseHandler {
 
         // Return as an object when using --response-format-json
         params.response.data.setObj(response);
-        params.response.data.setExitCode(response.success ? 0 : 1);
 
     }
 }

@@ -4,7 +4,7 @@ module.exports = {
             name: "next",
             prerelease: true,
             channel: "next",
-            level: "major",
+            level: "none",
             devDependencies: {
                 "@zowe/cli": "next",
                 "@zowe/imperative": "next",
