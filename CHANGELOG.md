@@ -4,7 +4,8 @@ All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented i
 
 ## Recent Changes
 
-- V3 Breaking: Updated engines, removed health check and v1 profile support
+- BugFix: Exit code 1 when DB2 calls do not succeed
+- V3 Breaking: Updated engines, removed health check and v1 profile support, added port and database to template
 
 ## `5.0.6`
 
