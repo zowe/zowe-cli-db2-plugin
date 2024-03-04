@@ -72,6 +72,7 @@ const config: IImperativeConfig = {
                             description: "The name of the database",
                             type: "string",
                         },
+                        includeInTemplate: true
                     },
                     sslFile: {
                         type: "string",

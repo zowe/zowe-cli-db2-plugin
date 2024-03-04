@@ -34,6 +34,7 @@ export default class TableHandler extends DB2BaseHandler {
                 outFile = fs.openSync(params.arguments.outfile, "w");
             }
             catch (err) {
+                params.response.data.setExitCode(1);
                 throw new ImperativeError({msg: err.toString()});
             }
         }
@@ -54,6 +55,5 @@ export default class TableHandler extends DB2BaseHandler {
         if (params.arguments.outfile) {
             fs.closeSync(outFile);
         }
-
     }
 }

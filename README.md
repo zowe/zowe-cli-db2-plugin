@@ -102,18 +102,30 @@ When an unsuccessful message displays, you can troubleshoot the installation by 
 After you install the plug-in, you create a Db2 profile. A Db2 profile is required to issue commands to the Db2 region. Db2 profiles contain your host, port, user name, password, and a database name for the IBM Db2 server of your choice. You can create multiple profiles and switch between them as needed.
 
 **Follow these steps:**
-1.  Create a Db2 profile: 
+1.  Install the IBM Db2 Plug-in for Zowe CLI
+2.  Create a Db2 profile: 
     
     ```
-    zowe profiles create db2 <profile name> -H <host> -P <port> -u <user> -p <password> -d <database>
+    zowe config init
     ```
-    
-    The result of the command displays as a success or failure message. You can use your profile when you issue commands in the Db2 command group.
+3.  Set the port number to your Db2 port:
 
-**Tip:** For more information about the syntax, actions, and options, for a profiles create command, open Zowe CLI and issue the following command:
-```
-zowe profiles create db2 -h
-```
+    ```
+    zowe config set profiles.db2.properties.port <port number>
+    ```
+
+4.  Set the database to your Db2 database:
+
+    ```
+    zowe config set profiles.db2.properties.database <database name>
+    ```
+
+5. If required, set the SSL File to the CA certificate used for the DB2 server
+
+    ```
+    zowe config set profiles.db2.properties.sslFile <full path to SSL CA Certificate file>
+    ```
+
 
 ## Running tests
 
