@@ -13,6 +13,7 @@ Object {
         "description": "A profile for interaction with Db2 for the z/OS region",
         "properties": Object {
           "database": Object {
+            "includeInTemplate": true,
             "optionDefinition": Object {
               "aliases": Array [
                 "d",
