@@ -120,7 +120,7 @@ After you install the plug-in, you create a Db2 profile. A Db2 profile is requir
     zowe config set profiles.db2.properties.database <database name>
     ```
 
-5. If required, set the SSL File to the CA certificate used for the DB2 server
+5. If required, set the SSL File to the CA certificate used for the DB2 server:
 
     ```
     zowe config set profiles.db2.properties.sslFile <full path to SSL CA Certificate file>
