@@ -1,6 +1,6 @@
 {
   "name": "@zowe/db2-for-zowe-cli",
-  "version": "5.0.6",
+  "version": "6.0.0",
   "description": "IBM® Db2® Plug-in for Zowe CLI",
   "author": "Zowe",
   "license": "EPL-2.0",
@@ -28,8 +28,8 @@
     "lint:src": "eslint \"src/**/*.ts\" --ignore-pattern \"**/__tests__/**/*.ts\"",
     "lint:tests": "eslint \"**/__tests__/**/*.ts\"",
     "test": "npm run test:unit && npm run test:system",
-    "test:system": "env-cmd __tests__/__resources__/env/system.env jest .*/__system__/.* --coverage false --runInBand",
-    "test:unit": "env-cmd __tests__/__resources__/env/unit.env jest --coverage --testPathIgnorePatterns \".*/__system__/.*\" ",
+    "test:system": "env-cmd -f __tests__/__resources__/env/system.env jest .*/__system__/.* --coverage false --runInBand",
+    "test:unit": "env-cmd -f __tests__/__resources__/env/unit.env jest --coverage --testPathIgnorePatterns \".*/__system__/.*\" ",
     "installPlugin": "npm install && npm run clean && npm run build && bright plugins install .",
     "typedoc": "typedoc --out ./docs/typedoc/ ./src/ --disableOutputCheck"
   },
@@ -37,40 +37,35 @@
     "configurationModule": "lib/imperative.js"
   },
   "dependencies": {
-    "ibm_db": "3.2.2"
+    "ibm_db": "3.2.3"
   },
   "peerDependencies": {
-    "@zowe/imperative": "^5.0.0"
+    "@zowe/imperative": ">8.0.0-next.0 <9.0.0"
   },
   "devDependencies": {
-    "@types/fs-extra": "^5.0.5",
-    "@types/ibm_db": "^2.0.2",
-    "@types/jest": "^20.0.5",
-    "@types/node": "^8.0.0",
-    "@types/xml2js": "^0.4.3",
-    "@types/yargs": "^8.0.2",
-    "@typescript-eslint/eslint-plugin": "^4.29.0",
-    "@typescript-eslint/parser": "^4.29.0",
-    "@zowe/cli": "^7.21.0",
-    "@zowe/cli-test-utils": "^7.21.0",
-    "@zowe/imperative": "^5.6.0",
-    "env-cmd": "^8.0.2",
-    "eslint": "^7.32.0",
-    "eslint-plugin-jest": "^24.4.0",
-    "eslint-plugin-unused-imports": "^1.1.2",
-    "fs-extra": "^5.0.0",
-    "jest": "^26.6.3",
+    "@types/ibm_db": "^2.0.16",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^18.18.2",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "@zowe/cli": "^8.0.0-next.202402132108",
+    "@zowe/cli-test-utils": "^8.0.0-next.202402132108",
+    "@zowe/imperative": "^8.0.0-next.202402132108",
+    "env-cmd": "^10.1.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-jest": "^27.9.0",
+    "eslint-plugin-unused-imports": "^3.1.0",
+    "jest": "^29.7.0",
     "jest-environment-node-debug": "^2.0.0",
-    "jest-html-reporter": "^3.3.0",
-    "jest-junit": "^3.6.0",
-    "jest-stare": "^2.2.0",
-    "madge": "^5.0.1",
-    "rimraf": "^2.6.2",
-    "ts-jest": "^26.4.4",
-    "ts-node": "^3.2.0",
-    "typedoc": "^0.20.36",
-    "typescript": "^3.8.0",
-    "uuid": "^3.2.1"
+    "jest-html-reporter": "^3.10.2",
+    "jest-junit": "^16.0.0",
+    "jest-stare": "^2.5.1",
+    "madge": "^6.1.0",
+    "rimraf": "^5.0.5",
+    "ts-jest": "^29.1.2",
+    "ts-node": "^7.0.1",
+    "typedoc": "^0.25.9",
+    "typescript": "^5.3.3"
   },
   "jest": {
     "setupFilesAfterEnv": [
@@ -106,26 +101,26 @@
       "cobertura"
     ],
     "coverageDirectory": "<rootDir>/__tests__/__results__/unit/coverage",
-    "globals": {
-      "ts-jest": {
-        "diagnostics": false
-      }
-    }
-  },
-  "jest-stare": {
-    "resultDir": "__tests__/__results__/jest-stare",
-    "additionalResultsProcessors": [
-      "jest-junit",
-      "jest-html-reporter"
-    ],
-    "coverageLink": "../coverage/lcov-report/index.html"
-  },
-  "jest-junit": {
-    "output": "__tests__/__results__/junit.xml"
-  },
-  "jest-html-reporter": {
-    "pageTitle": "Brightside DB2 Plugin Test Results",
-    "outputPath": "__tests__/__results__/results.html",
-    "includeFailureMsg": true
+    "snapshotFormat": {
+      "escapeString": true,
+      "printBasicPrototype": true
+    },
+    "reporters": [
+      "default",
+      ["jest-junit", {
+        "outputDirectory": "__tests__/__results__",
+        "reportTestSuiteErrors": true
+      }],
+      ["jest-stare", {
+        "coverageLink": "../coverage/lcov-report/index.html",
+        "resultDir": "__tests__/__results__/jest-stare"
+      }],
+      ["jest-html-reporter", {
+        "pageTitle": "DB2 Plugin Test Results",
+        "outputPath": "__tests__/__results__/results.html",
+        "includeFailureMsg": true
+      }],
+      ["github-actions", { "silent": false } ]
+    ]
   }
 }

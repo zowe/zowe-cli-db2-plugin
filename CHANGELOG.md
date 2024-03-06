@@ -2,9 +2,14 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
+## Recent Changes
+
+- BugFix: Updated plug-in to exit code 1 if it encounters an error when issuing commands to Db2 [#144](https://github.com/zowe/zowe-cli-db2-plugin/pull/144)
+- V3 Breaking: Updated engines, removed health check and v1 profile support, added port and database to config template [#144](https://github.com/zowe/zowe-cli-db2-plugin/pull/144)
+
 ## `5.0.6`
 
-- BugFix: Update follow-redirects transitive dependency to resolve technical debt
+- BugFix: Update follow-redirects transitive dependency to resolve technical debt [#139](https://github.com/zowe/zowe-cli-db2-plugin/pull/139)
 
 ## `5.0.5`
 

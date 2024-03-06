@@ -6,7 +6,6 @@ Object {
     "**/cli/*/*.definition!(.d).*s",
   ],
   "name": "db2",
-  "pluginHealthCheck": "./lib/HealthCheck.handler",
   "productDisplayName": "IBM® Db2® Plug-in for Zowe CLI",
   "profiles": Array [
     Object {
@@ -14,6 +13,7 @@ Object {
         "description": "A profile for interaction with Db2 for the z/OS region",
         "properties": Object {
           "database": Object {
+            "includeInTemplate": true,
             "optionDefinition": Object {
               "aliases": Array [
                 "d",
@@ -49,6 +49,7 @@ Object {
             "type": "string",
           },
           "port": Object {
+            "includeInTemplate": true,
             "optionDefinition": Object {
               "aliases": Array [
                 "P",
@@ -64,7 +65,7 @@ Object {
               "aliases": Array [
                 "s",
               ],
-              "description": "Path to an SSL Certificate file",
+              "description": "Path to the root CA Certificate file",
               "name": "ssl-file",
               "type": "string",
             },
