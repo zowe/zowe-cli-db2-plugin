@@ -3,8 +3,8 @@
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
 ## Recent Changes
-- BugFix: Update follow-redirects transitive dependency to resolve technical debt [#148](https://github.com/zowe/zowe-cli-db2-plugin/pull/148)
 
+- BugFix: Updated follow-redirects transitive dependency to resolve technical debt. [#148](https://github.com/zowe/zowe-cli-db2-plugin/pull/148)
 
 ## `6.0.0-next.202403062029`
 
@@ -13,11 +13,11 @@ All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented i
 
 ## `5.0.6`
 
-- BugFix: Update follow-redirects transitive dependency to resolve technical debt [#139](https://github.com/zowe/zowe-cli-db2-plugin/pull/139)
+- BugFix: Updated follow-redirects transitive dependency to resolve technical debt. [#139](https://github.com/zowe/zowe-cli-db2-plugin/pull/139)
 
 ## `5.0.5`
 
-- BugFix: Add missing npm-shrinkwrap
+- BugFix: Added missing npm-shrinkwrap.
 
 ## `5.0.4`
 
