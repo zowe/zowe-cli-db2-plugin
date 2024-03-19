@@ -1,12 +1,12 @@
 {
   "name": "@zowe/db2-for-zowe-cli",
-  "version": "6.0.0-next.202403062029",
+  "version": "6.0.0-next.202403192050",
   "lockfileVersion": 2,
   "requires": true,
   "packages": {
     "": {
       "name": "@zowe/db2-for-zowe-cli",
-      "version": "6.0.0-next.202403062029",
+      "version": "6.0.0-next.202403192050",
       "license": "EPL-2.0",
       "dependencies": {
         "ibm_db": "3.2.3"
