@@ -2,6 +2,10 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
+## Recent Changes
+
+- BugFix: Updated axios transitive dependency to resolve technical debt. [#150](https://github.com/zowe/zowe-cli-db2-plugin/pull/150)
+
 ## `4.1.13`
 
 - BugFix: Updated follow-redirects transitive dependency to resolve technical debt. [#146](https://github.com/zowe/zowe-cli-db2-plugin/pull/146)
