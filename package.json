@@ -40,7 +40,7 @@
     "ibm_db": "3.2.3"
   },
   "peerDependencies": {
-    "@zowe/imperative": ">8.0.0-next.0 <9.0.0"
+    "@zowe/imperative": "^8.0.0"
   },
   "devDependencies": {
     "@types/ibm_db": "^2.0.16",
@@ -48,9 +48,9 @@
     "@types/node": "^18.18.2",
     "@typescript-eslint/eslint-plugin": "^7.1.0",
     "@typescript-eslint/parser": "^7.1.0",
-    "@zowe/cli": "^8.0.0-next.202409091603",
-    "@zowe/cli-test-utils": "^8.0.0-next.202409091603",
-    "@zowe/imperative": "^8.0.0-next.202402132108",
+    "@zowe/cli": "^8.0.0",
+    "@zowe/cli-test-utils": "^8.0.0",
+    "@zowe/imperative": "^8.0.0",
     "env-cmd": "^10.1.0",
     "eslint": "^8.57.0",
     "eslint-plugin-jest": "^27.9.0",
