@@ -2,6 +2,10 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
+## Recent Changes
+
+- MAJOR: v6.0.0 release
+
 ## `6.0.0-next.202409201929`
 
 - Update: Final prerelease
