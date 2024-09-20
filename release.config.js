@@ -2,25 +2,27 @@ module.exports = {
     branches: [
         {
             name: "master",
-            level: "minor",
-            devDependencies: ["@zowe/cli", "@zowe/imperative", "@zowe/cli-test-utils"]
+            prerelease: true,
+            channel: "next",
+            level: "none",
+            devDependencies: {
+                "@zowe/cli": "zowe-v3-lts",
+                "@zowe/imperative": "zowe-v3-lts",
+                "@zowe/cli-test-utils": "zowe-v3-lts"
+            }
         },
         {
-            name: "zowe-v1-lts",
+            name: "zowe-v?-lts",
             level: "patch",
             devDependencies: ["@zowe/cli", "@zowe/imperative"]
         }
-        // {
-        //     name: "next",
-        //     prerelease: true,
-        //     devDependencies: ["@zowe/cli", "@zowe/imperative", "@zowe/cli-test-utils"]
-        // }
     ],
     plugins: [
         "@octorelease/changelog",
         ["@octorelease/npm", {
             aliasTags: {
-                latest: ["zowe-v2-lts", "next"]
+                latest: ["zowe-v2-lts"],
+                next: ["zowe-v3-lts"],
             },
             pruneShrinkwrap: true
         }],

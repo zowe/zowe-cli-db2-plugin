@@ -12,8 +12,6 @@
 #  my-database-name - This is the name of the database                        #
 ###############################################################################
 
-# see bright profiles create db2 --help for more info
-
 db2:
     host:     my-db2-host
     port:     my-db2-port

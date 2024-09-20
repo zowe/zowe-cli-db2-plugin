@@ -29,6 +29,7 @@ export default class SQLHandler extends DB2BaseHandler {
                 query = fs.readFileSync(params.arguments.file, "utf-8").toString();
             }
             catch (err) {
+                params.response.data.setExitCode(1);
                 throw new ImperativeError({ msg: err.toString() });
             }
         } else {
