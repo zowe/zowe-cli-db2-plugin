@@ -107,6 +107,7 @@
     },
     "reporters": [
       "default",
+      "jest-stare",
       [
         "jest-junit",
         {
