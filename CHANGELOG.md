@@ -2,6 +2,10 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
+## Recent Changes
+
+- BugFix: Updated ibm_db dependency to support Node.js 22 on Windows.
+
 ## `5.0.9`
 
 - BugFix: Updated axios transitive dependency to resolve technical debt. [#154](https://github.com/zowe/zowe-cli-db2-plugin/pull/154)
