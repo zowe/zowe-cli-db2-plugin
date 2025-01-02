@@ -9,7 +9,7 @@
       "version": "6.0.0",
       "license": "EPL-2.0",
       "dependencies": {
-        "ibm_db": "3.2.3"
+        "ibm_db": "3.3.0"
       },
       "devDependencies": {
         "@types/ibm_db": "^2.0.16",
@@ -2423,9 +2423,10 @@
       }
     },
     "node_modules/adm-zip": {
-      "version": "0.5.14",
-      "resolved": "https://registry.npmjs.org/adm-zip/-/adm-zip-0.5.14.tgz",
-      "integrity": "sha512-DnyqqifT4Jrcvb8USYjp6FHtBpEIz1mnXu6pTRHZ0RL69LbQYiO+0lDFg5+OKA7U29oWSs3a/i8fhn8ZcceIWg==",
+      "version": "0.5.16",
+      "resolved": "https://registry.npmjs.org/adm-zip/-/adm-zip-0.5.16.tgz",
+      "integrity": "sha512-TGw5yVi4saajsSEgz25grObGHEUaDrniwvA2qwSC060KfqGPdglhvPMA2lPIoxs3PQIItj2iag35fONcQqgUaQ==",
+      "license": "MIT",
       "engines": {
         "node": ">=12.0"
       }
@@ -2627,9 +2628,9 @@
       "integrity": "sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q=="
     },
     "node_modules/axios": {
-      "version": "1.7.4",
-      "resolved": "https://registry.npmjs.org/axios/-/axios-1.7.4.tgz",
-      "integrity": "sha512-DukmaFRnY6AzAALSH4J2M3k6PkaC+MfaAGdEERRWcC9q3/TWQwLpHR8ZRLKTdQ3aBDL64EdluRDjJqKw+BPZEw==",
+      "version": "1.7.9",
+      "resolved": "https://registry.npmjs.org/axios/-/axios-1.7.9.tgz",
+      "integrity": "sha512-LhLcE7Hbiryz8oMDdDptSrWowmB4Bl6RCt6sIJKpRB4XtVf0iEgewX3au/pJqm+Py1kCASkb/FFKjxQaLtxJvw==",
       "license": "MIT",
       "dependencies": {
         "follow-redirects": "^1.15.6",
@@ -3451,10 +3452,11 @@
       "peer": true
     },
     "node_modules/cross-spawn": {
-      "version": "7.0.3",
-      "resolved": "https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.3.tgz",
-      "integrity": "sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==",
+      "version": "7.0.6",
+      "resolved": "https://registry.npmjs.org/cross-spawn/-/cross-spawn-7.0.6.tgz",
+      "integrity": "sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==",
       "dev": true,
+      "license": "MIT",
       "dependencies": {
         "path-key": "^3.1.0",
         "shebang-command": "^2.0.0",
@@ -5242,18 +5244,19 @@
       }
     },
     "node_modules/ibm_db": {
-      "version": "3.2.3",
-      "resolved": "https://registry.npmjs.org/ibm_db/-/ibm_db-3.2.3.tgz",
-      "integrity": "sha512-UmvFC0hId4QDl66aksbu4m1ysrbNH6XEkKFgXQ3xvGWhzISjssii3k7dJCPJNKJJMCJcGO6/2YQynlcpF2541Q==",
+      "version": "3.3.0",
+      "resolved": "https://registry.npmjs.org/ibm_db/-/ibm_db-3.3.0.tgz",
+      "integrity": "sha512-hQpbM/iIpIRSU3SjMyY25hGMfTGVqDoON3g2p7oFVk5Px9XX12F4iODJG27CEa+tnm0a9ArVGyQ9ZhS0FLhyXw==",
       "hasInstallScript": true,
+      "license": "MIT",
       "dependencies": {
-        "adm-zip": "^0.5.10",
-        "axios": "^1.6.2",
+        "adm-zip": "^0.5.16",
+        "axios": "^1.7.4",
         "big-integer": "^1.6.51",
         "bindings": "^1.5.0",
         "fs-extra": "^11.1.1",
         "lodash": "^4.17.21",
-        "nan": "^2.18.0",
+        "nan": "^2.22.0",
         "q": "^1.5.1",
         "targz": "^1.0.1"
       },
@@ -6868,10 +6871,11 @@
       }
     },
     "node_modules/micromatch": {
-      "version": "4.0.7",
-      "resolved": "https://registry.npmjs.org/micromatch/-/micromatch-4.0.7.tgz",
-      "integrity": "sha512-LPP/3KorzCwBxfeUuZmaR6bG2kdeHSbe0P2tY3FLRU4vYrjYz5hI4QZwV0njUx3jeuKe67YukQ1LSPZBKDqO/Q==",
+      "version": "4.0.8",
+      "resolved": "https://registry.npmjs.org/micromatch/-/micromatch-4.0.8.tgz",
+      "integrity": "sha512-PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==",
       "dev": true,
+      "license": "MIT",
       "dependencies": {
         "braces": "^3.0.3",
         "picomatch": "^2.3.1"
@@ -7198,14 +7202,15 @@
       }
     },
     "node_modules/nan": {
-      "version": "2.20.0",
-      "resolved": "https://registry.npmjs.org/nan/-/nan-2.20.0.tgz",
-      "integrity": "sha512-bk3gXBZDGILuuo/6sKtr0DQmSThYHLtNCdSdXk9YkxD/jK6X2vmCyyXBBxyqZ4XcnzTyYEAThfX3DCEnLf6igw=="
+      "version": "2.22.0",
+      "resolved": "https://registry.npmjs.org/nan/-/nan-2.22.0.tgz",
+      "integrity": "sha512-nbajikzWTMwsW+eSsNm3QwlOs7het9gGJU5dDZzRTQGk03vyBOauxgI4VakDzE0PtsGTmXPsXTbbjVhRwR5mpw==",
+      "license": "MIT"
     },
     "node_modules/nanoid": {
-      "version": "3.3.7",
-      "resolved": "https://registry.npmjs.org/nanoid/-/nanoid-3.3.7.tgz",
-      "integrity": "sha512-eSRppjcPIatRIMC1U6UngP8XFcz8MQWGQdt1MTBQ7NaAmvXDfvNxbvWV3x2y6CdEUciCSsDHDQZbhYaB8QEo2g==",
+      "version": "3.3.8",
+      "resolved": "https://registry.npmjs.org/nanoid/-/nanoid-3.3.8.tgz",
+      "integrity": "sha512-WNLf5Sd8oZxOm+TzppcYk8gVOgP+l58xNy58D0nbUnOxOWRWvlcCV4kUF7ltmI6PsrLl/BgKEyS4mqsGChFN0w==",
       "dev": true,
       "funding": [
         {
@@ -7213,6 +7218,7 @@
           "url": "https://github.com/sponsors/ai"
         }
       ],
+      "license": "MIT",
       "bin": {
         "nanoid": "bin/nanoid.cjs"
       },
