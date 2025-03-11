@@ -2,7 +2,7 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
-## Recent Changes
+## `5.0.11`
 
 - BugFix: Updated axios transitive dependency to resolve technical debt. [#173](https://github.com/zowe/zowe-cli-db2-plugin/pull/173)
 - Enhancement: Updated ibm_db dependency to support native installation on M1 Macs. [#173](https://github.com/zowe/zowe-cli-db2-plugin/pull/173)
