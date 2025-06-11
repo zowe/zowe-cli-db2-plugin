@@ -21,7 +21,7 @@
         "@typescript-eslint/eslint-plugin": "^4.29.0",
         "@typescript-eslint/parser": "^4.29.0",
         "@zowe/cli": "^7.29.10",
-        "@zowe/cli-test-utils": "^7.29.10",
+        "@zowe/cli-test-utils": "^7.29.11",
         "@zowe/imperative": "^5.6.0",
         "env-cmd": "^8.0.2",
         "eslint": "^7.32.0",
@@ -3997,9 +3997,9 @@
       }
     },
     "node_modules/@zowe/cli-test-utils": {
-      "version": "7.29.10",
-      "resolved": "https://zowe.jfrog.io/zowe/api/npm/npm-release/@zowe/cli-test-utils/-/@zowe/cli-test-utils-7.29.10.tgz",
-      "integrity": "sha512-7q+1VDpp1KBm/2SUBsURWMCJn5G/RX1p1Skp0w68kc/+M/Rxf/s1EclLDt8qNlPpdClKhmzuC5O5fiy53InXuw==",
+      "version": "7.29.11",
+      "resolved": "https://zowe.jfrog.io/zowe/api/npm/npm-release/@zowe/cli-test-utils/-/@zowe/cli-test-utils-7.29.11.tgz",
+      "integrity": "sha512-eerCi8WwvuNHC3rFs53ktIVom7pcYS4mVfeoc5fT4nkWxi9mgipUiet/Qb04taBfFz3rEq87H1oOLhdtahBsbQ==",
       "dev": true,
       "license": "EPL-2.0",
       "dependencies": {
@@ -21207,9 +21207,9 @@
       }
     },
     "@zowe/cli-test-utils": {
-      "version": "7.29.10",
-      "resolved": "https://zowe.jfrog.io/zowe/api/npm/npm-release/@zowe/cli-test-utils/-/@zowe/cli-test-utils-7.29.10.tgz",
-      "integrity": "sha512-7q+1VDpp1KBm/2SUBsURWMCJn5G/RX1p1Skp0w68kc/+M/Rxf/s1EclLDt8qNlPpdClKhmzuC5O5fiy53InXuw==",
+      "version": "7.29.11",
+      "resolved": "https://zowe.jfrog.io/zowe/api/npm/npm-release/@zowe/cli-test-utils/-/@zowe/cli-test-utils-7.29.11.tgz",
+      "integrity": "sha512-eerCi8WwvuNHC3rFs53ktIVom7pcYS4mVfeoc5fT4nkWxi9mgipUiet/Qb04taBfFz3rEq87H1oOLhdtahBsbQ==",
       "dev": true,
       "requires": {
         "find-up": "^5.0.0",
