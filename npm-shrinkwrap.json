@@ -9,7 +9,7 @@
       "version": "6.1.4",
       "license": "EPL-2.0",
       "dependencies": {
-        "ibm_db": "3.3.0"
+        "ibm_db": "3.3.1"
       },
       "devDependencies": {
         "@types/ibm_db": "^2.0.16",
@@ -5282,9 +5282,9 @@
       }
     },
     "node_modules/ibm_db": {
-      "version": "3.3.0",
-      "resolved": "https://registry.npmjs.org/ibm_db/-/ibm_db-3.3.0.tgz",
-      "integrity": "sha512-hQpbM/iIpIRSU3SjMyY25hGMfTGVqDoON3g2p7oFVk5Px9XX12F4iODJG27CEa+tnm0a9ArVGyQ9ZhS0FLhyXw==",
+      "version": "3.3.1",
+      "resolved": "https://registry.npmjs.org/ibm_db/-/ibm_db-3.3.1.tgz",
+      "integrity": "sha512-wcbZY3coJoRYM1eUUYvlrhT78CXV7f5cVSdfeWIZXyJ2Imuq+sHQQgc7nEwDXeauwOlvlSVu1MysFjFzrWQg0A==",
       "hasInstallScript": true,
       "license": "MIT",
       "dependencies": {
@@ -5294,7 +5294,7 @@
         "bindings": "^1.5.0",
         "fs-extra": "^11.1.1",
         "lodash": "^4.17.21",
-        "nan": "^2.22.0",
+        "nan": "^2.22.2",
         "q": "^1.5.1",
         "targz": "^1.0.1"
       },
@@ -7276,9 +7276,9 @@
       }
     },
     "node_modules/nan": {
-      "version": "2.22.0",
-      "resolved": "https://registry.npmjs.org/nan/-/nan-2.22.0.tgz",
-      "integrity": "sha512-nbajikzWTMwsW+eSsNm3QwlOs7het9gGJU5dDZzRTQGk03vyBOauxgI4VakDzE0PtsGTmXPsXTbbjVhRwR5mpw==",
+      "version": "2.22.2",
+      "resolved": "https://registry.npmjs.org/nan/-/nan-2.22.2.tgz",
+      "integrity": "sha512-DANghxFkS1plDdRsX0X9pm0Z6SJNN6gBdtXfanwoZ8hooC5gosGFSBGRYHUVPz1asKA/kMRqDRdHrluZ61SpBQ==",
       "license": "MIT"
     },
     "node_modules/nanoid": {
