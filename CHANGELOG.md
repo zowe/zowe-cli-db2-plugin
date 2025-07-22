@@ -6,6 +6,10 @@ All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented i
 
 - BugFix: Updated the `form-data` dependency for technical currency. [#186](https://github.com/zowe/zowe-cli-db2-plugin/pull/186)
 
+## `5.0.15`
+
+- BugFix: Updated the `ibm_db` dependency to fix an issue with offline installation. [#183](https://github.com/zowe/zowe-cli-db2-plugin/issues/183)
+
 ## `5.0.14`
 
 - BugFix: Updated the `tar-fs` dependency for technical currency. [#179](https://github.com/zowe/zowe-cli-db2-plugin/pull/179)
