@@ -2,6 +2,10 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
+## Recent Changes
+
+- BugFix: Updated the `axios` dependency for technical currency. [#188](https://github.com/zowe/zowe-cli-db2-plugin/pull/188)
+
 ## `5.0.16`
 
 - BugFix: Updated the `form-data` dependency for technical currency. [#186](https://github.com/zowe/zowe-cli-db2-plugin/pull/186)
