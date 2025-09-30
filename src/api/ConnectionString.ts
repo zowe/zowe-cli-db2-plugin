@@ -26,7 +26,7 @@ export class ConnectionString {
      */
     public static buildFromSession(session: IDB2Session): string {
         let connectionString: string = "DRIVER={DB2 ODBC Driver};";
-        if ((session.database != null) {
+        if (session.database != null) {
             connectionString += `DATABASE=${session.database};`;
         }
         if (session.hostname != null) {
