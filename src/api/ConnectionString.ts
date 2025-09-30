@@ -9,7 +9,6 @@
 *                                                                                 *
 */
 
-import { isNullOrUndefined } from "util";
 import { IDB2Session } from "../";
 
 /**
@@ -27,22 +26,22 @@ export class ConnectionString {
      */
     public static buildFromSession(session: IDB2Session): string {
         let connectionString: string = "DRIVER={DB2 ODBC Driver};";
-        if (!isNullOrUndefined(session.database)) {
+        if ((session.database != null) {
             connectionString += `DATABASE=${session.database};`;
         }
-        if (!isNullOrUndefined(session.hostname)) {
+        if (session.hostname != null) {
             connectionString += `HOSTNAME=${session.hostname};`;
         }
-        if (!isNullOrUndefined(session.port)) {
+        if (session.port != null) {
             connectionString += `PORT=${session.port};PROTOCOL=TCPIP;`;
         }
-        if (!isNullOrUndefined(session.user)) {
+        if (session.user != null) {
             connectionString += `UID=${session.user};`;
         }
-        if (!isNullOrUndefined(session.password)) {
+        if (session.password != null) {
             connectionString += `PWD=${session.password};`;
         }
-        if (!isNullOrUndefined(session.sslFile)) {
+        if (session.sslFile != null) {
             connectionString += `Security=SSL;SSLServerCertificate=${session.sslFile};`;
         }
         return connectionString;
@@ -60,22 +59,22 @@ export class ConnectionString {
      */
     public static build(hostname?: string, port?: number, user?: string, password?: string, database?: string, sslFile?: string) {
         let connectionString: string = "DRIVER={DB2 ODBC Driver};";
-        if (!isNullOrUndefined(database)) {
+        if (database != null) {
             connectionString += `DATABASE=${database};`;
         }
-        if (!isNullOrUndefined(hostname)) {
+        if (hostname != null) {
             connectionString += `HOSTNAME=${hostname};`;
         }
-        if (!isNullOrUndefined(port)) {
+        if (port != null) {
             connectionString += `PORT=${port};PROTOCOL=TCPIP;`;
         }
-        if (!isNullOrUndefined(user)) {
+        if (user != null) {
             connectionString += `UID=${user};`;
         }
-        if (!isNullOrUndefined(password)) {
+        if (password != null) {
             connectionString += `PWD=${password};`;
         }
-        if (!isNullOrUndefined(sslFile)) {
+        if (sslFile != null) {
             connectionString += `Security=SSL;SSLServerCertificate=${sslFile};`;
         }
         return connectionString;

@@ -9,7 +9,6 @@
 *                                                                                 *
 */
 
-import { isNullOrUndefined } from "util";
 import * as ibmdb from "ibm_db";
 import { IDB2Session } from "../rest/session/doc/IDB2Session";
 import { DB2_PARM_INOUT, DB2_PARM_OUTPUT, IDB2Parameter } from "./doc/IDB2Parameter";
@@ -50,7 +49,7 @@ export class CallSP {
         let result: any;
         let outVarCount: number = 0;
         // Count parameters with type OUTPUT or INOUT as they will be returned in the result set.
-        if (!isNullOrUndefined(parameters)) {
+        if (parameters != null) {
             for (const parameter of parameters) {
                 if (parameter.ParamType === DB2_PARM_INOUT || parameter.ParamType === DB2_PARM_OUTPUT) {
                     outVarCount++;

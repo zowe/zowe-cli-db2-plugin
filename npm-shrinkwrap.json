@@ -15,7 +15,7 @@
         "@types/fs-extra": "^5.0.5",
         "@types/ibm_db": "^2.0.2",
         "@types/jest": "^20.0.5",
-        "@types/node": "^8.0.0",
+        "@types/node": "^14.0.0",
         "@types/xml2js": "^0.4.3",
         "@types/yargs": "^8.0.2",
         "@typescript-eslint/eslint-plugin": "^4.29.0",
@@ -32,7 +32,7 @@
         "jest-environment-node-debug": "^2.0.0",
         "jest-html-reporter": "^3.3.0",
         "jest-junit": "^3.6.0",
-        "jest-stare": "^2.2.0",
+        "jest-stare": "^2.5.3",
         "madge": "^5.0.1",
         "rimraf": "^2.6.2",
         "ts-jest": "^26.4.4",
@@ -3753,10 +3753,11 @@
       }
     },
     "node_modules/@types/node": {
-      "version": "8.10.66",
-      "resolved": "https://registry.npmjs.org/@types/node/-/node-8.10.66.tgz",
-      "integrity": "sha512-tktOkFUA4kXx2hhhrB8bIFb5TbwzS4uOhKEmwiD+NoiL0qtP2OQ9mFldbgD4dV1djrlBYP6eBuQZiWjuHUpqFw==",
-      "dev": true
+      "version": "14.18.63",
+      "resolved": "https://registry.npmjs.org/@types/node/-/node-14.18.63.tgz",
+      "integrity": "sha512-fAtCfv4jJg+ExtXhvCkCqUKZ+4ok/JQk01qDKhL5BDDoS3AxKXhV5/MAVUZyQnSEd2GT92fkgZl0pz0Q0AzcIQ==",
+      "dev": true,
+      "license": "MIT"
     },
     "node_modules/@types/normalize-package-data": {
       "version": "2.4.1",
@@ -11636,9 +11637,9 @@
       }
     },
     "node_modules/jest-stare": {
-      "version": "2.5.2",
-      "resolved": "https://registry.npmjs.org/jest-stare/-/jest-stare-2.5.2.tgz",
-      "integrity": "sha512-dvxHXOsiJlvBi0n2dK9pz6RWFTdPB6njc2ZoMpyjmWI+aIL+X1W8OW5mTm1pkv/quy2ocKO/G+GsTe7Bv07xkQ==",
+      "version": "2.5.3",
+      "resolved": "https://registry.npmjs.org/jest-stare/-/jest-stare-2.5.3.tgz",
+      "integrity": "sha512-HXykqTNNxguOQZiWCEcUPC5HleaVngQysyyniG6LzoeBsM4dtq4YDw/JruS2ChfRBS/9PUcG04eAx6NdcbFDDg==",
       "dev": true,
       "license": "MIT",
       "dependencies": {
@@ -21179,9 +21180,9 @@
       }
     },
     "@types/node": {
-      "version": "8.10.66",
-      "resolved": "https://registry.npmjs.org/@types/node/-/node-8.10.66.tgz",
-      "integrity": "sha512-tktOkFUA4kXx2hhhrB8bIFb5TbwzS4uOhKEmwiD+NoiL0qtP2OQ9mFldbgD4dV1djrlBYP6eBuQZiWjuHUpqFw==",
+      "version": "14.18.63",
+      "resolved": "https://registry.npmjs.org/@types/node/-/node-14.18.63.tgz",
+      "integrity": "sha512-fAtCfv4jJg+ExtXhvCkCqUKZ+4ok/JQk01qDKhL5BDDoS3AxKXhV5/MAVUZyQnSEd2GT92fkgZl0pz0Q0AzcIQ==",
       "dev": true
     },
     "@types/normalize-package-data": {
@@ -27031,9 +27032,9 @@
       }
     },
     "jest-stare": {
-      "version": "2.5.2",
-      "resolved": "https://registry.npmjs.org/jest-stare/-/jest-stare-2.5.2.tgz",
-      "integrity": "sha512-dvxHXOsiJlvBi0n2dK9pz6RWFTdPB6njc2ZoMpyjmWI+aIL+X1W8OW5mTm1pkv/quy2ocKO/G+GsTe7Bv07xkQ==",
+      "version": "2.5.3",
+      "resolved": "https://registry.npmjs.org/jest-stare/-/jest-stare-2.5.3.tgz",
+      "integrity": "sha512-HXykqTNNxguOQZiWCEcUPC5HleaVngQysyyniG6LzoeBsM4dtq4YDw/JruS2ChfRBS/9PUcG04eAx6NdcbFDDg==",
       "dev": true,
       "requires": {
         "@jest/reporters": "^29.0.0",
