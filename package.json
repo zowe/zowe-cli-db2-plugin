@@ -45,7 +45,7 @@
   "devDependencies": {
     "@types/ibm_db": "^2.0.16",
     "@types/jest": "^29.5.12",
-    "@types/node": "^18.18.2",
+    "@types/node": "^20.0.0",
     "@typescript-eslint/eslint-plugin": "^7.1.0",
     "@typescript-eslint/parser": "^7.1.0",
     "@zowe/cli": "^8.27.0",
@@ -59,7 +59,7 @@
     "jest-environment-node-debug": "^2.0.0",
     "jest-html-reporter": "^3.10.2",
     "jest-junit": "^16.0.0",
-    "jest-stare": "^2.5.1",
+    "jest-stare": "^2.5.3",
     "madge": "^6.1.0",
     "rimraf": "^5.0.5",
     "ts-jest": "^29.1.2",

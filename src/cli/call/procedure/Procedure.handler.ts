@@ -11,7 +11,6 @@
 
 import { IHandlerParameters, TextUtils, AbstractSession } from "@zowe/imperative";
 import { CallSP, IDB2Session, IDB2Response, IDB2Parameter, DB2_PARM_OUTPUT, DB2BaseHandler } from "../../../index";
-import { isNullOrUndefined } from "util";
 
 /**
  * Command handler for calling a DB2 stored procedure
@@ -27,7 +26,7 @@ export default class ProcedureHandler extends DB2BaseHandler {
      * @returns {IDB2Parameter[]}
      */
     public static parseParameters(parameters: any[]): IDB2Parameter[] {
-        if (isNullOrUndefined(parameters)) {
+        if (parameters == null) {
             return [];
         }
         else {

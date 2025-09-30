@@ -10,7 +10,6 @@
 */
 
 import { ImperativeError } from "@zowe/imperative";
-import { isNull } from "util";
 import { IDB2Session } from "../rest/session/doc/IDB2Session";
 import { ExportTable } from "./ExportTable";
 
@@ -73,7 +72,7 @@ export class ExportTableSQL extends ExportTable {
      */
     public escape(columnName: string, value: any): any {
         const columnMeta = this.getColumnMeta(columnName);
-        if (isNull(value)) {
+        if (value === null) {
             return "NULL";
         }
         switch (columnMeta.TYPE_NAME) {
