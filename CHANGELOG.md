@@ -2,6 +2,8 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
+## Recent Changes
+
 - BugFix: Updated minimum supported version of Node from 18 to 20. Added Node 24 support. [#189](https://github.com/zowe/zowe-cli-db2-plugin/pull/189)
 
 ## `6.1.7`
