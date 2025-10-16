@@ -9,10 +9,9 @@
       "version": "6.1.8",
       "license": "EPL-2.0",
       "dependencies": {
-        "ibm_db": "3.3.1"
+        "ibm_db": "3.3.4"
       },
       "devDependencies": {
-        "@types/ibm_db": "^2.0.16",
         "@types/jest": "^29.5.12",
         "@types/node": "^20.0.0",
         "@typescript-eslint/eslint-plugin": "^7.1.0",
@@ -1658,11 +1657,6 @@
       "dependencies": {
         "@types/node": "*"
       }
-    },
-    "node_modules/@types/ibm_db": {
-      "version": "2.0.16",
-      "integrity": "sha512-4OIwvZay/XfK8GU4uhLJOIq/DM1WVlJD3jJZhpbgG6XoQDKHyVnf0v9ZZfd2R/lHcK0lYEBJYMYGl073zIfDMA==",
-      "dev": true
     },
     "node_modules/@types/istanbul-lib-coverage": {
       "version": "2.0.6",
@@ -5053,18 +5047,18 @@
       }
     },
     "node_modules/ibm_db": {
-      "version": "3.3.1",
-      "integrity": "sha512-wcbZY3coJoRYM1eUUYvlrhT78CXV7f5cVSdfeWIZXyJ2Imuq+sHQQgc7nEwDXeauwOlvlSVu1MysFjFzrWQg0A==",
+      "version": "3.3.4",
+      "integrity": "sha512-H8JrfyPIz8UmI3llP2JKroYcacegml7+sjLJBvdVTsuNUDWzbZ+FEefNMvH+VRHSgNwKZQUIAHSUHhXay7iaJw==",
       "hasInstallScript": true,
       "license": "MIT",
       "dependencies": {
         "adm-zip": "^0.5.16",
-        "axios": "^1.7.4",
+        "axios": "^1.12.0",
         "big-integer": "^1.6.51",
         "bindings": "^1.5.0",
         "fs-extra": "^11.1.1",
         "lodash": "^4.17.21",
-        "nan": "^2.22.2",
+        "nan": "^2.23.0",
         "q": "^1.5.1",
         "targz": "^1.0.1"
       },

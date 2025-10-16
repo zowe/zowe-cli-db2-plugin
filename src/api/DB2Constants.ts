@@ -13,6 +13,7 @@
  * Class to contain DB2 related constants
  * @export
  * @class DB2Constants
+ * @deprecated Use ibmdb.FETCH_OBJECT and ibmdb.FETCH_ARRAY instead.
  */
 export class DB2Constants {
     public static readonly FETCH_MODE_ARRAY: number = 3;

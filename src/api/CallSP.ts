@@ -11,11 +11,10 @@
 
 import * as ibmdb from "ibm_db";
 import { IDB2Session } from "../rest/session/doc/IDB2Session";
-import { DB2_PARM_INOUT, DB2_PARM_OUTPUT, IDB2Parameter } from "./doc/IDB2Parameter";
+import { DB2_PARM_INOUT, DB2_PARM_INPUT, DB2_PARM_OUTPUT, IDB2Parameter } from "./doc/IDB2Parameter";
 import { IDB2Response } from "./doc/IDB2Response";
 import { SessionValidator } from "./SessionValidator";
 import { ConnectionString } from "./ConnectionString";
-import { DB2Constants } from "./DB2Constants";
 import { DB2Error } from "./DB2Error";
 
 /**
@@ -38,7 +37,7 @@ export class CallSP {
         SessionValidator.validate(session);
         const connectionString = ConnectionString.buildFromSession(session);
         const options = {
-            fetchMode: DB2Constants.FETCH_MODE_ARRAY,
+            fetchMode: ibmdb.FETCH_ARRAY,
         };
         const response: IDB2Response = {
             success: false,
@@ -48,12 +47,15 @@ export class CallSP {
         const query: string = `CALL ${routineName}`;
         let result: any;
         let outVarCount: number = 0;
+        const newParameters: ibmdb.SQLParam[] = [];
         // Count parameters with type OUTPUT or INOUT as they will be returned in the result set.
         if (parameters != null) {
             for (const parameter of parameters) {
                 if (parameter.ParamType === DB2_PARM_INOUT || parameter.ParamType === DB2_PARM_OUTPUT) {
                     outVarCount++;
                 }
+                if (parameter.ParamType == undefined) { parameter.ParamType = DB2_PARM_INPUT; }
+                newParameters.push(parameter as ibmdb.SQLParam);
             }
         }
 
@@ -61,7 +63,7 @@ export class CallSP {
             const db2 = ibmdb.openSync(connectionString, options);
             // Prepare and execute the statement
             const preparedStatement = db2.prepareSync(query);
-            result = preparedStatement.executeSync(parameters);
+            result = preparedStatement.executeSync(newParameters);
             // Extract INOUT and OUTPUT parameters
             if (outVarCount !== 0 && Array.isArray(result)) {
                 // If there are OUT/INOUT parameters, then ODBC driver returns an array, where

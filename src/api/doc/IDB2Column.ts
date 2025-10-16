@@ -14,7 +14,7 @@
  * @interface IDB2Column
  * @export
  */
-export interface IDB2Column {
+export type IDB2Column = {
     /**
      * The catalog name
      * @type {string}
@@ -150,4 +150,4 @@ export interface IDB2Column {
      * @memberof IDB2Column
      */
     IS_NULLABLE: string;
-}
+};
