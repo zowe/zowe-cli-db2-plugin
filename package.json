@@ -1,6 +1,6 @@
 {
   "name": "@zowe/db2-for-zowe-cli",
-  "version": "6.1.7",
+  "version": "6.1.8",
   "description": "IBM® Db2® Plug-in for Zowe CLI",
   "author": "Zowe",
   "license": "EPL-2.0",
@@ -48,8 +48,8 @@
     "@types/node": "^20.0.0",
     "@typescript-eslint/eslint-plugin": "^7.1.0",
     "@typescript-eslint/parser": "^7.1.0",
-    "@zowe/cli": "^8.27.0",
-    "@zowe/cli-test-utils": "^8.27.0",
+    "@zowe/cli": "^8.27.3",
+    "@zowe/cli-test-utils": "^8.27.2",
     "@zowe/imperative": "^8.0.0",
     "env-cmd": "^10.1.0",
     "eslint": "^8.57.0",

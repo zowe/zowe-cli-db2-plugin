@@ -6,6 +6,10 @@ All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented i
 
 - BugFix: Updated minimum supported version of Node from 18 to 20. Added Node 24 support. [#189](https://github.com/zowe/zowe-cli-db2-plugin/pull/189)
 
+## `6.1.8`
+
+- BugFix: Updated the `tar-fs` dependency for technical currency. [#191](https://github.com/zowe/zowe-cli-db2-plugin/pull/191)
+
 ## `6.1.7`
 
 - BugFix: Updated the `axios` dependency for technical currency. [#187](https://github.com/zowe/zowe-cli-db2-plugin/pull/187)
