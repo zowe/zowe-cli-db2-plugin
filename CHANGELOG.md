@@ -2,6 +2,10 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
+## Recent Changes
+
+- BugFix: Updated the `tar-fs` dependency for technical currency. [#191](https://github.com/zowe/zowe-cli-db2-plugin/pull/191)
+
 ## `6.1.7`
 
 - BugFix: Updated the `axios` dependency for technical currency. [#187](https://github.com/zowe/zowe-cli-db2-plugin/pull/187)
