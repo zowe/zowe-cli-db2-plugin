@@ -15,6 +15,7 @@ import { ConnectionString } from "./ConnectionString";
 import { DB2Error } from "./DB2Error";
 import { DB2_PARM_INPUT, IDB2Parameter } from "./doc/IDB2Parameter";
 import { SessionValidator } from "./SessionValidator";
+import { DB2Constants } from "./DB2Constants";
 
 /**
  * Class to handle execution of SQL statements
@@ -58,7 +59,7 @@ export class ExecuteSQL {
      */
     public *execute(sql: string, parameters?: IDB2Parameter[]): IterableIterator<any> {
         const options = {
-            fetchMode: ibmdb.FETCH_OBJECT,
+            fetchMode: DB2Constants.FETCH_MODE_OBJECT,
         };
         let result;
         const newParameters: ibmdb.SQLParam[] = [];

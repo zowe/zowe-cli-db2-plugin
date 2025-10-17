@@ -17,6 +17,7 @@ import { DB2Error } from "./DB2Error";
 import { IDB2Column } from "./doc/IDB2Column";
 import { noDatabaseName, noTableName } from "./doc/Messages";
 import { SessionValidator } from "./SessionValidator";
+import { DB2Constants } from "./DB2Constants";
 
 /**
  * Class to handle exporting of DB2 tables
@@ -83,7 +84,7 @@ export abstract class ExportTable {
 
     public async init() {
         const options = {
-            fetchMode: ibmdb.FETCH_OBJECT,
+            fetchMode: DB2Constants.FETCH_MODE_OBJECT,
         };
         try {
             this.mConnection = ibmdb.openSync(this.mConnectionString, options);

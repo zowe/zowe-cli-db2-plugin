@@ -16,6 +16,7 @@ import { IDB2Response } from "./doc/IDB2Response";
 import { SessionValidator } from "./SessionValidator";
 import { ConnectionString } from "./ConnectionString";
 import { DB2Error } from "./DB2Error";
+import { DB2Constants } from "./DB2Constants";
 
 /**
  * Class to handle the invocation of the stored procedures
@@ -37,7 +38,7 @@ export class CallSP {
         SessionValidator.validate(session);
         const connectionString = ConnectionString.buildFromSession(session);
         const options = {
-            fetchMode: ibmdb.FETCH_ARRAY,
+            fetchMode: DB2Constants.FETCH_MODE_ARRAY,
         };
         const response: IDB2Response = {
             success: false,
