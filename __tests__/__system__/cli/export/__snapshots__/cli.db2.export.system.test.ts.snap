@@ -49,7 +49,7 @@ exports[`db2 export command should display the help 1`] = `
 `;
 
 exports[`db2 export command should fail with invalid option 1`] = `
-"Command Error:
+"Unable to perform this operation due to the following problem.
 Unknown argument: table
 Command failed due to improper syntax
 Did you mean: db2 export table?
@@ -57,7 +57,11 @@ Did you mean: db2 export table?
 Command entered: \\"db2 export --table SYSIBM.SYSDUMMY1\\"
 Available commands are \\"table\\".
 Use \\"zowe db2 export --help\\" to view groups, commands, and options.
-Error Details:
+
+Response From Service
+Error: Unknown argument: table
+
+Diagnostic Information
 Unknown argument: table
 "
 `;
@@ -65,7 +69,7 @@ Unknown argument: table
 exports[`db2 export command should fail with invalid option 2`] = `""`;
 
 exports[`db2 export command should fail with invalid parameter 1`] = `
-"Command Error:
+"Unable to perform this operation due to the following problem.
 Unknown arguments: schema, DEMOUSER.DEMOTABLE
 Command failed due to improper syntax
 Did you mean: db2 export table?
@@ -73,7 +77,11 @@ Did you mean: db2 export table?
 Command entered: \\"db2 export schema DEMOUSER.DEMOTABLE\\"
 Available commands are \\"table\\".
 Use \\"zowe db2 export --help\\" to view groups, commands, and options.
-Error Details:
+
+Response From Service
+Error: Unknown arguments: schema, DEMOUSER.DEMOTABLE
+
+Diagnostic Information
 Unknown arguments: schema, DEMOUSER.DEMOTABLE
 "
 `;
