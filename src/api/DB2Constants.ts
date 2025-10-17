@@ -9,13 +9,14 @@
 *                                                                                 *
 */
 
+import { FETCH_ARRAY, FETCH_OBJECT } from "ibm_db";
+
 /**
  * Class to contain DB2 related constants
  * @export
  * @class DB2Constants
- * @deprecated Use ibmdb.FETCH_OBJECT and ibmdb.FETCH_ARRAY instead.
  */
 export class DB2Constants {
-    public static readonly FETCH_MODE_ARRAY: number = 3;
-    public static readonly FETCH_MODE_OBJECT: number = 4;
+    public static readonly FETCH_MODE_ARRAY = FETCH_ARRAY;
+    public static readonly FETCH_MODE_OBJECT = FETCH_OBJECT;
 }
