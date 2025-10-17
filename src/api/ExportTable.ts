@@ -13,11 +13,11 @@ import { ImperativeExpect, ImperativeError } from "@zowe/imperative";
 import * as ibmdb from "ibm_db";
 import { IDB2Session } from "../rest/session/doc/IDB2Session";
 import { ConnectionString } from "./ConnectionString";
-import { DB2Constants } from "./DB2Constants";
 import { DB2Error } from "./DB2Error";
 import { IDB2Column } from "./doc/IDB2Column";
 import { noDatabaseName, noTableName } from "./doc/Messages";
 import { SessionValidator } from "./SessionValidator";
+import { DB2Constants } from "./DB2Constants";
 
 /**
  * Class to handle exporting of DB2 tables
@@ -110,7 +110,12 @@ export abstract class ExportTable {
                     if (err !== null) {
                         reject(err);
                     }
-                    resolve(res);
+
+                    let data: IDB2Column[] = [];
+                    if (res[0] && !(Array.isArray(res[0]))) {
+                        data = res as IDB2Column[];
+                    }
+                    resolve(data);
                 });
             }
             else {
@@ -139,12 +144,12 @@ export abstract class ExportTable {
         if (result instanceof Error) {
             throw result;
         }
-        let row = result.fetchSync();
+        let row = Array.isArray(result) ? result[0].fetchSync(): result.fetchSync();
         while (row != null) {
             yield row;
-            row = result.fetchSync();
+            row = Array.isArray(result) ? result[0].fetchSync(): result.fetchSync();
         }
-        result.closeSync();
+        Array.isArray(result) ? result[0].closeSync(): result.closeSync();
     }
 
     /**
