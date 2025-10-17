@@ -2,6 +2,14 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
+## Recent Changes
+
+- BugFix: Updated minimum supported version of Node from 18 to 20. Added Node 24 support. [#189](https://github.com/zowe/zowe-cli-db2-plugin/pull/189)
+  - Note: Introduces unavoidable breaking changes to the DB2 plug-in APIs as a result of breaking type changes in the underlying `ibm_db` component.
+    - Changed the `DB2Constants` class's `FETCH_MODE_OBJECT` and `FETCH_MODE_ARRAY` types to match those used by `ibm_db`.
+    - Defaulted the optional `IDB2Parameter.ParamType` property to `INPUT` if the property is not defined.
+    - Changed the `IDB2Column` interface into a type.
+
 ## `6.1.8`
 
 - BugFix: Updated the `tar-fs` dependency for technical currency. [#191](https://github.com/zowe/zowe-cli-db2-plugin/pull/191)

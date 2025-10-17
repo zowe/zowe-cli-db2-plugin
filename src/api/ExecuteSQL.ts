@@ -12,10 +12,10 @@
 import * as ibmdb from "ibm_db";
 import { IDB2Session } from "../rest/session/doc/IDB2Session";
 import { ConnectionString } from "./ConnectionString";
-import { DB2Constants } from "./DB2Constants";
 import { DB2Error } from "./DB2Error";
-import { IDB2Parameter } from "./doc/IDB2Parameter";
+import { DB2_PARM_INPUT, IDB2Parameter } from "./doc/IDB2Parameter";
 import { SessionValidator } from "./SessionValidator";
+import { DB2Constants } from "./DB2Constants";
 
 /**
  * Class to handle execution of SQL statements
@@ -62,15 +62,22 @@ export class ExecuteSQL {
             fetchMode: DB2Constants.FETCH_MODE_OBJECT,
         };
         let result;
+        const newParameters: ibmdb.SQLParam[] = [];
         try {
             this.mConnection = ibmdb.openSync(this.mConnectionString, options);
-            result = this.mConnection.queryResultSync(sql, parameters);
+            if (parameters != null) {
+                for (const parameter of parameters) {
+                    if (parameter.ParamType == undefined) { parameter.ParamType = DB2_PARM_INPUT; }
+                    newParameters.push(parameter as ibmdb.SQLParam);
+                }
+            }
+            result = this.mConnection.queryResultSync(sql, newParameters);
             if (result instanceof Error) {
                 throw result;
             }
-            yield result.fetchAllSync();
-            while (result.moreResultsSync()) {
-                yield result.fetchAllSync();
+            Array.isArray(result) ? yield result[0].fetchAllSync(): yield result.fetchAllSync();
+            while (Array.isArray(result) ? result[0].moreResultsSync(): result.moreResultsSync()) {
+                Array.isArray(result) ? yield result[0].fetchAllSync(): yield result.fetchAllSync();
             }
             this.mConnection.closeSync();
         }
