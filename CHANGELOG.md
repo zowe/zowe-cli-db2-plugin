@@ -2,6 +2,10 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
+## Recent Changes
+
+- BugFix: Updated the `axios`, `brace-expansion`, and `minimatch` dependencies for technical currency. [#199](https://github.com/zowe/zowe-cli-db2-plugin/pull/199)
+
 ## `6.1.10`
 
 - BugFix: Updated the `axios` and `lodash` dependencies for technical currency. [#196](https://github.com/zowe/zowe-cli-db2-plugin/pull/196)
