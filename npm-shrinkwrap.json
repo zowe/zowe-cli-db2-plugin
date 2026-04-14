@@ -16,8 +16,8 @@
         "@types/node": "^20.0.0",
         "@typescript-eslint/eslint-plugin": "^7.1.0",
         "@typescript-eslint/parser": "^7.1.0",
-        "@zowe/cli": "^8.27.4",
-        "@zowe/cli-test-utils": "^8.29.13",
+        "@zowe/cli": "^8.31.5",
+        "@zowe/cli-test-utils": "^8.31.5",
         "@zowe/imperative": "^8.0.0",
         "env-cmd": "^10.1.0",
         "eslint": "^8.57.0",
@@ -480,32 +480,6 @@
         "node": ">=0.1.90"
       }
     },
-    "node_modules/@cspotcode/source-map-support": {
-      "version": "0.8.1",
-      "integrity": "sha512-IchNf6dN4tHoMFIn/7OE8LWZ19Y6q/67Bmf6vnGREv8RSbBVb9LPJxEcnwrcwX6ixSvaiGoomAUvu4YSxXrVgw==",
-      "dev": true,
-      "license": "MIT",
-      "optional": true,
-      "peer": true,
-      "dependencies": {
-        "@jridgewell/trace-mapping": "0.3.9"
-      },
-      "engines": {
-        "node": ">=12"
-      }
-    },
-    "node_modules/@cspotcode/source-map-support/node_modules/@jridgewell/trace-mapping": {
-      "version": "0.3.9",
-      "integrity": "sha512-3Belt6tdc8bPgAtbcmdtNJlirVoTmEb5e2gC94PnkwEW9jI6CAHUeoG85tjWP5WquqfavoMtMwiG4P926ZKKuQ==",
-      "dev": true,
-      "license": "MIT",
-      "optional": true,
-      "peer": true,
-      "dependencies": {
-        "@jridgewell/resolve-uri": "^3.0.3",
-        "@jridgewell/sourcemap-codec": "^1.4.10"
-      }
-    },
     "node_modules/@dabh/diagnostics": {
       "version": "2.0.3",
       "integrity": "sha512-hrlQOIi7hAfzsMqlGSFyVucrx38O+j6wiGOf//H2ecvIEqYN4ADBSS2iLMh5UFyDunCNniUIPk/q3riFv45xRA==",
@@ -925,17 +899,6 @@
         }
       }
     },
-    "node_modules/@jest/core/node_modules/diff": {
-      "version": "4.0.4",
-      "integrity": "sha512-X07nttJQkwkfKfvTPG/KSnE2OMdcUCao6+eXF3wmnIQRn2aPAHH3VxDbDOdegkd6JbPsXqShpvEOHfAT+nCNwQ==",
-      "dev": true,
-      "license": "BSD-3-Clause",
-      "optional": true,
-      "peer": true,
-      "engines": {
-        "node": ">=0.3.1"
-      }
-    },
     "node_modules/@jest/core/node_modules/jest-config": {
       "version": "29.7.0",
       "integrity": "sha512-uXbpfeQ7R6TZBqI3/TxCU4q4ttk3u0PJeC+E0zbfSoSjq6bJ7buBPxzQPL0ifrkY4DNu4JUdk0ImlBUYi840eQ==",
@@ -978,62 +941,6 @@
         "ts-node": {
           "optional": true
         }
-      }
-    },
-    "node_modules/@jest/core/node_modules/ts-node": {
-      "version": "10.9.2",
-      "integrity": "sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==",
-      "dev": true,
-      "license": "MIT",
-      "optional": true,
-      "peer": true,
-      "dependencies": {
-        "@cspotcode/source-map-support": "^0.8.0",
-        "@tsconfig/node10": "^1.0.7",
-        "@tsconfig/node12": "^1.0.7",
-        "@tsconfig/node14": "^1.0.0",
-        "@tsconfig/node16": "^1.0.2",
-        "acorn": "^8.4.1",
-        "acorn-walk": "^8.1.1",
-        "arg": "^4.1.0",
-        "create-require": "^1.1.0",
-        "diff": "^4.0.1",
-        "make-error": "^1.1.1",
-        "v8-compile-cache-lib": "^3.0.1",
-        "yn": "3.1.1"
-      },
-      "bin": {
-        "ts-node": "dist/bin.js",
-        "ts-node-cwd": "dist/bin-cwd.js",
-        "ts-node-esm": "dist/bin-esm.js",
-        "ts-node-script": "dist/bin-script.js",
-        "ts-node-transpile-only": "dist/bin-transpile.js",
-        "ts-script": "dist/bin-script-deprecated.js"
-      },
-      "peerDependencies": {
-        "@swc/core": ">=1.2.50",
-        "@swc/wasm": ">=1.2.50",
-        "@types/node": "*",
-        "typescript": ">=2.7"
-      },
-      "peerDependenciesMeta": {
-        "@swc/core": {
-          "optional": true
-        },
-        "@swc/wasm": {
-          "optional": true
-        }
-      }
-    },
-    "node_modules/@jest/core/node_modules/yn": {
-      "version": "3.1.1",
-      "integrity": "sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==",
-      "dev": true,
-      "license": "MIT",
-      "optional": true,
-      "peer": true,
-      "engines": {
-        "node": ">=6"
       }
     },
     "node_modules/@jest/environment": {
@@ -1370,38 +1277,6 @@
         "@sinonjs/commons": "^3.0.0"
       }
     },
-    "node_modules/@tsconfig/node10": {
-      "version": "1.0.11",
-      "integrity": "sha512-DcRjDCujK/kCk/cUe8Xz8ZSpm8mS3mNNpta+jGCA6USEDfktlNvm1+IuZ9eTcDbNk41BHwpHHeW+N1lKCz4zOw==",
-      "dev": true,
-      "license": "MIT",
-      "optional": true,
-      "peer": true
-    },
-    "node_modules/@tsconfig/node12": {
-      "version": "1.0.11",
-      "integrity": "sha512-cqefuRsh12pWyGsIoBKJA9luFu3mRxCA+ORZvA4ktLSzIuCUtWVxGIuXigEwO5/ywWFMZ2QEGKWvkZG1zDMTag==",
-      "dev": true,
-      "license": "MIT",
-      "optional": true,
-      "peer": true
-    },
-    "node_modules/@tsconfig/node14": {
-      "version": "1.0.3",
-      "integrity": "sha512-ysT8mhdixWK6Hw3i1V2AeRqZ5WfXg1G43mqoYlM2nc6388Fq5jcXyr5mRsqViLx/GJYdoL0bfXD8nmF+Zn/Iow==",
-      "dev": true,
-      "license": "MIT",
-      "optional": true,
-      "peer": true
-    },
-    "node_modules/@tsconfig/node16": {
-      "version": "1.0.4",
-      "integrity": "sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==",
-      "dev": true,
-      "license": "MIT",
-      "optional": true,
-      "peer": true
-    },
     "node_modules/@types/babel__core": {
       "version": "7.20.5",
       "integrity": "sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==",
@@ -1708,27 +1583,27 @@
       "dev": true
     },
     "node_modules/@zowe/cli": {
-      "version": "8.29.13",
-      "integrity": "sha512-QXYesZvOESD9n/A8iGwugpMUTj80GzZGvOOS11UXmYSlDyHhQ5slau9La0E1VLp2DdaBg7FURq7Q/cgfQi2ZHg==",
+      "version": "8.31.5",
+      "integrity": "sha512-5//zN5GlVwhzPvgsSOFMl8YTbyhsQxkGDZRANfxbFmZicUXgHMlewl+mhREYTo8AlIE4nvGQi9dUX5SauXtG5w==",
       "dev": true,
       "hasInstallScript": true,
       "license": "EPL-2.0",
       "dependencies": {
-        "@zowe/core-for-zowe-sdk": "8.29.13",
-        "@zowe/imperative": "8.29.13",
-        "@zowe/provisioning-for-zowe-sdk": "8.29.13",
-        "@zowe/zos-console-for-zowe-sdk": "8.29.13",
-        "@zowe/zos-files-for-zowe-sdk": "8.29.13",
-        "@zowe/zos-jobs-for-zowe-sdk": "8.29.13",
-        "@zowe/zos-logs-for-zowe-sdk": "8.29.13",
-        "@zowe/zos-tso-for-zowe-sdk": "8.29.13",
-        "@zowe/zos-uss-for-zowe-sdk": "8.29.13",
-        "@zowe/zos-workflows-for-zowe-sdk": "8.29.13",
-        "@zowe/zosmf-for-zowe-sdk": "8.29.13",
+        "@zowe/core-for-zowe-sdk": "8.31.5",
+        "@zowe/imperative": "8.31.5",
+        "@zowe/provisioning-for-zowe-sdk": "8.31.5",
+        "@zowe/zos-console-for-zowe-sdk": "8.31.5",
+        "@zowe/zos-files-for-zowe-sdk": "8.31.5",
+        "@zowe/zos-jobs-for-zowe-sdk": "8.31.5",
+        "@zowe/zos-logs-for-zowe-sdk": "8.31.5",
+        "@zowe/zos-tso-for-zowe-sdk": "8.31.5",
+        "@zowe/zos-uss-for-zowe-sdk": "8.31.5",
+        "@zowe/zos-workflows-for-zowe-sdk": "8.31.5",
+        "@zowe/zosmf-for-zowe-sdk": "8.31.5",
         "find-process": "^1.4.7",
         "lodash": "^4.17.23",
-        "minimatch": "^9.0.5",
-        "tar": "^7.5.7"
+        "minimatch": "^10.2.3",
+        "tar": "^7.5.10"
       },
       "bin": {
         "zowe": "lib/main.js"
@@ -1741,23 +1616,156 @@
       }
     },
     "node_modules/@zowe/cli-test-utils": {
-      "version": "8.29.13",
-      "integrity": "sha512-DQB/zRecUpnWcDEWNp3f++d0zHMfBPt2me9GlGGcWOZicbi33EU8b+N46RJQWsJ5JzbUC9469U6M+u+E8B7rtw==",
+      "version": "8.31.5",
+      "integrity": "sha512-KyUf+DSIqHaYNKWpp0Qc5EwtosUVupKOQOXJ5SWClaxcJvDfGZzFAqbx63q+trS/cV58g0pBE6ES8EMkyUt7NQ==",
       "dev": true,
       "license": "EPL-2.0",
       "dependencies": {
         "find-up": "^5.0.0",
         "js-yaml": "^4.0.0",
-        "rimraf": "^5.0.0",
+        "rimraf": "^6.1.3",
         "uuid": "^10.0.0"
       },
       "peerDependencies": {
         "@zowe/imperative": "^8.0.0"
       }
     },
+    "node_modules/@zowe/cli-test-utils/node_modules/balanced-match": {
+      "version": "4.0.4",
+      "integrity": "sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA==",
+      "dev": true,
+      "license": "MIT",
+      "engines": {
+        "node": "18 || 20 || >=22"
+      }
+    },
+    "node_modules/@zowe/cli-test-utils/node_modules/brace-expansion": {
+      "version": "5.0.5",
+      "integrity": "sha512-VZznLgtwhn+Mact9tfiwx64fA9erHH/MCXEUfB/0bX/6Fz6ny5EGTXYltMocqg4xFAQZtnO3DHWWXi8RiuN7cQ==",
+      "dev": true,
+      "license": "MIT",
+      "dependencies": {
+        "balanced-match": "^4.0.2"
+      },
+      "engines": {
+        "node": "18 || 20 || >=22"
+      }
+    },
+    "node_modules/@zowe/cli-test-utils/node_modules/glob": {
+      "version": "13.0.6",
+      "integrity": "sha512-Wjlyrolmm8uDpm/ogGyXZXb1Z+Ca2B8NbJwqBVg0axK9GbBeoS7yGV6vjXnYdGm6X53iehEuxxbyiKp8QmN4Vw==",
+      "dev": true,
+      "license": "BlueOak-1.0.0",
+      "dependencies": {
+        "minimatch": "^10.2.2",
+        "minipass": "^7.1.3",
+        "path-scurry": "^2.0.2"
+      },
+      "engines": {
+        "node": "18 || 20 || >=22"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/isaacs"
+      }
+    },
+    "node_modules/@zowe/cli-test-utils/node_modules/lru-cache": {
+      "version": "11.3.5",
+      "integrity": "sha512-NxVFwLAnrd9i7KUBxC4DrUhmgjzOs+1Qm50D3oF1/oL+r1NpZ4gA7xvG0/zJ8evR7zIKn4vLf7qTNduWFtCrRw==",
+      "dev": true,
+      "license": "BlueOak-1.0.0",
+      "engines": {
+        "node": "20 || >=22"
+      }
+    },
+    "node_modules/@zowe/cli-test-utils/node_modules/minimatch": {
+      "version": "10.2.5",
+      "integrity": "sha512-MULkVLfKGYDFYejP07QOurDLLQpcjk7Fw+7jXS2R2czRQzR56yHRveU5NDJEOviH+hETZKSkIk5c+T23GjFUMg==",
+      "dev": true,
+      "license": "BlueOak-1.0.0",
+      "dependencies": {
+        "brace-expansion": "^5.0.5"
+      },
+      "engines": {
+        "node": "18 || 20 || >=22"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/isaacs"
+      }
+    },
+    "node_modules/@zowe/cli-test-utils/node_modules/path-scurry": {
+      "version": "2.0.2",
+      "integrity": "sha512-3O/iVVsJAPsOnpwWIeD+d6z/7PmqApyQePUtCndjatj/9I5LylHvt5qluFaBT3I5h3r1ejfR056c+FCv+NnNXg==",
+      "dev": true,
+      "license": "BlueOak-1.0.0",
+      "dependencies": {
+        "lru-cache": "^11.0.0",
+        "minipass": "^7.1.2"
+      },
+      "engines": {
+        "node": "18 || 20 || >=22"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/isaacs"
+      }
+    },
+    "node_modules/@zowe/cli-test-utils/node_modules/rimraf": {
+      "version": "6.1.3",
+      "integrity": "sha512-LKg+Cr2ZF61fkcaK1UdkH2yEBBKnYjTyWzTJT6KNPcSPaiT7HSdhtMXQuN5wkTX0Xu72KQ1l8S42rlmexS2hSA==",
+      "dev": true,
+      "license": "BlueOak-1.0.0",
+      "dependencies": {
+        "glob": "^13.0.3",
+        "package-json-from-dist": "^1.0.1"
+      },
+      "bin": {
+        "rimraf": "dist/esm/bin.mjs"
+      },
+      "engines": {
+        "node": "20 || >=22"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/isaacs"
+      }
+    },
+    "node_modules/@zowe/cli/node_modules/balanced-match": {
+      "version": "4.0.4",
+      "integrity": "sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA==",
+      "dev": true,
+      "license": "MIT",
+      "engines": {
+        "node": "18 || 20 || >=22"
+      }
+    },
+    "node_modules/@zowe/cli/node_modules/brace-expansion": {
+      "version": "5.0.5",
+      "integrity": "sha512-VZznLgtwhn+Mact9tfiwx64fA9erHH/MCXEUfB/0bX/6Fz6ny5EGTXYltMocqg4xFAQZtnO3DHWWXi8RiuN7cQ==",
+      "dev": true,
+      "license": "MIT",
+      "dependencies": {
+        "balanced-match": "^4.0.2"
+      },
+      "engines": {
+        "node": "18 || 20 || >=22"
+      }
+    },
+    "node_modules/@zowe/cli/node_modules/minimatch": {
+      "version": "10.2.5",
+      "integrity": "sha512-MULkVLfKGYDFYejP07QOurDLLQpcjk7Fw+7jXS2R2czRQzR56yHRveU5NDJEOviH+hETZKSkIk5c+T23GjFUMg==",
+      "dev": true,
+      "license": "BlueOak-1.0.0",
+      "dependencies": {
+        "brace-expansion": "^5.0.5"
+      },
+      "engines": {
+        "node": "18 || 20 || >=22"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/isaacs"
+      }
+    },
     "node_modules/@zowe/core-for-zowe-sdk": {
-      "version": "8.29.13",
-      "integrity": "sha512-oZQ+0e+eCAovgiGnqSG69QjpZu5x8S2AseUD9s6xheByfeap+ZSp2Me5YqhP8VkLCS+Q1Td6BsCarRMqNWOFwA==",
+      "version": "8.31.5",
+      "integrity": "sha512-TR/xwsv2zTkecNz7FCb8m5vQowvCMevTCiUaJKGWGoQuA09UBv1Xxs90Pu34Syhp5WZoiScw8kshRjGN+RE1Gg==",
       "dev": true,
       "license": "EPL-2.0",
       "dependencies": {
@@ -1772,8 +1780,8 @@
       }
     },
     "node_modules/@zowe/imperative": {
-      "version": "8.29.13",
-      "integrity": "sha512-RYhl5sUD3itc5dOE0akRboSeYEFs9+3Mz2Q7FbNrVpjWMpxgf6EWAxDkY2BV8VGaFL5adA2hAOzP4GDMvmsDig==",
+      "version": "8.31.5",
+      "integrity": "sha512-1sMp0ZGt0oVgKeSJatLX1CqzwJLPqdb1Wql9z8JdCO9zSiXdpuovWrfOwI69IP8pzWpMq0raiRy5Z+be7RLHzg==",
       "dev": true,
       "license": "EPL-2.0",
       "dependencies": {
@@ -1801,7 +1809,7 @@
         "lodash": "^4.17.23",
         "lodash-deep": "^2.0.0",
         "log4js": "^6.9.1",
-        "markdown-it": "^14.1.0",
+        "markdown-it": "^14.1.1",
         "mustache": "^4.2.0",
         "npm-package-arg": "^11.0.1",
         "opener": "^1.5.2",
@@ -1821,8 +1829,8 @@
       }
     },
     "node_modules/@zowe/provisioning-for-zowe-sdk": {
-      "version": "8.29.13",
-      "integrity": "sha512-TsuNM77mHJDGYbAes7ofB3c4ZE83zCHIZ7/HPjAUTsgdJ0WhktkniKXXRp2EX8D4ta15wI85GcSySvU0f+5oTg==",
+      "version": "8.31.5",
+      "integrity": "sha512-WZyDMPWGVAqP0EiM0lQQJBXYwyE88wRdkXLy8o+20lO+1vP62FO/iwQVtP4fsQADEOPNKMj69lhT27MhQzSdhA==",
       "dev": true,
       "license": "EPL-2.0",
       "dependencies": {
@@ -1848,8 +1856,8 @@
       }
     },
     "node_modules/@zowe/zos-console-for-zowe-sdk": {
-      "version": "8.29.13",
-      "integrity": "sha512-A5a3ASX4bd2uxbj8Bsg4OnjgoWnrl/3JRwejbJL4W1deJ52tugbPhPU5e0dRbxGgo3U9YaQcnm3dsiKsUbYuxw==",
+      "version": "8.31.5",
+      "integrity": "sha512-jj8c5e0IG/Oq9Eq+kn6jTaEzyQyXHpklxtKTQ3sIDBiNp4ZMeUiYiLCR1PjV1rHq+JLPvy5SIxbkJJ+4J+Kjxw==",
       "dev": true,
       "license": "EPL-2.0",
       "engines": {
@@ -1861,13 +1869,13 @@
       }
     },
     "node_modules/@zowe/zos-files-for-zowe-sdk": {
-      "version": "8.29.13",
-      "integrity": "sha512-e+6O6M0LTCRmMufKBnqkfe7+HLWi7Dh0AZobFX8U+ghRD35hcim/1eAde+hrbTfRHTHbcb/6b7n2rxfAD0oAOw==",
+      "version": "8.31.5",
+      "integrity": "sha512-EUI9OjTnqdxjc5PYPpvxRzgHND0AegjwERm5Jf+NGbzBQJT27sHmKPLhn71Xsww0UqYfqjwrApVnJ4AW2LxNJw==",
       "dev": true,
       "license": "EPL-2.0",
       "dependencies": {
         "lodash": "^4.17.23",
-        "minimatch": "^9.0.5"
+        "minimatch": "^10.2.3"
       },
       "engines": {
         "node": ">=20.9.0"
@@ -1877,13 +1885,49 @@
         "@zowe/imperative": "^8.0.0"
       }
     },
+    "node_modules/@zowe/zos-files-for-zowe-sdk/node_modules/balanced-match": {
+      "version": "4.0.4",
+      "integrity": "sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA==",
+      "dev": true,
+      "license": "MIT",
+      "engines": {
+        "node": "18 || 20 || >=22"
+      }
+    },
+    "node_modules/@zowe/zos-files-for-zowe-sdk/node_modules/brace-expansion": {
+      "version": "5.0.5",
+      "integrity": "sha512-VZznLgtwhn+Mact9tfiwx64fA9erHH/MCXEUfB/0bX/6Fz6ny5EGTXYltMocqg4xFAQZtnO3DHWWXi8RiuN7cQ==",
+      "dev": true,
+      "license": "MIT",
+      "dependencies": {
+        "balanced-match": "^4.0.2"
+      },
+      "engines": {
+        "node": "18 || 20 || >=22"
+      }
+    },
+    "node_modules/@zowe/zos-files-for-zowe-sdk/node_modules/minimatch": {
+      "version": "10.2.5",
+      "integrity": "sha512-MULkVLfKGYDFYejP07QOurDLLQpcjk7Fw+7jXS2R2czRQzR56yHRveU5NDJEOviH+hETZKSkIk5c+T23GjFUMg==",
+      "dev": true,
+      "license": "BlueOak-1.0.0",
+      "dependencies": {
+        "brace-expansion": "^5.0.5"
+      },
+      "engines": {
+        "node": "18 || 20 || >=22"
+      },
+      "funding": {
+        "url": "https://github.com/sponsors/isaacs"
+      }
+    },
     "node_modules/@zowe/zos-jobs-for-zowe-sdk": {
-      "version": "8.29.13",
-      "integrity": "sha512-n83FHJ2J8/KSZ/ZdrfDsC39hJtzyFCyQKpmhtNh+M3Et6lbg4F79q4BAR32tqoFNPpWb7rgbGLAf7uwsdYzixg==",
+      "version": "8.31.5",
+      "integrity": "sha512-Xrjxh9qCqE/Rs1Lgs40rI232cx62qwkPHdgQ+ERT1cGqkkTdN/KGNkunHyUyCgYBiRthM5z7Tq7ePI4Un6P/Fg==",
       "dev": true,
       "license": "EPL-2.0",
       "dependencies": {
-        "@zowe/zos-files-for-zowe-sdk": "8.29.13"
+        "@zowe/zos-files-for-zowe-sdk": "8.31.5"
       },
       "engines": {
         "node": ">=20.9.0"
@@ -1894,8 +1938,8 @@
       }
     },
     "node_modules/@zowe/zos-logs-for-zowe-sdk": {
-      "version": "8.29.13",
-      "integrity": "sha512-Yj0QxoNpimesxLam4axyw4EOIaV00TRaEXg4Ttfxaqwu9qG+CWZ5AtuwkOvVisydy+g7woNa9KV46Xxl+DCjgQ==",
+      "version": "8.31.5",
+      "integrity": "sha512-Ny0/AeJWFMjEpzVVOVfXYOcrwC7dEapjygWfbGDxvF4xhBEh/j5Umlfhk56voY61IcoA3O6//A3s9S8ZhKHJ/A==",
       "dev": true,
       "license": "EPL-2.0",
       "engines": {
@@ -1907,12 +1951,12 @@
       }
     },
     "node_modules/@zowe/zos-tso-for-zowe-sdk": {
-      "version": "8.29.13",
-      "integrity": "sha512-hzHJfk6BySZcHgKOmJXwxO6p0cRJYY9L7c7C/6JCnYD1c7twg7yFR1QNiVN64SfKzcWYghPMy+kgiqFmQO2duw==",
+      "version": "8.31.5",
+      "integrity": "sha512-jnQc/w0/Jw23K6GBbQj4yMwLrinGyy3OH6RCB+Af/O/3j+Q3TNkXtqU9R5hovPe8/JdliEUECQTdFLUpUEaGNQ==",
       "dev": true,
       "license": "EPL-2.0",
       "dependencies": {
-        "@zowe/zosmf-for-zowe-sdk": "8.29.13"
+        "@zowe/zosmf-for-zowe-sdk": "8.31.5"
       },
       "engines": {
         "node": ">=20.9.0"
@@ -1923,8 +1967,8 @@
       }
     },
     "node_modules/@zowe/zos-uss-for-zowe-sdk": {
-      "version": "8.29.13",
-      "integrity": "sha512-yIZC3vaaaGaRK3A1zcvhlLdTneOBKAGxZjY2HbGy8o5JMHJlFJpxnHB3VVe+tYS/mtUk0YPYJWhc11Svy4WJGw==",
+      "version": "8.31.5",
+      "integrity": "sha512-N7jxwBFZw33NFsIzo18Uge5vTT92CeXwBoQtSan8n2S5Ohr1dXiF0Ug/2UhIwGY6YssdzEahdXnbNUBVs/Z+Ew==",
       "dev": true,
       "license": "EPL-2.0",
       "dependencies": {
@@ -1938,12 +1982,12 @@
       }
     },
     "node_modules/@zowe/zos-workflows-for-zowe-sdk": {
-      "version": "8.29.13",
-      "integrity": "sha512-VKi1riQ349QmvTUl78zDKOSXSp4bzCSExc0G+5RrZhmermzhVb9Bj7LvX1ZQnLpyDKXB0WPjk16xlz6pEiVW3Q==",
+      "version": "8.31.5",
+      "integrity": "sha512-C8FarGtOnkfoK+i2nuitK/QtS3PY31eUDqO+8sqpRZ0SbdcrAtg1acLCErkfRa64kUdpxptq+X+4kcScGGt4sA==",
       "dev": true,
       "license": "EPL-2.0",
       "dependencies": {
-        "@zowe/zos-files-for-zowe-sdk": "8.29.13"
+        "@zowe/zos-files-for-zowe-sdk": "8.31.5"
       },
       "engines": {
         "node": ">=20.9.0"
@@ -1954,8 +1998,8 @@
       }
     },
     "node_modules/@zowe/zosmf-for-zowe-sdk": {
-      "version": "8.29.13",
-      "integrity": "sha512-5+ZRGGYnANWYahCxubBulXynVumOoHhkRq/O+ogELzDDiEO1c6OlwuoyI7SWqorNtTl6nknYzo/SEYy69OS5kA==",
+      "version": "8.31.5",
+      "integrity": "sha512-cMnOlT5xSoBOQlyIsfyEr3x0K0C57raz5JaSmsm0sXdyPtCS4eKPlCH8yR3FZyGNIOnnyIZHBhK8O1COTcOQ5Q==",
       "dev": true,
       "license": "EPL-2.0",
       "engines": {
@@ -1989,20 +2033,6 @@
       "dev": true,
       "peerDependencies": {
         "acorn": "^6.0.0 || ^7.0.0 || ^8.0.0"
-      }
-    },
-    "node_modules/acorn-walk": {
-      "version": "8.3.3",
-      "integrity": "sha512-MxXdReSRhGO7VlFe1bRG/oI7/mdLV9B9JJT0N8vZOhF7gFRR5l3M8W9G8JxmKV+JC5mGqJ0QvqfSOLsCPa4nUw==",
-      "dev": true,
-      "license": "MIT",
-      "optional": true,
-      "peer": true,
-      "dependencies": {
-        "acorn": "^8.11.0"
-      },
-      "engines": {
-        "node": ">=0.4.0"
       }
     },
     "node_modules/adm-zip": {
@@ -2116,14 +2146,6 @@
       "version": "2.2.0",
       "integrity": "sha512-gkco+qxENJV+8vFcDiiFhuoSvRXb2a/QPqpSoWhVz829VNJfOTnELbBmPmNKFxf3xdNnw4DWCkzkDaavcX/1YQ==",
       "dev": true
-    },
-    "node_modules/arg": {
-      "version": "4.1.3",
-      "integrity": "sha512-58S9QDqG0Xx27YwPSt9fJxivjYl432YCwfDMfZ+71RAqUrZef7LrKQZ3LHLOwCS4FLNBplP533Zx895SeOCHvA==",
-      "dev": true,
-      "license": "MIT",
-      "optional": true,
-      "peer": true
     },
     "node_modules/argparse": {
       "version": "2.0.1",
@@ -2831,17 +2853,6 @@
         "node": "^14.15.0 || ^16.10.0 || >=18.0.0"
       }
     },
-    "node_modules/create-jest/node_modules/diff": {
-      "version": "4.0.4",
-      "integrity": "sha512-X07nttJQkwkfKfvTPG/KSnE2OMdcUCao6+eXF3wmnIQRn2aPAHH3VxDbDOdegkd6JbPsXqShpvEOHfAT+nCNwQ==",
-      "dev": true,
-      "license": "BSD-3-Clause",
-      "optional": true,
-      "peer": true,
-      "engines": {
-        "node": ">=0.3.1"
-      }
-    },
     "node_modules/create-jest/node_modules/jest-config": {
       "version": "29.7.0",
       "integrity": "sha512-uXbpfeQ7R6TZBqI3/TxCU4q4ttk3u0PJeC+E0zbfSoSjq6bJ7buBPxzQPL0ifrkY4DNu4JUdk0ImlBUYi840eQ==",
@@ -2885,70 +2896,6 @@
           "optional": true
         }
       }
-    },
-    "node_modules/create-jest/node_modules/ts-node": {
-      "version": "10.9.2",
-      "integrity": "sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==",
-      "dev": true,
-      "license": "MIT",
-      "optional": true,
-      "peer": true,
-      "dependencies": {
-        "@cspotcode/source-map-support": "^0.8.0",
-        "@tsconfig/node10": "^1.0.7",
-        "@tsconfig/node12": "^1.0.7",
-        "@tsconfig/node14": "^1.0.0",
-        "@tsconfig/node16": "^1.0.2",
-        "acorn": "^8.4.1",
-        "acorn-walk": "^8.1.1",
-        "arg": "^4.1.0",
-        "create-require": "^1.1.0",
-        "diff": "^4.0.1",
-        "make-error": "^1.1.1",
-        "v8-compile-cache-lib": "^3.0.1",
-        "yn": "3.1.1"
-      },
-      "bin": {
-        "ts-node": "dist/bin.js",
-        "ts-node-cwd": "dist/bin-cwd.js",
-        "ts-node-esm": "dist/bin-esm.js",
-        "ts-node-script": "dist/bin-script.js",
-        "ts-node-transpile-only": "dist/bin-transpile.js",
-        "ts-script": "dist/bin-script-deprecated.js"
-      },
-      "peerDependencies": {
-        "@swc/core": ">=1.2.50",
-        "@swc/wasm": ">=1.2.50",
-        "@types/node": "*",
-        "typescript": ">=2.7"
-      },
-      "peerDependenciesMeta": {
-        "@swc/core": {
-          "optional": true
-        },
-        "@swc/wasm": {
-          "optional": true
-        }
-      }
-    },
-    "node_modules/create-jest/node_modules/yn": {
-      "version": "3.1.1",
-      "integrity": "sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==",
-      "dev": true,
-      "license": "MIT",
-      "optional": true,
-      "peer": true,
-      "engines": {
-        "node": ">=6"
-      }
-    },
-    "node_modules/create-require": {
-      "version": "1.1.1",
-      "integrity": "sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==",
-      "dev": true,
-      "license": "MIT",
-      "optional": true,
-      "peer": true
     },
     "node_modules/cross-spawn": {
       "version": "7.0.6",
@@ -5162,17 +5109,6 @@
         }
       }
     },
-    "node_modules/jest-cli/node_modules/diff": {
-      "version": "4.0.4",
-      "integrity": "sha512-X07nttJQkwkfKfvTPG/KSnE2OMdcUCao6+eXF3wmnIQRn2aPAHH3VxDbDOdegkd6JbPsXqShpvEOHfAT+nCNwQ==",
-      "dev": true,
-      "license": "BSD-3-Clause",
-      "optional": true,
-      "peer": true,
-      "engines": {
-        "node": ">=0.3.1"
-      }
-    },
     "node_modules/jest-cli/node_modules/jest-config": {
       "version": "29.7.0",
       "integrity": "sha512-uXbpfeQ7R6TZBqI3/TxCU4q4ttk3u0PJeC+E0zbfSoSjq6bJ7buBPxzQPL0ifrkY4DNu4JUdk0ImlBUYi840eQ==",
@@ -5215,62 +5151,6 @@
         "ts-node": {
           "optional": true
         }
-      }
-    },
-    "node_modules/jest-cli/node_modules/ts-node": {
-      "version": "10.9.2",
-      "integrity": "sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==",
-      "dev": true,
-      "license": "MIT",
-      "optional": true,
-      "peer": true,
-      "dependencies": {
-        "@cspotcode/source-map-support": "^0.8.0",
-        "@tsconfig/node10": "^1.0.7",
-        "@tsconfig/node12": "^1.0.7",
-        "@tsconfig/node14": "^1.0.0",
-        "@tsconfig/node16": "^1.0.2",
-        "acorn": "^8.4.1",
-        "acorn-walk": "^8.1.1",
-        "arg": "^4.1.0",
-        "create-require": "^1.1.0",
-        "diff": "^4.0.1",
-        "make-error": "^1.1.1",
-        "v8-compile-cache-lib": "^3.0.1",
-        "yn": "3.1.1"
-      },
-      "bin": {
-        "ts-node": "dist/bin.js",
-        "ts-node-cwd": "dist/bin-cwd.js",
-        "ts-node-esm": "dist/bin-esm.js",
-        "ts-node-script": "dist/bin-script.js",
-        "ts-node-transpile-only": "dist/bin-transpile.js",
-        "ts-script": "dist/bin-script-deprecated.js"
-      },
-      "peerDependencies": {
-        "@swc/core": ">=1.2.50",
-        "@swc/wasm": ">=1.2.50",
-        "@types/node": "*",
-        "typescript": ">=2.7"
-      },
-      "peerDependenciesMeta": {
-        "@swc/core": {
-          "optional": true
-        },
-        "@swc/wasm": {
-          "optional": true
-        }
-      }
-    },
-    "node_modules/jest-cli/node_modules/yn": {
-      "version": "3.1.1",
-      "integrity": "sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==",
-      "dev": true,
-      "license": "MIT",
-      "optional": true,
-      "peer": true,
-      "engines": {
-        "node": ">=6"
       }
     },
     "node_modules/jest-diff": {
@@ -6180,9 +6060,10 @@
       }
     },
     "node_modules/minipass": {
-      "version": "7.1.2",
-      "integrity": "sha512-qOOzS1cBTWYF4BH8fVePDBOO9iptMnGUEZwNc/cMWnTV2nVLZ7VoNWEPHkYczZA0pdoA7dl6e7FL659nX9S2aw==",
+      "version": "7.1.3",
+      "integrity": "sha512-tEBHqDnIoM/1rXME1zgka9g6Q2lcoCkxHLuc7ODJ5BxbP5d4c2Z5cGgtXAku59200Cx7diuHTOYfSBD8n6mm8A==",
       "dev": true,
+      "license": "BlueOak-1.0.0",
       "engines": {
         "node": ">=16 || 14 >=14.17"
       }
@@ -6507,9 +6388,10 @@
       }
     },
     "node_modules/package-json-from-dist": {
-      "version": "1.0.0",
-      "integrity": "sha512-dATvCeZN/8wQsGywez1mzHtTlP22H8OEfPrVMLNr4/eGa+ijtLn/6M5f0dY8UKNrC2O9UCU6SSoG3qRKnt7STw==",
-      "dev": true
+      "version": "1.0.1",
+      "integrity": "sha512-UEZIS3/by4OC8vL3P2dTXRETpebLI2NiI5vIrjaD/5UtrkFX/tNbwjTSRAGC/+7CAo2pIcBaRgWmcBBHcsaCIw==",
+      "dev": true,
+      "license": "BlueOak-1.0.0"
     },
     "node_modules/parent-module": {
       "version": "1.0.1",
@@ -8371,14 +8253,6 @@
       "bin": {
         "uuid": "dist/bin/uuid"
       }
-    },
-    "node_modules/v8-compile-cache-lib": {
-      "version": "3.0.1",
-      "integrity": "sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==",
-      "dev": true,
-      "license": "MIT",
-      "optional": true,
-      "peer": true
     },
     "node_modules/v8-to-istanbul": {
       "version": "9.3.0",
