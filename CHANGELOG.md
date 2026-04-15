@@ -2,7 +2,7 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
-## Recent Changes
+## `5.0.21`
 
 - BugFix: Updated the `lodash` dependency for technical currency. [#200](https://github.com/zowe/zowe-cli-db2-plugin/pull/200)
 
