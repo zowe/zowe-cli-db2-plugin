@@ -55,6 +55,11 @@ describe("ExportTable", () => {
         it("should return value as is for other types", () => {
             expect(exportSQL.escape("I", C.ROWS[0].I)).toBe(C.ROWS[0].I);
         });
+
+        it("should escape quotes for string value", () => {
+            const valWithQuotes = C.ROWS[0].V + "'TEST";
+            expect(exportSQL.escape("V", valWithQuotes)).toBe(`'${C.ROWS[0].V}''TEST'`);
+        });
     });
 
     describe("buildInsertStatement", () => {

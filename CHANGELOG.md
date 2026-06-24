@@ -5,6 +5,7 @@ All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented i
 ## Recent Changes
 
 - BugFix: Updated the `form-data` dependency for technical currency. [#206](https://github.com/zowe/zowe-cli-db2-plugin/pull/206)
+- BugFix: Added proper escaping of single quotes in string values returned by the `export table` command. [#207](https://github.com/zowe/zowe-cli-db2-plugin/pull/207)
 
 ## `5.0.22`
 
