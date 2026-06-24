@@ -81,7 +81,7 @@ export class ExportTableSQL extends ExportTable {
             case "TIME":
             case "TIMESTAMP":
             case "VARCHAR":
-                return `'${value.replace(/'/g, "''")}'`;
+                return `'${value.replaceAll("'", "''")}'`;
             default:
                 return value;
         }
