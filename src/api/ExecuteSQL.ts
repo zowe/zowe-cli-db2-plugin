@@ -9,11 +9,13 @@
 *                                                                                 *
 */
 
-import * as ibmdb from "ibm_db";
+import type * as IbmDb from "ibm_db";
+import { ImperativeError } from "@zowe/imperative";
 import { IDB2Session } from "../rest/session/doc/IDB2Session";
 import { ConnectionString } from "./ConnectionString";
 import { DB2Error } from "./DB2Error";
 import { DB2_PARM_INPUT, IDB2Parameter } from "./doc/IDB2Parameter";
+import { getIbmDb } from "./IbmDbLoader";
 import { SessionValidator } from "./SessionValidator";
 import { DB2Constants } from "./DB2Constants";
 
@@ -30,7 +32,7 @@ export class ExecuteSQL {
      * @memberof ExportTable
      * @private
      */
-    private mConnection: ibmdb.Database;
+    private mConnection: IbmDb.Database;
 
     /**
      * The connection string to use with ODBC driver
@@ -62,13 +64,13 @@ export class ExecuteSQL {
             fetchMode: DB2Constants.FETCH_MODE_OBJECT,
         };
         let result;
-        const newParameters: ibmdb.SQLParam[] = [];
+        const newParameters: IbmDb.SQLParam[] = [];
         try {
-            this.mConnection = ibmdb.openSync(this.mConnectionString, options);
+            this.mConnection = getIbmDb().openSync(this.mConnectionString, options);
             if (parameters != null) {
                 for (const parameter of parameters) {
                     if (parameter.ParamType == undefined) { parameter.ParamType = DB2_PARM_INPUT; }
-                    newParameters.push(parameter as ibmdb.SQLParam);
+                    newParameters.push(parameter as IbmDb.SQLParam);
                 }
             }
             result = this.mConnection.queryResultSync(sql, newParameters);
@@ -82,6 +84,7 @@ export class ExecuteSQL {
             this.mConnection.closeSync();
         }
         catch (err) {
+            if (err instanceof ImperativeError) { throw err; }
             DB2Error.process(err);
         }
     }

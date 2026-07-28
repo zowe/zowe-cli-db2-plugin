@@ -10,12 +10,13 @@
 */
 
 import { ImperativeExpect, ImperativeError } from "@zowe/imperative";
-import * as ibmdb from "ibm_db";
+import type * as IbmDb from "ibm_db";
 import { IDB2Session } from "../rest/session/doc/IDB2Session";
 import { ConnectionString } from "./ConnectionString";
 import { DB2Error } from "./DB2Error";
 import { IDB2Column } from "./doc/IDB2Column";
 import { noDatabaseName, noTableName } from "./doc/Messages";
+import { getIbmDb } from "./IbmDbLoader";
 import { SessionValidator } from "./SessionValidator";
 import { DB2Constants } from "./DB2Constants";
 
@@ -56,7 +57,7 @@ export abstract class ExportTable {
      * @memberof ExportTable
      * @private
      */
-    private mConnection: ibmdb.Database;
+    private mConnection: IbmDb.Database;
 
     /**
      * The connection string to use with the ODBC driver
@@ -87,9 +88,10 @@ export abstract class ExportTable {
             fetchMode: DB2Constants.FETCH_MODE_OBJECT,
         };
         try {
-            this.mConnection = ibmdb.openSync(this.mConnectionString, options);
+            this.mConnection = getIbmDb().openSync(this.mConnectionString, options);
         }
         catch (err) {
+            if (err instanceof ImperativeError) { throw err; }
             DB2Error.process(err);
         }
         this.mMetadata = await this.getTableMeta();

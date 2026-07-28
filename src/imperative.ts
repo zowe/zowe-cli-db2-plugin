@@ -15,6 +15,7 @@ import { Constants } from "./Constants";
 const config: IImperativeConfig = {
     name: Constants.PROD_NAME,
     commandModuleGlobs: ["**/cli/*/*.definition!(.d).*s"],
+    pluginLifeCycle: "./lib/PluginLifeCycle",
     rootCommandDescription: Constants.DESCRIPTION,
     productDisplayName: Constants.DISPLAY_NAME,
     profiles: [

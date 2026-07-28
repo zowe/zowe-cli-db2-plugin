@@ -9,13 +9,15 @@
 *                                                                                 *
 */
 
-import * as ibmdb from "ibm_db";
+import type * as IbmDb from "ibm_db";
+import { ImperativeError } from "@zowe/imperative";
 import { IDB2Session } from "../rest/session/doc/IDB2Session";
 import { DB2_PARM_INOUT, DB2_PARM_INPUT, DB2_PARM_OUTPUT, IDB2Parameter } from "./doc/IDB2Parameter";
 import { IDB2Response } from "./doc/IDB2Response";
 import { SessionValidator } from "./SessionValidator";
 import { ConnectionString } from "./ConnectionString";
 import { DB2Error } from "./DB2Error";
+import { getIbmDb } from "./IbmDbLoader";
 import { DB2Constants } from "./DB2Constants";
 
 /**
@@ -48,7 +50,7 @@ export class CallSP {
         const query: string = `CALL ${routineName}`;
         let result: any;
         let outVarCount: number = 0;
-        const newParameters: ibmdb.SQLParam[] = [];
+        const newParameters: IbmDb.SQLParam[] = [];
         // Count parameters with type OUTPUT or INOUT as they will be returned in the result set.
         if (parameters != null) {
             for (const parameter of parameters) {
@@ -56,12 +58,12 @@ export class CallSP {
                     outVarCount++;
                 }
                 if (parameter.ParamType == undefined) { parameter.ParamType = DB2_PARM_INPUT; }
-                newParameters.push(parameter as ibmdb.SQLParam);
+                newParameters.push(parameter as IbmDb.SQLParam);
             }
         }
 
         try {
-            const db2 = ibmdb.openSync(connectionString, options);
+            const db2 = getIbmDb().openSync(connectionString, options);
             // Prepare and execute the statement
             const preparedStatement = db2.prepareSync(query);
             result = preparedStatement.executeSync(newParameters);
@@ -90,6 +92,7 @@ export class CallSP {
             db2.closeSync();
         }
         catch (err) {
+            if (err instanceof ImperativeError) { throw err; }
             DB2Error.process(err);
         }
         return response;
