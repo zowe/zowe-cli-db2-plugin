@@ -13,8 +13,7 @@
     "registry": "https://zowe.jfrog.io/zowe/api/npm/npm-local-release/"
   },
   "files": [
-    "lib",
-    "npm-shrinkwrap.json"
+    "lib"
   ],
   "scripts": {
     "prebuild": "npm run clean && npm run lint && echo Using TypeScript && tsc --version",
@@ -39,6 +38,9 @@
   "dependencies": {
     "ibm_db": "4.0.1"
   },
+  "bundleDependencies": [
+    "ibm_db"
+  ],
   "overrides": {
     "adm-zip": "0.6.0"
   },
