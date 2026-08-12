@@ -10,7 +10,7 @@
 */
 
 import * as path from "path";
-import { AbstractPluginLifeCycle, Console, ImperativeError, Logger } from "@zowe/imperative";
+import { AbstractPluginLifeCycle, ImperativeError, Logger } from "@zowe/imperative";
 import { Constants } from "./Constants";
 
 /**
@@ -36,8 +36,8 @@ class Db2PluginLifeCycle extends AbstractPluginLifeCycle {
     public static readonly NATIVE_MODULE_NM: string = "ibm_db";
 
     /**
-     * A horizontal rule used to make the warning stand out among the other
-     * messages that are displayed while a plug-in is installed.
+     * A horizontal rule used to make the reported steps stand out among the
+     * other messages that are displayed while a plug-in is installed.
      * @type {string}
      * @static
      * @memberof Db2PluginLifeCycle
@@ -47,13 +47,12 @@ class Db2PluginLifeCycle extends AbstractPluginLifeCycle {
 
     /**
      * Confirm that the bundled native module can be loaded after the plug-in
-     * has been installed. When it cannot be loaded, display the steps that the
+     * has been installed. When it cannot be loaded, report the steps that the
      * user must perform to finish the installation.
      *
-     * This function intentionally does not throw. The plug-in itself was
-     * installed correctly, so we report a warning instead of failing the
-     * installation of the plug-in.
-     *
+     * @throws {ImperativeError}
+     *      When the native module cannot be loaded. The message contains the
+     *      steps that complete the installation.
      * @memberof Db2PluginLifeCycle
      */
     public postInstall(): void {
@@ -99,7 +98,7 @@ class Db2PluginLifeCycle extends AbstractPluginLifeCycle {
      * @private
      * @static
      * @param {string} reason The reason that the native module could not be loaded.
-     * @returns {string} The multi-line warning message to display.
+     * @returns {string} The multi-line message to report to the user.
      * @memberof Db2PluginLifeCycle
      */
     private static formIncompleteInstallMsg(reason: string): string {
