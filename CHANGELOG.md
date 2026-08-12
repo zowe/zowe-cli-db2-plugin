@@ -4,6 +4,7 @@ All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented i
 
 ## Recent Changes
 
+- Enhancement: Added a post-install warning that explains how to complete the installation of the bundled `ibm_db` package when npm does not run its install script. [#242](https://github.com/zowe/zowe-cli-db2-plugin/pull/242)
 - BugFix: Updated and bundled the `ibm_db` package for technical currency. [#242](https://github.com/zowe/zowe-cli-db2-plugin/pull/242)
 
 ## `6.1.16`
