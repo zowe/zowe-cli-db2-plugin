@@ -17,8 +17,8 @@ import { Constants } from "./Constants";
  * Life cycle actions for the Db2 plug-in.
  *
  * The plug-in delivers the native `ibm_db` module as a bundled dependency.
- * npm does not run the lifecycle scripts of bundled dependencies (and as of
- * npm v12 it does not run them even when scripts are allowed), so the driver
+ * NPM does not run the lifecycle scripts of bundled dependencies (and as of
+ * NPM v12 it does not run them even when scripts are allowed), so the driver
  * install script that `ibm_db` relies on never runs during a plug-in install.
  * We use the post-install hook to detect that condition and to tell the user
  * how to complete the installation themselves.
@@ -112,11 +112,11 @@ class Db2PluginLifeCycle extends AbstractPluginLifeCycle {
             `Reason = ${reason}\n` +
             `\n` +
             `The plug-in delivers '${nativeMod}' as a bundled dependency, so that the plug-in can be installed\n` +
-            `without access to a public npm registry. However, '${nativeMod}' is a native module. Its own npm install\n` +
-            `script must download the IBM Db2 ODBC CLI driver and build the binding for your platform. npm does\n` +
+            `without access to a public NPM registry. However, '${nativeMod}' is a native module. Its own NPM install\n` +
+            `script must download the IBM Db2 ODBC CLI driver and build the binding for your platform. NPM does\n` +
             `not run the lifecycle scripts of a bundled dependency, so that install script did not run on this\n` +
             `system. The '--allow-scripts' option of 'plugins install' does not change that behavior, because\n` +
-            `npm skips the scripts of bundled dependencies even when scripts are allowed.\n` +
+            `NPM skips the scripts of bundled dependencies even when scripts are allowed.\n` +
             `\n` +
             `To finish the installation, run that install script yourself:\n` +
             `\n` +
@@ -124,7 +124,7 @@ class Db2PluginLifeCycle extends AbstractPluginLifeCycle {
             `    npm run install\n` +
             `\n` +
             `You must run the script from the directory shown above, because '${nativeMod}' installs the CLI driver\n` +
-            `relative to the current directory. If npm is not available, run the same script directly:\n` +
+            `relative to the current directory. If NPM is not available, run the same script directly:\n` +
             `\n` +
             `    cd "${nativeModDir}"\n` +
             `    node installer/driverInstall.js\n` +
@@ -151,7 +151,7 @@ class Db2PluginLifeCycle extends AbstractPluginLifeCycle {
         const nativeMod = Db2PluginLifeCycle.NATIVE_MODULE_NM;
         try {
             /* The module cannot be loaded, but its package.json can still be
-             * resolved, which reflects wherever npm placed the module.
+             * resolved, which reflects wherever NPM placed the module.
              */
             return path.dirname(require.resolve(`${nativeMod}/package.json`));
         } catch (err) {
