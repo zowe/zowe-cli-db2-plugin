@@ -83,6 +83,48 @@ const config: IImperativeConfig = {
                             type: "string",
                         },
                     },
+                    driverType: {
+                        type: "string",
+                        optionDefinition: {
+                            name: "driver-type",
+                            aliases: ["driver"],
+                            description: "Driver type used to connect to Db2: 'odbc' or 'jdbc'",
+                            type: "string",
+                        },
+                    },
+                    jdbcJarPath: {
+                        type: "string",
+                        optionDefinition: {
+                            name: "jdbc-jar",
+                            description: "Path to the Db2 JDBC driver JAR file (e.g. db2jcc4.jar) or directory containing it",
+                            type: "string",
+                        },
+                    },
+                    jdbcLicensePath: {
+                        type: "string",
+                        optionDefinition: {
+                            name: "jdbc-license",
+                            description: "Path to the Db2 JDBC license JAR file (e.g. db2jcc_license_cisuz.jar) or directory containing it",
+                            type: "string",
+                        },
+                    },
+                    javaPath: {
+                        type: "string",
+                        optionDefinition: {
+                            name: "java-path",
+                            description: "Path to Java executable to use for JDBC connections",
+                            type: "string",
+                        },
+                    },
+                    jdbcProperties: {
+                        type: "string",
+                        optionDefinition: {
+                            name: "jdbc-props",
+                            aliases: ["jdbc-properties"],
+                            description: "Additional JDBC connection properties",
+                            type: "string",
+                        },
+                    },
                 },
             },
         }

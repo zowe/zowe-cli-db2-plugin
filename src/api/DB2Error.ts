@@ -12,7 +12,7 @@
 import { IImperativeError, ImperativeError, TextUtils } from "@zowe/imperative";
 
 /**
- * Class to handle DB2 ODBC Driver errors
+ * Class to handle DB2 driver errors (ODBC & JDBC)
  * @export
  * @class DB2Error
  */
@@ -20,16 +20,27 @@ export class DB2Error {
 
     /**
      * Prettify the error message
-     * @param {any} original The original error catched
+     * @param {any} original The original error caught
      */
     public static process(original: any) {
+        if (!original) {
+            throw new ImperativeError({ msg: "Unknown DB2 Driver Error" });
+        }
+
+        if (original instanceof ImperativeError) {
+            throw original;
+        }
+
+        const msgStr = original.message || original.error || String(original);
         const details = {
-            Error: original.message.trim(),
-            SQLCODE: original.sqlcode,
-            SQLSTATE: original.state,
+            Error: msgStr.trim(),
+            SQLCODE: original.sqlcode != null ? original.sqlcode : undefined,
+            SQLSTATE: original.state != null ? original.state : undefined,
         };
+
+        const prefix = original.error ? "DB2 ODBC Driver Error:" : "DB2 Driver Error:";
         const error: IImperativeError = {
-            msg: `DB2 ODBC Driver Error: ${original.error}\n`,
+            msg: `${prefix} ${original.error || msgStr}\n`,
             additionalDetails: TextUtils.prettyJson(details, undefined, false),
         };
         throw new ImperativeError(error);

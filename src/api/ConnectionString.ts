@@ -10,6 +10,7 @@
 */
 
 import { IDB2Session } from "../";
+import { DB2Constants } from "./DB2Constants";
 
 /**
  * DB2 server APIs
@@ -78,6 +79,65 @@ export class ConnectionString {
             connectionString += `Security=SSL;SSLServerCertificate=${sslFile};`;
         }
         return connectionString;
+    }
+
+    /**
+     * Build the JDBC connection URL from a Session object
+     * @param {IDB2Session} session Connection values
+     * @returns {string}
+     * @memberof ConnectionString
+     */
+    public static buildJdbcUrlFromSession(session: IDB2Session): string {
+        return ConnectionString.buildJdbcUrl(
+            session.hostname,
+            session.port,
+            session.database,
+            session.sslFile,
+            session.jdbcProperties
+        );
+    }
+
+    /**
+     * Build the JDBC connection URL
+     * @param {string} hostname Host name
+     * @param {number} port Port number
+     * @param {string} database Database name
+     * @param {string} sslFile SSL certificate file path
+     * @param {string | Record<string, string>} jdbcProperties Additional JDBC properties
+     * @returns {string}
+     */
+    public static buildJdbcUrl(
+        hostname?: string,
+        port?: number,
+        database?: string,
+        sslFile?: string,
+        jdbcProperties?: string | Record<string, string>
+    ): string {
+        const host = hostname || "localhost";
+        const p = port || DB2Constants.DEFAULT_DB2_PORT;
+        const db = database || "";
+        let url = `jdbc:db2://${host}:${p}/${db}`;
+        const props: string[] = [];
+
+        if (sslFile) {
+            props.push(`sslConnection=true`, `sslTrustStoreLocation=${sslFile}`);
+        }
+
+        if (jdbcProperties) {
+            if (typeof jdbcProperties === "string") {
+                const pairs = jdbcProperties.split(";").map(s => s.trim()).filter(Boolean);
+                props.push(...pairs);
+            } else if (typeof jdbcProperties === "object") {
+                for (const [k, v] of Object.entries(jdbcProperties)) {
+                    props.push(`${k}=${v}`);
+                }
+            }
+        }
+
+        if (props.length > 0) {
+            url += ":" + props.join(";") + ";";
+        }
+        return url;
     }
 
 }

@@ -19,4 +19,5 @@ import { FETCH_ARRAY, FETCH_OBJECT } from "ibm_db";
 export class DB2Constants {
     public static readonly FETCH_MODE_ARRAY = FETCH_ARRAY;
     public static readonly FETCH_MODE_OBJECT = FETCH_OBJECT;
+    public static readonly DEFAULT_DB2_PORT = 50000;
 }

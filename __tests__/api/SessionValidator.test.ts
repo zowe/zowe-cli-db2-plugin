@@ -157,5 +157,14 @@ describe("SessionValidator", () => {
             expect(error).toBeDefined();
             expect(error.toString()).toMatchSnapshot();
         });
+
+        it("should accept valid driverType 'odbc' or 'jdbc'", () => {
+            expect(() => SessionValidator.validate({ ...SESSION_GOOD, driverType: "odbc" })).not.toThrow();
+            expect(() => SessionValidator.validate({ ...SESSION_GOOD, driverType: "jdbc" })).not.toThrow();
+        });
+
+        it("should throw error for invalid driverType", () => {
+            expect(() => SessionValidator.validate({ ...SESSION_GOOD, driverType: "invalid" as any })).toThrow("Invalid driverType");
+        });
     });
 });

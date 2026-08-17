@@ -69,6 +69,59 @@ Object {
           "name": "sslFile",
           "type": "string",
         },
+        Object {
+          "aliases": Array [
+            "driver",
+          ],
+          "allowableValues": Object {
+            "caseSensitive": false,
+            "values": Array [
+              "odbc",
+              "jdbc",
+            ],
+          },
+          "defaultValue": "odbc",
+          "description": "Driver type used to connect to Db2: 'odbc' or 'jdbc'",
+          "group": "DB2 Connection Options",
+          "name": "driverType",
+          "type": "string",
+        },
+        Object {
+          "aliases": Array [
+            "jdbc-jar",
+          ],
+          "description": "Path to the Db2 JDBC driver JAR file (e.g. db2jcc4.jar) or directory containing it",
+          "group": "DB2 Connection Options",
+          "name": "jdbcJarPath",
+          "type": "string",
+        },
+        Object {
+          "aliases": Array [
+            "jdbc-license",
+          ],
+          "description": "Path to the Db2 JDBC license JAR file (e.g. db2jcc_license_cisuz.jar) or directory containing it",
+          "group": "DB2 Connection Options",
+          "name": "jdbcLicensePath",
+          "type": "string",
+        },
+        Object {
+          "aliases": Array [
+            "java-path",
+          ],
+          "description": "Path to Java executable to use for JDBC connections (defaults to 'java')",
+          "group": "DB2 Connection Options",
+          "name": "javaPath",
+          "type": "string",
+        },
+        Object {
+          "aliases": Array [
+            "jdbc-props",
+          ],
+          "description": "Additional JDBC connection properties (e.g. 'securityMechanism=13;clientProgramName=ZoweCLI;')",
+          "group": "DB2 Connection Options",
+          "name": "jdbcProperties",
+          "type": "string",
+        },
       ],
     },
   ],
