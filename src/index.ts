@@ -25,3 +25,7 @@ export * from "./api/ExportTable";
 export * from "./api/ExportTableSQL";
 export * from "./api/CallSP";
 export * from "./api/DB2Error";
+export * from "./api/driver/IDB2Driver";
+export * from "./api/driver/OdbcDriver";
+export * from "./api/driver/JdbcDriver";
+export * from "./api/driver/DB2DriverFactory";

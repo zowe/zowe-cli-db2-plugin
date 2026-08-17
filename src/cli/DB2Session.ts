@@ -88,6 +88,66 @@ export class DB2Session {
     };
 
     /**
+     * Option used in profile creation and commands to specify driver type ("odbc" or "jdbc")
+     */
+    public static DB2_OPTION_DRIVER_TYPE: ICommandOptionDefinition = {
+        name: "driverType",
+        aliases: ["driver"],
+        description: "Driver type used to connect to Db2: 'odbc' or 'jdbc'",
+        type: "string",
+        allowableValues: {
+            values: ["odbc", "jdbc"],
+            caseSensitive: false
+        },
+        defaultValue: "odbc",
+        group: DB2Session.DB2_CONNECTION_OPTION_GROUP
+    };
+
+    /**
+     * Option used in profile creation and commands to specify path to Db2 JDBC driver JAR file
+     */
+    public static DB2_OPTION_JDBC_JAR: ICommandOptionDefinition = {
+        name: "jdbcJarPath",
+        aliases: ["jdbc-jar"],
+        description: "Path to the Db2 JDBC driver JAR file (e.g. db2jcc4.jar) or directory containing it",
+        type: "string",
+        group: DB2Session.DB2_CONNECTION_OPTION_GROUP
+    };
+
+    /**
+     * Option used in profile creation and commands to specify path to Db2 JDBC license JAR file
+     */
+    public static DB2_OPTION_JDBC_LICENSE: ICommandOptionDefinition = {
+        name: "jdbcLicensePath",
+        aliases: ["jdbc-license"],
+        description: "Path to the Db2 JDBC license JAR file (e.g. db2jcc_license_cisuz.jar) or directory containing it",
+        type: "string",
+        group: DB2Session.DB2_CONNECTION_OPTION_GROUP
+    };
+
+    /**
+     * Option used in profile creation and commands to specify Java executable path for JDBC
+     */
+    public static DB2_OPTION_JAVA_PATH: ICommandOptionDefinition = {
+        name: "javaPath",
+        aliases: ["java-path"],
+        description: "Path to Java executable to use for JDBC connections (defaults to 'java')",
+        type: "string",
+        group: DB2Session.DB2_CONNECTION_OPTION_GROUP
+    };
+
+    /**
+     * Option used in profile creation and commands to specify additional JDBC connection properties
+     */
+    public static DB2_OPTION_JDBC_PROPERTIES: ICommandOptionDefinition = {
+        name: "jdbcProperties",
+        aliases: ["jdbc-props"],
+        description: "Additional JDBC connection properties (e.g. 'securityMechanism=13;clientProgramName=ZoweCLI;')",
+        type: "string",
+        group: DB2Session.DB2_CONNECTION_OPTION_GROUP
+    };
+
+    /**
      * Options related to connecting to DB2
      * These options can be filled in if the user creates a profile
      */
@@ -97,7 +157,12 @@ export class DB2Session {
         DB2Session.DB2_OPTION_USER,
         DB2Session.DB2_OPTION_PASS,
         DB2Session.DB2_OPTION_DATABASE,
-        DB2Session.DB2_OPTION_SSL_FILE
+        DB2Session.DB2_OPTION_SSL_FILE,
+        DB2Session.DB2_OPTION_DRIVER_TYPE,
+        DB2Session.DB2_OPTION_JDBC_JAR,
+        DB2Session.DB2_OPTION_JDBC_LICENSE,
+        DB2Session.DB2_OPTION_JAVA_PATH,
+        DB2Session.DB2_OPTION_JDBC_PROPERTIES
     ];
 
     /**
@@ -115,6 +180,11 @@ export class DB2Session {
             password: args.password,
             database: args.database,
             sslFile: args.sslFile,
+            driverType: args.driverType ? (args.driverType.toLowerCase() as "odbc" | "jdbc") : "odbc",
+            jdbcJarPath: args.jdbcJarPath,
+            jdbcLicensePath: args.jdbcLicensePath,
+            javaPath: args.javaPath,
+            jdbcProperties: args.jdbcProperties,
         };
         return new Session(DB2session);
     }
@@ -135,6 +205,11 @@ export class DB2Session {
             password: args.password,
             database: args.database,
             sslFile: args.sslFile,
+            driverType: args.driverType ? (args.driverType.toLowerCase() as "odbc" | "jdbc") : "odbc",
+            jdbcJarPath: args.jdbcJarPath,
+            jdbcLicensePath: args.jdbcLicensePath,
+            javaPath: args.javaPath,
+            jdbcProperties: args.jdbcProperties,
         };
 
         const sessCfgWithCreds = await ConnectionPropsForSessCfg.addPropsOrPrompt<IDB2Session>(sessCfg, args, {doPrompting, parms: handlerParams});

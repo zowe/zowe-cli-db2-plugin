@@ -9,7 +9,7 @@
 *                                                                                 *
 */
 
-import { ImperativeExpect } from "@zowe/imperative";
+import { ImperativeExpect, ImperativeError } from "@zowe/imperative";
 import { IDB2Session } from "../";
 import { noDatabaseName, noDB2Input, noHostName, noPassword, noPortNumber, noUserName } from "./doc/Messages";
 
@@ -33,5 +33,14 @@ export class SessionValidator {
         ImperativeExpect.toBeDefinedAndNonBlank(params.user, "user", noUserName.message);
         ImperativeExpect.toBeDefinedAndNonBlank(params.password, "password", noPassword.message);
         ImperativeExpect.toBeDefinedAndNonBlank(params.database, "database", noDatabaseName.message);
+
+        if (params.driverType) {
+            const driverLower = params.driverType.toLowerCase();
+            if (driverLower !== "odbc" && driverLower !== "jdbc") {
+                throw new ImperativeError({
+                    msg: `Invalid driverType '${params.driverType}'. Supported values are 'odbc' or 'jdbc'.`
+                });
+            }
+        }
     }
 }

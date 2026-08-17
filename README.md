@@ -25,9 +25,12 @@ Before you install and use the plug-in:
 
 -   [Install Zowe CLI](https://docs.zowe.org/stable/user-guide/cli-installcli.html) on your computer.
 
--   Have a license file for IBM Db2 Database for z/OS.
+-   Have a license for IBM Db2 Database for z/OS.
 
-    For connectivity to Db2 for z/OS, the Db2 region should be `db2connectactivated` or a `db2connect` license file should be provided. Copy the `db2connect` license file to the `[db2 plugin folder]/node_modules/ibm_db/installer/clidriver/license/` folder. For more information, see [Addressing the license requirement](https://docs.zowe.org/stable/user-guide/cli-db2plugin.html#addressing-the-license-requirement) on the Zowe Docs site. 
+    For connectivity to Db2 for z/OS:
+    - **ODBC Driver (Default)**: The Db2 region should be `db2connectactivated` or a `db2connect` license file (`db2consv_zs.lic`) should be provided in `[db2 plugin folder]/node_modules/ibm_db/installer/clidriver/license/`.
+    - **JDBC Driver (Alternative Pathway)**: If you do not have an ODBC license key, you can alternatively use the Db2 JDBC driver (`db2jcc4.jar`) and JDBC license JAR (`db2jcc_license_cisuz.jar`). Set `driverType` to `jdbc` in your Db2 profile or pass `--driver-type jdbc`, and specify `--jdbc-jar` and `--jdbc-license` paths. Java runtime (`java`) is required on your PATH.
+
 
 - **(Linux and MacOS only)** Download and install [node-gyp](https://www.npmjs.com/package/node-gyp) globally by running `npm install -g node-gyp`
 

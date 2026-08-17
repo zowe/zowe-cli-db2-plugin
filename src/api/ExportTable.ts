@@ -10,14 +10,13 @@
 */
 
 import { ImperativeExpect, ImperativeError } from "@zowe/imperative";
-import * as ibmdb from "ibm_db";
 import { IDB2Session } from "../rest/session/doc/IDB2Session";
-import { ConnectionString } from "./ConnectionString";
 import { DB2Error } from "./DB2Error";
 import { IDB2Column } from "./doc/IDB2Column";
 import { noDatabaseName, noTableName } from "./doc/Messages";
 import { SessionValidator } from "./SessionValidator";
-import { DB2Constants } from "./DB2Constants";
+import { DB2DriverFactory } from "./driver/DB2DriverFactory";
+import { IDB2Driver } from "./driver/IDB2Driver";
 
 /**
  * Class to handle exporting of DB2 tables
@@ -28,43 +27,28 @@ export abstract class ExportTable {
 
     /**
      * The database name
-     * @type {string}
-     * @memberof ExportTable
-     * @private
      */
     protected readonly mDatabase: string;
 
     /**
      * The table name
-     * @type {string}
-     * @memberof ExportTable
-     * @private
      */
     protected readonly mTable: string;
 
     /**
      * The table metadata
-     * @type {IDB2Column[]|null}
-     * @memberof ExportTable
-     * @private
      */
     protected mMetadata: IDB2Column[] | null;
 
     /**
-     * Connection to a DB2 region
-     * @type {ibmdb.Database}
-     * @memberof ExportTable
-     * @private
+     * The session object
      */
-    private mConnection: ibmdb.Database;
+    protected readonly mSession: IDB2Session;
 
     /**
-     * The connection string to use with the ODBC driver
-     * @type {string}
-     * @memberof ExportTable
-     * @private
+     * Driver instance
      */
-    private readonly mConnectionString: string;
+    private readonly mDriver: IDB2Driver;
 
     /**
      * Constructor
@@ -76,52 +60,35 @@ export abstract class ExportTable {
         SessionValidator.validate(session);
         ImperativeExpect.toBeDefinedAndNonBlank(databaseName, noDatabaseName.message);
         ImperativeExpect.toBeDefinedAndNonBlank(tableName, noTableName.message);
+        this.mSession = session;
         this.mDatabase = databaseName;
         this.mTable = tableName;
-        this.mConnectionString = ConnectionString.buildFromSession(session);
+        this.mDriver = DB2DriverFactory.getDriver(session);
         this.mMetadata = null;
     }
 
     public async init() {
-        const options = {
-            fetchMode: DB2Constants.FETCH_MODE_OBJECT,
-        };
         try {
-            this.mConnection = ibmdb.openSync(this.mConnectionString, options);
+            this.mMetadata = await this.getTableMeta();
         }
         catch (err) {
             DB2Error.process(err);
         }
-        this.mMetadata = await this.getTableMeta();
         if (Array.isArray(this.mMetadata) && this.mMetadata.length === 0) {
             throw new ImperativeError({msg: `Error getting metadata for the table ${this.mDatabase}.${this.mTable}`});
         }
     }
 
     /**
-     * Get a table metadata
+     * Get table metadata
      * @returns {Promise<IDB2Column[]>}
      * @memberof ExportTable
      */
-    public getTableMeta(): Promise<IDB2Column[]> {
-        return new Promise((resolve, reject) => {
-            if (this.mMetadata == null) {
-                this.mConnection.columns(null, this.mDatabase, this.mTable, null, (err, res) => {
-                    if (err !== null) {
-                        reject(err);
-                    }
-
-                    let data: IDB2Column[] = [];
-                    if (res[0] && !(Array.isArray(res[0]))) {
-                        data = res as IDB2Column[];
-                    }
-                    resolve(data);
-                });
-            }
-            else {
-                resolve(this.mMetadata);
-            }
-        });
+    public async getTableMeta(): Promise<IDB2Column[]> {
+        if (this.mMetadata == null) {
+            this.mMetadata = await this.mDriver.getTableColumns(this.mDatabase, this.mTable);
+        }
+        return this.mMetadata;
     }
 
     public getColumnMeta(columnName: string): IDB2Column {
@@ -134,26 +101,16 @@ export abstract class ExportTable {
     }
 
     /**
-     * Supply data from table by one row
+     * Supply data from table row by row
      * @returns {IterableIterator<any>}
      */
-    public *rows(): IterableIterator<any> {
-        const columns = this.getColumnNames().join(", ");
-        const query = `SELECT ${columns} FROM ${this.mDatabase}.${this.mTable}`;
-        const result = this.mConnection.queryResultSync(query);
-        if (result instanceof Error) {
-            throw result;
-        }
-        let row = Array.isArray(result) ? result[0].fetchSync(): result.fetchSync();
-        while (row != null) {
-            yield row;
-            row = Array.isArray(result) ? result[0].fetchSync(): result.fetchSync();
-        }
-        Array.isArray(result) ? result[0].closeSync(): result.closeSync();
+    public rows(): IterableIterator<any> {
+        const columns = this.getColumnNames();
+        return this.mDriver.getTableRows(this.mDatabase, this.mTable, columns);
     }
 
     /**
-     * Extract a list of columns out of a table metadata
+     * Extract a list of columns out of table metadata
      * @returns {string[]} Columns list
      */
     public getColumnNames(): string[] {

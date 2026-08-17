@@ -2,6 +2,10 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
+## `6.1.17`
+
+- Enhancement: Added an alternative JDBC driver pathway (`--driver-type jdbc`) allowing users without an ODBC license key to connect using `db2jcc4.jar` and `db2jcc_license_cisuz.jar`.
+
 ## `6.1.16`
 
 - BugFix: Added proper escaping of single quotes in string values returned by the `export table` command. [#207](https://github.com/zowe/zowe-cli-db2-plugin/pull/207)

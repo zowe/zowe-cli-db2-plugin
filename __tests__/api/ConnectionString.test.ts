@@ -71,4 +71,16 @@ describe("ConnectionString", () => {
             expect(connectionString).toMatchSnapshot();
         });
     });
+
+    describe("buildJdbcUrl", () => {
+        it("should build correct JDBC connection URL from session", () => {
+            const jdbcUrl = ConnectionString.buildJdbcUrlFromSession(SIMPLE_SESSION);
+            expect(jdbcUrl).toBe(`jdbc:db2://${C.HOST_NAME}:${C.PORT}/${C.DATABASE_NAME}`);
+        });
+
+        it("should build correct JDBC connection URL with SSL file", () => {
+            const jdbcUrl = ConnectionString.buildJdbcUrlFromSession(SECURE_SESSION);
+            expect(jdbcUrl).toBe(`jdbc:db2://${C.HOST_NAME}:${C.PORT}/${C.DATABASE_NAME}:sslConnection=true;sslTrustStoreLocation=${C.SSL_FILE};`);
+        });
+    });
 });

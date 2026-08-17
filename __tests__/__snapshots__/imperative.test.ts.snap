@@ -24,6 +24,17 @@ Object {
             },
             "type": "string",
           },
+          "driverType": Object {
+            "optionDefinition": Object {
+              "aliases": Array [
+                "driver",
+              ],
+              "description": "Driver type used to connect to Db2: 'odbc' or 'jdbc'",
+              "name": "driver-type",
+              "type": "string",
+            },
+            "type": "string",
+          },
           "host": Object {
             "optionDefinition": Object {
               "aliases": Array [
@@ -31,6 +42,41 @@ Object {
               ],
               "description": "The Db2 server host name",
               "name": "host",
+              "type": "string",
+            },
+            "type": "string",
+          },
+          "javaPath": Object {
+            "optionDefinition": Object {
+              "description": "Path to Java executable to use for JDBC connections",
+              "name": "java-path",
+              "type": "string",
+            },
+            "type": "string",
+          },
+          "jdbcJarPath": Object {
+            "optionDefinition": Object {
+              "description": "Path to the Db2 JDBC driver JAR file (e.g. db2jcc4.jar) or directory containing it",
+              "name": "jdbc-jar",
+              "type": "string",
+            },
+            "type": "string",
+          },
+          "jdbcLicensePath": Object {
+            "optionDefinition": Object {
+              "description": "Path to the Db2 JDBC license JAR file (e.g. db2jcc_license_cisuz.jar) or directory containing it",
+              "name": "jdbc-license",
+              "type": "string",
+            },
+            "type": "string",
+          },
+          "jdbcProperties": Object {
+            "optionDefinition": Object {
+              "aliases": Array [
+                "jdbc-properties",
+              ],
+              "description": "Additional JDBC connection properties",
+              "name": "jdbc-props",
               "type": "string",
             },
             "type": "string",

@@ -59,4 +59,39 @@ export interface IDB2Session {
      * @memberof IDB2Session
      */
     sslFile?: string;
+
+    /**
+     * Driver type used to connect to Db2: "odbc" or "jdbc"
+     * @type {"odbc" | "jdbc"}
+     * @memberof IDB2Session
+     */
+    driverType?: "odbc" | "jdbc";
+
+    /**
+     * Path to the Db2 JDBC driver JAR file (e.g. db2jcc4.jar) or directory containing it
+     * @type {string}
+     * @memberof IDB2Session
+     */
+    jdbcJarPath?: string;
+
+    /**
+     * Path to the Db2 JDBC license JAR file (e.g. db2jcc_license_cisuz.jar) or directory containing it
+     * @type {string}
+     * @memberof IDB2Session
+     */
+    jdbcLicensePath?: string;
+
+    /**
+     * Path to java executable to use for JDBC connections (defaults to "java")
+     * @type {string}
+     * @memberof IDB2Session
+     */
+    javaPath?: string;
+
+    /**
+     * Additional JDBC connection properties as a formatted string or key-value record
+     * @type {string | Record<string, string>}
+     * @memberof IDB2Session
+     */
+    jdbcProperties?: string | Record<string, string>;
 }
