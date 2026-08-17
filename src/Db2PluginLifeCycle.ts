@@ -124,10 +124,7 @@ class Db2PluginLifeCycle extends AbstractPluginLifeCycle {
             `    npm run install\n` +
             `\n` +
             `You must run the script from the directory shown above, because '${nativeMod}' installs the CLI driver\n` +
-            `relative to the current directory. If NPM is not available, run the same script directly:\n` +
-            `\n` +
-            `    cd "${nativeModDir}"\n` +
-            `    node installer/driverInstall.js\n` +
+            `relative to the current directory.\n` +
             `\n` +
             `The script downloads the CLI driver from https://public.dhe.ibm.com, so the system needs network\n` +
             `access to that site. If this system already has a Db2 client, a Db2 server, or a copy of the CLI\n` +
