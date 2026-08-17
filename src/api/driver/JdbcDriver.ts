@@ -35,17 +35,40 @@ export class JdbcDriver implements IDB2Driver {
     }
 
     /**
+     * Resolve a classpath entry path. If a directory is provided, locate all .jar files or use wildcard.
+     */
+    private resolveClasspathEntry(entryPath: string): string[] {
+        if (!fs.existsSync(entryPath)) {
+            return [entryPath];
+        }
+        const stat = fs.statSync(entryPath);
+        if (stat.isDirectory()) {
+            try {
+                const files = fs.readdirSync(entryPath);
+                const jars = files.filter(f => f.toLowerCase().endsWith(".jar")).map(f => path.join(entryPath, f));
+                if (jars.length > 0) {
+                    return jars;
+                }
+            } catch (e) {
+                // Fallback to directory wildcard
+            }
+            return [path.join(entryPath, "*")];
+        }
+        return [entryPath];
+    }
+
+    /**
      * Build the classpath string including JDBC driver JAR, license JAR, and runner class directory
      */
     public buildClasspath(): string {
         const paths: string[] = [];
 
         if (this.session.jdbcJarPath) {
-            paths.push(this.session.jdbcJarPath);
+            paths.push(...this.resolveClasspathEntry(this.session.jdbcJarPath));
         }
 
         if (this.session.jdbcLicensePath) {
-            paths.push(this.session.jdbcLicensePath);
+            paths.push(...this.resolveClasspathEntry(this.session.jdbcLicensePath));
         }
 
         // Add runner directory (both lib/java and src/java locations)

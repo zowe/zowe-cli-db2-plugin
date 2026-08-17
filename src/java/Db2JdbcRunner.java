@@ -40,12 +40,13 @@ public class Db2JdbcRunner {
         String password = args[3];
 
         try {
-            // Register DB2 JDBC driver
+            // Register DB2 JDBC driver (com.ibm.db2.jcc.DB2Driver)
             try {
                 Class.forName("com.ibm.db2.jcc.DB2Driver");
             } catch (ClassNotFoundException e) {
-                // Fallback driver name if needed
-                Class.forName("com.ibm.db2.jdbc.app.DB2Driver");
+                System.err.println("JDBC Error: IBM Db2 JDBC Driver class 'com.ibm.db2.jcc.DB2Driver' not found in classpath.");
+                System.err.println("Please check that jdbcJarPath contains db2jcc4.jar or db2jcc.jar.");
+                System.exit(2);
             }
 
             try (Connection conn = DriverManager.getConnection(url, user, password)) {
