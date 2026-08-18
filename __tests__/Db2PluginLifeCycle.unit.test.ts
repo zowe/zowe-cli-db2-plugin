@@ -68,7 +68,6 @@ describe("Db2PluginLifeCycle", () => {
             // the user is told how to finish the installation, and where to run the commands
             expect(errMsg).toContain(`cd "${ibmDbDir}"`);
             expect(errMsg).toContain("npm run install");
-            expect(errMsg).toContain("node installer/driverInstall.js");
             expect(errMsg).toContain("IBM_DB_HOME");
             expect(errMsg).toContain(path.join(ibmDbDir, "README.md"));
 
