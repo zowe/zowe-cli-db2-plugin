@@ -6,6 +6,7 @@ Object {
     "**/cli/*/*.definition!(.d).*s",
   ],
   "name": "db2",
+  "pluginLifeCycle": "lib/Db2PluginLifeCycle.js",
   "productDisplayName": "IBM® Db2® Plug-in for Zowe CLI",
   "profiles": Array [
     Object {

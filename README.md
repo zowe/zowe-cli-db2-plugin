@@ -163,6 +163,35 @@ After the uninstallation process completes successfully, the product no longer c
 
 ## Troubleshooting
 
+### The `ibm_db` module is not installed
+
+**Error message**: The `zowe plugins install` command fails, and the `Error Details` of the failure contain the following text:
+```
+IBM® Db2® Plug-in for Zowe CLI was installed, but its required 'ibm_db' module could not be loaded.
+Db2 commands will fail until the installation of 'ibm_db' is completed.
+```
+
+The plug-in itself is installed and registered with Zowe CLI when this failure occurs. Only the `ibm_db` module is incomplete, so you do not need to reinstall the plug-in.
+
+**Cause**: The plug-in delivers `ibm_db` as a bundled dependency, so that the plug-in can be installed without access to a public npm registry. However, `ibm_db` is a native module. Its own npm install script must download the IBM Db2 ODBC CLI driver and build the binding for your platform. npm does not run the lifecycle scripts of a bundled dependency, so that install script does not run when the plug-in is installed. The `--allow-scripts` option of `zowe plugins install` does not change that behavior, because npm skips the scripts of bundled dependencies even when scripts are allowed.
+
+**Action**: Run the `ibm_db` install script yourself. The error message contains the full path to the `ibm_db` directory on your system, which is normally the following path:
+
+```
+<zowe home>/plugins/installed/node_modules/@zowe/db2-for-zowe-cli/node_modules/ibm_db
+```
+
+Change to that directory and run its install script:
+
+```bash
+cd "<zowe home>/plugins/installed/node_modules/@zowe/db2-for-zowe-cli/node_modules/ibm_db"
+npm run install
+```
+
+If npm is not available, run the same script directly with `node installer/driverInstall.js`. You must run the script from the `ibm_db` directory, because `ibm_db` installs the CLI driver relative to the current directory.
+
+The script downloads the CLI driver from `https://public.dhe.ibm.com`, so the system needs network access to that site. If the system already has a Db2 client, a Db2 server, or a copy of the CLI driver, set the `IBM_DB_HOME` environment variable to that directory before you run the script to skip the download. For more `ibm_db` installation options, see the `README.md` file in the `ibm_db` directory.
+
 ### Node.js version incompatible with plug-in
 
 **Error message**:
