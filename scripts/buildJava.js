@@ -29,8 +29,16 @@ if (fs.existsSync(srcFile)) {
 
 // Attempt to compile with javac if available
 try {
-    child_process.execSync(`javac -d "${libJavaDir}" "${destFile}"`, { stdio: "ignore" });
+    child_process.execFileSync("javac", ["-d", libJavaDir, destFile], { stdio: ["ignore", "ignore", "pipe"] });
     console.log("Db2JdbcRunner compiled successfully to lib/java.");
 } catch (err) {
-    console.log("javac not found or compilation skipped; Db2JdbcRunner.java source file copied for runtime execution.");
+    if (err.code === "ENOENT") {
+        // javac not on PATH — source file is in place for the Java 11+ single-file launcher
+        console.log("javac not found; Db2JdbcRunner.java source file copied for runtime execution.");
+    } else {
+        // Actual compilation failure — surface the error so the build doesn't silently break
+        const stderr = err.stderr ? err.stderr.toString().trim() : err.message;
+        console.error("Db2JdbcRunner compilation failed:\n" + stderr);
+        process.exit(1);
+    }
 }

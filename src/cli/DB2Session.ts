@@ -142,7 +142,8 @@ export class DB2Session {
     public static DB2_OPTION_JDBC_PROPERTIES: ICommandOptionDefinition = {
         name: "jdbcProperties",
         aliases: ["jdbc-props"],
-        description: "Additional JDBC connection properties (e.g. 'securityMechanism=13;clientProgramName=ZoweCLI;')",
+        description: "Additional JDBC connection properties (e.g. 'clientProgramName=ZoweCLI;'). " +
+            "Security-sensitive keys (user, password, sslConnection, securityMechanism) are not permitted.",
         type: "string",
         group: DB2Session.DB2_CONNECTION_OPTION_GROUP
     };

@@ -79,8 +79,21 @@ describe("ConnectionString", () => {
         });
 
         it("should build correct JDBC connection URL with SSL file", () => {
-            const jdbcUrl = ConnectionString.buildJdbcUrlFromSession(SECURE_SESSION);
-            expect(jdbcUrl).toBe(`jdbc:db2://${C.HOST_NAME}:${C.PORT}/${C.DATABASE_NAME}:sslConnection=true;sslTrustStoreLocation=${C.SSL_FILE};`);
+            // Use a real file that exists on every system for the path validation check
+            const sslFile = __filename; // the test file itself always exists
+            const session = { ...SIMPLE_SESSION, sslFile };
+            const jdbcUrl = ConnectionString.buildJdbcUrlFromSession(session);
+            expect(jdbcUrl).toBe(`jdbc:db2://${C.HOST_NAME}:${C.PORT}/${C.DATABASE_NAME}:sslConnection=true;sslTrustStoreLocation=${sslFile};`);
+        });
+
+        it("should throw when sslFile does not exist", () => {
+            const session = { ...SIMPLE_SESSION, sslFile: "/no/such/file.crt" };
+            expect(() => ConnectionString.buildJdbcUrlFromSession(session)).toThrow("sslFile must be an absolute path");
+        });
+
+        it("should throw when jdbcProperties contains a blocked key", () => {
+            expect(() => ConnectionString.buildJdbcUrl(C.HOST_NAME, C.PORT, C.DATABASE_NAME, undefined, "user=hacker"))
+                .toThrow("must not override security-sensitive key");
         });
     });
 });

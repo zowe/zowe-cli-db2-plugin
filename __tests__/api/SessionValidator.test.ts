@@ -160,7 +160,12 @@ describe("SessionValidator", () => {
 
         it("should accept valid driverType 'odbc' or 'jdbc'", () => {
             expect(() => SessionValidator.validate({ ...SESSION_GOOD, driverType: "odbc" })).not.toThrow();
-            expect(() => SessionValidator.validate({ ...SESSION_GOOD, driverType: "jdbc" })).not.toThrow();
+            expect(() => SessionValidator.validate({ ...SESSION_GOOD, driverType: "jdbc", jdbcJarPath: "/path/to/db2jcc4.jar" })).not.toThrow();
+        });
+
+        it("should throw when driverType is jdbc and jdbcJarPath is missing", () => {
+            expect(() => SessionValidator.validate({ ...SESSION_GOOD, driverType: "jdbc" }))
+                .toThrow("jdbcJarPath is required");
         });
 
         it("should throw error for invalid driverType", () => {

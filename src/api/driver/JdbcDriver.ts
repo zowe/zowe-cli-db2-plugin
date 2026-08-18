@@ -21,7 +21,9 @@ import { IDB2Session } from "../../rest/session/doc/IDB2Session";
 import { IDB2Driver } from "./IDB2Driver";
 
 /**
- * JDBC driver implementation executing queries via a Java runner subprocess
+ * JDBC driver implementation executing queries via a Java runner subprocess.
+ * Credentials are passed via stdin (never as process arguments) to prevent
+ * them from appearing in ps/proc listings.
  */
 export class JdbcDriver implements IDB2Driver {
     // eslint-disable-next-line @typescript-eslint/no-magic-numbers
@@ -58,7 +60,8 @@ export class JdbcDriver implements IDB2Driver {
     }
 
     /**
-     * Build the classpath string including JDBC driver JAR, license JAR, and runner class directory
+     * Build the classpath string including JDBC driver JAR, license JAR, and runner class directory.
+     * Only adds src/java as a fallback if the compiled class is absent from lib/java.
      */
     public buildClasspath(): string {
         const paths: string[] = [];
@@ -71,46 +74,58 @@ export class JdbcDriver implements IDB2Driver {
             paths.push(...this.resolveClasspathEntry(this.session.jdbcLicensePath));
         }
 
-        // Add runner directory (both lib/java and src/java locations)
+        // Prefer the compiled class in lib/java; only fall back to src/java if not compiled yet
         const runnerLibDir = path.resolve(__dirname, "../../java");
         const runnerSrcDir = path.resolve(__dirname, "../../../src/java");
-        if (fs.existsSync(runnerLibDir)) {
+        const javaClassFile = path.join(runnerLibDir, "Db2JdbcRunner.class");
+
+        if (fs.existsSync(javaClassFile)) {
             paths.push(runnerLibDir);
-        }
-        if (fs.existsSync(runnerSrcDir)) {
+        } else if (fs.existsSync(runnerSrcDir)) {
             paths.push(runnerSrcDir);
+        } else if (fs.existsSync(runnerLibDir)) {
+            paths.push(runnerLibDir);
         }
 
         return paths.join(path.delimiter);
     }
 
     /**
-     * Invoke the Java Db2JdbcRunner subprocess
+     * Invoke the Java Db2JdbcRunner subprocess.
+     * Credentials and action-specific args are written to the process stdin as a JSON line
+     * so they are never visible in ps/proc listings.
      */
-    public runJavaCommand(action: string, extraArgs: string[] = []): any {
+    private runJavaCommand(action: string, extraArgs: string[] = []): any {
         const javaExe = this.session.javaPath || "java";
         const classpath = this.buildClasspath();
 
-        const runnerDir = path.resolve(__dirname, "../../java");
-        const javaSourceFile = path.join(runnerDir, "Db2JdbcRunner.java");
-        const javaClassFile = path.join(runnerDir, "Db2JdbcRunner.class");
+        const runnerLibDir = path.resolve(__dirname, "../../java");
+        const javaSourceFile = path.join(runnerLibDir, "Db2JdbcRunner.java");
+        const javaClassFile = path.join(runnerLibDir, "Db2JdbcRunner.class");
 
         const args: string[] = ["-cp", classpath];
 
-        // If Java class file doesn't exist, try running single-file Java source (Java 11+)
+        // If compiled class is absent, use single-file Java source launcher (Java 11+)
         if (!fs.existsSync(javaClassFile) && fs.existsSync(javaSourceFile)) {
             args.push(javaSourceFile);
         } else {
             args.push("Db2JdbcRunner");
         }
 
-        args.push(action, this.jdbcUrl, this.session.user || "", this.session.password || "");
-        args.push(...extraArgs);
+        args.push(action, this.jdbcUrl);
+
+        // Build the stdin envelope — credentials and action args never touch the process arg list
+        const stdinPayload = JSON.stringify({
+            user:     this.session.user     || "",
+            password: this.session.password || "",
+            args:     extraArgs,
+        });
 
         try {
             const output = child_process.execFileSync(javaExe, args, {
                 encoding: "utf-8",
                 maxBuffer: JdbcDriver.MAX_BUFFER_SIZE,
+                input:     stdinPayload,
             });
             return JSON.parse(output.trim());
         } catch (err: any) {
@@ -145,11 +160,6 @@ export class JdbcDriver implements IDB2Driver {
             return response as IDB2Response;
         } catch (err) {
             DB2Error.process(err);
-            return {
-                success: false,
-                results: [],
-                failureResponse: err.message,
-            };
         }
     }
 

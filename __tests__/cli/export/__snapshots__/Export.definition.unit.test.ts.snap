@@ -117,7 +117,7 @@ Object {
           "aliases": Array [
             "jdbc-props",
           ],
-          "description": "Additional JDBC connection properties (e.g. 'securityMechanism=13;clientProgramName=ZoweCLI;')",
+          "description": "Additional JDBC connection properties (e.g. 'clientProgramName=ZoweCLI;'). Security-sensitive keys (user, password, sslConnection, securityMechanism) are not permitted.",
           "group": "DB2 Connection Options",
           "name": "jdbcProperties",
           "type": "string",

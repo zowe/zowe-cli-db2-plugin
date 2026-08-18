@@ -9,8 +9,16 @@
 *                                                                                 *
 */
 
+import * as fs from "fs";
+import * as path from "path";
 import { IDB2Session } from "../";
 import { DB2Constants } from "./DB2Constants";
+
+/**
+ * JDBC properties that must not be overridden by user-supplied jdbcProperties,
+ * as they are set explicitly by the plugin (credentials, SSL config).
+ */
+const BLOCKED_JDBC_KEYS = new Set(["user", "password", "ssltruststorelocation", "sslconnection", "securitymechanism"]);
 
 /**
  * DB2 server APIs
@@ -102,9 +110,11 @@ export class ConnectionString {
      * @param {string} hostname Host name
      * @param {number} port Port number
      * @param {string} database Database name
-     * @param {string} sslFile SSL certificate file path
+     * @param {string} sslFile SSL certificate file path — must be an absolute path to an existing file
      * @param {string | Record<string, string>} jdbcProperties Additional JDBC properties
      * @returns {string}
+     * @throws {Error} if sslFile is not an absolute path to an existing file, or if jdbcProperties
+     *   attempts to shadow a security-sensitive key (user, password, sslConnection, etc.)
      */
     public static buildJdbcUrl(
         hostname?: string,
@@ -120,17 +130,36 @@ export class ConnectionString {
         const props: string[] = [];
 
         if (sslFile) {
-            props.push(`sslConnection=true`, `sslTrustStoreLocation=${sslFile}`);
+            // Guard against path traversal — require an absolute path to an existing file
+            const resolved = path.resolve(sslFile);
+            if (!fs.existsSync(resolved) || !fs.statSync(resolved).isFile()) {
+                throw new Error(`sslFile must be an absolute path to an existing certificate file: ${sslFile}`);
+            }
+            props.push(`sslConnection=true`, `sslTrustStoreLocation=${resolved}`);
         }
 
         if (jdbcProperties) {
+            const pairs: Array<[string, string]> = [];
             if (typeof jdbcProperties === "string") {
-                const pairs = jdbcProperties.split(";").map(s => s.trim()).filter(Boolean);
-                props.push(...pairs);
-            } else if (typeof jdbcProperties === "object") {
-                for (const [k, v] of Object.entries(jdbcProperties)) {
-                    props.push(`${k}=${v}`);
+                for (const token of jdbcProperties.split(";").map(s => s.trim()).filter(Boolean)) {
+                    const eq = token.indexOf("=");
+                    if (eq === -1) { pairs.push([token, ""]); } else {
+                        pairs.push([token.substring(0, eq), token.substring(eq + 1)]);
+                    }
                 }
+            } else {
+                for (const [k, v] of Object.entries(jdbcProperties)) {
+                    pairs.push([k, v]);
+                }
+            }
+            for (const [k, v] of pairs) {
+                if (BLOCKED_JDBC_KEYS.has(k.toLowerCase())) {
+                    throw new Error(
+                        `jdbcProperties must not override security-sensitive key '${k}'. ` +
+                        `Remove it from jdbcProperties; the plugin sets it directly.`
+                    );
+                }
+                props.push(`${k}=${v}`);
             }
         }
 

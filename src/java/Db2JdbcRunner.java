@@ -9,6 +9,8 @@
 *                                                                                 *
 */
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -24,23 +26,66 @@ import java.util.Map;
 
 /**
  * Command-line Java runner for executing Db2 JDBC queries, stored procedures, and metadata queries.
- * Outputs JSON results to stdout.
+ *
+ * Protocol: accepts two CLI args (action, url) and reads a single JSON line from stdin containing
+ * { "user": "...", "password": "...", "args": [...] }. Credentials are never passed as process
+ * arguments so they are not visible in ps/proc listings. Outputs JSON results to stdout.
+ *
+ * The "args" array contains action-specific string arguments:
+ *   execute  : args[0] = SQL, args[1] (optional) = JSON array of parameters
+ *   call     : args[0] = routineName, args[1] (optional) = JSON array of parameters
+ *   getcolumns: args[0] = schema, args[1] = table
  */
 public class Db2JdbcRunner {
 
     public static void main(String[] args) {
-        if (args.length < 4) {
-            System.err.println("Usage: java Db2JdbcRunner <action> <url> <user> <password> [args...]");
+        if (args.length < 2) {
+            System.err.println("Usage: java Db2JdbcRunner <action> <url>");
+            System.err.println("Credentials and action args are read as JSON from stdin.");
             System.exit(1);
         }
 
         String action = args[0];
-        String url = args[1];
-        String user = args[2];
-        String password = args[3];
+        String url    = args[1];
+
+        // Read the single JSON credential+args line from stdin
+        String stdinLine;
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));
+            stdinLine = reader.readLine();
+        } catch (Exception e) {
+            System.err.println("JDBC Error: failed to read stdin: " + e.getMessage());
+            System.exit(1);
+            return;
+        }
+
+        if (stdinLine == null || stdinLine.trim().isEmpty()) {
+            System.err.println("JDBC Error: no credential JSON received on stdin");
+            System.exit(1);
+            return;
+        }
+
+        // Parse the credential envelope: {"user":"...","password":"...","args":[...]}
+        String user, password;
+        List<String> actionArgs;
+        try {
+            Map<String, Object> envelope = parseJsonObject(stdinLine.trim());
+            user     = (String) envelope.getOrDefault("user", "");
+            password = (String) envelope.getOrDefault("password", "");
+            Object rawArgs = envelope.get("args");
+            actionArgs = new ArrayList<>();
+            if (rawArgs instanceof List) {
+                for (Object a : (List<?>) rawArgs) {
+                    actionArgs.add(a == null ? "" : a.toString());
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("JDBC Error: failed to parse stdin JSON: " + e.getMessage());
+            System.exit(1);
+            return;
+        }
 
         try {
-            // Register DB2 JDBC driver (com.ibm.db2.jcc.DB2Driver)
             try {
                 Class.forName("com.ibm.db2.jcc.DB2Driver");
             } catch (ClassNotFoundException e) {
@@ -52,26 +97,26 @@ public class Db2JdbcRunner {
             try (Connection conn = DriverManager.getConnection(url, user, password)) {
                 switch (action.toLowerCase()) {
                     case "execute":
-                        if (args.length < 5) {
+                        if (actionArgs.isEmpty()) {
                             throw new IllegalArgumentException("SQL query required for execute action");
                         }
-                        executeSql(conn, args[4]);
+                        executeSql(conn, actionArgs.get(0));
                         break;
 
                     case "call":
-                        if (args.length < 5) {
+                        if (actionArgs.isEmpty()) {
                             throw new IllegalArgumentException("Routine name required for call action");
                         }
-                        String routineName = args[4];
-                        String paramsJson = args.length > 5 ? args[5] : "[]";
+                        String routineName = actionArgs.get(0);
+                        String paramsJson  = actionArgs.size() > 1 ? actionArgs.get(1) : "[]";
                         callProcedure(conn, routineName, paramsJson);
                         break;
 
                     case "getcolumns":
-                        if (args.length < 6) {
+                        if (actionArgs.size() < 2) {
                             throw new IllegalArgumentException("Schema and Table required for getColumns action");
                         }
-                        getColumns(conn, args[4], args[5]);
+                        getColumns(conn, actionArgs.get(0), actionArgs.get(1));
                         break;
 
                     default:
@@ -84,6 +129,8 @@ public class Db2JdbcRunner {
             System.exit(2);
         }
     }
+
+    // ─── SQL execution ───────────────────────────────────────────────────────────
 
     private static void executeSql(Connection conn, String sql) throws Exception {
         List<List<Map<String, Object>>> allResults = new ArrayList<>();
@@ -105,8 +152,7 @@ public class Db2JdbcRunner {
     }
 
     private static void callProcedure(Connection conn, String routineName, String paramsJson) throws Exception {
-        // Simple call procedure runner
-        List<Object> paramList = parseSimpleJsonArray(paramsJson);
+        List<Object> paramList = parseJsonArray(paramsJson);
         StringBuilder callSql = new StringBuilder("CALL ").append(routineName);
         if (!paramList.isEmpty()) {
             callSql.append("(");
@@ -120,12 +166,10 @@ public class Db2JdbcRunner {
         List<Object> results = new ArrayList<>();
 
         try (CallableStatement cstmt = conn.prepareCall(callSql.toString())) {
-            int outCount = 0;
             for (int i = 0; i < paramList.size(); i++) {
                 Object p = paramList.get(i);
                 int paramType = 1; // Default INPUT
                 Object data = p;
-
                 if (p instanceof Map) {
                     Map<?, ?> pMap = (Map<?, ?>) p;
                     if (pMap.containsKey("ParamType")) {
@@ -133,23 +177,20 @@ public class Db2JdbcRunner {
                     }
                     data = pMap.get("Data");
                 }
-
                 int paramIndex = i + 1;
-                if (paramType == 1) { // INPUT
+                if (paramType == 1) {         // INPUT
                     cstmt.setObject(paramIndex, data);
-                } else if (paramType == 2) { // OUTPUT
+                } else if (paramType == 2) {  // OUTPUT
                     cstmt.registerOutParameter(paramIndex, Types.VARCHAR);
-                    outCount++;
-                } else if (paramType == 3) { // INOUT
+                } else if (paramType == 3) {  // INOUT
                     cstmt.setObject(paramIndex, data);
                     cstmt.registerOutParameter(paramIndex, Types.VARCHAR);
-                    outCount++;
                 }
             }
 
             boolean isResultSet = cstmt.execute();
 
-            // Collect OUT parameters
+            // Collect OUT/INOUT parameters
             for (int i = 0; i < paramList.size(); i++) {
                 Object p = paramList.get(i);
                 int paramType = 1;
@@ -194,52 +235,38 @@ public class Db2JdbcRunner {
         try (ResultSet rs = meta.getColumns(null, schema, table, null)) {
             while (rs.next()) {
                 Map<String, Object> col = new HashMap<>();
-                col.put("TABLE_CAT", rs.getString("TABLE_CAT"));
-                col.put("TABLE_SCHEM", rs.getString("TABLE_SCHEM"));
-                col.put("TABLE_NAME", rs.getString("TABLE_NAME"));
-                col.put("COLUMN_NAME", rs.getString("COLUMN_NAME"));
-                col.put("DATA_TYPE", rs.getInt("DATA_TYPE"));
-                col.put("TYPE_NAME", rs.getString("TYPE_NAME"));
-                col.put("COLUMN_SIZE", rs.getInt("COLUMN_SIZE"));
-                col.put("BUFFER_LENGTH", rs.getInt("BUFFER_LENGTH"));
-                col.put("DECIMAL_DIGITS", rs.getInt("DECIMAL_DIGITS"));
-                col.put("NUM_PREC_RADIX", rs.getInt("NUM_PREC_RADIX"));
-                col.put("NULLABLE", rs.getInt("NULLABLE"));
-                col.put("REMARKS", rs.getString("REMARKS"));
-                col.put("COLUMN_DEF", rs.getString("COLUMN_DEF"));
-                col.put("SQL_DATA_TYPE", rs.getInt("SQL_DATA_TYPE"));
+                col.put("TABLE_CAT",        rs.getString("TABLE_CAT"));
+                col.put("TABLE_SCHEM",      rs.getString("TABLE_SCHEM"));
+                col.put("TABLE_NAME",       rs.getString("TABLE_NAME"));
+                col.put("COLUMN_NAME",      rs.getString("COLUMN_NAME"));
+                col.put("DATA_TYPE",        rs.getInt("DATA_TYPE"));
+                col.put("TYPE_NAME",        rs.getString("TYPE_NAME"));
+                col.put("COLUMN_SIZE",      rs.getInt("COLUMN_SIZE"));
+                col.put("BUFFER_LENGTH",    rs.getInt("BUFFER_LENGTH"));
+                col.put("DECIMAL_DIGITS",   rs.getInt("DECIMAL_DIGITS"));
+                col.put("NUM_PREC_RADIX",   rs.getInt("NUM_PREC_RADIX"));
+                col.put("NULLABLE",         rs.getInt("NULLABLE"));
+                col.put("REMARKS",          rs.getString("REMARKS"));
+                col.put("COLUMN_DEF",       rs.getString("COLUMN_DEF"));
+                col.put("SQL_DATA_TYPE",    rs.getInt("SQL_DATA_TYPE"));
                 col.put("SQL_DATETIME_SUB", rs.getInt("SQL_DATETIME_SUB"));
-                col.put("CHAR_OCTET_LENGTH", rs.getInt("CHAR_OCTET_LENGTH"));
+                col.put("CHAR_OCTET_LENGTH",rs.getInt("CHAR_OCTET_LENGTH"));
                 col.put("ORDINAL_POSITION", rs.getInt("ORDINAL_POSITION"));
-                col.put("IS_NULLABLE", rs.getString("IS_NULLABLE"));
+                col.put("IS_NULLABLE",      rs.getString("IS_NULLABLE"));
                 columns.add(col);
             }
         }
         System.out.println(toJson(columns));
     }
 
-    private static List<Map<String, Object>> resultSetToListOfMaps(ResultSet rs) throws Exception {
-        List<Map<String, Object>> list = new ArrayList<>();
-        ResultSetMetaData meta = rs.getMetaData();
-        int colCount = meta.getColumnCount();
-        while (rs.next()) {
-            Map<String, Object> row = new HashMap<>();
-            for (int i = 1; i <= colCount; i++) {
-                String colName = meta.getColumnLabel(i);
-                Object val = rs.getObject(i);
-                row.put(colName, val);
-            }
-            list.add(row);
-        }
-        return list;
-    }
+    // ─── JSON serialisation ───────────────────────────────────────────────────────
 
     private static String toJson(Object obj) {
         if (obj == null) return "null";
         if (obj instanceof String) {
             return "\"" + escapeJson((String) obj) + "\"";
         }
-        if (obj instanceof Number || obj instanceof Boolean) {
+        if (obj instanceof Boolean || obj instanceof Number) {
             return obj.toString();
         }
         if (obj instanceof List) {
@@ -270,40 +297,169 @@ public class Db2JdbcRunner {
 
     private static String escapeJson(String s) {
         if (s == null) return "";
-        return s.replace("\\", "\\\\")
-                .replace("\"", "\\\"")
-                .replace("\b", "\\b")
-                .replace("\f", "\\f")
-                .replace("\n", "\\n")
-                .replace("\r", "\\r")
-                .replace("\t", "\\t");
+        StringBuilder sb = new StringBuilder(s.length() + 8);
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            switch (c) {
+                case '\\': sb.append("\\\\"); break;
+                case '"':  sb.append("\\\""); break;
+                case '\b': sb.append("\\b");  break;
+                case '\f': sb.append("\\f");  break;
+                case '\n': sb.append("\\n");  break;
+                case '\r': sb.append("\\r");  break;
+                case '\t': sb.append("\\t");  break;
+                default:
+                    if (c < 0x20) {
+                        sb.append(String.format("\\u%04x", (int) c));
+                    } else {
+                        sb.append(c);
+                    }
+            }
+        }
+        return sb.toString();
     }
 
-    private static List<Object> parseSimpleJsonArray(String json) {
-        List<Object> list = new ArrayList<>();
-        if (json == null || json.trim().isEmpty() || json.equals("[]")) {
-            return list;
+    // ─── JSON parsing (minimal but correct for our schema) ────────────────────────
+    //
+    // Parses a JSON object at the top level (credential envelope) and a JSON array
+    // (parameter list). Handles strings, numbers, booleans, null, nested objects and
+    // arrays. Handles Unicode escape sequences in string values. Sufficient for the
+    // structured payloads produced by JSON.stringify on the Node.js side.
+
+    /** Parse a JSON array string and return a List of Java objects. */
+    static List<Object> parseJsonArray(String json) throws Exception {
+        if (json == null) json = "";
+        String s = json.trim();
+        if (s.isEmpty() || s.equals("[]")) return new ArrayList<>();
+        if (!s.startsWith("[")) throw new Exception("Expected JSON array, got: " + s.substring(0, Math.min(20, s.length())));
+        int[] pos = {0};
+        return (List<Object>) parseValue(s, pos);
+    }
+
+    /** Parse a JSON object string and return a Map of String -> Object. */
+    @SuppressWarnings("unchecked")
+    static Map<String, Object> parseJsonObject(String json) throws Exception {
+        if (json == null) json = "{}";
+        String s = json.trim();
+        if (!s.startsWith("{")) throw new Exception("Expected JSON object, got: " + s.substring(0, Math.min(20, s.length())));
+        int[] pos = {0};
+        return (Map<String, Object>) parseValue(s, pos);
+    }
+
+    private static Object parseValue(String s, int[] pos) throws Exception {
+        skipWhitespace(s, pos);
+        if (pos[0] >= s.length()) throw new Exception("Unexpected end of JSON");
+        char c = s.charAt(pos[0]);
+        if (c == '"')  return parseString(s, pos);
+        if (c == '{')  return parseObject(s, pos);
+        if (c == '[')  return parseArray(s, pos);
+        if (c == 't')  { pos[0] += 4; return Boolean.TRUE; }
+        if (c == 'f')  { pos[0] += 5; return Boolean.FALSE; }
+        if (c == 'n')  { pos[0] += 4; return null; }
+        if (c == '-' || Character.isDigit(c)) return parseNumber(s, pos);
+        throw new Exception("Unexpected character '" + c + "' at position " + pos[0]);
+    }
+
+    private static Map<String, Object> parseObject(String s, int[] pos) throws Exception {
+        Map<String, Object> map = new HashMap<>();
+        pos[0]++; // skip '{'
+        skipWhitespace(s, pos);
+        if (pos[0] < s.length() && s.charAt(pos[0]) == '}') { pos[0]++; return map; }
+        while (pos[0] < s.length()) {
+            skipWhitespace(s, pos);
+            String key = parseString(s, pos);
+            skipWhitespace(s, pos);
+            if (pos[0] >= s.length() || s.charAt(pos[0]) != ':') throw new Exception("Expected ':' in object");
+            pos[0]++;
+            Object val = parseValue(s, pos);
+            map.put(key, val);
+            skipWhitespace(s, pos);
+            if (pos[0] >= s.length()) break;
+            char next = s.charAt(pos[0]);
+            if (next == '}') { pos[0]++; break; }
+            if (next == ',') { pos[0]++; } else { throw new Exception("Expected ',' or '}' in object"); }
         }
-        String trimmed = json.trim();
-        if (trimmed.startsWith("[") && trimmed.endsWith("]")) {
-            trimmed = trimmed.substring(1, trimmed.length() - 1).trim();
-            if (!trimmed.isEmpty()) {
-                String[] parts = trimmed.split(",");
-                for (String part : parts) {
-                    part = part.trim();
-                    if (part.startsWith("\"") && part.endsWith("\"")) {
-                        list.add(part.substring(1, part.length() - 1));
-                    } else if ("true".equalsIgnoreCase(part) || "false".equalsIgnoreCase(part)) {
-                        list.add(Boolean.parseBoolean(part));
-                    } else {
-                        try {
-                            list.add(Integer.parseInt(part));
-                        } catch (NumberFormatException e) {
-                            list.add(part);
-                        }
-                    }
+        return map;
+    }
+
+    private static List<Object> parseArray(String s, int[] pos) throws Exception {
+        List<Object> list = new ArrayList<>();
+        pos[0]++; // skip '['
+        skipWhitespace(s, pos);
+        if (pos[0] < s.length() && s.charAt(pos[0]) == ']') { pos[0]++; return list; }
+        while (pos[0] < s.length()) {
+            list.add(parseValue(s, pos));
+            skipWhitespace(s, pos);
+            if (pos[0] >= s.length()) break;
+            char next = s.charAt(pos[0]);
+            if (next == ']') { pos[0]++; break; }
+            if (next == ',') { pos[0]++; } else { throw new Exception("Expected ',' or ']' in array"); }
+        }
+        return list;
+    }
+
+    private static String parseString(String s, int[] pos) throws Exception {
+        if (s.charAt(pos[0]) != '"') throw new Exception("Expected '\"' at position " + pos[0]);
+        pos[0]++;
+        StringBuilder sb = new StringBuilder();
+        while (pos[0] < s.length()) {
+            char c = s.charAt(pos[0]++);
+            if (c == '"') return sb.toString();
+            if (c == '\\') {
+                if (pos[0] >= s.length()) throw new Exception("Unexpected end of string escape");
+                char esc = s.charAt(pos[0]++);
+                switch (esc) {
+                    case '"': sb.append('"'); break;
+                    case '\\': sb.append('\\'); break;
+                    case '/': sb.append('/'); break;
+                    case 'b': sb.append('\b'); break;
+                    case 'f': sb.append('\f'); break;
+                    case 'n': sb.append('\n'); break;
+                    case 'r': sb.append('\r'); break;
+                    case 't': sb.append('\t'); break;
+                    case 'u':
+                        String hex = s.substring(pos[0], Math.min(pos[0] + 4, s.length()));
+                        sb.append((char) Integer.parseInt(hex, 16));
+                        pos[0] += 4;
+                        break;
+                    default: sb.append(esc);
                 }
+            } else {
+                sb.append(c);
             }
+        }
+        throw new Exception("Unterminated string");
+    }
+
+    private static Number parseNumber(String s, int[] pos) {
+        int start = pos[0];
+        if (s.charAt(pos[0]) == '-') pos[0]++;
+        while (pos[0] < s.length() && (Character.isDigit(s.charAt(pos[0])) || s.charAt(pos[0]) == '.' || s.charAt(pos[0]) == 'e' || s.charAt(pos[0]) == 'E' || s.charAt(pos[0]) == '+' || s.charAt(pos[0]) == '-')) {
+            pos[0]++;
+        }
+        String num = s.substring(start, pos[0]);
+        if (num.contains(".") || num.contains("e") || num.contains("E")) {
+            return Double.parseDouble(num);
+        }
+        return Long.parseLong(num);
+    }
+
+    private static void skipWhitespace(String s, int[] pos) {
+        while (pos[0] < s.length() && Character.isWhitespace(s.charAt(pos[0]))) pos[0]++;
+    }
+
+    private static List<Map<String, Object>> resultSetToListOfMaps(ResultSet rs) throws Exception {
+        List<Map<String, Object>> list = new ArrayList<>();
+        ResultSetMetaData meta = rs.getMetaData();
+        int colCount = meta.getColumnCount();
+        while (rs.next()) {
+            Map<String, Object> row = new HashMap<>();
+            for (int i = 1; i <= colCount; i++) {
+                String colName = meta.getColumnLabel(i);
+                Object val = rs.getObject(i);
+                row.put(colName, val);
+            }
+            list.add(row);
         }
         return list;
     }

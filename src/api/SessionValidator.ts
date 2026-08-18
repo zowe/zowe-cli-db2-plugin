@@ -41,6 +41,12 @@ export class SessionValidator {
                     msg: `Invalid driverType '${params.driverType}'. Supported values are 'odbc' or 'jdbc'.`
                 });
             }
+            if (driverLower === "jdbc" && !params.jdbcJarPath) {
+                throw new ImperativeError({
+                    msg: `jdbcJarPath is required when driverType is 'jdbc'. ` +
+                         `Specify the path to db2jcc4.jar using --jdbc-jar or in your Zowe profile.`
+                });
+            }
         }
     }
 }

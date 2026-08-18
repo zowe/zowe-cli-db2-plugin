@@ -41,11 +41,6 @@ export abstract class ExportTable {
     protected mMetadata: IDB2Column[] | null;
 
     /**
-     * The session object
-     */
-    protected readonly mSession: IDB2Session;
-
-    /**
      * Driver instance
      */
     private readonly mDriver: IDB2Driver;
@@ -60,7 +55,6 @@ export abstract class ExportTable {
         SessionValidator.validate(session);
         ImperativeExpect.toBeDefinedAndNonBlank(databaseName, noDatabaseName.message);
         ImperativeExpect.toBeDefinedAndNonBlank(tableName, noTableName.message);
-        this.mSession = session;
         this.mDatabase = databaseName;
         this.mTable = tableName;
         this.mDriver = DB2DriverFactory.getDriver(session);

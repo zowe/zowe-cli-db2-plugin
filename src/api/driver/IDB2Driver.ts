@@ -25,7 +25,7 @@ export interface IDB2Driver {
     /**
      * Call a stored procedure and return procedure response
      */
-    callSP(routineName: string, parameters?: IDB2Parameter[]): Promise<IDB2Response> | IDB2Response;
+    callSP(routineName: string, parameters?: IDB2Parameter[]): IDB2Response;
 
     /**
      * Get column metadata for a database table
