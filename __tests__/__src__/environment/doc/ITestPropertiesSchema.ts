@@ -48,5 +48,30 @@ export interface ITestPropertiesSchema {
          * Path to an SSL Certificate file
          */
         sslFile?: string,
+
+        /**
+         * Driver type: "odbc" or "jdbc"
+         */
+        driverType?: string,
+
+        /**
+         * Path to the Db2 JDBC driver JAR (e.g. db2jcc4.jar)
+         */
+        jdbcJarPath?: string,
+
+        /**
+         * Path to the Db2 JDBC license JAR (e.g. db2jcc_license_cisuz.jar)
+         */
+        jdbcLicensePath?: string,
+
+        /**
+         * Path to java executable (defaults to "java")
+         */
+        javaPath?: string,
+
+        /**
+         * Additional JDBC connection properties string
+         */
+        jdbcProperties?: string,
     };
 }

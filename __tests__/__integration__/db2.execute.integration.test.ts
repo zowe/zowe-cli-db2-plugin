@@ -11,19 +11,33 @@
 
 import * as fs from "fs";
 import * as path from "path";
-import { runCliScript } from "@zowe/cli-test-utils";
+import { ITestEnvironment, TestEnvironment, runCliScript } from "@zowe/cli-test-utils";
+import { IIntegrationTestProperties } from "./doc/IIntegrationTestProperties";
 
-// Integration tests require zowe.config.json at the project root (gitignored).
-// The entire suite is skipped when the file is absent so CI is unaffected.
-const CONFIG_PATH = path.resolve(__dirname, "../../zowe.config.json");
+// Skip the entire suite if custom_properties.yaml is absent (no live Db2 configured)
+const PROPS_PATH = path.resolve(__dirname, "../__resources__/properties/custom_properties.yaml");
+const describeOrSkip = fs.existsSync(PROPS_PATH) ? describe : describe.skip;
+
 const SCRIPTS = path.resolve(__dirname, "__scripts__");
 
-const describeOrSkip = fs.existsSync(CONFIG_PATH) ? describe : describe.skip;
+let TEST_ENV: ITestEnvironment<IIntegrationTestProperties>;
 
 describeOrSkip("db2 execute sql — integration (live Db2)", () => {
 
+    beforeAll(async () => {
+        TEST_ENV = await TestEnvironment.setUp({
+            installPlugin: true,
+            tempProfileTypes: ["db2"],
+            testName: "integration_execute",
+        });
+    });
+
+    afterAll(async () => {
+        await TestEnvironment.cleanUp(TEST_ENV);
+    });
+
     it("smoke test: SELECT 1 FROM SYSIBM.SYSDUMMY1", () => {
-        const response = runCliScript(path.join(SCRIPTS, "execute_smoke.sh"), process.cwd() as any);
+        const response = runCliScript(path.join(SCRIPTS, "execute_smoke.sh"), TEST_ENV);
         expect(response.status).toBe(0);
         expect(response.stderr.toString()).toBe("");
         const data = JSON.parse(response.stdout.toString());
@@ -32,7 +46,7 @@ describeOrSkip("db2 execute sql — integration (live Db2)", () => {
     });
 
     it("row count: SELECT COUNT(*) FROM SYSIBM.SYSTABLES", () => {
-        const response = runCliScript(path.join(SCRIPTS, "execute_rowcount.sh"), process.cwd() as any);
+        const response = runCliScript(path.join(SCRIPTS, "execute_rowcount.sh"), TEST_ENV);
         expect(response.status).toBe(0);
         expect(response.stderr.toString()).toBe("");
         const data = JSON.parse(response.stdout.toString());
@@ -40,7 +54,7 @@ describeOrSkip("db2 execute sql — integration (live Db2)", () => {
     });
 
     it("no rows: SELECT with guaranteed empty result", () => {
-        const response = runCliScript(path.join(SCRIPTS, "execute_norows.sh"), process.cwd() as any);
+        const response = runCliScript(path.join(SCRIPTS, "execute_norows.sh"), TEST_ENV);
         expect(response.status).toBe(0);
         expect(response.stderr.toString()).toBe("");
         const data = JSON.parse(response.stdout.toString());
@@ -49,7 +63,7 @@ describeOrSkip("db2 execute sql — integration (live Db2)", () => {
     });
 
     it("string types: VALUES with CHAR and VARCHAR casts", () => {
-        const response = runCliScript(path.join(SCRIPTS, "execute_strings.sh"), process.cwd() as any);
+        const response = runCliScript(path.join(SCRIPTS, "execute_strings.sh"), TEST_ENV);
         expect(response.status).toBe(0);
         expect(response.stderr.toString()).toBe("");
         const data = JSON.parse(response.stdout.toString());
@@ -60,7 +74,7 @@ describeOrSkip("db2 execute sql — integration (live Db2)", () => {
     });
 
     it("numeric types: VALUES with SMALLINT, INTEGER, BIGINT, DECIMAL, REAL, DOUBLE", () => {
-        const response = runCliScript(path.join(SCRIPTS, "execute_numerics.sh"), process.cwd() as any);
+        const response = runCliScript(path.join(SCRIPTS, "execute_numerics.sh"), TEST_ENV);
         expect(response.status).toBe(0);
         expect(response.stderr.toString()).toBe("");
         const data = JSON.parse(response.stdout.toString());
@@ -72,7 +86,7 @@ describeOrSkip("db2 execute sql — integration (live Db2)", () => {
     });
 
     it("date/time types: VALUES with CURRENT DATE, TIME, TIMESTAMP", () => {
-        const response = runCliScript(path.join(SCRIPTS, "execute_datetime.sh"), process.cwd() as any);
+        const response = runCliScript(path.join(SCRIPTS, "execute_datetime.sh"), TEST_ENV);
         expect(response.status).toBe(0);
         expect(response.stderr.toString()).toBe("");
         const data = JSON.parse(response.stdout.toString());
@@ -83,7 +97,7 @@ describeOrSkip("db2 execute sql — integration (live Db2)", () => {
     });
 
     it("error: bad SQL returns non-zero exit", () => {
-        const response = runCliScript(path.join(SCRIPTS, "execute_badsql.sh"), process.cwd() as any);
+        const response = runCliScript(path.join(SCRIPTS, "execute_badsql.sh"), TEST_ENV);
         expect(response.status).not.toBe(0);
         expect(response.stderr.toString()).toMatch(/SQLCODE|error/i);
     });

@@ -1,15 +1,21 @@
 ###############################################################################
-# Example properties file for the CA Brightside Db2 plug-in                   #
+# Example properties file for the Zowe CLI Db2 plug-in                       #
 # Copy this to custom_properties.yaml in the same directory                   #
-# and modify to fill in your customized connection and test details           #
-#-----------------------------------------------------------------------------#
-#  Find and replace the following:                                            #
-#                                                                             #
-#  my-user-name     - This is your TSO user ID                                #
-#  my-password      - This is your TSO password                               #
-#  my-db2-host      - This is the hostname for the DB2 for z/OS server        #
-#  my-db2-port      - This is the port for the DB2 for z/OS server            #
-#  my-database-name - This is the name of the database                        #
+# and modify to fill in your connection details.                               #
+#                                                                              #
+# These properties are used by both system tests (__tests__/__system__/)      #
+# and integration tests (__tests__/__integration__/).                          #
+#                                                                              #
+# Required for all tests:                                                      #
+#   my-db2-host      - hostname for the Db2 for z/OS server                   #
+#   my-db2-port      - port for the Db2 for z/OS server                       #
+#   my-database-name - Db2 database/subsystem name                            #
+#   my-user-name     - TSO user ID                                             #
+#   my-password      - TSO password                                            #
+#                                                                              #
+# Required for JDBC integration tests (driverType: jdbc):                     #
+#   /path/to/db2jcc4.jar           - Db2 JDBC driver JAR                      #
+#   /path/to/db2jcc_license_cisuz.jar - Db2 JDBC license JAR                  #
 ###############################################################################
 
 db2:
@@ -18,3 +24,16 @@ db2:
     database: my-database-name
     user:     my-user-name
     password: my-password
+
+    # --- JDBC driver settings (required for integration tests) ---
+    # Remove or set to "odbc" to use the ODBC driver instead (requires IBM Data Server Driver)
+    driverType: jdbc
+    jdbcJarPath: /path/to/db2jcc4.jar
+    jdbcLicensePath: /path/to/db2jcc_license_cisuz.jar
+    # Path to java executable — defaults to "java" if omitted
+    javaPath: java
+    # Optional additional JDBC connection properties
+    # jdbcProperties: "securityMechanism=13;clientProgramName=ZoweCLI;"
+
+    # --- SSL (optional) ---
+    # sslFile: /path/to/server.crt
