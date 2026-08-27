@@ -104,11 +104,15 @@ The Java single-file source launcher emitted an unchecked cast warning to stderr
 
 ## Nice-to-Have (can follow in a subsequent PR)
 
-### H6 — No system tests for JDBC pathway
+### H6 — Integration tests for JDBC pathway (partially addressed)
 
-All system tests in [`__tests__/__system__`](../__tests__/__system__) are ODBC-only. End-to-end correctness of `execute sql`, `export table`, and `call procedure` via JDBC against a real Db2 instance has not been formally verified by CI.
+Live JDBC integration tests now exist under [`__tests__/__integration__/`](../__tests__/__integration__/) and run via `npm run test:integration`. They are skipped automatically when `__tests__/__resources__/properties/custom_properties.yaml` is absent, so CI is unaffected.
 
-**Proposal:** Add `DRIVER_TYPE=jdbc` variants for `execute sql` and `call` in the system test suite, gated by a `JDBC_JAR_PATH` env var so they are skipped when no JAR is present.
+**Status:**
+- ✅ `db2.execute.integration.test.ts` — 7 tests passing against live Db2 z/OS (smoke, row count, no-rows, strings, numerics, date/time, error)
+- ❌ `db2.call.integration.test.ts` — `CREATE PROCEDURE` for `TYPESMAP` fails with `SQLCODE=-20071` (WLM environment required on this subsystem); tests are written but blocked pending either DBA pre-creation of the proc or a subsystem with `CREATE PROCEDURE` permission
+
+**Note:** ODBC path cannot be live-tested without the IBM Data Server Driver license. All integration tests use JDBC via the profile's `driverType: jdbc`.
 
 ---
 
@@ -147,4 +151,5 @@ Before squashing and opening the PR against `master`:
 - [ ] `npm run build` passes (TypeScript + `javac` or graceful fallback)
 - [ ] `npm run test:unit` passes with no new failures
 - [ ] `npm run lint` clean
+- [ ] `npm run test:integration` passes (requires `custom_properties.yaml` with JDBC config)
 - [ ] This file is **deleted** from the branch
