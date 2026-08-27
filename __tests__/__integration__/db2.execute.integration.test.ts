@@ -41,8 +41,8 @@ describeOrSkip("db2 execute sql — integration (live Db2)", () => {
         expect(response.status).toBe(0);
         expect(response.stderr.toString()).toBe("");
         const data = JSON.parse(response.stdout.toString());
-        expect(Array.isArray(data)).toBe(true);
-        expect(data.length).toBeGreaterThan(0);
+        const rows = Array.isArray(data[0]) ? data[0] : data;
+        expect(rows.length).toBeGreaterThan(0);
     });
 
     it("row count: SELECT COUNT(*) FROM SYSIBM.SYSTABLES", () => {
@@ -50,7 +50,8 @@ describeOrSkip("db2 execute sql — integration (live Db2)", () => {
         expect(response.status).toBe(0);
         expect(response.stderr.toString()).toBe("");
         const data = JSON.parse(response.stdout.toString());
-        expect(data[0]).toBeDefined();
+        const rows = Array.isArray(data[0]) ? data[0] : data;
+        expect(rows[0]).toBeDefined();
     });
 
     it("no rows: SELECT with guaranteed empty result", () => {
@@ -58,8 +59,9 @@ describeOrSkip("db2 execute sql — integration (live Db2)", () => {
         expect(response.status).toBe(0);
         expect(response.stderr.toString()).toBe("");
         const data = JSON.parse(response.stdout.toString());
-        expect(Array.isArray(data)).toBe(true);
-        expect(data.length).toBe(0);
+        // JDBC returns [[]] — outer array is result sets, inner is rows
+        const rows = Array.isArray(data[0]) ? data[0] : data;
+        expect(rows.length).toBe(0);
     });
 
     it("string types: VALUES with CHAR and VARCHAR casts", () => {
@@ -67,8 +69,8 @@ describeOrSkip("db2 execute sql — integration (live Db2)", () => {
         expect(response.status).toBe(0);
         expect(response.stderr.toString()).toBe("");
         const data = JSON.parse(response.stdout.toString());
-        expect(data[0]).toBeDefined();
-        const row = data[0];
+        const row = Array.isArray(data[0]) ? data[0][0] : data[0];
+        expect(row).toBeDefined();
         expect(row.C.trim()).toBe("hello");
         expect(row.V).toBe("world");
     });
@@ -78,7 +80,7 @@ describeOrSkip("db2 execute sql — integration (live Db2)", () => {
         expect(response.status).toBe(0);
         expect(response.stderr.toString()).toBe("");
         const data = JSON.parse(response.stdout.toString());
-        const row = data[0];
+        const row = Array.isArray(data[0]) ? data[0][0] : data[0];
         expect(Number(row.SI)).toBe(1);
         expect(Number(row.I)).toBe(42);
         expect(Number(row.BI)).toBe(9999999999);
@@ -90,7 +92,7 @@ describeOrSkip("db2 execute sql — integration (live Db2)", () => {
         expect(response.status).toBe(0);
         expect(response.stderr.toString()).toBe("");
         const data = JSON.parse(response.stdout.toString());
-        const row = data[0];
+        const row = Array.isArray(data[0]) ? data[0][0] : data[0];
         expect(row.D).toBeTruthy();
         expect(row.T).toBeTruthy();
         expect(row.TS).toBeTruthy();
