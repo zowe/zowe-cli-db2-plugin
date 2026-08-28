@@ -17,7 +17,7 @@ const config: IImperativeConfig = {
     commandModuleGlobs: ["**/cli/*/*.definition!(.d).*s"],
     rootCommandDescription: Constants.DESCRIPTION,
     productDisplayName: Constants.DISPLAY_NAME,
-    pluginHealthCheck: "./lib/HealthCheck.handler",
+    pluginLifeCycle: "lib/Db2PluginLifeCycle.js",
     profiles: [
         {
             type: "db2",
