@@ -16,9 +16,9 @@ import Db2PluginLifeCycle = require("../src/Db2PluginLifeCycle");
 describe("Db2PluginLifeCycle", () => {
     const ibmDbDir = path.dirname(require.resolve("ibm_db/package.json"));
 
-    let loadSpy: jest.SpyInstance;
-    let logWarnSpy: jest.Mock;
-    let logDebugSpy: jest.Mock;
+    let loadSpy: jest.Mock<any>;
+    let logWarnSpy: jest.Mock<any>;
+    let logDebugSpy: jest.Mock<any>;
 
     beforeEach(() => {
         loadSpy = jest.spyOn(Db2PluginLifeCycle as any, "loadNativeModule").mockImplementation(() => undefined);
@@ -31,7 +31,7 @@ describe("Db2PluginLifeCycle", () => {
     });
 
     afterEach(() => {
-        jest.restoreAllMocks();
+        jest.resetAllMocks();
     });
 
     describe("postInstall", () => {
