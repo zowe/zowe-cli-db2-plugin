@@ -36,16 +36,6 @@ class Db2PluginLifeCycle extends AbstractPluginLifeCycle {
     public static readonly NATIVE_MODULE_NM: string = "ibm_db";
 
     /**
-     * A horizontal rule used to make the reported steps stand out among the
-     * other messages that are displayed while a plug-in is installed.
-     * @type {string}
-     * @static
-     * @memberof Db2PluginLifeCycle
-     */
-    private static readonly DIVIDER: string =
-        "____________________________________________________________________________________________________";
-
-    /**
      * Confirm that the bundled native module can be loaded after the plug-in
      * has been installed. When it cannot be loaded, report the steps that the
      * user must perform to finish the installation.
@@ -84,7 +74,7 @@ class Db2PluginLifeCycle extends AbstractPluginLifeCycle {
      *
      * @private
      * @static
-     * @throws When the native module has not been completely installed.
+     * @throws If the native module is missing or installation is incomplete.
      * @memberof Db2PluginLifeCycle
      */
     private static loadNativeModule(): void {
@@ -105,7 +95,7 @@ class Db2PluginLifeCycle extends AbstractPluginLifeCycle {
         const nativeMod = Db2PluginLifeCycle.NATIVE_MODULE_NM;
         const nativeModDir = Db2PluginLifeCycle.findNativeModuleDir();
 
-        return `\n${Db2PluginLifeCycle.DIVIDER}\n` +
+        return `\n${Db2PluginLifeCycle.dividerLine}\n` +
             `${Constants.DISPLAY_NAME} was installed, but its required '${nativeMod}' module could not be loaded.\n` +
             `Db2 commands will fail until the installation of '${nativeMod}' is completed.\n` +
             `\n` +
@@ -132,7 +122,7 @@ class Db2PluginLifeCycle extends AbstractPluginLifeCycle {
             `skip the download.\n` +
             `\n` +
             `See ${path.join(nativeModDir, "README.md")} for more '${nativeMod}' installation options.\n` +
-            `${Db2PluginLifeCycle.DIVIDER}\n`;
+            `${Db2PluginLifeCycle.dividerLine}\n`;
     }
 
     /**
@@ -155,6 +145,20 @@ class Db2PluginLifeCycle extends AbstractPluginLifeCycle {
             // fall back to the location that a bundled dependency normally occupies
             return path.resolve(__dirname, "..", "node_modules", nativeMod);
         }
+    }
+
+    /**
+     * A horizontal rule used to make the reported steps stand out among the
+     * other messages that are displayed while a plug-in is installed.
+     *
+     * @private
+     * @static
+     * @returns {string}
+     * @memberof Db2PluginLifeCycle
+     */
+    private static get dividerLine(): string {
+        const defaultWidth = 100;
+        return "_".repeat(Math.min(process.stdout?.columns || Infinity, defaultWidth));
     }
 }
 

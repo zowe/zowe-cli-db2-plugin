@@ -159,9 +159,9 @@ IBM® Db2® Plug-in for Zowe CLI was installed, but its required 'ibm_db' module
 Db2 commands will fail until the installation of 'ibm_db' is completed.
 ```
 
-The plug-in itself is installed and registered with Zowe CLI when this failure occurs. Only the `ibm_db` module is incomplete, so you do not need to reinstall the plug-in.
+The IBM Db2 Plug-in for Zowe CLI is installed and registered with Zowe CLI when this failure occurs. Only the `ibm_db` module is incomplete, so you do not need to reinstall the plug-in.
 
-**Cause**: The plug-in delivers `ibm_db` as a bundled dependency, so that the plug-in can be installed without access to a public npm registry. However, `ibm_db` is a native module. Its own npm install script must download the IBM Db2 ODBC CLI driver and build the binding for your platform. npm does not run the lifecycle scripts of a bundled dependency, so that install script does not run when the plug-in is installed. The `--allow-scripts` option of `zowe plugins install` does not change that behavior, because npm skips the scripts of bundled dependencies even when scripts are allowed.
+**Cause**: The plug-in delivers `ibm_db` as a bundled dependency, so that the plug-in can be installed without access to a public npm registry. However, `ibm_db` is a native module. Its own npm install script must download the IBM Db2 ODBC CLI driver and build the binding for your platform. npm does not run the lifecycle scripts of a bundled dependency, so that install script does not run when the plug-in is installed. The `--allow-scripts` option of the `zowe plugins install` command does not change that behavior, because npm skips the scripts of bundled dependencies even when scripts are allowed.
 
 **Action**: Run the `ibm_db` install script yourself. The error message contains the full path to the `ibm_db` directory on your system, which is normally the following path:
 
@@ -169,7 +169,7 @@ The plug-in itself is installed and registered with Zowe CLI when this failure o
 <zowe home>/plugins/installed/node_modules/@zowe/db2-for-zowe-cli/node_modules/ibm_db
 ```
 
-Change to that directory and run its install script:
+Change to that directory and run the `ibm_db` install script:
 
 ```bash
 cd "<zowe home>/plugins/installed/node_modules/@zowe/db2-for-zowe-cli/node_modules/ibm_db"
