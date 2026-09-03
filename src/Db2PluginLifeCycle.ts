@@ -53,7 +53,7 @@ class Db2PluginLifeCycle extends AbstractPluginLifeCycle {
                 `after the installation of ${Constants.DISPLAY_NAME}.`
             );
         } catch (err) {
-            const warningMsg = Db2PluginLifeCycle.formIncompleteInstallMsg(err?.message ?? err);
+            const warningMsg = Db2PluginLifeCycle.formIncompleteInstallMsg(err instanceof Error ? err.message : String(err));
             impLogger.warn(warningMsg);
             throw new ImperativeError({msg: warningMsg});
         }
