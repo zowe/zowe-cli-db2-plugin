@@ -25,19 +25,21 @@ Before you install and use the plug-in:
 
 -   [Install Zowe CLI](https://docs.zowe.org/stable/user-guide/cli-installcli.html) on your computer.
 
+-   Use Node.js 22 or newer. CI covers Node.js 22, 24, and 26.
+
 -   Have a license file for IBM Db2 Database for z/OS.
 
     For connectivity to Db2 for z/OS, the Db2 region should be `db2connectactivated` or a `db2connect` license file should be provided. Copy the `db2connect` license file to the `[db2 plugin folder]/node_modules/ibm_db/installer/clidriver/license/` folder. For more information, see [Addressing the license requirement](https://docs.zowe.org/stable/user-guide/cli-db2plugin.html#addressing-the-license-requirement) on the Zowe Docs site. 
 
-- **(Linux and MacOS only)** Download and install [node-gyp](https://www.npmjs.com/package/node-gyp) globally by running `npm install -g node-gyp`
+- **(Linux and MacOS source builds only)** Download and install [node-gyp](https://www.npmjs.com/package/node-gyp) globally by running `npm install -g node-gyp`
 
-- **(MacOS only)** Download and Install [Xcode](https://developer.apple.com/xcode/resources/) and [Python 3](https://www.python.org/downloads/mac-osx/).
+- **(MacOS source builds only)** Download and Install [Xcode](https://developer.apple.com/xcode/resources/) and [Python 3](https://www.python.org/downloads/mac-osx/).
 
-- **(Linux only - Debian, Ubuntu)** Download and Install the following via apt: `python3 make g++`
+- **(Linux source builds only - Debian, Ubuntu)** Download and Install the following via apt: `python3 make g++`
 
-- **(Linux only - CentOS, RHEL)** Download and Install the following via yum: `python3 make gcc-c++`
+- **(Linux source builds only - CentOS, RHEL)** Download and Install the following via yum: `python3 make gcc-c++`
 
-- Note: Reinstallation is required when Node is upgraded to a new major version. When installed, the plug-in builds a native binary that is needed to interact with Db2. If a new major version of Node is installed, you must uninstall and reinstall the IBM Db2 Database Plug-in to update the binary. 
+- The plug-in bundles `ibm_db` 4, which uses [Node-API](https://github.com/ibmdb/node-ibm_db/tree/v4.0.1#prerequisite) instead of NAN. Its native binding does not need to be rebuilt solely because you upgrade to a newer compatible Node.js version on the same operating system and architecture. The native binding and IBM Db2 ODBC CLI driver must still be installed; see [The `ibm_db` module is not installed](#the-ibm_db-module-is-not-installed) if installation is incomplete. Precompiled bindings are available for supported Windows, Linux, and MacOS platforms when source compilation is unavailable.
 
 ## Installing
 
@@ -173,7 +175,7 @@ Db2 commands will fail until the installation of 'ibm_db' is completed.
 
 The IBM Db2 Plug-in for Zowe CLI is installed and registered with Zowe CLI when this failure occurs. Only the `ibm_db` module is incomplete, so you do not need to reinstall the plug-in.
 
-**Cause**: The plug-in delivers `ibm_db` as a bundled dependency, so that the plug-in can be installed without access to a public npm registry. However, `ibm_db` is a native module. Its own npm install script must download the IBM Db2 ODBC CLI driver and build the binding for your platform. npm does not run the lifecycle scripts of a bundled dependency, so that install script does not run when the plug-in is installed. The `--allow-scripts` option of the `zowe plugins install` command does not change that behavior, because npm skips the scripts of bundled dependencies even when scripts are allowed.
+**Cause**: The plug-in delivers `ibm_db` as a bundled dependency, so that the plug-in can be installed without access to a public npm registry. However, `ibm_db` is a native module. Its own npm install script must download the IBM Db2 ODBC CLI driver and install the binding for your platform, either by compiling it or using a precompiled binary. npm does not run the lifecycle scripts of a bundled dependency, so that install script does not run when the plug-in is installed. The `--allow-scripts` option of the `zowe plugins install` command does not change that behavior, because npm skips the scripts of bundled dependencies even when scripts are allowed.
 
 **Action**: Run the `ibm_db` install script yourself. The error message contains the full path to the `ibm_db` directory on your system, which is normally the following path:
 
@@ -192,14 +194,14 @@ If npm is not available, run the same script directly with `node installer/drive
 
 The script downloads the CLI driver from `https://public.dhe.ibm.com`, so the system needs network access to that site. If the system already has a Db2 client, a Db2 server, or a copy of the CLI driver, set the `IBM_DB_HOME` environment variable to that directory before you run the script to skip the download. For more `ibm_db` installation options, see the `README.md` file in the `ibm_db` directory.
 
-### Node.js version incompatible with plug-in
+### Native binary from an older plug-in installation
 
 **Error message**:
 ```
 The module 'C:\Users\User\.zowe\plugins\installed\node_modules\@zowe\db2-for-zowe-cli\node_modules\ibm_db\build\Release\odbc_bindings.node' was compiled against a different Node.js version using NODE_MODULE_VERSION ###. This version of Node.js requires NODE_MODULE_VERSION ###. Please try re-compiling or re-installing this module (for instance, using npm rebuild or npm install).
 ```
 
-**Action**: Uninstall and reinstall the IBM Db2 Database Plug-in for Zowe CLI. The Node version installed on the system has changed since the IBM Db2 Database Plug-in for Zowe CLI was installed on the system, and the native binary is no longer compatible.
+**Action**: Upgrade or reinstall the IBM Db2 Database Plug-in for Zowe CLI to replace the old native binary with the bundled `ibm_db` 4 binding. This error can occur with an older `ibm_db` 3 binding compiled for a different Node.js major version. `ibm_db` 4 uses Node-API, so changing between compatible Node.js versions on the same operating system and architecture does not require rebuilding the binding. If the updated module cannot be loaded, follow [The `ibm_db` module is not installed](#the-ibm_db-module-is-not-installed).
 
 ## Contributing
 

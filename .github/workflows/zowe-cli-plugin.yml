@@ -22,7 +22,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: [20.x, 22.x, 24.x]
+        node-version: [22.x, 24.x, 26.x]
         os:
           - windows-latest
           - ubuntu-latest
@@ -66,6 +66,9 @@ jobs:
     - name: Build Source
       id: build
       run: npm run build --if-present
+
+    - name: Smoke Test Native Driver
+      run: node -e "require('./lib'); const ibmdb = require('ibm_db'); const db = new ibmdb.Database(); db.closeSync(); console.log('ibm_db ' + require('ibm_db/package.json').version + ' loaded on Node.js ' + process.version);"
 
     - name: Unit Tests
       id: unit

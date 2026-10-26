@@ -12,7 +12,11 @@
 // __mocks__/ibm_db.js
 "use strict";
 
-const ibm_db = jest.genMockFromModule("ibm_db");
+// Keep unit tests independent of native driver installation.
+const ibm_db = {
+    FETCH_ARRAY: 3,
+    FETCH_OBJECT: 4,
+};
 
 let mockResults = [];
 let mockColumns = [];
