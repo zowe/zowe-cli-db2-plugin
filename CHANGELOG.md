@@ -4,8 +4,8 @@ All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented i
 
 ## Recent Changes
 
-- BugFix: Migrated to `ibm_db` 4.1.0 to fix issues in Linux environments with offline installations.
-- Breaking: Dropped Node.js 20 support. Node.js 22 or newer is required; CI covers Node.js 22, 24, and 26.
+- BugFix: Migrated to `ibm_db` 4.1.0 to fix issues in Linux environments with offline installations. [#262](https://github.com/zowe/zowe-cli-db2-plugin/pull/262)
+- Breaking: Dropped Node.js 20 support. Node.js 22 or newer is required; CI covers Node.js 22, 24, and 26. [#262](https://github.com/zowe/zowe-cli-db2-plugin/pull/262)
 
 ## `6.1.17`
 
