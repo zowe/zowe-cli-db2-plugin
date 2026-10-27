@@ -38,7 +38,9 @@
   "dependencies": {
     "ibm_db": "4.1.0"
   },
-  "bundleDependencies": true,
+  "bundleDependencies": [
+    "ibm_db"
+  ],
   "overrides": {
     "ibm_db": {
       "adm-zip": "0.6.0"
@@ -55,9 +57,9 @@
     "@types/node": "^22.0.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
-    "@zowe/cli": "^8.35.2",
-    "@zowe/cli-test-utils": "^8.35.0",
-    "@zowe/imperative": "^8.35.3",
+    "@zowe/cli": "^8.41.0",
+    "@zowe/cli-test-utils": "^8.41.0",
+    "@zowe/imperative": "^8.41.0",
     "env-cmd": "^10.1.0",
     "eslint": "^8.57.1",
     "eslint-plugin-deprecation": "^3.0.0",
