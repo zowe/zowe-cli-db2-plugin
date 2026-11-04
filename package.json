@@ -38,7 +38,9 @@
   "dependencies": {
     "ibm_db": "4.1.0"
   },
-  "bundleDependencies": true,
+  "bundleDependencies": [
+    "ibm_db"
+  ],
   "peerDependencies": {
     "@zowe/imperative": "^5.0.0"
   },
@@ -50,9 +52,9 @@
     "@types/yargs": "^8.0.2",
     "@typescript-eslint/eslint-plugin": "^4.29.0",
     "@typescript-eslint/parser": "^4.29.0",
-    "@zowe/cli": "^7.29.25",
-    "@zowe/cli-test-utils": "^7.29.25",
-    "@zowe/imperative": "^5.27.16",
+    "@zowe/cli": "^7.29.37",
+    "@zowe/cli-test-utils": "^7.29.37",
+    "@zowe/imperative": "^5.27.27",
     "env-cmd": "^8.0.2",
     "eslint": "^7.32.0",
     "eslint-plugin-deprecation": "^1.5.0",
