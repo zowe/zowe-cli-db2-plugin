@@ -2,6 +2,10 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
+## Recent Changes
+
+- BugFix: Updated the `ibm_db` package to support Node 26. []()
+
 ## `5.0.25`
 
 - BugFix: Added a post-install check that fails the plug-in installation with instructions for completing the installation of the bundled `ibm_db` package when npm does not run its install script. [#246](https://github.com/zowe/zowe-cli-db2-plugin/pull/246)
