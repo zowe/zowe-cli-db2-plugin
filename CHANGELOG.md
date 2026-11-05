@@ -2,6 +2,10 @@
 
 All notable changes to the IBM® Db2® Plug-in for Zowe CLI will be documented in this file.
 
+## Recent Changes
+
+- BugFix: Updated the `follow-redirects` and `adm-zip` dependencies for technical currency. [#267](https://github.com/zowe/zowe-cli-db2-plugin/pull/267)
+
 ## `6.1.18`
 
 - BugFix: Migrated to `ibm_db` 4.1.0 to fix issues in Linux environments with offline installations. [#262](https://github.com/zowe/zowe-cli-db2-plugin/pull/262)

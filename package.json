@@ -41,11 +41,6 @@
   "bundleDependencies": [
     "ibm_db"
   ],
-  "overrides": {
-    "ibm_db": {
-      "adm-zip": "0.6.0"
-    }
-  },
   "peerDependencies": {
     "@zowe/imperative": "^8.0.0"
   },
